@@ -6,292 +6,244 @@
 <title>Caderno Jurídico</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f4f0;color:#1a1a1a;display:flex;min-height:100vh;font-size:14px}
-.sidebar{width:268px;min-height:100vh;background:#1a2e1e;color:#fff;display:flex;flex-direction:column;position:fixed;left:0;top:0;bottom:0;overflow-y:auto}
-.sidebar::-webkit-scrollbar{width:4px}.sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.15);border-radius:2px}
-.sb-header{padding:20px 18px 16px;border-bottom:1px solid rgba(255,255,255,0.1)}
-.sb-eyebrow{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:5px}
-.sb-title{font-size:17px;font-weight:700;color:#fff;letter-spacing:-0.3px}
-.sb-sub{font-size:11px;color:rgba(255,255,255,0.4);margin-top:3px}
-.sb-progress{margin-top:12px}
-.sb-prog-row{display:flex;justify-content:space-between;font-size:11px;color:rgba(255,255,255,0.5);margin-bottom:5px}
-.sb-prog-bar{height:3px;background:rgba(255,255,255,0.12);border-radius:2px;overflow:hidden}
-.sb-prog-fill{height:100%;background:#4ade80;border-radius:2px;transition:width .4s}
-.nav{padding:10px 0 20px;flex:1}
-.nav-label{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.28);padding:14px 18px 5px;font-weight:700}
-.ni{display:flex;align-items:center;gap:7px;padding:6px 18px;font-size:12.5px;color:rgba(255,255,255,0.65);cursor:pointer;transition:background .12s;user-select:none}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f4f0;color:#1a1a1a;font-size:14px}
+/* SIDEBAR */
+.sidebar{width:260px;min-height:100vh;background:#1a2e1e;color:#fff;display:flex;flex-direction:column;position:fixed;left:0;top:0;bottom:0;overflow-y:auto;z-index:100;transition:transform .25s ease}
+.sidebar::-webkit-scrollbar{width:3px}.sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.15)}
+.sb-header{padding:18px 16px 14px;border-bottom:1px solid rgba(255,255,255,0.1)}
+.sb-eyebrow{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.38);margin-bottom:4px}
+.sb-title{font-size:16px;font-weight:700;color:#fff}
+.sb-sub{font-size:10px;color:rgba(255,255,255,0.38);margin-top:2px}
+.sb-prog{margin-top:10px}
+.sb-pr{display:flex;justify-content:space-between;font-size:10px;color:rgba(255,255,255,0.45);margin-bottom:4px}
+.sb-pb{height:3px;background:rgba(255,255,255,0.1);border-radius:2px;overflow:hidden}
+.sb-pf{height:100%;background:#4ade80;border-radius:2px;transition:width .4s}
+.nav{padding:8px 0 20px;flex:1}
+.nl{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.25);padding:12px 16px 4px;font-weight:700}
+.ni{display:flex;align-items:center;gap:6px;padding:6px 16px;font-size:12px;color:rgba(255,255,255,0.62);cursor:pointer;transition:background .12s;user-select:none}
 .ni:hover{background:rgba(255,255,255,0.07);color:#fff}
 .ni.active{background:rgba(255,255,255,0.13);color:#fff}
-.ni .arr{font-size:9px;margin-left:auto;opacity:.45;transition:transform .18s;flex-shrink:0}
+.ni .arr{font-size:9px;margin-left:auto;opacity:.4;transition:transform .18s;flex-shrink:0}
 .ni.open .arr{transform:rotate(90deg)}
-.ni .dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.25);flex-shrink:0}
-.ni .dot.green{background:#4ade80}.ni .dot.yellow{background:#fbbf24}
-.ni .badge{font-size:10px;background:rgba(255,255,255,0.12);color:rgba(255,255,255,0.6);padding:1px 6px;border-radius:10px;margin-left:auto;flex-shrink:0}
+.ni .dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.2);flex-shrink:0}
+.ni .dot.g{background:#4ade80}.ni .dot.y{background:#fbbf24}
+.ni .bdg{font-size:10px;background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.55);padding:1px 6px;border-radius:10px;margin-left:auto;flex-shrink:0}
 .nc{display:none}.nc.open{display:block}
-.d1{padding-left:32px}.d2{padding-left:46px;font-size:12px}.d3{padding-left:60px;font-size:11.5px}.d4{padding-left:72px;font-size:11px}
-.main{margin-left:268px;flex:1;min-height:100vh;display:flex;flex-direction:column}
-.topbar{background:#fff;border-bottom:1px solid #e8e4dc;padding:0 28px;height:50px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:10}
-.bc{display:flex;align-items:center;gap:6px;font-size:12px;color:#999;flex:1;overflow:hidden}
+.d1{padding-left:28px}.d2{padding-left:42px;font-size:11.5px}.d3{padding-left:56px;font-size:11px}.d4{padding-left:68px;font-size:11px}
+/* OVERLAY mobile */
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:90}
+.overlay.open{display:block}
+/* MAIN */
+.main{margin-left:260px;min-height:100vh;display:flex;flex-direction:column;transition:margin .25s ease}
+.topbar{background:#fff;border-bottom:1px solid #e8e4dc;padding:0 24px;height:50px;display:flex;align-items:center;gap:8px;position:sticky;top:0;z-index:50}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px;color:#555;font-size:20px;line-height:1}
+.bc{display:flex;align-items:center;gap:5px;font-size:12px;color:#999;flex:1;overflow:hidden;flex-wrap:wrap}
 .bc a{color:#3a7d4a;text-decoration:none;cursor:pointer;white-space:nowrap}.bc a:hover{text-decoration:underline}
-.bc-sep{color:#ddd}
-.bc-cur{color:#1a1a1a;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.tb-btn{font-size:11px;padding:5px 12px;border-radius:6px;border:1px solid #e0dcd5;background:#fff;color:#555;cursor:pointer;white-space:nowrap}
+.bc-sep{color:#ddd}.bc-cur{color:#1a1a1a;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tb-btn{font-size:11px;padding:4px 10px;border-radius:5px;border:1px solid #e0dcd5;background:#fff;color:#555;cursor:pointer;white-space:nowrap;flex-shrink:0}
 .tb-btn:hover{background:#f5f4f0}
-.content{padding:28px 32px 60px;flex:1}
-.hero{background:linear-gradient(130deg,#1a2e1e 0%,#2a5235 100%);border-radius:12px;padding:28px 32px;margin-bottom:28px;color:#fff}
-.hero-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
-.hero-greet{font-size:12px;color:rgba(255,255,255,.55);margin-bottom:6px}
-.hero-title{font-size:22px;font-weight:700;margin-bottom:4px;letter-spacing:-.3px}
-.hero-sub{font-size:13px;color:rgba(255,255,255,.6)}
-.hero-badge{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:8px;padding:10px 16px;text-align:center;flex-shrink:0}
-.hero-badge-val{font-size:24px;font-weight:700;color:#4ade80}
-.hero-badge-lbl{font-size:10px;color:rgba(255,255,255,.5);margin-top:2px}
-.hero-prog{margin-top:20px;display:flex;align-items:center;gap:12px}
-.hero-prog-bar{flex:1;height:5px;background:rgba(255,255,255,.15);border-radius:3px;overflow:hidden}
-.hero-prog-fill{height:100%;background:#4ade80;border-radius:3px;transition:width .5s}
-.hero-prog-lbl{font-size:11px;color:rgba(255,255,255,.5);white-space:nowrap}
-.hero-prog-val{font-size:12px;font-weight:700;color:#4ade80;white-space:nowrap}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:28px}
-.sc{background:#fff;border-radius:10px;border:1px solid #e8e4dc;padding:16px 18px}
-.sc-lbl{font-size:10px;letter-spacing:.8px;text-transform:uppercase;color:#aaa;margin-bottom:6px}
-.sc-val{font-size:26px;font-weight:700;color:#1a2e1e}
-.sc-sub{font-size:11px;color:#bbb;margin-top:3px}
-.pb{height:3px;background:#f0ede8;border-radius:2px;margin-top:10px;overflow:hidden}
-.pf{height:100%;background:#2e7d3e;border-radius:2px;transition:width .5s}
-.sh{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
-.st{font-size:15px;font-weight:700;color:#1a2e1e}
+.content{padding:24px 28px 60px;flex:1}
+/* HERO */
+.hero{background:linear-gradient(130deg,#1a2e1e 0%,#2a5235 100%);border-radius:10px;padding:24px 28px;margin-bottom:24px;color:#fff}
+.hero-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.hero-greet{font-size:11px;color:rgba(255,255,255,.5);margin-bottom:5px}
+.hero-title{font-size:20px;font-weight:700;margin-bottom:3px}
+.hero-sub{font-size:12px;color:rgba(255,255,255,.55)}
+.hero-badge{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:8px 14px;text-align:center;flex-shrink:0}
+.hero-badge-val{font-size:22px;font-weight:700;color:#4ade80}
+.hero-badge-lbl{font-size:10px;color:rgba(255,255,255,.45);margin-top:1px}
+.hero-prog{margin-top:16px;display:flex;align-items:center;gap:10px}
+.hp-bar{flex:1;height:5px;background:rgba(255,255,255,.15);border-radius:3px;overflow:hidden}
+.hp-fill{height:100%;background:#4ade80;border-radius:3px}
+.hp-lbl{font-size:10.5px;color:rgba(255,255,255,.45);white-space:nowrap}
+.hp-val{font-size:11.5px;font-weight:700;color:#4ade80;white-space:nowrap}
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
+.sc{background:#fff;border-radius:8px;border:1px solid #e8e4dc;padding:14px 16px}
+.sc-l{font-size:9.5px;letter-spacing:.8px;text-transform:uppercase;color:#aaa;margin-bottom:5px}
+.sc-v{font-size:24px;font-weight:700;color:#1a2e1e}
+.sc-s{font-size:10.5px;color:#bbb;margin-top:2px}
+.pb{height:3px;background:#f0ede8;border-radius:2px;margin-top:8px;overflow:hidden}
+.pf{height:100%;background:#2e7d3e;border-radius:2px}
+.sh{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.st{font-size:14px;font-weight:700;color:#1a2e1e}
 .sc2{font-size:11px;color:#aaa}
-.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-.card{background:#fff;border-radius:10px;border:1px solid #e8e4dc;padding:18px 20px;cursor:pointer;transition:border-color .15s,box-shadow .15s}
-.card:hover{border-color:#3a7d4a;box-shadow:0 2px 10px rgba(46,125,62,.1)}
-.card-eyebrow{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#5a8a6a;margin-bottom:6px}
-.card-title{font-size:14px;font-weight:600;color:#1a2e1e;margin-bottom:4px;line-height:1.35}
-.card-meta{font-size:11.5px;color:#999}
-.card-footer{margin-top:12px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
-.tag{font-size:10.5px;background:#f0f6f2;color:#2e7d3e;border:1px solid #c5d4c5;padding:2px 8px;border-radius:4px;font-weight:500}
-.tag-gray{background:#f5f4f0;color:#888;border-color:#e0dcd5}
-.tag-amber{background:#fffbeb;color:#92400e;border-color:#fde68a}
-.vlist{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
-.vi{background:#fff;border-radius:10px;border:1px solid #e8e4dc;padding:14px 18px;display:flex;align-items:center;gap:14px;cursor:pointer;transition:border-color .15s}
+/* GRIDS */
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.card{background:#fff;border-radius:9px;border:1px solid #e8e4dc;padding:16px 18px;cursor:pointer;transition:border-color .15s,box-shadow .15s}
+.card:hover{border-color:#3a7d4a;box-shadow:0 2px 8px rgba(46,125,62,.1)}
+.c-ey{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#5a8a6a;margin-bottom:5px}
+.c-ti{font-size:13.5px;font-weight:600;color:#1a2e1e;margin-bottom:3px;line-height:1.35}
+.c-me{font-size:11px;color:#999}
+.c-fo{margin-top:10px;display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+.tag{font-size:10px;background:#f0f6f2;color:#2e7d3e;border:1px solid #c5d4c5;padding:2px 7px;border-radius:4px;font-weight:500}
+.tag-g{background:#f5f4f0;color:#888;border-color:#e0dcd5;font-size:10px;padding:2px 7px;border-radius:4px}
+/* VERSAO */
+.vlist{display:flex;flex-direction:column;gap:9px;margin-bottom:24px}
+.vi{background:#fff;border-radius:9px;border:1px solid #e8e4dc;padding:13px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:border-color .15s}
 .vi:hover{border-color:#3a7d4a}
-.vtag{font-size:12px;font-weight:800;color:#fff;background:#1a2e1e;padding:6px 13px;border-radius:6px;min-width:44px;text-align:center;letter-spacing:.5px}
-.vinfo{flex:1}
-.vt{font-size:13.5px;font-weight:600;color:#1a2e1e}
-.vc{font-size:11px;color:#aaa;margin-top:2px}
-.varr{color:#ccc;font-size:18px}
-.agrid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-.acard{background:#fff;border-radius:10px;border:1px solid #e8e4dc;padding:18px 20px}
-.acard-title{font-size:14px;font-weight:600;color:#1a2e1e;line-height:1.35;margin-bottom:6px}
-.acard-meta{font-size:12px;color:#888;margin-bottom:2px}
-.acard-aula{font-size:11px;color:#bbb}
-.acard-footer{margin-top:14px;display:flex;align-items:center;gap:8px}
-.sel{font-size:11px;border:1px solid #e0dcd5;border-radius:6px;padding:5px 8px;background:#fff;color:#444;cursor:pointer;flex:1}
+.vtag{font-size:11.5px;font-weight:800;color:#fff;background:#1a2e1e;padding:5px 11px;border-radius:5px;min-width:40px;text-align:center}
+.vinfo{flex:1}.vt{font-size:13px;font-weight:600;color:#1a2e1e}.vc{font-size:10.5px;color:#aaa;margin-top:1px}
+.varr{color:#ccc;font-size:16px}
+/* APOSTILAS */
+.agrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.acard{background:#fff;border-radius:9px;border:1px solid #e8e4dc;padding:16px 18px}
+.at{font-size:13.5px;font-weight:600;color:#1a2e1e;line-height:1.35;margin-bottom:5px}
+.am{font-size:11.5px;color:#888;margin-bottom:2px}
+.aa{font-size:10.5px;color:#bbb}
+.a-fo{margin-top:12px;display:flex;align-items:center;gap:7px}
+.sel{font-size:11px;border:1px solid #e0dcd5;border-radius:5px;padding:5px 7px;background:#fff;color:#444;cursor:pointer;flex:1;min-width:0}
 .sel.done{background:#f0fdf4;border-color:#86efac;color:#166534}
 .sel.review{background:#fffbeb;border-color:#fde68a;color:#92400e}
-.btn-open{font-size:11px;padding:5px 13px;border-radius:6px;border:1px solid #1a2e1e;background:#1a2e1e;color:#fff;cursor:pointer;text-decoration:none;white-space:nowrap;display:inline-block}
+.btn-open{font-size:11px;padding:5px 11px;border-radius:5px;border:1px solid #1a2e1e;background:#1a2e1e;color:#fff;cursor:pointer;text-decoration:none;display:inline-block;white-space:nowrap;flex-shrink:0}
 .btn-open:hover{background:#243d28}
-.empty{text-align:center;padding:60px 20px;color:#bbb}
-.empty-ico{font-size:36px;margin-bottom:10px}
-.empty-t{font-size:15px;color:#888;margin-bottom:6px;font-weight:600}
-.empty-s{font-size:12px;line-height:1.6}
-code{background:#f0ede8;padding:1px 5px;border-radius:3px;font-family:monospace;font-size:11px;color:#555}
-.sem-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:28px}
+/* EMPTY */
+.empty{text-align:center;padding:50px 20px;color:#bbb}
+.empty-ico{font-size:32px;margin-bottom:8px}
+.empty-t{font-size:14px;color:#888;margin-bottom:5px;font-weight:600}
+.empty-s{font-size:11.5px;line-height:1.6}
+code{background:#f0ede8;padding:1px 4px;border-radius:3px;font-family:monospace;font-size:10.5px;color:#555}
+
+/* ── RESPONSIVO MOBILE ── */
+@media(max-width:768px){
+  .sidebar{transform:translateX(-100%)}
+  .sidebar.open{transform:translateX(0)}
+  .main{margin-left:0}
+  .hamburger{display:block}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .grid2{grid-template-columns:1fr}
+  .agrid{grid-template-columns:1fr}
+  .hero-top{flex-direction:column;gap:8px}
+  .hero-badge{align-self:flex-start;display:flex;gap:12px;align-items:center;padding:8px 14px}
+  .hero-badge-val{font-size:18px}
+  .content{padding:16px 16px 60px}
+  .topbar{padding:0 16px}
+  .hero{padding:18px 20px}
+  .a-fo{flex-wrap:wrap}
+  .sel{font-size:10.5px}
+}
+@media(max-width:400px){
+  .stats{grid-template-columns:repeat(2,1fr);gap:8px}
+  .sc-v{font-size:20px}
+}
 </style>
 </head>
 <body>
 
-<aside class="sidebar">
+<div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+
+<aside class="sidebar" id="sidebar">
   <div class="sb-header">
     <div class="sb-eyebrow">Caderno de Estudos</div>
     <div class="sb-title">Meu Direito</div>
     <div class="sb-sub">Faculdade Farias Brito · 5 anos</div>
-    <div class="sb-progress">
-      <div class="sb-prog-row">
-        <span id="sb-prog-txt">0 de 0 concluídas</span>
-        <span id="sb-prog-pct">0%</span>
-      </div>
-      <div class="sb-prog-bar"><div class="sb-prog-fill" id="sb-prog-fill" style="width:0%"></div></div>
+    <div class="sb-prog">
+      <div class="sb-pr"><span id="spt">0 de 0 concluídas</span><span id="spp">0%</span></div>
+      <div class="sb-pb"><div class="sb-pf" id="spf" style="width:0%"></div></div>
     </div>
   </div>
   <nav class="nav" id="navTree"></nav>
 </aside>
 
-<div class="main">
+<div class="main" id="mainWrapper">
   <div class="topbar">
+    <button class="hamburger" onclick="toggleSidebar()">☰</button>
     <div class="bc" id="breadcrumb"><a onclick="go('home')">Início</a></div>
-    <button class="tb-btn" onclick="go('home')">⌂ Início</button>
+    <button class="tb-btn" onclick="go('home')">⌂</button>
   </div>
   <div class="content" id="main"></div>
 </div>
 
 <script>
-/* =========================================================
-   DADOS — edite aqui para adicionar semestres, disciplinas e apostilas
-   Hierarquia: curso > semestre > disciplina > versao > apostila
-   ========================================================= */
+const DATA={cursos:[{id:"direito",nome:"Direito",semestres:[
+  {id:"1sem",nome:"1º Semestre",ativo:true,disciplinas:[
+    {id:"direitos-fundamentais",nome:"Direitos Fundamentais e Humanos",prof:"—",versoes:[]},
+    {id:"filosofia-geral",nome:"Filosofia Geral e do Direito",prof:"—",versoes:[]},
+    {id:"linguagem-juridica",nome:"Linguagem Jurídica",prof:"—",versoes:[]},
+    {id:"solucoes-conflitos",nome:"Soluções Adequadas de Conflitos",prof:"—",versoes:[]},
+    {id:"teoria-economica",nome:"Teoria Econômica do Direito",prof:"—",versoes:[]}
+  ]},
+  {id:"2sem",nome:"2º Semestre",ativo:true,disciplinas:[
+    {id:"ciencia-politica",nome:"Ciência Política e Teoria do Estado",prof:"Prof. Vitor Bizerril",versoes:[
+      {id:"v3",nome:"V3",apostilas:[
+        {id:"montesquieu",titulo:"Montesquieu — Separação dos Poderes",aula:"Aulas 15–16",autores:"Montesquieu",arquivo:"direito/2sem/ciencia-politica/v3/apostilas/montesquieu.html"},
+        {id:"marx-engels",titulo:"Marx e Engels — Materialismo, Estado e Consciência",aula:"Aula 21",autores:"Marx · Engels",arquivo:"direito/2sem/ciencia-politica/v3/apostilas/marx-engels.html"},
+        {id:"federalistas",titulo:"Os Federalistas — República e Separação de Poderes",aula:"Aulas 22–23",autores:"Madison · Hamilton · Jay",arquivo:"direito/2sem/ciencia-politica/v3/apostilas/federalistas.html"},
+        {id:"elementos-estado",titulo:"Elementos Constitutivos do Estado",aula:"Aulas 26–28",autores:"Dallari · Ranieri · Varella",arquivo:"direito/2sem/ciencia-politica/v3/apostilas/elementos-estado.html"}
+      ]}
+    ]},
+    {id:"sociologia-antropologia",nome:"Conceitos de Sociologia e Antropologia Jurídica",prof:"—",versoes:[]},
+    {id:"hermeneutica",nome:"Hermenêutica e Argumentação Jurídica",prof:"—",versoes:[]},
+    {id:"ied",nome:"Introdução ao Estudo do Direito",prof:"—",versoes:[]}
+  ]},
+  {id:"3sem",nome:"3º Semestre",ativo:false,disciplinas:[]},
+  {id:"4sem",nome:"4º Semestre",ativo:false,disciplinas:[]},
+  {id:"5sem",nome:"5º Semestre",ativo:false,disciplinas:[]},
+  {id:"6sem",nome:"6º Semestre",ativo:false,disciplinas:[]},
+  {id:"7sem",nome:"7º Semestre",ativo:false,disciplinas:[]},
+  {id:"8sem",nome:"8º Semestre",ativo:false,disciplinas:[]},
+  {id:"9sem",nome:"9º Semestre",ativo:false,disciplinas:[]},
+  {id:"10sem",nome:"10º Semestre",ativo:false,disciplinas:[]}
+]}]};
 
-const DATA = {
-  cursos: [
-    {
-      id: "direito", nome: "Direito",
-      semestres: [
-        {
-          id: "1sem", nome: "1º Semestre", ativo: true,
-          disciplinas: [
-            { id: "direitos-fundamentais", nome: "Direitos Fundamentais e Humanos",   prof: "—", versoes: [] },
-            { id: "filosofia-geral",       nome: "Filosofia Geral e do Direito",       prof: "—", versoes: [] },
-            { id: "linguagem-juridica",    nome: "Linguagem Jurídica",                 prof: "—", versoes: [] },
-            { id: "solucoes-conflitos",    nome: "Soluções Adequadas de Conflitos",    prof: "—", versoes: [] },
-            { id: "teoria-economica",      nome: "Teoria Econômica do Direito",        prof: "—", versoes: [] }
-          ]
-        },
-        {
-          id: "2sem", nome: "2º Semestre", ativo: true,
-          disciplinas: [
-            {
-              id: "ciencia-politica", nome: "Ciência Política e Teoria do Estado", prof: "Prof. Vitor Bizerril",
-              versoes: [
-                {
-                  id: "v3", nome: "V3",
-                  apostilas: [
-                    { id: "montesquieu",      titulo: "Montesquieu — Separação dos Poderes",                  aula: "Aulas 15–16", autores: "Montesquieu",               arquivo: "direito/2sem/ciencia-politica/v3/apostilas/montesquieu.html" },
-                    { id: "marx-engels",      titulo: "Marx e Engels — Materialismo, Estado e Consciência",   aula: "Aula 21",     autores: "Marx · Engels",              arquivo: "direito/2sem/ciencia-politica/v3/apostilas/marx-engels.html" },
-                    { id: "federalistas",     titulo: "Os Federalistas — República e Separação de Poderes",  aula: "Aulas 22–23", autores: "Madison · Hamilton · Jay",   arquivo: "direito/2sem/ciencia-politica/v3/apostilas/federalistas.html" },
-                    { id: "elementos-estado", titulo: "Elementos Constitutivos do Estado",                    aula: "Aulas 26–28", autores: "Dallari · Ranieri · Varella", arquivo: "direito/2sem/ciencia-politica/v3/apostilas/elementos-estado.html" }
-                  ]
-                }
-              ]
-            },
-            { id: "sociologia-antropologia", nome: "Conceitos de Sociologia e Antropologia Jurídica", prof: "—", versoes: [] },
-            { id: "hermeneutica",            nome: "Hermenêutica e Argumentação Jurídica",            prof: "—", versoes: [] },
-            { id: "ied",                     nome: "Introdução ao Estudo do Direito",                 prof: "—", versoes: [] }
-          ]
-        },
+let prog=JSON.parse(localStorage.getItem('cj_prog')||'{}');
+let nO={direito:true,"2sem":true,"ciencia-politica":true};
+let view='home',path=[];
 
-        // ─── TEMPLATE PARA SEMESTRES FUTUROS ──────────────────────────────────
-        // Quando iniciar um novo semestre, copie o bloco abaixo,
-        // substitua o id, nome e adicione as disciplinas.
-        //
-        // {
-        //   id: "3sem", nome: "3º Semestre", ativo: true,
-        //   disciplinas: [
-        //     {
-        //       id: "ID-DA-DISCIPLINA", nome: "Nome da Disciplina", prof: "Prof. Nome",
-        //       versoes: [
-        //         {
-        //           id: "v1", nome: "V1",
-        //           apostilas: [
-        //             { id: "APOSTILA-ID", titulo: "Título", aula: "Aula X", autores: "Autor", arquivo: "direito/3sem/DISCIPLINA/v1/apostilas/ARQUIVO.html" }
-        //           ]
-        //         }
-        //       ]
-        //     }
-        //   ]
-        // },
-        // ──────────────────────────────────────────────────────────────────────
+const save=()=>localStorage.setItem('cj_prog',JSON.stringify(prog));
+const st=id=>prog[id]||'none';
+const setSt=(id,v)=>{prog[id]=v;save();renderMain();updSbP()};
 
-        { id: "3sem",  nome: "3º Semestre",  ativo: false, disciplinas: [] },
-        { id: "4sem",  nome: "4º Semestre",  ativo: false, disciplinas: [] },
-        { id: "5sem",  nome: "5º Semestre",  ativo: false, disciplinas: [] },
-        { id: "6sem",  nome: "6º Semestre",  ativo: false, disciplinas: [] },
-        { id: "7sem",  nome: "7º Semestre",  ativo: false, disciplinas: [] },
-        { id: "8sem",  nome: "8º Semestre",  ativo: false, disciplinas: [] },
-        { id: "9sem",  nome: "9º Semestre",  ativo: false, disciplinas: [] },
-        { id: "10sem", nome: "10º Semestre", ativo: false, disciplinas: [] }
-      ]
-    }
-  ]
-};
+function allAp(){const r=[];DATA.cursos.forEach(c=>c.semestres.forEach(s=>s.disciplinas.forEach(d=>d.versoes.forEach(v=>v.apostilas.forEach(a=>r.push(a))))));return r}
+function stats(){const a=allAp();return{total:a.length,done:a.filter(x=>st(x.id)==='done').length,review:a.filter(x=>st(x.id)==='review').length}}
+function go(v,p){view=v;path=p||[];renderNav();renderMain();closeSidebar()}
+function find(c,s,d,v){const C=DATA.cursos.find(x=>x.id===c);const S=C?.semestres.find(x=>x.id===s);const D=S?.disciplinas.find(x=>x.id===d);const V=D?.versoes.find(x=>x.id===v);return{c:C,s:S,d:D,v:V}}
 
-/* =========================================================
-   STATE & HELPERS
-   ========================================================= */
-let prog = JSON.parse(localStorage.getItem('cadDireito_prog')||'{}');
-let navOpen = { direito:true, "2sem":true, cp:true };
-let view = 'home', path = [];
-
-const save = () => localStorage.setItem('cadDireito_prog', JSON.stringify(prog));
-const status = id => prog[id]||'none';
-const setStatus = (id, v) => { prog[id]=v; save(); renderMain(); renderSbProgress(); };
-
-function allApostilas() {
-  const r=[];
-  DATA.cursos.forEach(c=>c.semestres.forEach(s=>s.disciplinas.forEach(d=>d.versoes.forEach(v=>v.apostilas.forEach(a=>r.push(a))))));
-  return r;
+/* ── SIDEBAR TOGGLE ── */
+function toggleSidebar(){
+  document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('overlay').classList.toggle('open');
+}
+function closeSidebar(){
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('overlay').classList.remove('open');
 }
 
-function stats() {
-  const all=allApostilas();
-  return { total:all.length, done:all.filter(a=>status(a.id)==='done').length, review:all.filter(a=>status(a.id)==='review').length };
+/* ── SIDEBAR PROGRESS ── */
+function updSbP(){
+  const s=stats(),p=s.total>0?Math.round(s.done/s.total*100):0;
+  document.getElementById('spt').textContent=`${s.done} de ${s.total} concluídas`;
+  document.getElementById('spp').textContent=p+'%';
+  document.getElementById('spf').style.width=p+'%';
 }
 
-function go(v, p) { view=v; path=p||[]; renderNav(); renderMain(); }
-
-function find(cid, sid, did, vid) {
-  const c=DATA.cursos.find(x=>x.id===cid);
-  const s=c?.semestres.find(x=>x.id===sid);
-  const d=s?.disciplinas.find(x=>x.id===did);
-  const vr=d?.versoes.find(x=>x.id===vid);
-  return {c,s,d,v:vr};
-}
-
-/* =========================================================
-   SIDEBAR PROGRESS
-   ========================================================= */
-function renderSbProgress() {
-  const s=stats();
-  const pct=s.total>0?Math.round(s.done/s.total*100):0;
-  document.getElementById('sb-prog-txt').textContent=`${s.done} de ${s.total} concluídas`;
-  document.getElementById('sb-prog-pct').textContent=`${pct}%`;
-  document.getElementById('sb-prog-fill').style.width=pct+'%';
-}
-
-/* =========================================================
-   SIDEBAR NAV
-   ========================================================= */
-function renderNav() {
-  const t = document.getElementById('navTree');
-  let h='';
-  DATA.cursos.forEach(curso=>{
-    h+=`<div class="nav-label">${curso.nome}</div>`;
-    h+=ni(curso.id,'🎓',curso.nome,0,true,navOpen[curso.id]);
-    h+=`<div class="nc ${navOpen[curso.id]?'open':''}" id="nc-${curso.id}">`;
-    curso.semestres.forEach(sem=>{
-      const hasDiSc=sem.disciplinas.length>0;
-      const semOpen=navOpen[sem.id];
-      const semDone=sem.disciplinas.reduce((a,d)=>a+d.versoes.reduce((b,v)=>b+v.apostilas.filter(ap=>status(ap.id)==='done').length,0),0);
-      const semTotal=sem.disciplinas.reduce((a,d)=>a+d.versoes.reduce((b,v)=>b+v.apostilas.length,0),0);
-      const dotCls=semTotal>0&&semDone===semTotal?'green':semDone>0?'yellow':'';
-      h+=`<div class="ni d1 ${semOpen&&hasDiSc?'open':''}" onclick="toggleNav('${sem.id}')">
-        <span class="dot ${dotCls}"></span>
-        ${sem.nome}
-        ${hasDiSc?`<span class="arr">▶</span>`:''}
-        ${!hasDiSc&&!sem.ativo?`<span class="badge" style="background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.25)">—</span>`:''}
-      </div>`;
-      if(hasDiSc){
-        h+=`<div class="nc ${semOpen?'open':''}" id="nc-${sem.id}">`;
-        sem.disciplinas.forEach(disc=>{
-          const discOpen=navOpen[disc.id];
-          const discHasV=disc.versoes.length>0;
-          h+=`<div class="ni d2 ${discOpen&&discHasV?'open':''}" onclick="toggleNav('${disc.id}')">
-            <span class="dot"></span>
-            ${disc.nome.length>22?disc.nome.slice(0,20)+'…':disc.nome}
-            ${discHasV?`<span class="arr">▶</span>`:''}
-          </div>`;
-          if(discHasV){
-            h+=`<div class="nc ${discOpen?'open':''}" id="nc-${disc.id}">`;
-            disc.versoes.forEach(v=>{
-              const vDone=v.apostilas.filter(a=>status(a.id)==='done').length;
-              const vTot=v.apostilas.length;
-              h+=`<div class="ni d3 ${view==='versao'&&path[3]===v.id&&path[2]===disc.id?'active':''}" onclick="go('versao',['${curso.id}','${sem.id}','${disc.id}','${v.id}'])">
-                <span class="dot ${vDone===vTot&&vTot>0?'green':vDone>0?'yellow':''}"></span>
-                ${v.nome}
-                <span class="badge">${vDone}/${vTot}</span>
-              </div>`;
-              v.apostilas.forEach(ap=>{
-                const st=status(ap.id);
-                h+=`<div class="ni d4 ${view==='versao'&&path[3]===v.id?'':''}">
-                  <span class="dot ${st==='done'?'green':st==='review'?'yellow':''}"></span>
+/* ── NAV TREE ── */
+function renderNav(){
+  const t=document.getElementById('navTree');let h='';
+  DATA.cursos.forEach(C=>{
+    h+=`<div class="nl">${C.nome}</div>`;
+    h+=`<div class="ni ${nO[C.id]?'open':''}" onclick="toggleN('${C.id}')"><span>🎓</span>${C.nome}<span class="arr">▶</span></div>`;
+    h+=`<div class="nc ${nO[C.id]?'open':''}" id="nc-${C.id}">`;
+    C.semestres.forEach(S=>{
+      const hD=S.disciplinas.length>0,sO=nO[S.id];
+      h+=`<div class="ni d1 ${sO&&hD?'open':''}" onclick="toggleN('${S.id}')"><span class="dot"></span>${S.nome}${hD?'<span class="arr">▶</span>':''}</div>`;
+      if(hD){
+        h+=`<div class="nc ${sO?'open':''}" id="nc-${S.id}">`;
+        S.disciplinas.forEach(D=>{
+          const dO=nO[D.id],hV=D.versoes.length>0;
+          h+=`<div class="ni d2 ${dO&&hV?'open':''}" onclick="${hV?`toggleN('${D.id}')`:`go('disciplina',['${C.id}','${S.id}','${D.id}'])`}"><span class="dot"></span>${D.nome.length>20?D.nome.slice(0,18)+'…':D.nome}${hV?'<span class="arr">▶</span>':''}</div>`;
+          if(hV){
+            h+=`<div class="nc ${dO?'open':''}" id="nc-${D.id}">`;
+            D.versoes.forEach(V=>{
+              const dn=V.apostilas.filter(a=>st(a.id)==='done').length,tot=V.apostilas.length;
+              const isActiveV=view==='versao'&&path[3]===V.id&&path[2]===D.id;
+              h+=`<div class="ni d3 ${isActiveV?'active':''}" onclick="go('versao',['${C.id}','${S.id}','${D.id}','${V.id}'])"><span class="dot ${dn===tot&&tot>0?'g':dn>0?'y':''}"></span>${V.nome}<span class="bdg">${dn}/${tot}</span></div>`;
+              /* ── CORREÇÃO: apostilas clicáveis na sidebar ── */
+              V.apostilas.forEach(ap=>{
+                const s2=st(ap.id);
+                const isActiveAp=view==='versao'&&path[3]===V.id&&path[2]===D.id;
+                h+=`<div class="ni d4 ${isActiveAp?'':''}" onclick="go('versao',['${C.id}','${S.id}','${D.id}','${V.id}'])">
+                  <span class="dot ${s2==='done'?'g':s2==='review'?'y':''}"></span>
                   <span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1">${ap.titulo.split('—')[0].trim()}</span>
                 </div>`;
               });
@@ -307,179 +259,119 @@ function renderNav() {
   t.innerHTML=h;
 }
 
-function ni(id,ico,lbl,depth,hasChildren,open){
-  return `<div class="ni ${open&&hasChildren?'open':''}" onclick="toggleNav('${id}')">
-    <span>${ico}</span> ${lbl}
-    ${hasChildren?`<span class="arr">▶</span>`:''}
-  </div>`;
-}
+function toggleN(id){nO[id]=!nO[id];renderNav()}
 
-function toggleNav(id){
-  navOpen[id]=!navOpen[id];
-  renderNav();
-}
-
-/* =========================================================
-   BREADCRUMB
-   ========================================================= */
+/* ── BREADCRUMB ── */
 function renderBc(){
   const bc=document.getElementById('breadcrumb');
   const parts=[`<a onclick="go('home')">Início</a>`];
-  if(!path.length){bc.innerHTML=parts.join('');return;}
+  if(!path.length){bc.innerHTML=parts.join('');return}
   const {c,s,d,v}=find(...path.concat(Array(4-path.length).fill(undefined)));
-  if(c) parts.push(`<span class="bc-sep">›</span><a onclick="go('home')">${c.nome}</a>`);
-  if(s) parts.push(`<span class="bc-sep">›</span><a onclick="go('semestre',['${path[0]}','${path[1]}'])">${s.nome}</a>`);
-  if(d) parts.push(`<span class="bc-sep">›</span><a onclick="go('disciplina',['${path[0]}','${path[1]}','${path[2]}'])">${d.nome}</a>`);
-  if(v) parts.push(`<span class="bc-sep">›</span><span class="bc-cur">${v.nome}</span>`);
+  if(c)parts.push(`<span class="bc-sep">›</span><span>${c.nome}</span>`);
+  if(s)parts.push(`<span class="bc-sep">›</span><a onclick="go('semestre',['${path[0]}','${path[1]}'])">${s.nome}</a>`);
+  if(d)parts.push(`<span class="bc-sep">›</span><a onclick="go('disciplina',['${path[0]}','${path[1]}','${path[2]}'])">${d.nome}</a>`);
+  if(v)parts.push(`<span class="bc-sep">›</span><span class="bc-cur">${v.nome}</span>`);
   bc.innerHTML=parts.join('');
 }
 
-/* =========================================================
-   MAIN CONTENT
-   ========================================================= */
+/* ── MAIN CONTENT ── */
 function renderMain(){
   renderBc();
   const m=document.getElementById('main');
-  const s=stats();
-  const pct=s.total>0?Math.round(s.done/s.total*100):0;
+  const s=stats(),pct=s.total>0?Math.round(s.done/s.total*100):0;
 
   if(view==='home'){
-    const semComConteudo=DATA.cursos[0].semestres.filter(s=>s.disciplinas.length>0);
+    const semC=DATA.cursos[0].semestres.filter(s=>s.disciplinas.length>0);
     m.innerHTML=`
     <div class="hero">
       <div class="hero-top">
-        <div>
-          <div class="hero-greet">Bem-vinda de volta, Mirely 👩‍⚖️</div>
-          <div class="hero-title">Caderno Jurídico</div>
-          <div class="hero-sub">Faculdade Farias Brito · Direito · 5 anos · 2º Semestre em curso</div>
-        </div>
-        <div class="hero-badge">
-          <div class="hero-badge-val">${pct}%</div>
-          <div class="hero-badge-lbl">completo</div>
-        </div>
+        <div><div class="hero-greet">Bem-vinda, Mirely 👩‍⚖️</div><div class="hero-title">Caderno Jurídico</div><div class="hero-sub">Faculdade Farias Brito · Direito · 2º Semestre em curso</div></div>
+        <div class="hero-badge"><div class="hero-badge-val">${pct}%</div><div class="hero-badge-lbl">completo</div></div>
       </div>
-      <div class="hero-prog">
-        <span class="hero-prog-lbl">${s.done} de ${s.total} apostilas concluídas</span>
-        <div class="hero-prog-bar"><div class="hero-prog-fill" style="width:${pct}%"></div></div>
-        <span class="hero-prog-val">${pct}%</span>
-      </div>
+      <div class="hero-prog"><span class="hp-lbl">${s.done} de ${s.total} apostilas</span><div class="hp-bar"><div class="hp-fill" style="width:${pct}%"></div></div><span class="hp-val">${pct}%</span></div>
     </div>
     <div class="stats">
-      <div class="sc"><div class="sc-lbl">Apostilas</div><div class="sc-val">${s.total}</div><div class="sc-sub">cadastradas</div></div>
-      <div class="sc"><div class="sc-lbl">Concluídas</div><div class="sc-val" style="color:#2e7d3e">${s.done}</div><div class="sc-sub">revisão completa</div><div class="pb"><div class="pf" style="width:${s.total>0?s.done/s.total*100:0}%"></div></div></div>
-      <div class="sc"><div class="sc-lbl">Em revisão</div><div class="sc-val" style="color:#d97706">${s.review}</div><div class="sc-sub">em andamento</div></div>
-      <div class="sc"><div class="sc-lbl">Cursos</div><div class="sc-val">1</div><div class="sc-sub">Direito</div></div>
+      <div class="sc"><div class="sc-l">Apostilas</div><div class="sc-v">${s.total}</div><div class="sc-s">cadastradas</div></div>
+      <div class="sc"><div class="sc-l">Concluídas</div><div class="sc-v" style="color:#2e7d3e">${s.done}</div><div class="sc-s">revisão completa</div><div class="pb"><div class="pf" style="width:${s.total>0?s.done/s.total*100:0}%"></div></div></div>
+      <div class="sc"><div class="sc-l">Em revisão</div><div class="sc-v" style="color:#d97706">${s.review}</div><div class="sc-s">em andamento</div></div>
+      <div class="sc"><div class="sc-l">Cursos</div><div class="sc-v">1</div><div class="sc-s">Direito</div></div>
     </div>
-    <div class="sh"><div class="st">Semestres com conteúdo</div><div class="sc2">${semComConteudo.length} ativo${semComConteudo.length!==1?'s':''}</div></div>
-    <div class="sem-grid">
-      ${semComConteudo.map(sem=>{
+    <div class="sh"><div class="st">Semestres com conteúdo</div></div>
+    <div class="grid2">
+      ${semC.map(sem=>{
         const tot=sem.disciplinas.reduce((a,d)=>a+d.versoes.reduce((b,v)=>b+v.apostilas.length,0),0);
-        const dn=sem.disciplinas.reduce((a,d)=>a+d.versoes.reduce((b,v)=>b+v.apostilas.filter(ap=>status(ap.id)==='done').length,0),0);
+        const dn=sem.disciplinas.reduce((a,d)=>a+d.versoes.reduce((b,v)=>b+v.apostilas.filter(ap=>st(ap.id)==='done').length,0),0);
         return `<div class="card" onclick="go('semestre',['direito','${sem.id}'])">
-          <div class="card-eyebrow">${sem.nome}</div>
-          <div class="card-title">${sem.disciplinas.map(d=>d.nome).join(' · ')}</div>
-          <div class="card-footer">
-            <span class="tag">${tot} apostila${tot!==1?'s':''}</span>
-            <span class="tag-gray">${dn} concluída${dn!==1?'s':''}</span>
-          </div>
+          <div class="c-ey">${sem.nome}</div>
+          <div class="c-ti">${sem.disciplinas.map(d=>d.nome).join(' · ')}</div>
+          <div class="c-fo"><span class="tag">${tot} apostila${tot!==1?'s':''}</span><span class="tag-g">${dn} concluída${dn!==1?'s':''}</span></div>
         </div>`;
       }).join('')}
       <div class="card" style="border-style:dashed;border-color:#c8ddc8;background:#f8fdf9;cursor:default">
-        <div class="card-eyebrow" style="color:#aaa">Em breve</div>
-        <div class="card-title" style="color:#bbb">3º ao 10º Semestre</div>
-        <div class="card-meta" style="margin-top:4px">Aguardando conteúdo das aulas</div>
+        <div class="c-ey" style="color:#bbb">Em breve</div>
+        <div class="c-ti" style="color:#ccc">3º ao 10º Semestre</div>
+        <div class="c-me" style="margin-top:4px;font-size:11px;color:#bbb">Aguardando conteúdo das aulas</div>
       </div>
     </div>`;
     return;
   }
 
   if(view==='semestre'){
-    const {s:sem}=find(path[0],path[1]);
-    if(!sem) return;
-    m.innerHTML=`
-    <div class="sh"><div class="st">${sem.nome} — Disciplinas</div><div class="sc2">${sem.disciplinas.length} disciplina${sem.disciplinas.length!==1?'s':''}</div></div>
-    <div class="grid2">
-      ${sem.disciplinas.map(disc=>{
-        const tot=disc.versoes.reduce((a,v)=>a+v.apostilas.length,0);
-        const dn=disc.versoes.reduce((a,v)=>a+v.apostilas.filter(ap=>status(ap.id)==='done').length,0);
-        return `<div class="card" onclick="go('disciplina',['${path[0]}','${path[1]}','${disc.id}'])">
-          <div class="card-eyebrow">Disciplina</div>
-          <div class="card-title">${disc.nome}</div>
-          <div class="card-meta">${disc.prof}</div>
-          <div class="card-footer">
-            ${disc.versoes.map(v=>`<span class="tag">${v.nome}</span>`).join('')}
-            ${tot>0?`<span class="tag-gray" style="margin-left:auto">${dn}/${tot}</span>`:`<span class="tag-gray">Sem apostilas</span>`}
-          </div>
-        </div>`;
-      }).join('')}
-    </div>`;
+    const {s:sem}=find(path[0],path[1]);if(!sem)return;
+    m.innerHTML=`<div class="sh"><div class="st">${sem.nome} — Disciplinas</div><div class="sc2">${sem.disciplinas.length} disciplina${sem.disciplinas.length!==1?'s':''}</div></div>
+    <div class="grid2">${sem.disciplinas.map(disc=>{
+      const tot=disc.versoes.reduce((a,v)=>a+v.apostilas.length,0);
+      const dn=disc.versoes.reduce((a,v)=>a+v.apostilas.filter(ap=>st(ap.id)==='done').length,0);
+      return `<div class="card" onclick="go('disciplina',['${path[0]}','${path[1]}','${disc.id}'])">
+        <div class="c-ey">Disciplina</div><div class="c-ti">${disc.nome}</div><div class="c-me">${disc.prof}</div>
+        <div class="c-fo">${disc.versoes.map(v=>`<span class="tag">${v.nome}</span>`).join('')}${tot>0?`<span class="tag-g" style="margin-left:auto">${dn}/${tot}</span>`:`<span class="tag-g">Sem apostilas</span>`}</div>
+      </div>`;
+    }).join('')}</div>`;
     return;
   }
 
   if(view==='disciplina'){
-    const {s:sem,d:disc}=find(path[0],path[1],path[2]);
-    if(!disc) return;
+    const {d:disc}=find(path[0],path[1],path[2]);if(!disc)return;
     if(!disc.versoes.length){
-      m.innerHTML=`<div class="sh"><div class="st">${disc.nome}</div></div>
-      <div class="empty"><div class="empty-ico">📂</div><div class="empty-t">Nenhuma versão cadastrada</div>
-      <div class="empty-s">Para adicionar, edite o array <code>versoes</code> desta disciplina no <code>index.html</code></div></div>`;
+      m.innerHTML=`<div class="sh"><div class="st">${disc.nome}</div></div><div class="empty"><div class="empty-ico">📂</div><div class="empty-t">Nenhuma versão cadastrada ainda</div><div class="empty-s">As apostilas aparecerão aqui quando forem adicionadas</div></div>`;
       return;
     }
-    m.innerHTML=`
-    <div class="sh"><div class="st">${disc.nome}</div><div class="sc2">${disc.prof}</div></div>
-    <div class="vlist">
-      ${disc.versoes.map(v=>{
-        const dn=v.apostilas.filter(a=>status(a.id)==='done').length;
-        const tot=v.apostilas.length;
-        const pct=tot>0?Math.round(dn/tot*100):0;
-        return `<div class="vi" onclick="go('versao',['${path[0]}','${path[1]}','${path[2]}','${v.id}'])">
-          <div class="vtag">${v.nome}</div>
-          <div class="vinfo">
-            <div class="vt">${tot} apostila${tot!==1?'s':''}</div>
-            <div class="vc">${dn} concluída${dn!==1?'s':''} · ${pct}% completo</div>
-            <div class="pb" style="margin-top:5px"><div class="pf" style="width:${pct}%"></div></div>
-          </div>
-          <div class="varr">›</div>
-        </div>`;
-      }).join('')}
-    </div>`;
+    m.innerHTML=`<div class="sh"><div class="st">${disc.nome}</div><div class="sc2">${disc.prof}</div></div>
+    <div class="vlist">${disc.versoes.map(v=>{
+      const dn=v.apostilas.filter(a=>st(a.id)==='done').length,tot=v.apostilas.length;
+      const p=tot>0?Math.round(dn/tot*100):0;
+      return `<div class="vi" onclick="go('versao',['${path[0]}','${path[1]}','${path[2]}','${v.id}'])">
+        <div class="vtag">${v.nome}</div>
+        <div class="vinfo"><div class="vt">${tot} apostila${tot!==1?'s':''}</div><div class="vc">${dn} concluída${dn!==1?'s':''} · ${p}% completo</div><div class="pb" style="margin-top:4px"><div class="pf" style="width:${p}%"></div></div></div>
+        <div class="varr">›</div>
+      </div>`;
+    }).join('')}</div>`;
     return;
   }
 
   if(view==='versao'){
-    const {d:disc,v}=find(path[0],path[1],path[2],path[3]);
-    if(!v) return;
-    const dn=v.apostilas.filter(a=>status(a.id)==='done').length;
-    m.innerHTML=`
-    <div class="sh">
-      <div class="st">${v.nome} — ${disc.nome}</div>
-      <div class="sc2">${dn}/${v.apostilas.length} concluídas</div>
-    </div>
-    <div class="agrid">
-      ${v.apostilas.map(ap=>{
-        const st=status(ap.id);
-        return `<div class="acard">
-          <div class="acard-title">${ap.titulo}</div>
-          <div class="acard-meta">${ap.autores}</div>
-          <div class="acard-aula">${ap.aula}</div>
-          <div class="acard-footer">
-            <select class="sel ${st}" onchange="setStatus('${ap.id}',this.value);this.className='sel '+this.value">
-              <option value="none" ${st==='none'?'selected':''}>Não iniciada</option>
-              <option value="review" ${st==='review'?'selected':''}>Em revisão</option>
-              <option value="done" ${st==='done'?'selected':''}>Concluída ✓</option>
-            </select>
-            <a class="btn-open" href="${ap.arquivo}" target="_blank">Abrir →</a>
-          </div>
-        </div>`;
-      }).join('')}
-    </div>`;
+    const {d:disc,v}=find(path[0],path[1],path[2],path[3]);if(!v)return;
+    const dn=v.apostilas.filter(a=>st(a.id)==='done').length;
+    m.innerHTML=`<div class="sh"><div class="st">${v.nome} — ${disc.nome}</div><div class="sc2">${dn}/${v.apostilas.length} concluídas</div></div>
+    <div class="agrid">${v.apostilas.map(ap=>{
+      const s2=st(ap.id);
+      return `<div class="acard">
+        <div class="at">${ap.titulo}</div><div class="am">${ap.autores}</div><div class="aa">${ap.aula}</div>
+        <div class="a-fo">
+          <select class="sel ${s2}" onchange="setSt('${ap.id}',this.value);this.className='sel '+this.value">
+            <option value="none" ${s2==='none'?'selected':''}>Não iniciada</option>
+            <option value="review" ${s2==='review'?'selected':''}>Em revisão</option>
+            <option value="done" ${s2==='done'?'selected':''}>Concluída ✓</option>
+          </select>
+          <a class="btn-open" href="${ap.arquivo}" target="_blank">Abrir →</a>
+        </div>
+      </div>`;
+    }).join('')}</div>`;
     return;
   }
 }
 
-renderNav();
-renderMain();
-renderSbProgress();
+renderNav();renderMain();updSbP();
 </script>
 </body>
 </html>
