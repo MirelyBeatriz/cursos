@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elementos Constitutivos do Estado</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Georgia,'Times New Roman',serif;font-size:15px;line-height:1.8;color:#1a1a1a;background:#fdfaf6}
+  .cover{background:linear-gradient(160deg,#1a3a2a 60%,#2e5a3a);color:#fff;padding:60px 48px 48px;min-height:220px;position:relative;overflow:hidden}
+  .cover::before{content:'';position:absolute;right:-40px;top:-40px;width:220px;height:220px;border-radius:50%;border:1px solid rgba(255,255,255,0.08)}
+  .cover::after{content:'';position:absolute;right:20px;top:20px;width:140px;height:140px;border-radius:50%;border:1px solid rgba(255,255,255,0.06)}
+  .cover-badge{font-family:Arial,sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:16px}
+  .cover h1{font-size:32px;font-weight:normal;letter-spacing:0.5px;margin-bottom:8px}
+  .cover-sub{font-size:14px;color:rgba(255,255,255,0.65);margin-top:8px}
+  .cover-authors{margin-top:24px;font-size:13px;color:rgba(255,255,255,0.5);border-top:1px solid rgba(255,255,255,0.12);padding-top:16px}
+  .toc{background:#fff;border-bottom:1px solid #e8e2d8;padding:28px 48px}
+  .toc h2{font-family:Arial,sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-bottom:16px;font-weight:normal}
+  .toc-list{list-style:none}
+  .toc-list li{display:flex;align-items:baseline;gap:8px;padding:5px 0;font-size:14px}
+  .toc-list li a{color:#1a4030;text-decoration:none}
+  .toc-list li a:hover{text-decoration:underline}
+  .toc-num{font-family:Arial,sans-serif;font-size:11px;color:#aaa;min-width:20px}
+  .toc-dots{flex:1;border-bottom:1px dotted #d0c9be;margin:0 6px}
+  .toc-pg{font-family:Arial,sans-serif;font-size:12px;color:#aaa}
+  main{max-width:720px;margin:0 auto;padding:40px 48px 80px}
+  section{margin-bottom:52px}
+  .section-label{font-family:Arial,sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#5a8a6a;margin-bottom:6px}
+  h2{font-size:22px;font-weight:normal;color:#1a3a2a;margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid #e0d8cc}
+  h3{font-size:16px;font-weight:normal;color:#1a3a2a;margin:28px 0 10px;font-style:italic}
+  p{margin-bottom:14px;text-align:justify}
+  .quote-block{margin:24px 0;padding:16px 20px 16px 24px;border-left:3px solid #1a4030;background:#f4f0e8;border-radius:0 4px 4px 0}
+  .quote-block p{margin:0;font-style:italic;font-size:14px;color:#2a2a2a;line-height:1.75}
+  .quote-ref{font-family:Arial,sans-serif;font-size:11px;color:#888;margin-top:6px;font-style:normal}
+  .concept-box{background:#fff;border:1px solid #ddd7cc;border-radius:6px;padding:16px 20px;margin:20px 0}
+  .concept-box .cb-label{font-family:Arial,sans-serif;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-bottom:8px}
+  .concept-box p{margin:0;font-size:14px}
+  .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0}
+  .compare-card{border:1px solid #ddd7cc;border-radius:6px;padding:16px 18px;background:#fff}
+  .compare-card .cc-title{font-family:Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#fff;background:#1a3a2a;display:inline-block;padding:3px 10px;border-radius:3px;margin-bottom:10px}
+  .compare-card ul{list-style:none;padding:0}
+  .compare-card ul li{font-size:13px;padding:4px 0;border-bottom:1px solid #f0ece4;color:#333;line-height:1.5}
+  .compare-card ul li:last-child{border-bottom:none}
+  .compare-card ul li::before{content:"▸ ";color:#5a8a6a;font-size:11px}
+  .highlight-box{background:#1a3a2a;color:#fff;border-radius:6px;padding:18px 22px;margin:24px 0}
+  .highlight-box p{color:rgba(255,255,255,0.9);margin:0;font-size:14px;line-height:1.75}
+  .highlight-box strong{color:#fff}
+  .three-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:20px 0}
+  .three-card{border:1px solid #ddd7cc;border-radius:6px;overflow:hidden;background:#fff}
+  .three-card-header{background:#1a3a2a;color:#fff;padding:9px 14px;font-family:Arial,sans-serif;font-size:11px;letter-spacing:0.5px}
+  .three-card-body{padding:12px 14px;font-size:13px;color:#333;line-height:1.6}
+  .three-card-body li{list-style:none;padding:3px 0;border-bottom:1px solid #f0ece4}
+  .three-card-body li:last-child{border-bottom:none}
+  .three-card-body li::before{content:"→ ";color:#5a8a6a}
+  .timeline{margin:20px 0}
+  .tl-item{display:flex;gap:16px;margin-bottom:12px;align-items:flex-start}
+  .tl-year{font-family:Arial,sans-serif;font-size:12px;font-weight:bold;color:#fff;background:#1a3a2a;padding:3px 8px;border-radius:3px;min-width:60px;text-align:center;margin-top:2px}
+  .tl-text{font-size:14px;color:#333;flex:1;padding-top:4px}
+  .autores-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:16px 0}
+  .autor-card{border:1px solid #ddd7cc;border-radius:6px;padding:12px 10px;background:#fff;text-align:center}
+  .autor-initial{width:40px;height:40px;border-radius:50%;background:#1a3a2a;color:#fff;display:flex;align-items:center;justify-content:center;font-family:Arial,sans-serif;font-size:13px;margin:0 auto 8px}
+  .autor-name{font-size:12px;font-weight:bold;color:#1a3a2a}
+  .autor-role{font-size:10px;color:#888;margin-top:3px;font-family:Arial,sans-serif}
+  .section-divider{text-align:center;color:#ccc;letter-spacing:8px;margin:32px 0;font-size:12px}
+  .resumo-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0}
+  .resumo-card{background:#fff;border:1px solid #ddd7cc;border-radius:6px;overflow:hidden}
+  .resumo-card-header{background:#1a3a2a;color:#fff;padding:8px 14px;font-family:Arial,sans-serif;font-size:11px;letter-spacing:0.8px}
+  .resumo-card-body{padding:12px 14px}
+  .resumo-card-body ul{list-style:none;padding:0}
+  .resumo-card-body ul li{font-size:13px;padding:4px 0;border-bottom:1px solid #f5f2ec;color:#333;line-height:1.5}
+  .resumo-card-body ul li:last-child{border-bottom:none}
+  .resumo-card-body ul li::before{content:"• ";color:#5a8a6a}
+  .conceitos-chave{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0}
+  .ck-item{background:#f4f0e8;border-radius:5px;padding:10px 12px;text-align:center}
+  .ck-term{font-family:Arial,sans-serif;font-size:12px;font-weight:bold;color:#1a3a2a;margin-bottom:4px}
+  .ck-def{font-size:11px;color:#555;line-height:1.45}
+  .mapa-autores{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:16px 0}
+  .ma-card{border:1px solid #ddd7cc;border-radius:5px;overflow:hidden;background:#fff}
+  .ma-header{background:#2e5a3a;color:#fff;padding:6px 10px;font-family:Arial,sans-serif;font-size:11px}
+  .ma-body{padding:8px 10px;font-size:12px;color:#444}
+  .ma-body li{list-style:none;padding:2px 0}
+  .ma-body li::before{content:"→ ";color:#5a8a6a;font-size:11px}
+  .qa-item{margin-bottom:24px;border:1px solid #ddd7cc;border-radius:6px;overflow:hidden;background:#fff}
+  .qa-pergunta{background:#1a3a2a;color:#fff;padding:12px 18px;font-size:14px;font-family:Georgia,serif;line-height:1.5}
+  .qa-pergunta span{font-family:Arial,sans-serif;font-size:11px;color:rgba(255,255,255,0.5);display:block;margin-bottom:4px;letter-spacing:1px}
+  .qa-resposta{padding:16px 18px}
+  .qa-resposta p{margin-bottom:10px;font-size:14px}
+  .qa-resposta p:last-child{margin-bottom:0}
+  .qa-resposta ul{list-style:none;padding:0;margin:8px 0}
+  .qa-resposta ul li{font-size:13px;padding:4px 0;border-bottom:1px solid #f5f2ec;color:#333}
+  .qa-resposta ul li:last-child{border-bottom:none}
+  .qa-resposta ul li::before{content:"▸ ";color:#5a8a6a}
+  .qa-fonte{font-family:Arial,sans-serif;font-size:11px;color:#aaa;margin-top:10px;font-style:normal;display:block}
+  .perguntas-adicionais{background:#f0f6f2;border:1px solid #b5d4c5;border-radius:6px;padding:20px 24px;margin-top:20px}
+  .perguntas-adicionais h3{font-style:normal;margin:0 0 14px;font-size:14px;font-family:Arial,sans-serif;letter-spacing:0.5px;color:#444}
+  .perguntas-adicionais ol{padding-left:18px}
+  .perguntas-adicionais ol li{font-size:14px;padding:5px 0;color:#333}
+  .ref-list{list-style:none;padding:0}
+  .ref-list li{font-size:13px;padding:5px 0;border-bottom:1px dotted #e0d8cc;color:#444}
+  .ref-list li:last-child{border-bottom:none}
+  .atencao-box{background:#fffbf0;border:1px solid #e8d87a;border-radius:6px;padding:14px 18px;margin:16px 0;font-size:13px;color:#444}
+  .atencao-box strong{color:#8a6a00}
+  .soberania-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0}
+  .sob-card{border:1px solid #ddd7cc;border-radius:6px;overflow:hidden;background:#fff}
+  .sob-header{background:#2e5a3a;color:#fff;padding:9px 14px;font-family:Arial,sans-serif;font-size:11px;letter-spacing:0.5px}
+  .sob-body{padding:12px 14px;font-size:13px;color:#333;line-height:1.6}
+  .sob-body li{list-style:none;padding:3px 0;border-bottom:1px solid #f0ece4}
+  .sob-body li:last-child{border-bottom:none}
+  .sob-body li::before{content:"→ ";color:#5a8a6a}
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="cover-badge">Ciências Políticas e Teoria do Estado · Graduação em Direito</div>
+  <h1>Elementos Constitutivos do Estado</h1>
+  <p class="cover-sub">Povo, Território, Soberania/Governo e Finalidade — perspectivas comparadas</p>
+  <div class="cover-authors">
+    Baseado em Dallari, Ranieri, Varella e Mazzuoli · Prof. Vitor Bizerril · Aulas 26–28
+  </div>
+</div>
+
+<div class="toc">
+  <h2>Sumário</h2>
+  <ul class="toc-list">
+    <li><span class="toc-num">1.</span><a href="#ctx">Contexto: a Convenção de Montevidéu (1933)</a><span class="toc-dots"></span><span class="toc-pg">§1</span></li>
+    <li><span class="toc-num">2.</span><a href="#quadro">Quadro comparativo dos autores</a><span class="toc-dots"></span><span class="toc-pg">§2</span></li>
+    <li><span class="toc-num">3.</span><a href="#povo">Elemento humano: povo, população e nação</a><span class="toc-dots"></span><span class="toc-pg">§3</span></li>
+    <li><span class="toc-num">4.</span><a href="#territorio">Território</a><span class="toc-dots"></span><span class="toc-pg">§4</span></li>
+    <li><span class="toc-num">5.</span><a href="#governo">Governo e reconhecimento internacional</a><span class="toc-dots"></span><span class="toc-pg">§5</span></li>
+    <li><span class="toc-num">6.</span><a href="#soberania">Soberania</a><span class="toc-dots"></span><span class="toc-pg">§6</span></li>
+    <li><span class="toc-num">7.</span><a href="#finalidade">Finalidade</a><span class="toc-dots"></span><span class="toc-pg">§7</span></li>
+    <li><span class="toc-num">8.</span><a href="#conceito">Conceito de Estado (Dallari)</a><span class="toc-dots"></span><span class="toc-pg">§8</span></li>
+    <li><span class="toc-num">9.</span><a href="#resumo">Resumo para revisão</a><span class="toc-dots"></span><span class="toc-pg">§9</span></li>
+    <li><span class="toc-num">10.</span><a href="#fixacao">Questões com respostas</a><span class="toc-dots"></span><span class="toc-pg">§10</span></li>
+    <li><span class="toc-num">11.</span><a href="#refs">Referências</a><span class="toc-dots"></span><span class="toc-pg">§11</span></li>
+  </ul>
+</div>
+
+<main>
+
+<!-- 1. CONTEXTO -->
+<section id="ctx">
+  <div class="section-label">Seção 1</div>
+  <h2>Contexto: a Convenção de Montevidéu (1933)</h2>
+  <p>O debate sobre os elementos constitutivos do Estado tem seu marco positivado na <strong>Convenção sobre Direitos e Deveres dos Estados</strong>, firmada em Montevidéu em 1933. Trata-se do principal instrumento do direito internacional público que define, em termos normativos, os requisitos para que uma entidade política seja reconhecida como Estado perante a comunidade internacional.</p>
+  <div class="quote-block">
+    <p>O Estado como pessoa de Direito Internacional deve reunir os seguintes requisitos: I. População permanente; II. Território determinado; III. Govêrno; IV. Capacidade de entrar em relações com os demais Estados.</p>
+    <div class="quote-ref">Convenção de Montevidéu, art. 1.º (1933) — Decreto n. 1.570/1938</div>
+  </div>
+  <p>A Convenção estabelece quatro requisitos cumulativos. Vale notar que o quarto requisito — a capacidade de manter relações internacionais — é interpretado por Varella não como elemento autônomo, mas como <em>consequência necessária</em> da existência dos três primeiros. Essa leitura influencia a estruturação teórica dos autores brasileiros.</p>
+  <div class="autores-grid">
+    <div class="autor-card"><div class="autor-initial">DD</div><div class="autor-name">Dalmo Dallari</div><div class="autor-role">Soberania · Território · Povo · Finalidade</div></div>
+    <div class="autor-card"><div class="autor-initial">NR</div><div class="autor-name">Nina Ranieri</div><div class="autor-role">Soberania · Finalidade (complementa Dallari)</div></div>
+    <div class="autor-card"><div class="autor-initial">MV</div><div class="autor-name">Marcelo Varella</div><div class="autor-role">População · Território · Governo</div></div>
+    <div class="autor-card"><div class="autor-initial">VM</div><div class="autor-name">Valério Mazzuoli</div><div class="autor-role">Governo (em vez de Soberania)</div></div>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 2. QUADRO COMPARATIVO -->
+<section id="quadro">
+  <div class="section-label">Seção 2</div>
+  <h2>Quadro comparativo dos autores</h2>
+  <p>Os autores adotados na disciplina divergem tanto na <em>nomenclatura</em> quanto no <em>número</em> de elementos constitutivos do Estado. Compreender essas divergências é essencial para responder questões discursivas que exijam análise comparada.</p>
+  <div class="compare-grid">
+    <div class="compare-card">
+      <span class="cc-title">Dallari e Ranieri</span>
+      <ul>
+        <li>Soberania (poder supremo)</li>
+        <li>Território (base física)</li>
+        <li>Povo (vínculo jurídico)</li>
+        <li>Finalidade (bem comum)</li>
+        <li>4 elementos constitutivos</li>
+        <li>Visão jurídico-política interna</li>
+      </ul>
+    </div>
+    <div class="compare-card">
+      <span class="cc-title">Varella (DIP)</span>
+      <ul>
+        <li>Governo autônomo</li>
+        <li>Território determinado</li>
+        <li>População permanente</li>
+        <li>Segue a Convenção de Montevidéu</li>
+        <li>3 elementos (+1 decorrente)</li>
+        <li>Visão do Direito Internacional</li>
+      </ul>
+    </div>
+  </div>
+  <div class="atencao-box">
+    <strong>ATENÇÃO — ponto de prova:</strong> Mazzuoli substitui "soberania" por "governo", aproximando-se da Convenção de Montevidéu. Varella, por sua vez, trata a soberania não como <em>elemento</em>, mas como <em>atributo</em> do Estado — um conjunto de capacidades e competências que decorrem da existência dos três requisitos.
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 3. POVO -->
+<section id="povo">
+  <div class="section-label">Seção 3</div>
+  <h2>Elemento humano: povo, população e nação</h2>
+  <p>O elemento humano do Estado é tratado pelos autores sob denominações e perspectivas distintas. Enquanto Dallari privilegia o <em>vínculo jurídico-político</em> que transforma indivíduos em <em>povo</em>, Varella adota uma perspectiva demográfica e internacionalista ao tratar de <em>população</em>.</p>
+
+  <h3>Povo segundo Dallari</h3>
+  <p>Para Dallari, povo não é um conceito meramente sociológico ou demográfico — é uma categoria jurídico-política de conteúdo preciso. O povo é o conjunto de indivíduos que, por meio de um momento jurídico fundador, se unem para constituir o Estado e estabelecem com ele um vínculo permanente de cidadania.</p>
+  <div class="concept-box">
+    <div class="cb-label">Definição — Dallari</div>
+    <p>Povo é o conjunto dos indivíduos que, através de um momento jurídico, se unem para constituir o Estado, estabelecendo com este um vínculo jurídico de caráter permanente, participando da formação da vontade do Estado e do exercício do poder soberano. Povo = conjunto dos cidadãos do Estado.</p>
+  </div>
+  <p>Dallari distingue dois aspectos do povo: no <strong>aspecto subjetivo</strong>, o povo participa da condição de sujeito do Estado, co-exercendo o poder público; no <strong>aspecto objetivo</strong>, o povo é o objeto da atividade estatal — aquele sobre quem recai a ação do Estado. Daí derivam duas situações para cada indivíduo: como objeto do poder, é <em>sujeito de deveres</em> (relação de subordinação); como membro do Estado, é <em>sujeito de direitos</em> (relação de coordenação).</p>
+  <p>O vínculo jurídico entre Estado e membros gera três exigências: <strong>(A)</strong> atitudes negativas — o Estado não pode ultrapassar certos limites na subordinação dos indivíduos; <strong>(B)</strong> atitudes positivas — o Estado é obrigado a agir para proteger e favorecer o indivíduo; <strong>(C)</strong> atitudes de reconhecimento — o Estado reconhece como seus órgãos os indivíduos que agem em seu interesse (ex.: o jurado).</p>
+
+  <h3>População segundo Varella</h3>
+  <p>Varella adota o conceito de população em dois sentidos: no plano do <strong>direito internacional</strong>, população compreende o conjunto de nacionais (que mantêm vínculo jurídico com o Estado onde quer que estejam, incluindo residentes no exterior) e <em>exclui</em> os estrangeiros residentes no território; no plano <strong>demográfico</strong> (direito interno), a população abarca todos os habitantes, nacionais e estrangeiros.</p>
+  <div class="atencao-box">
+    <strong>Atenção:</strong> Varella critica implicitamente a abordagem de Dallari ao afirmar que, para o Direito Internacional, o conceito de população tem caráter jurídico (vínculo de nacionalidade), e não apenas sociológico. Contudo, a diferença está no foco: Dallari fala em <em>cidadania</em> (perspectiva constitucional interna); Varella fala em <em>nacionalidade</em> (perspectiva internacional).
+  </div>
+
+  <h3>Nação — conceito distinto de povo</h3>
+  <p>Um erro frequente é tratar nação e povo como sinônimos. A <strong>nação</strong>, segundo Dallari, surgiu no século XVIII como conceito cultural e histórico, sem apoio em vínculos jurídicos. Para Miguel Reale (citado por Dallari), nação indica uma comunhão formada por laços históricos e culturais, assentada sobre um sistema de relações de ordem objetiva. Para Varella, nação é hoje considerada uma <em>ideologia</em> pelo direito — não um conceito jurídico — dado que a ideia de uniformidade cultural é empiricamente falsa.</p>
+  <div class="highlight-box">
+    <p><strong>Síntese:</strong> Povo = vínculo jurídico + cidadania (Dallari) / Povo = vínculo de nacionalidade (Varella) / Nação = identidade cultural-histórica, sem vínculo jurídico obrigatório. Estado ≠ Nação. Um Estado pode conter várias nações (ex.: Brasil) e uma nação pode estar dividida em vários Estados.</p>
+  </div>
+
+  <h3>Os nacionais e a proteção diplomática (Varella)</h3>
+  <p>A <strong>nacionalidade</strong> é o vínculo jurídico-político de fidelidade entre o Estado e o indivíduo, atribuído pelo Estado no exercício de sua soberania. Os nacionais mantêm esse vínculo onde quer que estejam, e o Estado tem o dever de protegê-los diplomaticamente no exterior. A proteção diplomática pode ser não contenciosa (via consulado) ou contenciosa (via cortes internacionais). A definição de nacional ou estrangeiro é competência exclusiva de cada Estado — não existe definição universal no direito internacional.</p>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 4. TERRITÓRIO -->
+<section id="territorio">
+  <div class="section-label">Seção 4</div>
+  <h2>Território</h2>
+  <p>O território é o único elemento sobre o qual todos os autores convergem com unanimidade. É a base física do Estado — o espaço em que se exerce o poder soberano, onde o povo está fixado e onde o governo atua. Trata-se de uma área com <em>projeção tridimensional</em>, não de mera continuidade terrestre.</p>
+
+  <h3>Composição do território (Dallari)</h3>
+  <div class="three-grid">
+    <div class="three-card">
+      <div class="three-card-header">Área terrestre</div>
+      <ul class="three-card-body">
+        <li>Solo e subsolo</li>
+        <li>Águas internas (rios, lagos, lagoas)</li>
+        <li>Base do poder soberano</li>
+      </ul>
+    </div>
+    <div class="three-card">
+      <div class="three-card-header">Espaço marítimo</div>
+      <ul class="three-card-body">
+        <li>Mar territorial: 12 milhas (L. 8.617/93)</li>
+        <li>ZEE: 200 milhas náuticas</li>
+        <li>Direito de passagem inocente</li>
+      </ul>
+    </div>
+    <div class="three-card">
+      <div class="three-card-header">Espaço aéreo</div>
+      <ul class="three-card-body">
+        <li>Sobre todo o território e mar territorial</li>
+        <li>Positivado pelo Tratado de Chicago (1944)</li>
+        <li>Aeronaves civis: regime facilitado</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Características do território (Dallari)</h3>
+  <p>A principal característica jurídica do território é a sua <strong>impenetrabilidade</strong>: o Estado detém o monopólio de ocupação de determinado espaço — é impossível que, no mesmo lugar e ao mesmo tempo, coexistam duas soberanias. Dessa característica derivam duas significações jurídicas: a <em>positiva</em>, que assegura ao Estado agir soberanamente em seu campo de ação; e a <em>negativa</em>, que exclui outras ordenações jurídicas no mesmo espaço.</p>
+  <p>A perda temporária do território <em>não desnatura</em> o Estado, que continua a existir enquanto não se tornar definitiva a impossibilidade de reintegração. Não existe regra quanto ao mínimo de extensão territorial. Caso haja interesse do povo, o Estado pode até alienar parte do território.</p>
+
+  <h3>Patrimônio comum da humanidade (Varella)</h3>
+  <p>Algumas regiões não estão sob domínio direto de Estado algum e sua preservação é de interesse universal. São: o <em>alto-mar</em> (além da ZEE); a <em>Antártica</em> (reservada à pesquisa científica pacífica); o <em>espaço geoestacionário</em> (36 mil km acima do Equador, posição de satélites); e o <em>espaço sideral e corpos celestes</em> (Tratado de 1967).</p>
+
+  <h3>Extraterritorialidade e jurisdição no exterior (Varella)</h3>
+  <p>A extraterritorialidade dos atos é <em>a priori</em> proibida pelo direito internacional. Um Estado só pode exercer competências no território de outro com consentimento ou tolerância deste. As competências extraterritoriais podem ser: <strong>territoriais</strong> — quando o Estado exerce funções soberanas no território alheio (ex.: ocupações militares autorizadas pela ONU); ou <strong>pessoais</strong> — quando o Estado se relaciona juridicamente com seus nacionais no exterior (ex.: atribuição de nacionalidade por <em>jus sanguinis</em>; serviços consulares).</p>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 5. GOVERNO -->
+<section id="governo">
+  <div class="section-label">Seção 5</div>
+  <h2>Governo e reconhecimento internacional</h2>
+  <p>O governo, como elemento constitutivo do Estado na perspectiva da Convenção de Montevidéu (e de Varella e Mazzuoli), é a estrutura de poder que organiza politicamente o Estado e o representa perante a comunidade internacional. Sua exigência central é a <strong>autonomia jurídica</strong> — não dependência econômica ou política, que é inevitável em qualquer Estado, mas ausência de subordinação <em>jurídica</em> a outro Estado (<em>jus excludendi alios</em>).</p>
+
+  <h3>Reconhecimento de um novo Estado</h3>
+  <p>O reconhecimento do Estado é ato <strong>unilateral</strong> (emanado de um único sujeito de direito internacional — outro Estado ou Organização Internacional) e <strong>discricionário</strong> (não obrigatório: os demais Estados podem recusar-se a reconhecer por considerarem insuficientes os elementos constitutivos). Trata-se essencialmente de um <em>ato político</em>: reconhecer um Estado significa declarar que determinado território e população estão sob comando de um governo autônomo — e não mais sob as ordens de outro Estado.</p>
+  <div class="concept-box">
+    <div class="cb-label">Reconhecimento pela ONU</div>
+    <p>O reconhecimento mais relevante entre Organizações Internacionais é o da ONU, que depende de aprovação pelo Conselho de Segurança — resguardado o direito de veto dos membros permanentes (EUA, Rússia, China, França e Reino Unido). O não reconhecimento priva o Estado dos direitos soberanos perante terceiros: impossibilidade de imunidades diplomáticas, de respeito aos limites jurisdicionais e de reconhecimento da nacionalidade.</p>
+  </div>
+
+  <h3>Reconhecimento de um novo governo</h3>
+  <p>Distinto do reconhecimento do Estado, o reconhecimento de um novo <em>governo</em> ocorre quando há ruptura brusca na direção política de um Estado já reconhecido — golpes de Estado, revoluções. Duas doutrinas se contrapõem:</p>
+  <div class="compare-grid">
+    <div class="compare-card">
+      <span class="cc-title">Doutrina Tobar</span>
+      <ul>
+        <li>Condicionalidades democráticas para o reconhecimento</li>
+        <li>Governos que ascendem por ruptura não devem ser reconhecidos até legitimação popular</li>
+        <li>Valoriza a democracia representativa</li>
+        <li>Adotada por países latino-americanos</li>
+      </ul>
+    </div>
+    <div class="compare-card">
+      <span class="cc-title">Doutrina Estrada</span>
+      <ul>
+        <li>Contra qualquer condicionalidade ao reconhecimento</li>
+        <li>A favor da soberania plena e da não intervenção</li>
+        <li>Reconhecimento = simples manutenção de relações diplomáticas</li>
+        <li>Defendida pelo México (1930)</li>
+      </ul>
+    </div>
+  </div>
+  <p>As formas de reconhecimento de um novo governo podem ser: <strong>formal</strong> (declaração ou notificação); <strong>diplomático</strong> (envio/acreditação de representantes); <strong>de jure</strong> (formalização de tratados); ou <strong>de facto</strong> (projetos de cooperação conjunta). Não há obrigação de reconhecimento pleno — um Estado pode reconhecer diplomaticamente sem fazê-lo formalmente.</p>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 6. SOBERANIA -->
+<section id="soberania">
+  <div class="section-label">Seção 6</div>
+  <h2>Soberania</h2>
+  <p>A soberania é, para Dallari e Ranieri, o elemento constitutivo que confere ao Estado seu caráter de poder <em>supremo</em> — acima de todos os demais poderes no âmbito interno e independente de qualquer outro no plano externo. Para Varella, contudo, soberania não é elemento constitutivo autônomo, mas um atributo que se manifesta em capacidades e competências que decorrem da existência dos três requisitos da Convenção.</p>
+
+  <h3>Características clássicas da soberania (Dallari)</h3>
+  <div class="conceitos-chave">
+    <div class="ck-item"><div class="ck-term">Una</div><div class="ck-def">Não coexistem duas soberanias no mesmo Estado. Um único poder superior, sem concorrência.</div></div>
+    <div class="ck-item"><div class="ck-term">Indivisível</div><div class="ck-def">Aplica-se à universalidade dos fatos no Estado. Não existem "partes" separadas da soberania.</div></div>
+    <div class="ck-item"><div class="ck-term">Inalienável</div><div class="ck-def">Quem a detém desaparece ao perdê-la — seja o povo, a nação ou o Estado.</div></div>
+    <div class="ck-item"><div class="ck-term">Imprescritível</div><div class="ck-def">Não tem prazo de duração. Só desaparece quando forçada por vontade superior.</div></div>
+    <div class="ck-item"><div class="ck-term">Absoluta (intern.)</div><div class="ck-def">No plano interno, poder supremo sobre todo o território e povo.</div></div>
+    <div class="ck-item"><div class="ck-term">Relativa (extern.)</div><div class="ck-def">No plano externo, igualdade formal entre Estados soberanos.</div></div>
+  </div>
+
+  <h3>Capacidades e competências soberanas (Varella)</h3>
+  <div class="soberania-grid">
+    <div class="sob-card">
+      <div class="sob-header">Capacidades soberanas — plano externo</div>
+      <ul class="sob-body">
+        <li>Produzir normas jurídicas internacionais</li>
+        <li>Ser sujeito ativo de ilícitos internacionais</li>
+        <li>Pedir indenizações por danos ilícitos de outros Estados</li>
+        <li>Acessar sistemas internacionais de solução de controvérsias</li>
+        <li>Integrar e participar de Organizações Internacionais</li>
+        <li>Estabelecer relações diplomáticas e consulares</li>
+      </ul>
+    </div>
+    <div class="sob-card">
+      <div class="sob-header">Competências soberanas — plano interno</div>
+      <ul class="sob-body">
+        <li>Exercer domínio exclusivo sobre seu território</li>
+        <li>Criar normas internas e julgar atos no território</li>
+        <li>Atribuir a nacionalidade de seu Estado</li>
+        <li>Determinar o direito sobre pessoas físicas e jurídicas</li>
+        <li>Monopólio do uso legítimo da força (Weber)</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Soberania no século XXI (Ranieri)</h3>
+  <p>A soberania clássica — absoluta, indivisível e imprescritível — está em tensão crescente com o mundo contemporâneo. Ranieri aponta que o pluralismo normativo (coexistência de múltiplos centros de produção do Direito) tem convivido com o Estado moderno sem descaracterizá-lo, mas impondo uma natureza <em>relativa</em>, e não dogmática, da soberania. Nenhum centro decisório se encontra apto a exercer o poder de forma hegemônica como o Estado — mas o próprio Estado já não detém a exclusividade.</p>
+  <p>Varella identifica os principais desafios contemporâneos à soberania: o crime organizado como "zona cinza" do controle estatal; os processos de integração regional (Mercosul, União Europeia); o Direito Internacional Ambiental, Econômico e Humanitário — todos impondo obrigações que limitam o poder soberano sem extingui-lo.</p>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 7. FINALIDADE -->
+<section id="finalidade">
+  <div class="section-label">Seção 7</div>
+  <h2>Finalidade</h2>
+  <p>A finalidade é o elemento constitutivo do Estado que diz respeito à <em>fundamentação teleológica e axiológica</em> de sua ação — os fins que o Estado deve perseguir e os valores que orientam essa perseguição. Para Ranieri, a mais importante tarefa da política está justamente em dirigir o poder do Estado para a realização de fins considerados legítimos pelo povo.</p>
+
+  <h3>Fins e valores no Estado Democrático de Direito (Ranieri)</h3>
+  <p>No Estado Democrático de Direito, é a <strong>Constituição</strong> o instrumento pelo qual os fins e as formas de realizá-los são expressos — mediante discriminação de competências legislativas, encargos materiais e formas de financiamento, sob a égide de determinados valores. A hermenêutica constitucional tem o papel de revelar o sentido mais profundo da Constituição, conjugando significado valorativo, relação entre as disposições e o espírito da época em que foi promulgada.</p>
+  <div class="three-grid">
+    <div class="three-card">
+      <div class="three-card-header">Segurança</div>
+      <ul class="three-card-body">
+        <li>Segurança física, alimentar, sanitária</li>
+        <li>Estabilidade das relações sociais e institucionais</li>
+        <li>Vigência das normas e certeza do Direito</li>
+        <li>Irrevogabilidade das decisões do poder público</li>
+      </ul>
+    </div>
+    <div class="three-card">
+      <div class="three-card-header">Justiça</div>
+      <ul class="three-card-body">
+        <li>Institucionalização do uso legítimo da força</li>
+        <li>Substituição do arbítrio pela norma</li>
+        <li>Supõe autoridade e hierarquia</li>
+        <li>Deve ser compatível com os valores sociais</li>
+      </ul>
+    </div>
+    <div class="three-card">
+      <div class="three-card-header">Bem-estar social</div>
+      <ul class="three-card-body">
+        <li>Condição universal de legitimidade do poder</li>
+        <li>Presente em todas as formas históricas de Estado</li>
+        <li>Exigências se ampliam com as necessidades sociais</li>
+        <li>CF/88: arts. 6.º–11 (direitos sociais)</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Fins objetivos e subjetivos (Dallari)</h3>
+  <p>Dallari distingue as teorias sobre os fins do Estado em três grupos. Os <strong>fins universais objetivos</strong> afirmam que existem fins comuns a todos os Estados de todos os tempos — visão sustentada por Platão e Aristóteles. Os <strong>fins particulares objetivos</strong> reconhecem que cada Estado tem seus próprios fins históricos particulares, mas Jellinek adverte que essas teorias tendem a confundir fins com interesses dos governos. Por fim, as teorias dos <strong>fins subjetivos</strong> defendem que os fins do Estado devem ser a <em>síntese dos fins individuais</em> — o Estado como unidade de fim conseguida pelo desejo de realização de inúmeros fins particulares convergentes.</p>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 8. CONCEITO DE ESTADO -->
+<section id="conceito">
+  <div class="section-label">Seção 8</div>
+  <h2>Conceito de Estado (Dallari)</h2>
+  <p>A síntese teórica de Dallari consolida todos os elementos em uma definição precisa, frequentemente cobrada em provas discursivas:</p>
+  <div class="quote-block">
+    <p>"A ordem jurídica soberana que tem por fim o bem comum de um povo situado em determinado território."</p>
+    <div class="quote-ref">Dalmo Dallari, <em>Elementos de Teoria Geral do Estado</em></div>
+  </div>
+  <p>Dallari esclarece que nessa definição se acham presentes <em>todos</em> os elementos constitutivos do Estado — e somente eles. A <strong>soberania</strong> qualifica a ordem jurídica como suprema. A <strong>finalidade</strong> (bem comum) confere politicidade ao Estado. O <strong>povo</strong> vincula o bem comum a uma comunidade específica. O <strong>território</strong> delimita geograficamente a ação jurídica e política.</p>
+  <div class="highlight-box">
+    <p><strong>Leitura integrada:</strong> Observe que a definição de Dallari incorpora os quatro elementos de forma compacta. A soberania está em "ordem jurídica soberana"; a finalidade em "fim o bem comum"; o povo em "de um povo"; e o território em "situado em determinado território". Toda palavra é essencial.</p>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 9. RESUMO -->
+<section id="resumo">
+  <div class="section-label">Seção 9</div>
+  <h2>Resumo para revisão</h2>
+
+  <h3>Conceitos fundamentais</h3>
+  <div class="conceitos-chave">
+    <div class="ck-item"><div class="ck-term">Povo (Dallari)</div><div class="ck-def">Conjunto dos cidadãos unidos por vínculo jurídico permanente com o Estado.</div></div>
+    <div class="ck-item"><div class="ck-term">População (Varella)</div><div class="ck-def">Conjunto de nacionais com vínculo de nacionalidade; não inclui estrangeiros (DIP).</div></div>
+    <div class="ck-item"><div class="ck-term">Nação</div><div class="ck-def">Identidade cultural-histórica, sem vínculo jurídico. Não se confunde com Estado.</div></div>
+    <div class="ck-item"><div class="ck-term">Território</div><div class="ck-def">Base física tridimensional: terrestre, marítimo e aéreo. Impenetrabilidade.</div></div>
+    <div class="ck-item"><div class="ck-term">Soberania</div><div class="ck-def">Poder supremo, uno, indivisível, inalienável e imprescritível. Relativo no século XXI.</div></div>
+    <div class="ck-item"><div class="ck-term">Finalidade</div><div class="ck-def">Fins teleológicos e axiológicos: segurança, justiça e bem-estar social.</div></div>
+  </div>
+
+  <h3>Mapa por autor e tema</h3>
+  <div class="mapa-autores">
+    <div class="ma-card">
+      <div class="ma-header">Dallari — Elementos constitutivos</div>
+      <ul class="ma-body">
+        <li>Soberania, Território, Povo, Finalidade</li>
+        <li>Povo = cidadãos com vínculo jurídico permanente</li>
+        <li>Aspecto subjetivo e objetivo do povo</li>
+        <li>Vínculo jurídico: atitudes negativas, positivas e de reconhecimento</li>
+        <li>Fins universais, particulares e subjetivos</li>
+        <li>"A ordem jurídica soberana..."</li>
+      </ul>
+    </div>
+    <div class="ma-card">
+      <div class="ma-header">Ranieri — Soberania e Finalidade</div>
+      <ul class="ma-body">
+        <li>Soberania relativa no século XXI</li>
+        <li>Pluralismo normativo sem descaracterizar o Estado</li>
+        <li>Finalidade: fins teleológicos + axiológicos</li>
+        <li>Segurança, Justiça, Bem-estar social</li>
+        <li>Constituição como instrumento dos fins do Estado</li>
+        <li>Hermenêutica constitucional</li>
+      </ul>
+    </div>
+    <div class="ma-card">
+      <div class="ma-header">Varella — Perspectiva do DIP</div>
+      <ul class="ma-body">
+        <li>Requisitos: População, Território, Governo</li>
+        <li>Soberania = atributo, não elemento</li>
+        <li>Capacidades e competências soberanas</li>
+        <li>Impenetrabilidade territorial</li>
+        <li>Patrimônio comum da humanidade</li>
+        <li>Extraterritorialidade: competências territoriais e pessoais</li>
+      </ul>
+    </div>
+    <div class="ma-card">
+      <div class="ma-header">Reconhecimento internacional</div>
+      <ul class="ma-body">
+        <li>Ato unilateral e discricionário (Varella)</li>
+        <li>Reconhecimento do Estado ≠ reconhecimento do governo</li>
+        <li>Doutrina Tobar: condicionalidades democráticas</li>
+        <li>Doutrina Estrada: não intervenção, soberania plena</li>
+        <li>Formas: formal, diplomático, de jure, de facto</li>
+        <li>ONU: veto dos 5 membros permanentes</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Argumentos centrais por tema</h3>
+  <div class="resumo-grid">
+    <div class="resumo-card">
+      <div class="resumo-card-header">Povo vs. População vs. Nação</div>
+      <ul class="resumo-card-body">
+        <li>Povo (Dallari): vínculo jurídico-político = cidadania</li>
+        <li>População (Varella): vínculo de nacionalidade (DIP)</li>
+        <li>Nação: identidade cultural-histórica, sem vínculo jurídico</li>
+        <li>Estrangeiro: parte da população demográfica, não do povo</li>
+        <li>Nacionalidade: atribuída pelo Estado soberanamente</li>
+      </ul>
+    </div>
+    <div class="resumo-card">
+      <div class="resumo-card-header">Território — pontos críticos</div>
+      <ul class="resumo-card-body">
+        <li>Tridimensional: terra, mar (12/200 mi.), espaço aéreo</li>
+        <li>Impenetrabilidade: duas soberanias não coexistem</li>
+        <li>Perda temporária não extingue o Estado</li>
+        <li>Patrimônio comum: alto-mar, Antártica, espaço sideral</li>
+        <li>Extraterritorialidade: só com consentimento do outro Estado</li>
+      </ul>
+    </div>
+    <div class="resumo-card">
+      <div class="resumo-card-header">Soberania — divergências</div>
+      <ul class="resumo-card-body">
+        <li>Dallari/Ranieri: elemento constitutivo (4.º)</li>
+        <li>Varella: atributo decorrente dos 3 requisitos</li>
+        <li>Mazzuoli: substitui por "governo"</li>
+        <li>Clássica: una, indivisível, inalienável, imprescritível</li>
+        <li>Contemporânea: relativa, limitada pela ordem internacional</li>
+      </ul>
+    </div>
+    <div class="resumo-card">
+      <div class="resumo-card-header">Finalidade — perspectiva de Ranieri</div>
+      <ul class="resumo-card-body">
+        <li>Teleológica (fins) + axiológica (valores)</li>
+        <li>Segurança: estabilidade jurídica e social</li>
+        <li>Justiça: uso legítimo da força institucionalizado</li>
+        <li>Bem-estar: condição universal de legitimidade</li>
+        <li>CF/88 como instrumento dos fins do Estado</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 10. QUESTÕES -->
+<section id="fixacao">
+  <div class="section-label">Seção 10</div>
+  <h2>Questões com respostas</h2>
+
+  <div class="qa-item">
+    <div class="qa-pergunta">
+      <span>Questão 1</span>
+      Quais são os elementos constitutivos do Estado segundo Dallari? Como essa classificação se diferencia da adotada por Varella e pela Convenção de Montevidéu?
+    </div>
+    <div class="qa-resposta">
+      <p>Para Dallari, os elementos constitutivos do Estado são quatro: <strong>soberania</strong>, <strong>território</strong>, <strong>povo</strong> e <strong>finalidade</strong>. Essa classificação é adotada pela perspectiva da teoria geral do Estado de matriz interna, voltada para a compreensão da estrutura constitucional e política da ordem estatal.</p>
+      <p>A <strong>Convenção de Montevidéu</strong> de 1933, por sua vez, elenca quatro requisitos: população permanente, território determinado, governo e capacidade de entrar em relações com os demais Estados. Trata-se de uma perspectiva do Direito Internacional Público, focada na existência do Estado como sujeito de direito internacional.</p>
+      <p><strong>Varella</strong> segue a Convenção, mas reduz os elementos a três (população, território, governo), tratando a "capacidade de manter relações internacionais" como consequência derivada. Para ele, a soberania não é elemento constitutivo, mas um atributo que se manifesta em capacidades e competências soberanas (internas e externas).</p>
+      <p>Já <strong>Mazzuoli</strong> propõe "governo" no lugar de soberania, aproximando-se da Convenção. A escolha terminológica revela uma divergência teórica mais profunda: para Dallari, a soberania é a essência do poder estatal; para os internacionalistas, o governo autônomo é o requisito verificável externamente.</p>
+      <span class="qa-fonte">Referência: slides aulas 26–28; Dallari, <em>Elementos de Teoria Geral do Estado</em>; Varella, <em>Direito Internacional Público</em></span>
+    </div>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-pergunta">
+      <span>Questão 2</span>
+      Explique a distinção entre povo, população e nação, destacando as implicações jurídicas de cada conceito.
+    </div>
+    <div class="qa-resposta">
+      <p>Os três conceitos são frequentemente confundidos, mas possuem conteúdo jurídico distinto.</p>
+      <p><strong>Povo</strong>, na acepção de Dallari, é o conjunto dos cidadãos do Estado — os indivíduos que, por meio de um momento jurídico fundador, estabeleceram com o Estado um vínculo jurídico de caráter permanente. O povo participa da formação da vontade estatal e do exercício do poder soberano. Sua dimensão jurídica é dupla: como sujeito (co-exercício do poder) e como objeto (destinatário da atividade estatal). Implica deveres e direitos recíprocos.</p>
+      <p><strong>População</strong>, na perspectiva internacionalista de Varella, é o conjunto de nacionais — aqueles que mantêm vínculo de <em>nacionalidade</em> com o Estado, independentemente de onde residam. Exclui os estrangeiros residentes no território. No sentido demográfico (direito interno), contudo, a população abrange todos os habitantes, inclusive estrangeiros.</p>
+      <p><strong>Nação</strong> não é um conceito jurídico, mas cultural e histórico. Para Dallari (seguindo Reale), nação é uma comunhão formada por laços históricos e culturais, assentada sobre relações objetivas de identidade coletiva. Não há vínculo jurídico necessário. Para Varella, a nação é hoje tratada como <em>ideologia</em> pelo direito — a ideia de uniformidade cultural que a sustentaria é empiricamente falsa.</p>
+      <p>A implicação prática mais relevante: um Estado pode conter várias nações (caso do Brasil, com suas diversas etnias e culturas); uma nação pode estar fragmentada em vários Estados. Por isso, "Estado-nação" é uma abstração política — não uma necessidade jurídica.</p>
+      <span class="qa-fonte">Referência: slides aula 26–27; Dallari; Varella</span>
+    </div>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-pergunta">
+      <span>Questão 3</span>
+      Quais são as principais características jurídicas do território do Estado? Explique a impenetrabilidade e suas significações jurídicas.
+    </div>
+    <div class="qa-resposta">
+      <p>O território, segundo Dallari, é a base física do Estado — o espaço tridimensional (terrestre, marítimo e aéreo) em que se exercem o poder soberano, se fixa o povo e se opera o governo. Sua delimitação é indispensável para a convivência internacional entre Estados.</p>
+      <p>A principal característica jurídica do território é a <strong>impenetrabilidade</strong>: o Estado detém o monopólio de ocupação de determinado espaço, sendo impossível que no mesmo lugar e ao mesmo tempo coexistam duas ou mais soberanias. Dessa característica decorrem duas significações jurídicas complementares: a <em>positiva</em>, que assegura ao Estado agir soberanamente no seu campo de ação (exclusividade do poder); e a <em>negativa</em>, que exclui outras ordenações jurídicas do mesmo espaço (proibição de soberanias concorrentes).</p>
+      <p>Outras características relevantes apontadas por Dallari: (i) a perda temporária do território <em>não extingue</em> o Estado; (ii) não existe tamanho mínimo de extensão territorial; (iii) caso haja interesse do povo, o Estado pode alienar parte do território; (iv) certas normas estatais podem atuar além das fronteiras territoriais, mas sem coerção extraterritorial sem consentimento do outro Estado soberano.</p>
+      <p>No plano internacional (Varella), a extraterritorialidade é <em>a priori</em> proibida. O Estado só pode exercer competências no território alheio com consentimento ou por meio de cooperação.</p>
+      <span class="qa-fonte">Referência: slides aulas 27–28; Dallari; Varella</span>
+    </div>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-pergunta">
+      <span>Questão 4</span>
+      O que é soberania? Como a teoria clássica (Dallari) se relaciona com os desafios contemporâneos identificados por Ranieri e Varella?
+    </div>
+    <div class="qa-resposta">
+      <p>Na teoria clássica sistematizada por Dallari, soberania é o poder supremo do Estado — superior a todos os demais poderes no âmbito interno e independente de qualquer outro no plano externo. Apresenta quatro características: <em>una</em> (não coexistem duas soberanias no mesmo Estado); <em>indivisível</em> (aplica-se universalmente a todos os fatos no Estado); <em>inalienável</em> (o titular desaparece ao perdê-la); e <em>imprescritível</em> (não tem prazo de duração).</p>
+      <p>Ranieri reconhece que o pluralismo normativo contemporâneo — com múltiplos centros de produção e decisão jurídica (organizações internacionais, blocos regionais, cortes internacionais) — convive com o Estado moderno sem descaracterizá-lo, mas exige reconhecer a natureza <em>relativa</em>, e não dogmática, da soberania. O Estado ainda é o único centro capaz de exercer poder de forma hegemônica no âmbito interno — mas essa hegemonia é limitada externamente.</p>
+      <p>Varella concretiza essa relatividade ao identificar: (i) zonas cinzas do controle estatal (crime organizado); (ii) integração regional (UE, Mercosul), que supõe cessão parcial de soberania; (iii) Direito Internacional Ambiental, Econômico e Humanitário, que impõe obrigações externas vinculantes. Para ele, soberania não é elemento constitutivo, mas atributo que se manifesta em competências internas (legislar, julgar, atribuir nacionalidade) e capacidades externas (celebrar tratados, ser sujeito de ilícitos internacionais).</p>
+      <span class="qa-fonte">Referência: slides aulas 27–28; Dallari; Ranieri; Varella</span>
+    </div>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-pergunta">
+      <span>Questão 5</span>
+      O que é finalidade como elemento constitutivo do Estado? Explique os fins de segurança, justiça e bem-estar social (Ranieri).
+    </div>
+    <div class="qa-resposta">
+      <p>A finalidade é, segundo Ranieri, o elemento do Estado que diz respeito à fundamentação de sua ação — seus fundamentos são simultaneamente <em>teleológicos</em> (relativos aos fins a serem atingidos) e <em>axiológicos</em> (relativos aos valores que orientam a ação estatal). A tarefa da política está justamente em dirigir o poder do Estado para a realização de fins reconhecidos como legítimos pelo povo.</p>
+      <p>No Estado Democrático de Direito, a Constituição é o instrumento pelo qual os fins e as formas de realizá-los se expressam, mediante discriminação de competências, encargos e formas de financiamento. É a hermenêutica constitucional que orienta o governante na escolha e hierarquização dos fins.</p>
+      <p>Os três fins fundamentais identificados por Ranieri são:</p>
+      <ul>
+        <li><strong>Segurança</strong>: em sentido amplo, abrange a segurança física, alimentar e sanitária de todos os habitantes; do ponto de vista jurídico, assegura a estabilidade das relações sociais e institucionais, a vigência das normas e a irrevogabilidade das decisões do poder público.</li>
+        <li><strong>Justiça</strong>: representa a institucionalização jurídica do uso legítimo da força — em substituição ao arbítrio da violência individual. No Estado de Direito, a justiça deve ser realizada de acordo com os valores sociais e de forma compatível com a segurança.</li>
+        <li><strong>Bem-estar social</strong>: condição universal de legitimidade do poder, presente em todas as formas históricas de Estado. Suas exigências se ampliam à medida que se multiplicam as necessidades materiais e sociais da sociedade política. Na CF/88, manifesta-se nos arts. 6.º a 11 (direitos sociais).</li>
+      </ul>
+      <span class="qa-fonte">Referência: slides aula 28; Ranieri; Dallari</span>
+    </div>
+  </div>
+
+  <div class="perguntas-adicionais">
+    <h3>Questões adicionais para aprofundamento</h3>
+    <ol>
+      <li>A distinção entre "povo" (Dallari) e "população" (Varella) tem implicações práticas no tratamento dos imigrantes indocumentados? Discuta à luz da CF/88 e do Estatuto do Estrangeiro.</li>
+      <li>O conceito de "nação" foi mobilizado historicamente para justificar tanto movimentos de independência legítimos quanto práticas de limpeza étnica. Como o direito internacional lida com o princípio da autodeterminação dos povos à luz dessa ambiguidade?</li>
+      <li>A adesão do Brasil ao Mercosul e a possíveis tratados de integração mais profunda implica cessão de soberania? A soberania clássica de Dallari é compatível com a integração regional?</li>
+      <li>O crime organizado transnacional cria "zonas de não direito" dentro do território estatal. Esse fenômeno compromete a impenetrabilidade territorial discutida por Dallari? O Estado perde algum elemento constitutivo nessa situação?</li>
+    </ol>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 11. REFERÊNCIAS -->
+<section id="refs">
+  <div class="section-label">Seção 11</div>
+  <h2>Referências</h2>
+  <ul class="ref-list">
+    <li>BRASIL. Decreto n. 1.570, de 13 de abril de 1938. Promulga a Convenção sobre Direitos e Deveres dos Estados, firmada em Montevidéu em 26 de dezembro de 1933. Diário Oficial da União, 1938.</li>
+    <li>DALLARI, Dalmo de Abreu. <em>Elementos de Teoria Geral do Estado</em>. 33. ed. São Paulo: Saraiva, 2016.</li>
+    <li>RANIERI, Nina Beatriz Stocco. <em>Teoria do Estado: do Estado de Direito ao Estado Democrático de Direito</em>. Barueri: Manole, 2013.</li>
+    <li>VARELLA, Marcelo D. <em>Direito Internacional Público</em>. 7. ed. São Paulo: Saraiva, 2018.</li>
+    <li>MAZZUOLI, Valério de Oliveira. <em>Curso de Direito Internacional Público</em>. 12. ed. Rio de Janeiro: Forense, 2019.</li>
+    <li>REALE, Miguel. <em>Teoria do Direito e do Estado</em>. 5. ed. São Paulo: Saraiva, 2000.</li>
+    <li>JELLINEK, Georg. <em>Teoria General del Estado</em>. Trad. Fernando de los Ríos Urruti. Granada: Comares, 2000.</li>
+    <li>Convenção de Montego Bay (UNCLOS), 1982 — sobre direito de passagem inocente e ZEE.</li>
+    <li>Tratado sobre os Princípios Reguladores das Atividades dos Estados na Exploração e Uso do Espaço Cósmico, 1967.</li>
+    <li>Tratado de Chicago sobre Aviação Civil Internacional, 1944.</li>
+  </ul>
+</section>
+
+</main>
+</body>
+</html>

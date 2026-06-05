@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marx e Engels</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,'Times New Roman',serif;font-size:15px;line-height:1.8;color:#1a1a1a;background:#fdfaf6}
+.cover{background:linear-gradient(160deg,#1a1a1a 55%,#3a3a3a);color:#fff;padding:60px 48px 48px;min-height:220px;position:relative;overflow:hidden}
+.cover::before{content:'';position:absolute;right:-40px;top:-40px;width:220px;height:220px;border-radius:50%;border:1px solid rgba(255,255,255,0.07)}
+.cover::after{content:'';position:absolute;right:20px;top:20px;width:140px;height:140px;border-radius:50%;border:1px solid rgba(255,255,255,0.05)}
+.cover-badge{font-family:Arial,sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:16px}
+.cover h1{font-size:32px;font-weight:normal;letter-spacing:0.5px;margin-bottom:8px}
+.cover-sub{font-size:14px;color:rgba(255,255,255,0.6);margin-top:8px}
+.cover-authors{margin-top:24px;font-size:13px;color:rgba(255,255,255,0.45);border-top:1px solid rgba(255,255,255,0.1);padding-top:16px}
+.toc{background:#fff;border-bottom:1px solid #e8e2d8;padding:28px 48px}
+.toc h2{font-family:Arial,sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-bottom:16px;font-weight:normal}
+.toc-list{list-style:none}
+.toc-list li{display:flex;align-items:baseline;gap:8px;padding:5px 0;font-size:14px}
+.toc-list li a{color:#1a3060;text-decoration:none}
+.toc-list li a:hover{text-decoration:underline}
+.toc-num{font-family:Arial,sans-serif;font-size:11px;color:#aaa;min-width:20px}
+.toc-dots{flex:1;border-bottom:1px dotted #d0c9be;margin:0 6px}
+.toc-pg{font-family:Arial,sans-serif;font-size:12px;color:#aaa}
+main{max-width:720px;margin:0 auto;padding:40px 48px 80px}
+section{margin-bottom:52px}
+.section-label{font-family:Arial,sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#b08a5a;margin-bottom:6px}
+h2{font-size:22px;font-weight:normal;color:#1a1a1a;margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid #e0d8cc}
+h3{font-size:16px;font-weight:normal;color:#1a1a1a;margin:28px 0 10px;font-style:italic}
+p{margin-bottom:14px;text-align:justify}
+.quote-block{margin:24px 0;padding:16px 20px 16px 24px;border-left:3px solid #1a1a1a;background:#f4f0e8;border-radius:0 4px 4px 0}
+.quote-block p{margin:0;font-style:italic;font-size:14px;color:#2a2a2a;line-height:1.75}
+.quote-ref{font-family:Arial,sans-serif;font-size:11px;color:#888;margin-top:6px;font-style:normal}
+.concept-box{background:#fff;border:1px solid #ddd7cc;border-radius:6px;padding:16px 20px;margin:20px 0}
+.concept-box .cb-label{font-family:Arial,sans-serif;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-bottom:8px}
+.concept-box p{margin:0;font-size:14px}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0}
+.compare-card{border:1px solid #ddd7cc;border-radius:6px;padding:16px 18px;background:#fff}
+.compare-card .cc-title{font-family:Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#fff;background:#1a1a1a;display:inline-block;padding:3px 10px;border-radius:3px;margin-bottom:10px}
+.compare-card ul{list-style:none;padding:0}
+.compare-card ul li{font-size:13px;padding:4px 0;border-bottom:1px solid #f0ece4;color:#333;line-height:1.5}
+.compare-card ul li:last-child{border-bottom:none}
+.compare-card ul li::before{content:"▸ ";color:#b08a5a;font-size:11px}
+.highlight-box{background:#1a1a1a;color:#fff;border-radius:6px;padding:18px 22px;margin:24px 0}
+.highlight-box p{color:rgba(255,255,255,0.88);margin:0;font-size:14px;line-height:1.75}
+.highlight-box strong{color:#fff}
+.timeline{margin:20px 0}
+.tl-item{display:flex;gap:16px;margin-bottom:12px;align-items:flex-start}
+.tl-year{font-family:Arial,sans-serif;font-size:12px;font-weight:bold;color:#fff;background:#1a1a1a;padding:3px 8px;border-radius:3px;min-width:60px;text-align:center;margin-top:2px}
+.tl-text{font-size:14px;color:#333;flex:1;padding-top:4px}
+.authors-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:16px 0}
+.author-card{border:1px solid #ddd7cc;border-radius:6px;padding:12px 14px;background:#fff;text-align:center}
+.author-initial{width:40px;height:40px;border-radius:50%;background:#1a1a1a;color:#fff;display:flex;align-items:center;justify-content:center;font-family:Arial,sans-serif;font-size:16px;margin:0 auto 8px}
+.author-name{font-size:13px;font-weight:bold;color:#1a1a1a}
+.author-role{font-size:11px;color:#888;margin-top:3px;font-family:Arial,sans-serif}
+.obras-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:16px 0}
+.obra-card{border:1px solid #ddd7cc;border-radius:6px;overflow:hidden;background:#fff}
+.obra-header{background:#2a2a2a;color:#fff;padding:6px 12px;font-family:Arial,sans-serif;font-size:11px;letter-spacing:0.5px}
+.obra-body{padding:10px 12px;font-size:13px;color:#444;line-height:1.55}
+.section-divider{text-align:center;color:#ccc;letter-spacing:8px;margin:32px 0;font-size:12px}
+.resumo-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0}
+.resumo-card{background:#fff;border:1px solid #ddd7cc;border-radius:6px;overflow:hidden}
+.resumo-card-header{background:#1a1a1a;color:#fff;padding:8px 14px;font-family:Arial,sans-serif;font-size:11px;letter-spacing:0.8px}
+.resumo-card-body{padding:12px 14px}
+.resumo-card-body ul{list-style:none;padding:0}
+.resumo-card-body ul li{font-size:13px;padding:4px 0;border-bottom:1px solid #f5f2ec;color:#333;line-height:1.5}
+.resumo-card-body ul li:last-child{border-bottom:none}
+.resumo-card-body ul li::before{content:"• ";color:#b08a5a}
+.conceitos-chave{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0}
+.ck-item{background:#f4f0e8;border-radius:5px;padding:10px 12px;text-align:center}
+.ck-term{font-family:Arial,sans-serif;font-size:12px;font-weight:bold;color:#1a1a1a;margin-bottom:4px}
+.ck-def{font-size:11px;color:#555;line-height:1.45}
+.mapa-obras{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0}
+.mo-card{border:1px solid #ddd7cc;border-radius:5px;overflow:hidden;background:#fff}
+.mo-header{background:#2e2e2e;color:#fff;padding:6px 10px;font-family:Arial,sans-serif;font-size:11px}
+.mo-body{padding:8px 10px;font-size:12px;color:#444}
+.mo-body li{list-style:none;padding:2px 0}
+.mo-body li::before{content:"→ ";color:#b08a5a;font-size:11px}
+.qa-item{margin-bottom:24px;border:1px solid #ddd7cc;border-radius:6px;overflow:hidden;background:#fff}
+.qa-pergunta{background:#1a1a1a;color:#fff;padding:12px 18px;font-size:14px;font-family:Georgia,serif;line-height:1.5}
+.qa-pergunta span{font-family:Arial,sans-serif;font-size:11px;color:rgba(255,255,255,0.45);display:block;margin-bottom:4px;letter-spacing:1px}
+.qa-resposta{padding:16px 18px}
+.qa-resposta p{margin-bottom:10px;font-size:14px}
+.qa-resposta p:last-child{margin-bottom:0}
+.qa-fonte{font-family:Arial,sans-serif;font-size:11px;color:#aaa;margin-top:10px;font-style:normal;display:block}
+.perguntas-adicionais{background:#f0f0f0;border:1px solid #d0d0d0;border-radius:6px;padding:20px 24px;margin-top:20px}
+.perguntas-adicionais h3{font-style:normal;margin:0 0 14px;font-size:14px;font-family:Arial,sans-serif;letter-spacing:0.5px;color:#444}
+.perguntas-adicionais ol{padding-left:18px}
+.perguntas-adicionais ol li{font-size:14px;padding:5px 0;color:#333}
+.ref-list{list-style:none;padding:0}
+.ref-list li{font-size:13px;padding:5px 0;border-bottom:1px dotted #e0d8cc;color:#444}
+.ref-list li:last-child{border-bottom:none}
+.etapas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0}
+.etapa-card{border:1px solid #ddd7cc;border-radius:6px;overflow:hidden;background:#fff}
+.etapa-num{background:#1a1a1a;color:#fff;padding:4px 10px;font-family:Arial,sans-serif;font-size:10px;letter-spacing:1px;text-align:center}
+.etapa-body{padding:10px 12px;font-size:12px;color:#444;line-height:1.6}
+.etapa-body strong{display:block;font-size:13px;color:#1a1a1a;margin-bottom:4px;font-style:normal;font-family:Arial,sans-serif}
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="cover-badge">Ciências Políticas · Graduação</div>
+  <h1>Marx e Engels</h1>
+  <p class="cover-sub">Consciência, Luta de Classes, Estado e Emancipação Humana</p>
+  <div class="cover-authors">
+    Baseado no <em>Manifesto do Partido Comunista</em> (1848), na <em>Crítica da Filosofia do Direito de Hegel — Introdução</em> (1844) e na Carta a Ruge (1843) · Prof. Vitor Bizerril
+  </div>
+</div>
+
+<div class="toc">
+  <h2>Sumário</h2>
+  <ul class="toc-list">
+    <li><span class="toc-num">1.</span><a href="#ctx">Contexto histórico e vida de Marx</a><span class="toc-dots"></span><span class="toc-pg">§1</span></li>
+    <li><span class="toc-num">2.</span><a href="#consciencia">A reforma da consciência — Carta a Ruge</a><span class="toc-dots"></span><span class="toc-pg">§2</span></li>
+    <li><span class="toc-num">3.</span><a href="#religiao">A religião como ópio do povo</a><span class="toc-dots"></span><span class="toc-pg">§3</span></li>
+    <li><span class="toc-num">4.</span><a href="#classes">Lutas de classes e a sociedade burguesa</a><span class="toc-dots"></span><span class="toc-pg">§4</span></li>
+    <li><span class="toc-num">5.</span><a href="#estado">O papel do Estado</a><span class="toc-dots"></span><span class="toc-pg">§5</span></li>
+    <li><span class="toc-num">6.</span><a href="#propriedade">Abolição da propriedade privada dos meios de produção</a><span class="toc-dots"></span><span class="toc-pg">§6</span></li>
+    <li><span class="toc-num">7.</span><a href="#direitos">Direitos humanos — a crítica marxista</a><span class="toc-dots"></span><span class="toc-pg">§7</span></li>
+    <li><span class="toc-num">8.</span><a href="#democracia">Constituição e democracia</a><span class="toc-dots"></span><span class="toc-pg">§8</span></li>
+    <li><span class="toc-num">9.</span><a href="#ditadura">A ditadura do proletariado</a><span class="toc-dots"></span><span class="toc-pg">§9</span></li>
+    <li><span class="toc-num">10.</span><a href="#estado2">"O Estado definha e morre"</a><span class="toc-dots"></span><span class="toc-pg">§10</span></li>
+    <li><span class="toc-num">11.</span><a href="#resumo">Resumo para revisão</a><span class="toc-dots"></span><span class="toc-pg">§11</span></li>
+    <li><span class="toc-num">12.</span><a href="#fixacao">Questões com respostas</a><span class="toc-dots"></span><span class="toc-pg">§12</span></li>
+    <li><span class="toc-num">13.</span><a href="#refs">Referências</a><span class="toc-dots"></span><span class="toc-pg">§13</span></li>
+  </ul>
+</div>
+
+<main>
+
+<!-- 1. CONTEXTO -->
+<section id="ctx">
+  <div class="section-label">Seção 1</div>
+  <h2>Contexto histórico e vida de Marx</h2>
+  <p>Karl Marx e Friedrich Engels escrevem num dos períodos de maior efervescência do mundo moderno: a Europa pós-Revolução Francesa, sacudida pelas Revoluções de 1848 e pela consolidação da Revolução Industrial. O capitalismo industrial produzia riqueza sem precedentes e, ao mesmo tempo, gerava miséria em massa — o que coloca a questão da exploração do trabalho no centro da filosofia, da economia e da política.</p>
+  <div class="authors-grid">
+    <div class="author-card">
+      <div class="author-initial">KM</div>
+      <div class="author-name">Karl Marx (1818–1883)</div>
+      <div class="author-role">Filósofo, economista e jornalista. Nascido em Trier/Tréveris, Prússia. Tornou-se apátrida por suas opiniões políticas; exilado em Paris e Londres.</div>
+    </div>
+    <div class="author-card">
+      <div class="author-initial">FE</div>
+      <div class="author-name">Friedrich Engels (1820–1895)</div>
+      <div class="author-role">Filósofo e industrial alemão. Coautor do Manifesto. Financiou Marx durante décadas e publicou os volumes II e III d'O Capital após sua morte.</div>
+    </div>
+  </div>
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-year">1842–43</div><div class="tl-text">Marx torna-se redator-chefe da <em>Gazeta Renana</em>, censurada pelo governo prussiano. Conhece Engels. Escreve para os <em>Anais Franco-Alemães</em>.</div></div>
+    <div class="tl-item"><div class="tl-year">1843</div><div class="tl-text"><em>Carta a Ruge</em> — expõe o projeto de reforma da consciência; defende uma crítica que parte dos princípios do próprio mundo.</div></div>
+    <div class="tl-item"><div class="tl-year">1843–44</div><div class="tl-text"><em>Crítica da Filosofia do Direito de Hegel — Introdução</em>: religião como ópio do povo; crítica do céu como crítica da terra.</div></div>
+    <div class="tl-item"><div class="tl-year">1844</div><div class="tl-text"><em>Manuscritos econômico-filosóficos</em>; <em>Sobre a questão judaica</em> — crítica marxista dos direitos humanos burgueses.</div></div>
+    <div class="tl-item"><div class="tl-year">1845</div><div class="tl-text"><em>A ideologia alemã</em> (com Engels) — formulação do materialismo histórico.</div></div>
+    <div class="tl-item"><div class="tl-year">1848</div><div class="tl-text"><em>O Manifesto do Partido Comunista</em> — teoria da luta de classes, crítica da propriedade burguesa, programa da revolução proletária. Revolução na França e em toda a Europa.</div></div>
+    <div class="tl-item"><div class="tl-year">1867</div><div class="tl-text"><em>O Capital</em>, vol. I — análise do modo de produção capitalista, mais-valia, alienação do trabalho.</div></div>
+  </div>
+  <div class="obras-grid">
+    <div class="obra-card"><div class="obra-header">Carta a Ruge (1843)</div><div class="obra-body">Programa da crítica como reforma da consciência — desenvolver novos princípios a partir dos princípios do próprio mundo.</div></div>
+    <div class="obra-card"><div class="obra-header">Crítica da Filosofia do Direito de Hegel — Introdução (1844)</div><div class="obra-body">A religião como "ópio do povo"; necessidade de superar a alienação religiosa e política pela crítica filosófica.</div></div>
+    <div class="obra-card"><div class="obra-header">Sobre a questão judaica (1844)</div><div class="obra-body">Crítica dos direitos humanos burgueses: liberdade, propriedade e segurança como expressões do egoísmo individual.</div></div>
+    <div class="obra-card"><div class="obra-header">Manifesto do Partido Comunista (1848)</div><div class="obra-body">História como luta de classes; papel revolucionário da burguesia; missão histórica do proletariado; abolição da propriedade burguesa.</div></div>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 2. REFORMA DA CONSCIÊNCIA -->
+<section id="consciencia">
+  <div class="section-label">Seção 2</div>
+  <h2>A reforma da consciência — Carta a Ruge (1843)</h2>
+  <p>Numa carta dirigida a Arnold Ruge em setembro de 1843, Marx formula com precisão o método e o objetivo da crítica filosófica. O texto recusa o dogmatismo — a postura de quem se apresenta ao mundo portando "a verdade" pronta — e propõe algo diferente: a crítica parte das contradições que o próprio mundo já contém.</p>
+  <h3>Novos princípios a partir dos princípios do mundo</h3>
+  <div class="quote-block">
+    <p>Não vamos ao encontro do mundo de modo doutrinário com um novo princípio. Desenvolvemos novos princípios para o mundo a partir dos princípios do mundo. Nós apenas lhe mostramos o porquê de ele estar lutando, a consciência é algo de que ele terá de apropriar-se, mesmo que não queira.</p>
+    <div class="quote-ref">Marx, Carta a Ruge, setembro de 1843</div>
+  </div>
+  <p>O método marxiano não é ditar ao mundo sua "verdade" de fora, mas ajudá-lo a reconhecer, pela crítica, as contradições que ele mesmo já vive. A reforma da consciência não é imposta de fora como dogma — ela resulta da análise das formas da consciência mística (religiosa ou política), levando-as a esclarecer-se a si mesmas.</p>
+  <div class="concept-box">
+    <div class="cb-label">Definição — Reforma da consciência</div>
+    <p>Consiste em "deixar o mundo interiorizar sua consciência, despertando-o do sonho sobre si mesmo, explicando-lhe suas próprias ações". O propósito é colocar as questões religiosas e políticas em sua forma humana autoconsciente — não substituí-las por um sistema pronto.</p>
+  </div>
+  <div class="highlight-box">
+    <p><strong>Síntese:</strong> O lema do projeto marxiano é <em>autoentendimento da época sobre suas lutas e desejos</em>. A filosofia crítica não descobre um mundo novo — ajuda o mundo a descobrir-se a si mesmo. Isso distingue Marx tanto do idealismo doutrinário quanto do comunismo dogmático de sua época (Cabet, Weitling).</p>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 3. RELIGIÃO -->
+<section id="religiao">
+  <div class="section-label">Seção 3</div>
+  <h2>A religião como ópio do povo</h2>
+  <p>Na <em>Crítica da Filosofia do Direito de Hegel — Introdução</em> (1844), Marx retoma e radicaliza a crítica da religião iniciada por Feuerbach. O argumento parte de uma inversão: não é Deus que cria o homem, mas o homem que cria Deus. A religião é produto de condições sociais determinadas — de um mundo invertido — e por isso é ela própria uma <em>consciência invertida do mundo</em>.</p>
+  <h3>Dupla função da religião</h3>
+  <p>Marx recusa a leitura simplista de que a religião seria apenas um engano ou uma conspiração. Para ele, a religião tem uma <em>dupla função</em>: ela é simultaneamente a <strong>expressão da miséria real</strong> e o <strong>protesto contra essa miséria</strong>. Como tal, ela oferece consolo — um "coração num mundo sem coração" — mas ao mesmo tempo desvia o sujeito da transformação efetiva das condições de vida.</p>
+  <div class="quote-block">
+    <p>A miséria religiosa constitui ao mesmo tempo a expressão da miséria real e o protesto contra a miséria real. A religião é o suspiro da criatura oprimida, o ânimo de um mundo sem coração, assim como o espírito de estados de coisas embrutecidos. Ela é o ópio do povo.</p>
+    <div class="quote-ref">Marx, Crítica da Filosofia do Direito de Hegel — Introdução, 1844</div>
+  </div>
+  <div class="compare-grid">
+    <div class="compare-card">
+      <span class="cc-title">O que a religião é</span>
+      <ul>
+        <li>Teoria geral do mundo invertido</li>
+        <li>Compêndio enciclopédico do sofrimento</li>
+        <li>Sanção moral da ordem existente</li>
+        <li>Base de consolação e justificação</li>
+        <li>Realização fantástica da essência humana</li>
+        <li>Expressão genuína da miséria real</li>
+      </ul>
+    </div>
+    <div class="compare-card">
+      <span class="cc-title">O que a religião faz</span>
+      <ul>
+        <li>Desloca o protesto do plano material ao espiritual</li>
+        <li>Legitima a ordem social vigente</li>
+        <li>Oferece felicidade ilusória ao povo</li>
+        <li>Impede a transformação das condições reais</li>
+        <li>Inverte: o homem gira em torno de Deus, não de si</li>
+        <li>Aliena o homem de sua essência genérica</li>
+      </ul>
+    </div>
+  </div>
+  <div class="concept-box">
+    <div class="cb-label">Atenção — crítica da religião como crítica do mundo</div>
+    <p>Para Marx, a crítica da religião não é um fim em si. Ela é o <em>pressuposto</em> de toda crítica social. Destruída a ilusão religiosa, o homem precisa encarar diretamente as condições materiais e políticas que a produzem. "A crítica do céu transforma-se, assim, na crítica da terra, a crítica da religião na crítica do direito, a crítica da teologia na crítica da política."</p>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 4. LUTAS DE CLASSES -->
+<section id="classes">
+  <div class="section-label">Seção 4</div>
+  <h2>Lutas de classes e a sociedade burguesa</h2>
+  <p>A primeira frase do <em>Manifesto do Partido Comunista</em> (1848) condensa toda a filosofia da história de Marx: "A história de todas as sociedades até hoje existentes é a história das lutas de classes." Opressores e oprimidos sempre existiram — o que muda é a forma histórica do antagonismo.</p>
+  <h3>Definições fundamentais</h3>
+  <div class="quote-block">
+    <p>Por burguesia entende-se a classe dos capitalistas modernos, proprietários dos meios de produção social que empregam o trabalho assalariado. Por proletariado, a classe dos assalariados modernos que, não tendo meios próprios de produção, são obrigados a vender sua força de trabalho para sobreviver.</p>
+    <div class="quote-ref">Engels, nota ao Manifesto, edição inglesa de 1888</div>
+  </div>
+  <h3>O papel revolucionário da burguesia</h3>
+  <p>Marx reconhece o papel historicamente revolucionário da burguesia: ela destruiu as relações feudais, criou o mercado mundial, desenvolveu as forças produtivas numa escala sem precedente. No entanto, ao fazê-lo, substituiu uma exploração dissimulada (pelo manto religioso e feudal) por uma <em>exploração aberta, direta e sem disfarces</em>. A burguesia produziu, acima de tudo, seus próprios "coveiros" — o proletariado.</p>
+  <div class="quote-block">
+    <p>A sociedade burguesa moderna, que brotou das ruínas da sociedade feudal, não aboliu os antagonismos de classe. Não fez mais do que estabelecer novas classes, novas condições de opressão, novas formas de luta em lugar das que existiram no passado.</p>
+    <div class="quote-ref">Marx e Engels, Manifesto do Partido Comunista, 1848</div>
+  </div>
+  <div class="highlight-box">
+    <p><strong>Tese central:</strong> O desenvolvimento do capitalismo não resolve os antagonismos de classe — aprofunda-os, simplifica-os e os polariza entre dois campos cada vez mais definidos: burguesia e proletariado. Ao mesmo tempo, o próprio capitalismo fornece ao proletariado as condições materiais (concentração nas fábricas, comunicação, organização) para sua emancipação.</p>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 5. O ESTADO -->
+<section id="estado">
+  <div class="section-label">Seção 5</div>
+  <h2>O papel do Estado</h2>
+  <p>Para Marx e Engels, o Estado não é uma instituição neutra que representa toda a sociedade. Ele é, antes de tudo, o instrumento da classe economicamente dominante para garantir e perpetuar as condições de sua dominação.</p>
+  <div class="quote-block">
+    <p>A sociedade que tivemos até agora, que se move por meio de antagonismos de classes, necessitou do Estado — isto é, de uma organização da respectiva classe espoliadora — para sustentar suas condições exteriores de produção, ou seja, principalmente, para reprimir pela força a classe espoliada nas condições de opressão dadas pelo modo de produção vigente.</p>
+    <div class="quote-ref">Engels, <em>Anti-Dühring</em> / <em>Do socialismo utópico ao científico</em></div>
+  </div>
+  <p>O Estado representou oficialmente toda a sociedade apenas na medida em que foi o Estado da classe que, naquela época, <em>representava</em> toda a sociedade: na Antiguidade, o Estado dos cidadãos escravistas; na Idade Média, o Estado da nobreza feudal; na modernidade, o Estado da burguesia. O executivo no Estado moderno não é senão um comitê para gerir os negócios comuns da classe burguesa.</p>
+  <div class="concept-box">
+    <div class="cb-label">Atenção — Estado e classe</div>
+    <p>A tese não é que o Estado seja sempre capturado por interesses privados — é mais radical que isso: o Estado, como forma política, <em>pressupõe</em> a divisão da sociedade em classes. Enquanto existirem classes, o Estado será necessariamente um instrumento de dominação de classe, ainda que se apresente como representante universal.</p>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 6. PROPRIEDADE PRIVADA -->
+<section id="propriedade">
+  <div class="section-label">Seção 6</div>
+  <h2>Abolição da propriedade privada dos meios de produção</h2>
+  <p>Um dos pontos mais mal compreendidos do programa comunista é a proposta de "abolição da propriedade privada". Marx e Engels dedicam considerável espaço do <em>Manifesto</em> a esclarecer que <strong>não se trata de abolir toda propriedade</strong>, mas especificamente a <em>propriedade burguesa</em> dos meios de produção.</p>
+  <h3>A distinção decisiva</h3>
+  <div class="compare-grid">
+    <div class="compare-card">
+      <span class="cc-title">Propriedade pessoal</span>
+      <ul>
+        <li>Fruto do trabalho direto do indivíduo</li>
+        <li>Propriedade do pequeno agricultor, artesão</li>
+        <li>Já foi sendo destruída pelo próprio capitalismo</li>
+        <li>Os comunistas não precisam aboli-la</li>
+        <li>Não gera exploração do trabalho alheio</li>
+      </ul>
+    </div>
+    <div class="compare-card">
+      <span class="cc-title">Propriedade burguesa</span>
+      <ul>
+        <li>Propriedade dos meios de produção social</li>
+        <li>Baseada no trabalho assalariado (exploração)</li>
+        <li>Pressupõe que 9/10 da sociedade não possua nada</li>
+        <li>Capital = poder social monopolizado por uma classe</li>
+        <li>É esta que o comunismo propõe abolir</li>
+      </ul>
+    </div>
+  </div>
+  <div class="quote-block">
+    <p>O que caracteriza o comunismo não é a abolição da propriedade em geral, mas a abolição da propriedade burguesa.</p>
+    <div class="quote-ref">Marx e Engels, Manifesto do Partido Comunista, 1848</div>
+  </div>
+  <div class="quote-block">
+    <p>Horrorizai-vos porque queremos suprimir a propriedade privada. Mas em vossa sociedade a propriedade privada está suprimida para nove décimos de seus membros. E é precisamente porque não existe para estes nove décimos que ela existe para vós.</p>
+    <div class="quote-ref">Marx e Engels, Manifesto do Partido Comunista, 1848</div>
+  </div>
+  <div class="highlight-box">
+    <p><strong>Síntese:</strong> O capital não é um poder pessoal — é um poder social. Quando transformado em propriedade comum, o que se transforma não é a propriedade pessoal em propriedade social, mas o <em>caráter de classe</em> da propriedade. A sociedade comunista não "priva ninguém do poder de se apropriar de sua parte dos produtos sociais" — apenas suprime o poder de subjugar o trabalho de outros por meio dessa apropriação.</p>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 7. DIREITOS HUMANOS -->
+<section id="direitos">
+  <div class="section-label">Seção 7</div>
+  <h2>Direitos humanos — a crítica marxista</h2>
+  <p>Em <em>Sobre a questão judaica</em> (1844), Marx analisa os direitos proclamados pelas Revoluções Americana e Francesa. Sua tese é que os chamados "direitos humanos" (<em>droits de l'homme</em>) são, na verdade, os direitos do membro da <em>sociedade burguesa</em> — os direitos do homem egoísta, separado da comunidade.</p>
+  <h3>Liberdade — o direito à separação</h3>
+  <div class="quote-block">
+    <p>O direito humano à liberdade não se baseia na vinculação do homem com os demais homens, mas, ao contrário, na separação entre um homem e outro. Trata-se do direito a essa separação, o direito do indivíduo limitado, limitado a si mesmo.</p>
+    <div class="quote-ref">Marx, Sobre a questão judaica, 1844</div>
+  </div>
+  <h3>Propriedade — o direito ao proveito próprio</h3>
+  <div class="quote-block">
+    <p>O direito humano à propriedade privada é o direito de desfrutar a seu bel prazer sem levar outros em consideração, independentemente da sociedade. Ela faz com que cada homem veja no outro homem, não a realização, mas, ao contrário, a restrição de sua liberdade.</p>
+    <div class="quote-ref">Marx, Sobre a questão judaica, 1844</div>
+  </div>
+  <h3>Segurança — a asseguração do egoísmo</h3>
+  <div class="quote-block">
+    <p>A segurança é o conceito social supremo da sociedade burguesa, o conceito da polícia, no sentido de que o conjunto da sociedade só existe para garantir a cada um de seus membros a conservação de sua pessoa, de seus direitos e de sua propriedade. Através do conceito da segurança, a sociedade burguesa não se eleva acima do seu egoísmo. A segurança é, antes, a asseguração do seu egoísmo.</p>
+    <div class="quote-ref">Marx, Sobre a questão judaica, 1844</div>
+  </div>
+  <div class="concept-box">
+    <div class="cb-label">Atenção — emancipação política vs. emancipação humana</div>
+    <p>Marx não nega que os direitos liberais representem um avanço em relação ao Antigo Regime. Mas insiste que a <em>emancipação política</em> (conquista dos direitos burgueses) não equivale à <em>emancipação humana</em>. Esta última exige que o homem individual reconheça e organize suas forças como forças sociais — superando a separação entre o homem privado (egoísta) e o cidadão abstrato.</p>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 8. CONSTITUIÇÃO E DEMOCRACIA -->
+<section id="democracia">
+  <div class="section-label">Seção 8</div>
+  <h2>Constituição e democracia</h2>
+  <p>Na <em>Crítica da Filosofia do Direito de Hegel</em> (1843), Marx analisa a relação entre o povo e sua constituição. A posição marxiana inverte a lógica idealista hegeliana: não é o Estado que cria o povo, mas o povo que cria o Estado.</p>
+  <div class="quote-block">
+    <p>Do mesmo modo que a religião não cria o homem, mas o homem cria a religião, assim também não é a constituição que cria o povo, mas o povo que cria a constituição.</p>
+    <div class="quote-ref">Marx, Crítica da Filosofia do Direito de Hegel, 1843</div>
+  </div>
+  <h3>A diferença fundamental da democracia</h3>
+  <div class="quote-block">
+    <p>O homem não existe em razão da lei, mas a lei existe em razão do homem, é a existência humana, enquanto nas outras formas de Estado o homem é a existência legal. Tal é a diferença fundamental da democracia.</p>
+    <div class="quote-ref">Marx, Crítica da Filosofia do Direito de Hegel, 1843</div>
+  </div>
+  <div class="compare-grid">
+    <div class="compare-card">
+      <span class="cc-title">Monarquia / outras formas</span>
+      <ul>
+        <li>O homem existe em razão da lei</li>
+        <li>A constituição cria o povo</li>
+        <li>O particular (monarca) define o universal</li>
+        <li>O povo é subsumido à constituição política</li>
+        <li>Estado como fim em si mesmo</li>
+      </ul>
+    </div>
+    <div class="compare-card">
+      <span class="cc-title">Democracia</span>
+      <ul>
+        <li>A lei existe em razão do homem</li>
+        <li>O povo cria a constituição</li>
+        <li>A constituição é autodeterminação do povo</li>
+        <li>A constituição é apenas um momento do povo</li>
+        <li>O Estado como meio para a existência humana</li>
+      </ul>
+    </div>
+  </div>
+  <div class="highlight-box">
+    <p><strong>Atenção:</strong> Para Marx, a democracia é "o enigma resolvido de todas as constituições" — mas isso não significa que as democracias burguesas existentes satisfaçam essa exigência. A democracia real pressupõe a superação da separação entre o homem privado e o cidadão — o que não ocorre enquanto persistir a divisão de classes.</p>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 9. DITADURA DO PROLETARIADO -->
+<section id="ditadura">
+  <div class="section-label">Seção 9</div>
+  <h2>A ditadura do proletariado</h2>
+  <p>O conceito de "ditadura do proletariado" é um dos mais deturpados do pensamento marxiano. Para compreendê-lo corretamente, é preciso distingui-lo de seu uso histórico posterior e situá-lo na teoria de Marx sobre o Estado e a transição ao comunismo.</p>
+  <h3>Ditadura não é necessariamente autoritarismo</h3>
+  <p>No vocabulário político do século XIX, "ditadura" designava o domínio de uma classe, não necessariamente um regime de terror. Toda forma de Estado é, para Marx, uma ditadura de alguma classe. O Estado capitalista é a <em>ditadura da burguesia</em> — ainda que se apresente como democracia formal. A ditadura do proletariado seria o correspondente período em que o proletariado detém o poder de Estado.</p>
+  <div class="etapas-grid">
+    <div class="etapa-card">
+      <div class="etapa-num">Fase 1</div>
+      <div class="etapa-body"><strong>Revolução</strong>Elevação do proletariado a classe dominante; conquista da democracia; derrubada violenta da supremacia burguesa.</div>
+    </div>
+    <div class="etapa-card">
+      <div class="etapa-num">Fase 2</div>
+      <div class="etapa-body"><strong>Ditadura do proletariado</strong>Período de transição. Socialização dos meios de produção. Destruição da estrutura político-econômica de classes. Estado ainda existe, mas como instrumento do proletariado.</div>
+    </div>
+    <div class="etapa-card">
+      <div class="etapa-num">Fase 3</div>
+      <div class="etapa-body"><strong>Comunismo</strong>Extinção das classes e do próprio Estado. Associação de indivíduos livres. O desenvolvimento de cada um como condição do desenvolvimento de todos.</div>
+    </div>
+  </div>
+  <div class="quote-block">
+    <p>Entre a sociedade capitalista e a comunista, situa-se o período da transformação revolucionária de uma na outra. A ele corresponde também um período político de transição, cujo Estado não pode ser senão a ditadura revolucionária do proletariado.</p>
+    <div class="quote-ref">Marx, Crítica do Programa de Gotha, 1875</div>
+  </div>
+  <div class="quote-block">
+    <p>A primeira fase da revolução operária é a elevação do proletariado a classe dominante, a conquista da democracia.</p>
+    <div class="quote-ref">Marx e Engels, Manifesto do Partido Comunista, 1848</div>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 10. O ESTADO DEFINHA E MORRE -->
+<section id="estado2">
+  <div class="section-label">Seção 10</div>
+  <h2>"O Estado definha e morre"</h2>
+  <p>O destino final do Estado na teoria marxiana não é sua supressão violenta e imediata, mas seu gradual <em>definhamento</em> à medida que as classes desaparecem. Essa distinção é fundamental: o Estado não pode ser simplesmente "abolido" por decreto — ele é extinto pelo desaparecimento das condições que o tornam necessário.</p>
+  <div class="quote-block">
+    <p>O primeiro ato no qual o Estado realmente atua como representante de toda a sociedade — a tomada de posse dos meios de produção em nome da sociedade — é, ao mesmo tempo, seu último ato autônomo enquanto Estado. De esfera em esfera, a intervenção do poder estatal nas relações sociais vai se tornando supérflua e acaba por desativar-se.</p>
+    <div class="quote-ref">Engels, <em>Do socialismo utópico ao científico</em></div>
+  </div>
+  <div class="quote-block">
+    <p>O governo sobre pessoas é substituído pela administração de coisas e pela condução de processos de produção. A sociedade livre não pode utilizar ou tolerar nenhum Estado entre ela e seus membros. O Estado não é "abolido", mas definha e morre.</p>
+    <div class="quote-ref">Engels, <em>Do socialismo utópico ao científico</em></div>
+  </div>
+  <div class="concept-box">
+    <div class="cb-label">Definição — fim do poder político</div>
+    <p>Quando os antagonismos de classe desaparecem e toda a produção é concentrada nas mãos dos indivíduos associados, o poder público perde seu caráter político. O poder político é definido como "o poder organizado de uma classe para a opressão de outra" — sem classes, não há necessidade de poder político.</p>
+  </div>
+  <div class="highlight-box">
+    <p><strong>Visão final:</strong> "Em lugar da antiga sociedade burguesa, com suas classes e antagonismos de classes, surge uma associação na qual o livre desenvolvimento de cada um é a condição para o livre desenvolvimento de todos." Esta fórmula — <em>livre desenvolvimento de cada um como condição do livre desenvolvimento de todos</em> — condensa o ideal comunista de Marx e Engels.</p>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 11. RESUMO -->
+<section id="resumo">
+  <div class="section-label">Seção 11</div>
+  <h2>Resumo para revisão</h2>
+
+  <h3>Conceitos fundamentais</h3>
+  <div class="conceitos-chave">
+    <div class="ck-item"><div class="ck-term">Materialismo histórico</div><div class="ck-def">A base material (modos de produção) determina a superestrutura política, jurídica e ideológica da sociedade.</div></div>
+    <div class="ck-item"><div class="ck-term">Luta de classes</div><div class="ck-def">Motor da história. Toda sociedade dividida em classes vive em antagonismo entre exploradores e explorados.</div></div>
+    <div class="ck-item"><div class="ck-term">Ópio do povo</div><div class="ck-def">Religião como expressão e protesto da miséria real — consolo ilusório que desvia da transformação das condições materiais.</div></div>
+    <div class="ck-item"><div class="ck-term">Propriedade burguesa</div><div class="ck-def">Propriedade dos meios de produção que permite a exploração do trabalho alheio. É esta (não toda propriedade) que o comunismo quer abolir.</div></div>
+    <div class="ck-item"><div class="ck-term">Ditadura do proletariado</div><div class="ck-def">Período de transição entre capitalismo e comunismo. Proletariado como classe dominante socializando os meios de produção.</div></div>
+    <div class="ck-item"><div class="ck-term">Definhamento do Estado</div><div class="ck-def">O Estado não é abolido por decreto — desaparece gradualmente com a eliminação dos antagonismos de classe.</div></div>
+  </div>
+
+  <h3>Mapa por obra e tema</h3>
+  <div class="mapa-obras">
+    <div class="mo-card">
+      <div class="mo-header">Carta a Ruge (1843)</div>
+      <ul class="mo-body">
+        <li>Reforma da consciência</li>
+        <li>Crítica sem dogmatismo</li>
+        <li>Princípios do próprio mundo</li>
+      </ul>
+    </div>
+    <div class="mo-card">
+      <div class="mo-header">Crítica da Fil. do Direito de Hegel (1844)</div>
+      <ul class="mo-body">
+        <li>Religião como ópio do povo</li>
+        <li>Crítica do céu → crítica da terra</li>
+        <li>Povo cria a constituição</li>
+      </ul>
+    </div>
+    <div class="mo-card">
+      <div class="mo-header">Sobre a questão judaica (1844)</div>
+      <ul class="mo-body">
+        <li>Crítica dos direitos humanos burgueses</li>
+        <li>Liberdade como separação</li>
+        <li>Segurança como egoísmo</li>
+      </ul>
+    </div>
+    <div class="mo-card">
+      <div class="mo-header">Manifesto Comunista (1848) — cap. I</div>
+      <ul class="mo-body">
+        <li>História como luta de classes</li>
+        <li>Papel revolucionário da burguesia</li>
+        <li>Formação do proletariado</li>
+      </ul>
+    </div>
+    <div class="mo-card">
+      <div class="mo-header">Manifesto Comunista (1848) — cap. II</div>
+      <ul class="mo-body">
+        <li>Abolição da propriedade burguesa</li>
+        <li>Ditadura do proletariado</li>
+        <li>10 medidas de transição</li>
+      </ul>
+    </div>
+    <div class="mo-card">
+      <div class="mo-header">Engels — Socialismo utópico ao científico</div>
+      <ul class="mo-body">
+        <li>Estado como instrumento de classe</li>
+        <li>Definhamento do Estado</li>
+        <li>Administração de coisas</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Argumentos centrais por tema</h3>
+  <div class="resumo-grid">
+    <div class="resumo-card">
+      <div class="resumo-card-header">Reforma da consciência</div>
+      <ul class="resumo-card-body">
+        <li>Não impor verdade pronta ao mundo</li>
+        <li>Desenvolver novos princípios dos existentes</li>
+        <li>Crítica parte das contradições reais</li>
+        <li>Consciência = autoentendimento da época</li>
+        <li>Distinção de Feuerbach: homem cria religião</li>
+      </ul>
+    </div>
+    <div class="resumo-card">
+      <div class="resumo-card-header">Religião e crítica</div>
+      <ul class="resumo-card-body">
+        <li>Religião = consciência invertida do mundo invertido</li>
+        <li>Expressão e protesto da miséria real</li>
+        <li>Crítica da religião → crítica do direito e da política</li>
+        <li>Supressão da religião = exigência de felicidade real</li>
+        <li>Crítica não é ateísmo militante — é materialismo histórico</li>
+      </ul>
+    </div>
+    <div class="resumo-card">
+      <div class="resumo-card-header">Propriedade e Estado</div>
+      <ul class="resumo-card-body">
+        <li>Estado = instrumento da classe dominante</li>
+        <li>Comunismo: abolição da propriedade burguesa, não de toda propriedade</li>
+        <li>Capital = poder social, não pessoal</li>
+        <li>9/10 já não têm propriedade no capitalismo</li>
+        <li>Estado definha com o fim das classes</li>
+      </ul>
+    </div>
+    <div class="resumo-card">
+      <div class="resumo-card-header">Direitos humanos e democracia</div>
+      <ul class="resumo-card-body">
+        <li>Direitos humanos = direitos do homem egoísta burguês</li>
+        <li>Liberdade burguesa = direito à separação</li>
+        <li>Segurança = asseguração do egoísmo</li>
+        <li>Emancipação política ≠ emancipação humana</li>
+        <li>Povo cria a constituição; lei existe pelo homem</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 12. QUESTÕES -->
+<section id="fixacao">
+  <div class="section-label">Seção 12</div>
+  <h2>Questões com respostas</h2>
+
+  <div class="qa-item">
+    <div class="qa-pergunta"><span>Questão 1</span>O que significa reformar a consciência a partir do conhecimento dos princípios do mundo e qual o objetivo disso?</div>
+    <div class="qa-resposta">
+      <p>Na <em>Carta a Ruge</em> (1843), Marx distingue seu projeto crítico de toda postura dogmática. O dogmático apresenta ao mundo um princípio pronto — "Aqui está a verdade, todos de joelhos!" — e exige que a realidade se curve a ele. Marx recusa essa postura: não se deve impor ao mundo um princípio externo, mas <em>desenvolver novos princípios a partir dos princípios que o próprio mundo já contém</em>.</p>
+      <p>Reformar a consciência significa, portanto, ajudar o mundo a compreender suas próprias contradições. O mundo já luta — a tarefa do crítico é apenas mostrar-lhe <em>por que</em> luta, tornando explícita a consciência que está implícita nas suas lutas reais. A consciência é algo de que o próprio povo terá de se apropriar, "mesmo que não queira".</p>
+      <p>O objetivo é prático: unir a crítica filosófica à crítica política real, engajando-se nas lutas concretas da época sem transformá-las em abstração. A meta é o <em>autoentendimento da época sobre suas lutas e desejos</em> — o que Marx chama de "filosofia crítica" ou simplesmente crítica inescrupulosa da realidade dada.</p>
+      <span class="qa-fonte">Referência: Marx, Carta a Ruge, setembro de 1843</span>
+    </div>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-pergunta"><span>Questão 2</span>Por que a religião é considerada o ópio do povo?</div>
+    <div class="qa-resposta">
+      <p>A expressão deve ser lida no contexto da <em>Crítica da Filosofia do Direito de Hegel — Introdução</em> (1844). Marx não afirma que a religião seja simplesmente uma mentira ou conspiração dos poderosos. Sua análise é mais sutil: a religião é a <em>resposta real a uma necessidade real</em> — o consolo perante uma vida de miséria e exploração.</p>
+      <p>O argumento marxiano parte de Feuerbach: não é Deus que cria o homem, mas o homem que cria Deus. A religião é a realização fantástica da essência humana porque essa essência não encontra realização verdadeira nas condições materiais de existência. A religião exprime, ao mesmo tempo, a miséria real e o protesto contra ela — é o "suspiro da criatura oprimida, o ânimo de um mundo sem coração".</p>
+      <p>A analogia com o ópio é precisa: o ópio alivia a dor, mas não cura a doença. A religião oferece consolo ilusório sem transformar as condições que produzem o sofrimento — e, pior, pode deslocar o impulso transformador do plano material para o plano espiritual. Por isso Marx conclui que a supressão da religião como felicidade ilusória é a exigência da felicidade real do povo: não basta criticar a religião — é preciso transformar o mundo que a produz.</p>
+      <span class="qa-fonte">Referência: Marx, Crítica da Filosofia do Direito de Hegel — Introdução, 1844</span>
+    </div>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-pergunta"><span>Questão 3</span>De que modo é possível distinguir a abolição da propriedade privada dos meios de produção da abolição da propriedade privada em geral?</div>
+    <div class="qa-resposta">
+      <p>Marx e Engels respondem diretamente essa objeção no Capítulo II do <em>Manifesto</em>. A acusação de que os comunistas querem suprimir "toda propriedade" é, para eles, um equívoco deliberado ou uma confusão conceitual.</p>
+      <p>Existem dois tipos radicalmente diferentes de propriedade privada. A <strong>propriedade pessoal</strong> é aquela adquirida pelo próprio trabalho do indivíduo — a terra do pequeno camponês, as ferramentas do artesão. Essa forma de propriedade, argumentam Marx e Engels, já estava sendo destruída pelo próprio progresso da indústria capitalista; os comunistas, portanto, não precisam aboli-la.</p>
+      <p>A <strong>propriedade burguesa</strong>, por sua vez, é a propriedade dos meios de produção social — fábricas, maquinaria, matéria-prima — que permite ao capitalista apropriar-se do trabalho não pago do operário (mais-valia). Essa forma pressupõe como condição necessária que a imensa maioria da sociedade não possua nada. É esta que o comunismo propõe abolir — porque ela é a forma moderna da exploração de classe.</p>
+      <p>O argumento marxiano culmina num paradoxo revelador: a propriedade burguesa já está "suprimida" para nove décimos da sociedade. Os comunistas apenas propõem generalizar essa ausência de propriedade — mas de modo positivo, coletivizando os meios de produção em benefício de todos.</p>
+      <span class="qa-fonte">Referência: Marx e Engels, Manifesto do Partido Comunista, cap. II, 1848</span>
+    </div>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-pergunta"><span>Questão 4</span>Qual o significado de ditadura do proletariado?</div>
+    <div class="qa-resposta">
+      <p>O conceito precisa ser situado historicamente. No século XIX, "ditadura" não se referia necessariamente a um regime autoritário de terror — designava o domínio político de uma classe sobre outra. Para Marx, toda forma de Estado é, nesse sentido, uma "ditadura": o Estado capitalista é a ditadura da burguesia, mesmo que se apresente como democracia representativa.</p>
+      <p>A ditadura do proletariado designa o <em>período de transição</em> entre a sociedade capitalista e a comunista. Nesse período, o proletariado, tendo tomado o poder de Estado, utiliza-o para: (1) socializar a propriedade privada dos meios de produção, (2) destruir a estrutura político-econômica de classes, e (3) ampliar as forças produtivas.</p>
+      <p>Ela não se confunde com o comunismo: é uma fase histórica necessária, não a meta final. À medida que os antagonismos de classe são suprimidos, o próprio Estado — incluindo a ditadura do proletariado — vai perdendo sua razão de existir e "definhando". O objetivo final não é um Estado proletário eterno, mas a supressão de todas as classes e, com elas, do próprio poder político.</p>
+      <p>A primeira fase da revolução operária é, aliás, a "conquista da democracia" — o proletariado não elimina a democracia, mas a realiza plenamente ao superar a contradição entre cidadão abstrato e homem privado.</p>
+      <span class="qa-fonte">Referência: Manifesto (1848); Marx, Crítica do Programa de Gotha (1875)</span>
+    </div>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-pergunta"><span>Questão 5</span>Como se compreendem os direitos humanos à propriedade e à segurança jurídica?</div>
+    <div class="qa-resposta">
+      <p>Em <em>Sobre a questão judaica</em> (1844), Marx analisa os direitos proclamados pelas Declarações de 1791 e 1793 e demonstra que eles são, em seu fundamento, direitos do <em>homem egoísta</em> — do membro da sociedade burguesa, separado da comunidade.</p>
+      <p>O direito à <strong>propriedade</strong> é definido pelas próprias declarações como o direito de "desfrutar a seu bel prazer, sem levar outros em consideração, independentemente da sociedade". Ele fundamenta a lógica do interesse privado e faz de cada homem, para o outro, não a realização, mas a <em>restrição</em> de sua liberdade. A liberdade burguesa, por sua vez, é o direito à <em>separação</em> — mover-se no espaço delimitado pela lei sem interferir nos outros, como mônada isolada.</p>
+      <p>A <strong>segurança jurídica</strong> é o "conceito social supremo da sociedade burguesa" — a garantia de que o Estado protegerá a pessoa, os direitos e a propriedade de cada membro. Marx observa que, através desse conceito, a sociedade burguesa não se eleva acima do egoísmo: a segurança é, antes, a <em>asseguração do egoísmo</em>. O Estado existe não para a emancipação coletiva, mas para proteger os interesses privados já estabelecidos.</p>
+      <span class="qa-fonte">Referência: Marx, Sobre a questão judaica, 1844</span>
+    </div>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-pergunta"><span>Questão 6</span>Qual a relação do povo com sua constituição, do ser humano com a lei, em uma democracia?</div>
+    <div class="qa-resposta">
+      <p>Na <em>Crítica da Filosofia do Direito de Hegel</em> (1843), Marx examina a diferença fundamental entre a monarquia, as demais formas de Estado e a democracia, a partir da relação entre povo e constituição.</p>
+      <p>Na monarquia e nas formas não-democráticas, o homem existe <em>em razão da lei</em>: o indivíduo é definido por sua posição dentro da ordem jurídica e política. A constituição não emana do povo — é ela que o constitui. O particular (o monarca, o Estado) se apresenta como universal, e o povo é subsumido à forma política.</p>
+      <p>Na democracia, a relação se inverte: é a lei que existe em razão do homem; a constituição é a <em>autodeterminação do povo</em>, sua obra própria e livre. Da mesma forma que o homem cria a religião (e não o contrário), o povo cria a constituição (e não o contrário). A constituição, na democracia, é apenas <em>um momento</em> da existência do povo — não a forma que define essa existência.</p>
+      <p>Isso coloca a democracia numa posição singular: ela é "o enigma resolvido de todas as constituições", pois nela o princípio formal (representação popular) coincide com o princípio material (o povo real). Contudo, Marx adverte que as democracias burguesas existentes não realizam esse ideal — porque mantêm a separação entre o homem privado (egoísta) e o cidadão abstrato.</p>
+      <span class="qa-fonte">Referência: Marx, Crítica da Filosofia do Direito de Hegel, 1843</span>
+    </div>
+  </div>
+
+  <div class="perguntas-adicionais">
+    <h3>Questões adicionais para aprofundamento</h3>
+    <ol>
+      <li>Como a crítica marxiana dos direitos humanos se relaciona com o debate contemporâneo sobre direitos sociais e econômicos? Seria possível incorporar direitos positivos à perspectiva marxiana?</li>
+      <li>A distinção entre "emancipação política" e "emancipação humana" ainda faz sentido no contexto do Estado de Bem-Estar Social contemporâneo? Discuta a partir de Marx.</li>
+      <li>A afirmação de que "o Estado definha e morre" pressupõe o desaparecimento dos antagonismos de classe. Que críticas poderiam ser feitas a essa premissa?</li>
+      <li>Compare a visão de Marx sobre a democracia com a visão de Montesquieu (separação dos poderes) e dos Federalistas (checks and balances). Em que pontos convergem e divergem?</li>
+    </ol>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 13. REFERÊNCIAS -->
+<section id="refs">
+  <div class="section-label">Seção 13</div>
+  <h2>Referências</h2>
+  <ul class="ref-list">
+    <li>MARX, Karl; ENGELS, Friedrich. <em>O Manifesto do Partido Comunista</em>. São Paulo: Boitempo, 2010.</li>
+    <li>MARX, Karl. <em>Crítica da Filosofia do Direito de Hegel — Introdução</em>. In: <em>Crítica da Filosofia do Direito de Hegel</em>. São Paulo: Boitempo, 2010.</li>
+    <li>MARX, Karl. <em>Sobre a questão judaica</em>. São Paulo: Boitempo, 2010.</li>
+    <li>MARX, Karl. <em>Carta a Arnold Ruge</em>, setembro de 1843. In: <em>Anais Franco-Alemães</em>. Tradução de Rubens Enderle.</li>
+    <li>MARX, Karl. <em>Crítica da Filosofia do Direito de Hegel</em>. São Paulo: Boitempo, 2010.</li>
+    <li>MARX, Karl. <em>Crítica do Programa de Gotha</em> (1875). São Paulo: Boitempo, 2012.</li>
+    <li>MARX, Karl. <em>As lutas de classes na França</em> (1850). São Paulo: Boitempo, 2012.</li>
+    <li>ENGELS, Friedrich. <em>Do socialismo utópico ao científico</em>. In: <em>O socialismo utópico e o socialismo científico</em>. São Paulo: Global, 1980.</li>
+  </ul>
+</section>
+
+</main>
+</body>
+</html>

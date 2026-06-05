@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Montesquieu</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Georgia,'Times New Roman',serif;font-size:15px;line-height:1.8;color:#1a1a1a;background:#fdfaf6}
+  .cover{background:linear-gradient(160deg,#2a1a4a 60%,#4a2e7a);color:#fff;padding:60px 48px 48px;min-height:220px;position:relative;overflow:hidden}
+  .cover::before{content:'';position:absolute;right:-40px;top:-40px;width:220px;height:220px;border-radius:50%;border:1px solid rgba(255,255,255,0.08)}
+  .cover::after{content:'';position:absolute;right:20px;top:20px;width:140px;height:140px;border-radius:50%;border:1px solid rgba(255,255,255,0.06)}
+  .cover-badge{font-family:Arial,sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:16px}
+  .cover h1{font-size:32px;font-weight:normal;letter-spacing:0.5px;margin-bottom:8px}
+  .cover-sub{font-size:14px;color:rgba(255,255,255,0.65);margin-top:8px}
+  .cover-authors{margin-top:24px;font-size:13px;color:rgba(255,255,255,0.5);border-top:1px solid rgba(255,255,255,0.12);padding-top:16px}
+  .toc{background:#fff;border-bottom:1px solid #e8e2d8;padding:28px 48px}
+  .toc h2{font-family:Arial,sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-bottom:16px;font-weight:normal}
+  .toc-list{list-style:none}
+  .toc-list li{display:flex;align-items:baseline;gap:8px;padding:5px 0;font-size:14px}
+  .toc-list li a{color:#2a1a4a;text-decoration:none}
+  .toc-list li a:hover{text-decoration:underline}
+  .toc-num{font-family:Arial,sans-serif;font-size:11px;color:#aaa;min-width:20px}
+  .toc-dots{flex:1;border-bottom:1px dotted #d0c9be;margin:0 6px}
+  .toc-pg{font-family:Arial,sans-serif;font-size:12px;color:#aaa}
+  main{max-width:720px;margin:0 auto;padding:40px 48px 80px}
+  section{margin-bottom:52px}
+  .section-label{font-family:Arial,sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#7a5ab0;margin-bottom:6px}
+  h2{font-size:22px;font-weight:normal;color:#2a1a4a;margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid #e0d8cc}
+  h3{font-size:16px;font-weight:normal;color:#2a1a4a;margin:28px 0 10px;font-style:italic}
+  p{margin-bottom:14px;text-align:justify}
+  .quote-block{margin:24px 0;padding:16px 20px 16px 24px;border-left:3px solid #2a1a4a;background:#f4f0e8;border-radius:0 4px 4px 0}
+  .quote-block p{margin:0;font-style:italic;font-size:14px;color:#2a2a2a;line-height:1.75}
+  .quote-ref{font-family:Arial,sans-serif;font-size:11px;color:#888;margin-top:6px;font-style:normal}
+  .concept-box{background:#fff;border:1px solid #ddd7cc;border-radius:6px;padding:16px 20px;margin:20px 0}
+  .concept-box .cb-label{font-family:Arial,sans-serif;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-bottom:8px}
+  .concept-box p{margin:0;font-size:14px}
+  .highlight-box{background:#2a1a4a;color:#fff;border-radius:6px;padding:18px 22px;margin:24px 0}
+  .highlight-box p{color:rgba(255,255,255,0.9);margin:0;font-size:14px;line-height:1.75}
+  .highlight-box strong{color:#fff}
+  .timeline{margin:20px 0}
+  .tl-item{display:flex;gap:16px;margin-bottom:12px;align-items:flex-start}
+  .tl-year{font-family:Arial,sans-serif;font-size:12px;font-weight:bold;color:#fff;background:#2a1a4a;padding:3px 8px;border-radius:3px;min-width:60px;text-align:center;margin-top:2px}
+  .tl-text{font-size:14px;color:#333;flex:1;padding-top:4px}
+  .power-diagram{display:flex;gap:12px;margin:20px 0;align-items:stretch}
+  .power-pillar{flex:1;border:1px solid #ddd7cc;border-radius:6px;overflow:hidden;background:#fff}
+  .power-pillar-header{background:#2a1a4a;color:#fff;padding:10px 12px;text-align:center;font-family:Arial,sans-serif;font-size:12px;letter-spacing:0.5px}
+  .power-pillar-body{padding:12px;font-size:12px;color:#444;line-height:1.6}
+  .power-pillar-body li{list-style:none;padding:3px 0;border-bottom:1px solid #f0ece4}
+  .power-pillar-body li:last-child{border-bottom:none}
+  .power-pillar-body li::before{content:"→ ";color:#7a5ab0}
+  .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0}
+  .compare-card{border:1px solid #ddd7cc;border-radius:6px;padding:16px 18px;background:#fff}
+  .compare-card .cc-title{font-family:Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#fff;background:#2a1a4a;display:inline-block;padding:3px 10px;border-radius:3px;margin-bottom:10px}
+  .compare-card ul{list-style:none;padding:0}
+  .compare-card ul li{font-size:13px;padding:4px 0;border-bottom:1px solid #f0ece4;color:#333;line-height:1.5}
+  .compare-card ul li:last-child{border-bottom:none}
+  .compare-card ul li::before{content:"▸ ";color:#7a5ab0;font-size:11px}
+  .ausencia-grid{display:grid;grid-template-columns:1fr;gap:12px;margin:20px 0}
+  .ausencia-item{border:1px solid #ddd7cc;border-radius:6px;overflow:hidden;background:#fff}
+  .ausencia-header{background:#6a3a9a;color:#fff;padding:8px 16px;font-family:Arial,sans-serif;font-size:12px;letter-spacing:0.5px}
+  .ausencia-body{padding:12px 16px;font-size:13px;color:#444;line-height:1.6}
+  .ref-list{list-style:none;padding:0}
+  .ref-list li{font-size:13px;padding:5px 0;border-bottom:1px dotted #e0d8cc;color:#444}
+  .ref-list li:last-child{border-bottom:none}
+  .section-divider{text-align:center;color:#ccc;letter-spacing:8px;margin:32px 0;font-size:12px}
+  /* RESUMO */
+  .resumo-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0}
+  .resumo-card{background:#fff;border:1px solid #ddd7cc;border-radius:6px;overflow:hidden}
+  .resumo-card-header{background:#2a1a4a;color:#fff;padding:8px 14px;font-family:Arial,sans-serif;font-size:11px;letter-spacing:0.8px}
+  .resumo-card-body{padding:12px 14px}
+  .resumo-card-body ul{list-style:none;padding:0}
+  .resumo-card-body ul li{font-size:13px;padding:4px 0;border-bottom:1px solid #f5f2ec;color:#333;line-height:1.5}
+  .resumo-card-body ul li:last-child{border-bottom:none}
+  .resumo-card-body ul li::before{content:"• ";color:#7a5ab0}
+  .conceitos-chave{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0}
+  .ck-item{background:#f4f0e8;border-radius:5px;padding:10px 12px;text-align:center}
+  .ck-term{font-family:Arial,sans-serif;font-size:12px;font-weight:bold;color:#2a1a4a;margin-bottom:4px}
+  .ck-def{font-size:11px;color:#555;line-height:1.45}
+  .mapa-obras{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}
+  .mo-card{border:1px solid #ddd7cc;border-radius:5px;overflow:hidden;background:#fff}
+  .mo-header{background:#4a2e7a;color:#fff;padding:6px 12px;font-family:Arial,sans-serif;font-size:11px}
+  .mo-body{padding:10px 12px;font-size:12px;color:#444}
+  .mo-body li{list-style:none;padding:2px 0}
+  .mo-body li::before{content:"→ ";color:#7a5ab0;font-size:11px}
+  /* QUESTÕES */
+  .qa-item{margin-bottom:24px;border:1px solid #ddd7cc;border-radius:6px;overflow:hidden;background:#fff}
+  .qa-pergunta{background:#2a1a4a;color:#fff;padding:12px 18px;font-size:14px;font-family:Georgia,serif;line-height:1.5}
+  .qa-pergunta span{font-family:Arial,sans-serif;font-size:11px;color:rgba(255,255,255,0.5);display:block;margin-bottom:4px;letter-spacing:1px}
+  .qa-resposta{padding:16px 18px}
+  .qa-resposta p{margin-bottom:10px;font-size:14px}
+  .qa-resposta p:last-child{margin-bottom:0}
+  .qa-resposta ul{list-style:none;padding:0;margin:8px 0}
+  .qa-resposta ul li{font-size:13px;padding:4px 0;border-bottom:1px solid #f5f2ec;color:#333}
+  .qa-resposta ul li:last-child{border-bottom:none}
+  .qa-resposta ul li::before{content:"▸ ";color:#7a5ab0}
+  .qa-fonte{font-family:Arial,sans-serif;font-size:11px;color:#aaa;margin-top:10px;font-style:normal;display:block}
+  .perguntas-adicionais{background:#f4f0fb;border:1px solid #c5b4ec;border-radius:6px;padding:20px 24px;margin-top:20px}
+  .perguntas-adicionais h3{font-style:normal;margin:0 0 14px;font-size:14px;font-family:Arial,sans-serif;letter-spacing:0.5px;color:#444}
+  .perguntas-adicionais ol{padding-left:18px}
+  .perguntas-adicionais ol li{font-size:14px;padding:5px 0;color:#333}
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="cover-badge">Ciências Políticas · Graduação</div>
+  <h1>Montesquieu</h1>
+  <p class="cover-sub">Liberdade, Separação dos Poderes e a Constituição da Inglaterra</p>
+  <div class="cover-authors">
+    Baseado em <em>O Espírito das Leis</em> (1748), Livro XI · Prof. Vitor Bizerril
+  </div>
+</div>
+
+<div class="toc">
+  <h2>Sumário</h2>
+  <ul class="toc-list">
+    <li><span class="toc-num">1.</span><a href="#vida">Vida e obra</a><span class="toc-dots"></span><span class="toc-pg">§1</span></li>
+    <li><span class="toc-num">2.</span><a href="#liberdade">O conceito de liberdade</a><span class="toc-dots"></span><span class="toc-pg">§2</span></li>
+    <li><span class="toc-num">3.</span><a href="#poderes">Os três tipos de poder</a><span class="toc-dots"></span><span class="toc-pg">§3</span></li>
+    <li><span class="toc-num">4.</span><a href="#julgar">O poder de julgar</a><span class="toc-dots"></span><span class="toc-pg">§4</span></li>
+    <li><span class="toc-num">5.</span><a href="#legislativo">Poder legislativo e seus representantes</a><span class="toc-dots"></span><span class="toc-pg">§5</span></li>
+    <li><span class="toc-num">6.</span><a href="#executivo">Poder executivo</a><span class="toc-dots"></span><span class="toc-pg">§6</span></li>
+    <li><span class="toc-num">7.</span><a href="#ausencia">Ausência de liberdade — as combinações proibidas</a><span class="toc-dots"></span><span class="toc-pg">§7</span></li>
+    <li><span class="toc-num">8.</span><a href="#resumo">Resumo para revisão</a><span class="toc-dots"></span><span class="toc-pg">§8</span></li>
+    <li><span class="toc-num">9.</span><a href="#fixacao">Questões com respostas</a><span class="toc-dots"></span><span class="toc-pg">§9</span></li>
+    <li><span class="toc-num">10.</span><a href="#refs">Referências</a><span class="toc-dots"></span><span class="toc-pg">§10</span></li>
+  </ul>
+</div>
+
+<main>
+
+<!-- 1. VIDA E OBRA -->
+<section id="vida">
+  <div class="section-label">Seção 1</div>
+  <h2>Vida e obra</h2>
+
+  <p>Charles-Louis de Secondat, Barão de La Brède e de Montesquieu (1689–1755), foi um dos mais influentes filósofos políticos do Iluminismo francês. Aristocrata formado em Direito, exerceu o cargo de presidente do Parlamento de Bordéus — instituição que, na França do Antigo Regime, funcionava como corte de justiça e tinha o poder de registrar ou recusar os decretos reais, desempenhando papel de contrapeso ao absolutismo monárquico.</p>
+
+  <p>Essa posição institucional marcou profundamente seu pensamento: Montesquieu era um crítico do absolutismo e do poder eclesiástico, mas não um revolucionário. Seu ideal era um governo moderado e limitado por instituições intermediárias — a nobreza, os parlamentos, as leis fundamentais.</p>
+
+  <div class="mapa-obras">
+    <div class="mo-card">
+      <div class="mo-header">Cartas persas (1721)</div>
+      <ul class="mo-body">
+        <li>Romance epistolar sob pseudônimo</li>
+        <li>Persas observam a Europa com estranheza</li>
+        <li>Crítica irônica ao absolutismo francês</li>
+        <li>Valeu-lhe entrada na Academia Francesa</li>
+        <li>Introduz o olhar "de fora" como método</li>
+      </ul>
+    </div>
+    <div class="mo-card">
+      <div class="mo-header">O Espírito das Leis (1748)</div>
+      <ul class="mo-body">
+        <li>Obra mestra, 31 livros</li>
+        <li>Fundamento da ciência política moderna</li>
+        <li>Três regimes: república, monarquia, despotismo</li>
+        <li>Teoria da separação dos poderes (Livro XI)</li>
+        <li>Influência direta nas constituições americana e francesa</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-year">1689</div><div class="tl-text">Nasce em La Brède, perto de Bordéus. Mesmo ano da Revolução Gloriosa na Inglaterra.</div></div>
+    <div class="tl-item"><div class="tl-year">1705</div><div class="tl-text">Ingressa na Universidade de Bordéus para estudar Direito.</div></div>
+    <div class="tl-item"><div class="tl-year">1716</div><div class="tl-text">Torna-se presidente do Parlamento de Bordéus.</div></div>
+    <div class="tl-item"><div class="tl-year">1721</div><div class="tl-text">Publica as <em>Cartas persas</em>, anonimamente.</div></div>
+    <div class="tl-item"><div class="tl-year">1748</div><div class="tl-text">Publica <em>O Espírito das Leis</em>, obra que levou quase 20 anos para escrever.</div></div>
+    <div class="tl-item"><div class="tl-year">1755</div><div class="tl-text">Morre em Paris. Sua obra já influenciava os constitucionalistas americanos.</div></div>
+  </div>
+
+  <div class="concept-box">
+    <div class="cb-label">Método de Montesquieu</div>
+    <p>Diferentemente dos contratualistas (Locke, Rousseau), Montesquieu não parte de um contrato social hipotético nem de um estado de natureza. Ele analisa as leis como elas <em>são</em> na realidade, examinando sua relação com o clima, a geografia, os costumes e as instituições de cada povo. Para ele, "cada espécie de governo somente se explica por completo quando a ligamos à sua psicologia" — a virtude na república, a honra na monarquia, o temor no despotismo.</p>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 2. LIBERDADE -->
+<section id="liberdade">
+  <div class="section-label">Seção 2</div>
+  <h2>O conceito de liberdade</h2>
+
+  <p>O Livro XI de <em>O Espírito das Leis</em> começa por uma constatação: a palavra "liberdade" recebeu tantos significados e marcou os espíritos de tantas maneiras que se torna imprescindível defini-la com precisão antes de qualquer análise. Montesquieu distingue a liberdade filosófica (fazer o que se quer) da <strong>liberdade política</strong>, que é o único objeto de sua investigação.</p>
+
+  <h3>Liberdade como direito dentro da lei</h3>
+
+  <div class="quote-block">
+    <p>A liberdade é o direito de fazer tudo o que as leis permitem; e se um cidadão pudesse fazer o que elas proíbem ele já não teria liberdade, porque os outros também teriam este poder.</p>
+    <div class="quote-ref">Montesquieu, <em>O Espírito das Leis</em>, Livro XI, cap. III</div>
+  </div>
+
+  <p>Esta definição é deliberadamente paradoxal: a liberdade não é ausência de lei, mas obediência à lei. O que garante a liberdade de um cidadão é precisamente que as leis valham para todos — inclusive para quem governa. Se alguém pudesse fazer o que a lei proíbe, todos os outros também teriam esse "poder", e a lei perderia sua função protetora.</p>
+
+  <h3>Liberdade como segurança e tranquilidade</h3>
+
+  <div class="quote-block">
+    <p>A liberdade política, em um cidadão, é esta tranquilidade de espírito que provém da opinião que cada um tem sobre a sua segurança; e para que se tenha esta liberdade é preciso que o governo seja tal que um cidadão não possa temer outro cidadão.</p>
+    <div class="quote-ref">Montesquieu, <em>O Espírito das Leis</em>, Livro XI, cap. VI</div>
+  </div>
+
+  <p>Note-se que Montesquieu define a liberdade política pela <em>opinião</em> de segurança, não pela segurança objetiva: o que importa é que o cidadão se sinta protegido pelo arranjo institucional. A ausência de medo entre iguais é condição essencial.</p>
+
+  <h3>O poder que limita o poder</h3>
+
+  <div class="quote-block">
+    <p>Para que não se possa abusar do poder é preciso que, pela disposição das coisas, o poder limite o poder. Uma constituição pode ser tal que ninguém seja obrigado a fazer as coisas a que a lei não obriga e a não fazer aquelas que a lei permite.</p>
+    <div class="quote-ref">Montesquieu, <em>O Espírito das Leis</em>, Livro XI, cap. IV</div>
+  </div>
+
+  <div class="highlight-box">
+    <p><strong>Síntese:</strong> Para Montesquieu, liberdade não é fazer o que se quer, mas fazer o que a lei permite. Ela só existe em governos moderados — nem sempre na democracia ou na aristocracia, mas sempre que o poder é limitado pelo poder. É uma <em>experiência eterna</em> que todo homem que possui poder tende a dele abusar; quem tem virtude precisa de limites.</p>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 3. OS TRÊS PODERES -->
+<section id="poderes">
+  <div class="section-label">Seção 3</div>
+  <h2>Os três tipos de poder</h2>
+
+  <p>No capítulo VI do Livro XI, Montesquieu identifica em cada Estado três tipos de poder, cuja distribuição determina o grau de liberdade política de que gozam os cidadãos. A análise toma a Constituição da Inglaterra como modelo — não porque ela seja perfeita, mas porque nela a liberdade política se encontra estabelecida pelas leis.</p>
+
+  <div class="quote-block">
+    <p>Com o primeiro [poder legislativo], o príncipe ou magistrado cria leis por um tempo ou para sempre e corrige ou anula aquelas que foram feitas. Com o segundo [poder executivo], ele faz a paz ou a guerra, envia ou recebe embaixadas, instaura a segurança, previne invasões. Com o terceiro, ele castiga os crimes, ou julga as querelas entre os particulares. Chamaremos a este último poder de julgar e ao outro simplesmente poder executivo do Estado.</p>
+    <div class="quote-ref">Montesquieu, <em>O Espírito das Leis</em>, Livro XI, cap. VI</div>
+  </div>
+
+  <div class="power-diagram">
+    <div class="power-pillar">
+      <div class="power-pillar-header">Poder Legislativo</div>
+      <ul class="power-pillar-body">
+        <li>Cria leis (temporárias ou permanentes)</li>
+        <li>Corrige ou anula leis existentes</li>
+        <li>Exercido pelos representantes do povo e pelos nobres</li>
+        <li>Duas câmaras com deliberações separadas</li>
+        <li>Faculdade de estatuir e de impedir</li>
+      </ul>
+    </div>
+    <div class="power-pillar">
+      <div class="power-pillar-header">Poder Executivo</div>
+      <ul class="power-pillar-body">
+        <li>Faz a paz ou a guerra</li>
+        <li>Envia e recebe embaixadas</li>
+        <li>Instaura a segurança pública</li>
+        <li>Previne invasões externas</li>
+        <li>Deve estar nas mãos de um monarca</li>
+      </ul>
+    </div>
+    <div class="power-pillar">
+      <div class="power-pillar-header">Poder de Julgar</div>
+      <ul class="power-pillar-body">
+        <li>Castiga os crimes</li>
+        <li>Julga querelas entre particulares</li>
+        <li>Exercido por juízes temporários do povo</li>
+        <li>Julgamentos = texto preciso da lei</li>
+        <li>De certa forma, invisível e nulo</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 4. O PODER DE JULGAR -->
+<section id="julgar">
+  <div class="section-label">Seção 4</div>
+  <h2>O poder de julgar</h2>
+
+  <p>O poder de julgar ocupa uma posição peculiar na teoria de Montesquieu. Ao contrário dos outros dois poderes, ele deve ser exercido de forma <strong>temporária e popular</strong>, não confiado a um corpo permanente de magistrados. Isso o torna, em certo sentido, "invisível e nulo" — uma característica desejável, pois impede que o judiciário se torne um poder político autônomo ameaçador.</p>
+
+  <div class="quote-block">
+    <p>O poder de julgar não deve ser dado a um senado permanente, mas deve ser exercido por pessoas tiradas do seio do povo em certos momentos do ano, da maneira prescrita pela lei, para formar um tribunal que só dure o tempo que a necessidade requer.</p>
+    <div class="quote-ref">Montesquieu, <em>O Espírito das Leis</em>, Livro XI, cap. VI</div>
+  </div>
+
+  <h3>O juiz como "boca da lei"</h3>
+
+  <div class="quote-block">
+    <p>Mas, se os tribunais não devem ser fixos, os julgamentos devem sê-lo a tal ponto que nunca sejam mais do que um texto preciso da lei. Se fossem uma opinião particular do juiz, viveríamos em sociedade sem saber precisamente os compromissos que ali assumimos.</p>
+    <div class="quote-ref">Montesquieu, <em>O Espírito das Leis</em>, Livro XI, cap. VI</div>
+  </div>
+
+  <p>Esse ponto é fundamental: o juiz não interpreta livremente — ele aplica. Os julgamentos devem ser "texto preciso da lei", pois do contrário os cidadãos não saberiam quais são os limites de seus compromissos sociais. O juiz é, na formulação clássica, apenas a "boca que pronuncia as palavras da lei".</p>
+
+  <div class="quote-block">
+    <p>É até mesmo necessário que os juízes sejam da mesma condição do acusado, ou seus pares, para que não possa pensar que caiu nas mãos de pessoas inclinadas a lhe fazerem violência.</p>
+    <div class="quote-ref">Montesquieu, <em>O Espírito das Leis</em>, Livro XI, cap. VI</div>
+  </div>
+
+  <div class="concept-box">
+    <div class="cb-label">Contraste com Hamilton</div>
+    <p>Note como a visão de Montesquieu sobre o poder judiciário contrasta com a dos federalistas: enquanto Hamilton defende juízes vitalícios e independentes como guardiões ativos da Constituição, Montesquieu prefere juízes temporários e passivos, meras "bocas da lei". Essa diferença reflete visões distintas sobre o papel político do judiciário numa democracia.</p>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 5. PODER LEGISLATIVO -->
+<section id="legislativo">
+  <div class="section-label">Seção 5</div>
+  <h2>Poder legislativo e seus representantes</h2>
+
+  <p>No Estado livre, todo homem deveria, em teoria, ser governado por si mesmo. Mas a legislação direta pelo povo é impossível nos grandes Estados e problemática nos pequenos. A solução é a representação — mas Montesquieu concebe a representação com limites precisos.</p>
+
+  <div class="compare-grid">
+    <div class="compare-card">
+      <span class="cc-title">O que o povo pode fazer</span>
+      <ul>
+        <li>Escolher seus representantes</li>
+        <li>Avaliar, em geral, se o representante é mais esclarecido que os outros</li>
+        <li>Controlar indiretamente a legislação</li>
+        <li>Eleger (todos os cidadãos com direito ao voto)</li>
+      </ul>
+    </div>
+    <div class="compare-card">
+      <span class="cc-title">O que o povo não deve fazer</span>
+      <ul>
+        <li>Tomar decisões ativas com execução imediata</li>
+        <li>Debater matérias legislativas diretamente</li>
+        <li>Legislar sem representantes intermediários</li>
+        <li>Julgar (a não ser como jurados populares)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="quote-block">
+    <p>A grande vantagem dos representantes é que eles são capazes de discutir os assuntos. O povo não é nem um pouco capaz disto, o que constitui um dos grandes inconvenientes da democracia.</p>
+    <div class="quote-ref">Montesquieu, <em>O Espírito das Leis</em>, Livro XI, cap. VI</div>
+  </div>
+
+  <h3>A câmara dupla e o papel dos nobres</h3>
+
+  <p>Montesquieu propõe que o poder legislativo seja dividido em duas câmaras: uma representando o povo comum e outra os nobres. As câmaras têm assembleias e deliberações separadas, com opiniões e interesses distintos. Essa estrutura bicameral serve como freio interno ao próprio legislativo.</p>
+
+  <div class="quote-block">
+    <p>Assim, o poder legislativo será confiado ao corpo dos nobres e ao corpo que for escolhido para representar o povo, que terão cada um suas assembleias e suas deliberações separadamente, e opiniões e interesses separados.</p>
+    <div class="quote-ref">Montesquieu, <em>O Espírito das Leis</em>, Livro XI, cap. VI</div>
+  </div>
+
+  <div class="concept-box">
+    <div class="cb-label">Faculdade de estatuir e faculdade de impedir</div>
+    <p>Montesquieu distingue dois direitos legislativos: a <em>faculdade de estatuir</em> — ordenar por si mesmo ou corrigir o que foi ordenado — e a <em>faculdade de impedir</em> — anular uma resolução tomada por outrem. O poder dos tribunos romanos era essencialmente uma faculdade de impedir. A câmara dos nobres possui essa faculdade em relação à câmara popular, e vice-versa.</p>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 6. PODER EXECUTIVO -->
+<section id="executivo">
+  <div class="section-label">Seção 6</div>
+  <h2>Poder executivo</h2>
+
+  <p>O poder executivo deve, segundo Montesquieu, ser exercido por <strong>uma única pessoa</strong> — o monarca. A justificativa é funcional: o executivo precisa de decisões rápidas e de ação instantânea, o que é mais eficiente com um único tomador de decisão do que com um colegiado.</p>
+
+  <div class="quote-block">
+    <p>O poder executivo deve estar entre as mãos de um monarca, porque esta parte do governo, que precisa quase sempre de uma ação instantânea, é mais bem administrada por um do que por vários; ao passo que o que depende do poder legislativo é com frequência mais bem ordenado por muitos do que por um só.</p>
+    <div class="quote-ref">Montesquieu, <em>O Espírito das Leis</em>, Livro XI, cap. VI</div>
+  </div>
+
+  <p>O executivo participa do legislativo apenas pela <strong>faculdade de impedir</strong> (o veto), não pela faculdade de estatuir. Ele não propõe nem debate — apenas aprova ou rejeita. Sem esse poder de veto, o executivo ficaria "logo despojado de suas prerrogativas". Mas o inverso também é proibido: se o legislativo participasse da execução, o executivo estaria igualmente perdido.</p>
+
+  <div class="highlight-box">
+    <p><strong>O equilíbrio necessário:</strong> Os três poderes, deixados inteiramente a si mesmos, tenderiam para o repouso ou a inação. Mas como o movimento das coisas os obriga a agir, eles são constrangidos a avançar — e avançam de forma concertada. O executivo regula quando e por quanto tempo o legislativo se reúne; o legislativo fiscaliza se o executivo cumpriu as leis que fez.</p>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 7. AUSÊNCIA DE LIBERDADE -->
+<section id="ausencia">
+  <div class="section-label">Seção 7</div>
+  <h2>Ausência de liberdade — as combinações proibidas</h2>
+
+  <p>A teoria da separação dos poderes de Montesquieu define-se tanto pelo que prescreve quanto pelo que proíbe. A liberdade política deixa de existir em três combinações específicas, que representam formas de concentração do poder incompatíveis com o governo moderado.</p>
+
+  <div class="ausencia-grid">
+    <div class="ausencia-item">
+      <div class="ausencia-header">Combinação proibida 1 — Legislativo + Executivo</div>
+      <div class="ausencia-body">Quando o poder legislativo está reunido ao executivo na mesma pessoa ou corpo, não existe liberdade. O mesmo monarca ou senado que cria as leis pode executá-las de forma tirânica — as leis servirão a quem as faz e as aplica. Exemplo histórico: o sultão turco, que reúne os três poderes na sua pessoa.</div>
+    </div>
+    <div class="ausencia-item">
+      <div class="ausencia-header">Combinação proibida 2 — Poder de Julgar + Legislativo</div>
+      <div class="ausencia-body">Se o poder de julgar se unir ao legislativo, o poder sobre a vida e a liberdade dos cidadãos seria arbitrário: o juiz seria ao mesmo tempo legislador. Ele poderia criar a norma que julga, interpretando-a a seu bel-prazer. As repúblicas italianas do Renascimento, como Veneza, são o exemplo negativo de Montesquieu.</div>
+    </div>
+    <div class="ausencia-item">
+      <div class="ausencia-header">Combinação proibida 3 — Poder de Julgar + Executivo</div>
+      <div class="ausencia-body">Se o poder de julgar se unir ao executivo, o juiz teria a força de um opressor. A capacidade de prender e de executar decisões, somada à de julgar, tornaria o magistrado um instrumento de perseguição política. Este era o vício dos inquisidores de Estado de Veneza.</div>
+    </div>
+    <div class="ausencia-item">
+      <div class="ausencia-header">Combinação proibida 4 — Os três poderes reunidos</div>
+      <div class="ausencia-body">A situação mais grave: tudo estaria perdido se o mesmo homem, ou o mesmo corpo de nobres ou do povo, exercesse os três poderes — o de fazer as leis, o de executar as resoluções públicas e o de julgar os crimes. É a própria definição do despotismo. Nos impérios orientais (exemplo do sultão turco), todos os três poderes estão reunidos na pessoa do soberano, gerando um horrível despotismo.</div>
+    </div>
+  </div>
+
+  <div class="quote-block">
+    <p>Tudo estaria perdido se o mesmo homem, ou o mesmo corpo dos principais, ou dos nobres, ou do povo exercesse os três poderes: o de fazer as leis, o de executar as resoluções públicas e o de julgar os crimes ou as querelas entre os particulares.</p>
+    <div class="quote-ref">Montesquieu, <em>O Espírito das Leis</em>, Livro XI, cap. VI</div>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 8. RESUMO PARA REVISÃO -->
+<section id="resumo">
+  <div class="section-label">Seção 8</div>
+  <h2>Resumo para revisão</h2>
+
+  <h3>Conceitos fundamentais</h3>
+  <div class="conceitos-chave">
+    <div class="ck-item"><div class="ck-term">Liberdade política</div><div class="ck-def">Tranquilidade de espírito derivada da segurança. Fazer o que a lei permite — não o que se quer.</div></div>
+    <div class="ck-item"><div class="ck-term">Separação dos poderes</div><div class="ck-def">Divisão entre legislativo, executivo e judiciário. Condição estrutural da liberdade política.</div></div>
+    <div class="ck-item"><div class="ck-term">Poder de julgar</div><div class="ck-def">Temporário, popular, "invisível e nulo". Juiz como boca da lei — sem criatividade interpretativa.</div></div>
+    <div class="ck-item"><div class="ck-term">Governo moderado</div><div class="ck-def">Aquele em que o poder limita o poder. Nem democracia nem aristocracia são livres por natureza.</div></div>
+    <div class="ck-item"><div class="ck-term">Faculdade de impedir</div><div class="ck-def">Direito de anular resolução alheia (veto). Mecanismo-chave de equilíbrio entre os poderes.</div></div>
+    <div class="ck-item"><div class="ck-term">Bicameralismo</div><div class="ck-def">Câmara dos nobres + câmara popular, com deliberações separadas. Freio interno ao legislativo.</div></div>
+  </div>
+
+  <h3>Argumentos centrais por tema</h3>
+  <div class="resumo-grid">
+    <div class="resumo-card">
+      <div class="resumo-card-header">Em que se pauta a liberdade?</div>
+      <ul class="resumo-card-body">
+        <li>Na lei — direito de fazer o que ela permite</li>
+        <li>Na segurança — não temer outro cidadão</li>
+        <li>Na separação dos poderes — poder limita poder</li>
+        <li>No governo moderado, não necessariamente democrático</li>
+        <li>Na opinião subjetiva de segurança do cidadão</li>
+      </ul>
+    </div>
+    <div class="resumo-card">
+      <div class="resumo-card-header">Os três poderes</div>
+      <ul class="resumo-card-body">
+        <li>Legislativo: faz e anula leis; bicameral</li>
+        <li>Executivo: ação rápida; nas mãos de um monarca</li>
+        <li>Judiciário: aplica a lei; temporário e popular</li>
+        <li>Cada um deve ter meios de frear os outros</li>
+        <li>Nenhum deve exercer funções dos demais</li>
+      </ul>
+    </div>
+    <div class="resumo-card">
+      <div class="resumo-card-header">O legislativo e a representação</div>
+      <ul class="resumo-card-body">
+        <li>Povo não pode legislar diretamente</li>
+        <li>Povo só deve escolher representantes</li>
+        <li>Representantes debatem; povo não é capaz</li>
+        <li>Corpo representante: faz leis, não decide ativamente</li>
+        <li>Nobres têm câmara própria com faculdade de impedir</li>
+      </ul>
+    </div>
+    <div class="resumo-card">
+      <div class="resumo-card-header">Ausência de liberdade</div>
+      <ul class="resumo-card-body">
+        <li>Legislativo + Executivo = leis tirânicas executadas tiranicamente</li>
+        <li>Judiciário + Legislativo = juiz legislador (poder arbitrário)</li>
+        <li>Judiciário + Executivo = juiz opressor</li>
+        <li>Os três reunidos = despotismo total</li>
+        <li>Exemplo máximo: o sultão turco</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Montesquieu e os Federalistas — comparação rápida</h3>
+  <div class="resumo-grid">
+    <div class="resumo-card">
+      <div class="resumo-card-header">Montesquieu</div>
+      <ul class="resumo-card-body">
+        <li>Separação rígida como princípio</li>
+        <li>Judiciário: temporário, passivo, "invisível"</li>
+        <li>Juiz = "boca da lei", sem interpretação criativa</li>
+        <li>Executivo: monarca com faculdade de veto</li>
+        <li>Liberdade depende da separação formal</li>
+      </ul>
+    </div>
+    <div class="resumo-card">
+      <div class="resumo-card-header">Federalistas (Madison/Hamilton)</div>
+      <ul class="resumo-card-body">
+        <li>Poderes misturados o suficiente para controle mútuo</li>
+        <li>Judiciário: vitalício, independente, guarda da Constituição</li>
+        <li>Juiz declara leis inconstitucionais (papel ativo)</li>
+        <li>Executivo: checks and balances com o legislativo</li>
+        <li>Liberdade depende de motivos pessoais para resistir</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 9. QUESTÕES COM RESPOSTAS -->
+<section id="fixacao">
+  <div class="section-label">Seção 9</div>
+  <h2>Questões com respostas</h2>
+
+  <div class="qa-item">
+    <div class="qa-pergunta">
+      <span>Questão 1</span>
+      Em que se pauta a liberdade?
+    </div>
+    <div class="qa-resposta">
+      <p>Para Montesquieu, a liberdade política se pauta em três fundamentos interligados.</p>
+      <p>O primeiro é <strong>a lei</strong>: liberdade não é fazer o que se quer, mas fazer o que a lei permite. Se cada cidadão pudesse transgredir as leis, todos os outros também teriam esse "poder", destruindo qualquer proteção jurídica. A lei, ao mesmo tempo que limita, garante a esfera de ação de cada um.</p>
+      <p>O segundo fundamento é <strong>a segurança</strong>: a liberdade política de um cidadão consiste na "tranquilidade de espírito que provém da opinião que cada um tem sobre a sua segurança". É uma definição subjetiva — o que importa é que o cidadão não sinta medo de outros cidadãos nem do próprio Estado.</p>
+      <p>O terceiro fundamento é <strong>a separação dos poderes</strong>: "para que não se possa abusar do poder, é preciso que, pela disposição das coisas, o poder limite o poder." A liberdade só é estável quando nenhum poder pode concentrar em si as funções dos demais. Ela é essencialmente institucional — depende da arquitetura do governo, não da virtude individual dos governantes. Daí a célebre observação: "é uma experiência eterna que todo homem que possui poder é levado a dele abusar."</p>
+      <span class="qa-fonte">Referência: <em>O Espírito das Leis</em>, Livro XI, caps. III, IV e VI</span>
+    </div>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-pergunta">
+      <span>Questão 2</span>
+      Quais as características e funções de cada um dos três poderes?
+    </div>
+    <div class="qa-resposta">
+      <p>Montesquieu identifica três poderes com funções, titulares e características distintas.</p>
+      <p>O <strong>poder legislativo</strong> cria as leis, podendo torná-las temporárias ou permanentes, e pode corrigir ou anular as que já foram feitas. Deve ser exercido por dois corpos: uma câmara representando o povo comum (eleita) e outra representando os nobres (hereditária). Cada câmara tem assembleias e deliberações separadas, funcionando como freio mútuo interno ao legislativo. O povo não legisla diretamente — seus representantes têm a vantagem de "discutir os assuntos", algo que o povo não é capaz de fazer.</p>
+      <p>O <strong>poder executivo</strong> cuida das relações externas e da segurança interna: faz a paz ou a guerra, recebe e envia embaixadas, previne invasões. Deve estar nas mãos de um único monarca, pois essa parte do governo "precisa quase sempre de uma ação instantânea" — decisões coletivas seriam lentas demais. O executivo participa do legislativo apenas pela faculdade de impedir (o veto), não pela de estatuir.</p>
+      <p>O <strong>poder de julgar</strong> castiga os crimes e resolve as querelas entre particulares. Ao contrário dos demais, deve ser exercido por pessoas tiradas do seio do povo em momentos determinados — tribunais temporários, não senados permanentes. Os julgamentos devem ser "texto preciso da lei", sem margem para opinião pessoal do juiz. O poder judiciário é, assim, de certa forma "invisível e nulo" — o que é positivo, pois evita que se torne um poder político autônomo.</p>
+      <span class="qa-fonte">Referência: <em>O Espírito das Leis</em>, Livro XI, cap. VI</span>
+    </div>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-pergunta">
+      <span>Questão 3</span>
+      Em que circunstâncias se verifica a ausência de liberdade?
+    </div>
+    <div class="qa-resposta">
+      <p>A liberdade política deixa de existir sempre que dois ou mais poderes se concentram nas mesmas mãos. Montesquieu descreve quatro combinações proibidas:</p>
+      <ul>
+        <li><strong>Legislativo + Executivo reunidos:</strong> o mesmo monarca ou senado que cria as leis pode executá-las tiranicamente. As normas se tornam instrumentos de opressão daquele que as faz e as aplica.</li>
+        <li><strong>Judiciário + Legislativo reunidos:</strong> o poder sobre a vida e a liberdade dos cidadãos seria arbitrário, pois "o juiz seria legislador". Ele poderia criar a regra que julga, moldando-a ao resultado desejado.</li>
+        <li><strong>Judiciário + Executivo reunidos:</strong> o juiz teria a força de um opressor. A capacidade de executar decisões somada à de julgá-las tornaria o magistrado um instrumento de perseguição irresistível.</li>
+        <li><strong>Os três poderes reunidos:</strong> "tudo estaria perdido". É a definição do despotismo puro, exemplificado pelo Império Otomano — onde o sultão legisla, executa e julga na mesma pessoa.</li>
+      </ul>
+      <p>Vale notar que a ausência de liberdade não se restringe à tirania aberta: nas repúblicas italianas como Veneza, a reunião de poderes em corpos oligárquicos produzia formas veladas de despotismo igualmente eficazes na supressão da liberdade individual.</p>
+      <span class="qa-fonte">Referência: <em>O Espírito das Leis</em>, Livro XI, cap. VI</span>
+    </div>
+  </div>
+
+  <div class="perguntas-adicionais">
+    <h3>Questões adicionais para aprofundamento</h3>
+    <ol>
+      <li>Montesquieu define liberdade como fazer o que a lei permite — não o que se quer. Como essa definição se relaciona com a concepção de liberdade negativa (Isaiah Berlin)? Há tensão entre elas?</li>
+      <li>O papel que Montesquieu atribui aos nobres no legislativo pressupõe uma sociedade estamental. Essa dimensão aristocrática da sua teoria é compatível com os princípios democráticos modernos?</li>
+      <li>Compare a visão de Montesquieu sobre o poder judiciário ("boca da lei", temporário, passivo) com a de Hamilton (judiciário vitalício e guardião da Constituição). Quais são as implicações práticas de cada modelo para o controle de constitucionalidade?</li>
+      <li>A afirmação de que "todo homem que possui poder é levado a dele abusar" é empiricamente defensável? O que ela revela sobre a antropologia política de Montesquieu em comparação com Rousseau?</li>
+    </ol>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 10. REFERÊNCIAS -->
+<section id="refs">
+  <div class="section-label">Seção 10</div>
+  <h2>Referências</h2>
+  <ul class="ref-list">
+    <li>MONTESQUIEU, Charles-Louis de Secondat. <em>O Espírito das Leis</em>. Tradução de Cristina Murachco. São Paulo: Martins Fontes, 1996.</li>
+    <li>MONTESQUIEU. Livro Décimo Primeiro: Das leis que formam a liberdade política em sua relação com a constituição. Cap. I–VIII, p. 164–179.</li>
+    <li>MONTESQUIEU. Cartas persas. São Paulo: Paulicéia, 1991. Tradução de Renato Janine Ribeiro.</li>
+    <li>RIBEIRO, Renato Janine. Apresentação. In: MONTESQUIEU. <em>O Espírito das Leis</em>. São Paulo: Martins Fontes, 1996, p. XXXI–XXXVIII.</li>
+    <li>ALTHUSSER, Louis. <em>Montesquieu: a política e a história</em>. Lisboa: Editorial Estampa, 1977.</li>
+    <li>HAMILTON, Alexander; MADISON, James; JAY, John. <em>Os Artigos Federalistas</em>. Rio de Janeiro: Nova Fronteira, 1993. (Para comparação com a releitura federalista de Montesquieu.)</li>
+  </ul>
+</section>
+
+</main>
+</body>
+</html>

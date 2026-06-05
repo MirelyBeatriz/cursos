@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Os Federalistas</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Georgia,'Times New Roman',serif;font-size:15px;line-height:1.8;color:#1a1a1a;background:#fdfaf6}
+  .cover{background:linear-gradient(160deg,#1a2a4a 60%,#2e4a7a);color:#fff;padding:60px 48px 48px;min-height:220px;position:relative;overflow:hidden}
+  .cover::before{content:'';position:absolute;right:-40px;top:-40px;width:220px;height:220px;border-radius:50%;border:1px solid rgba(255,255,255,0.08)}
+  .cover::after{content:'';position:absolute;right:20px;top:20px;width:140px;height:140px;border-radius:50%;border:1px solid rgba(255,255,255,0.06)}
+  .cover-badge{font-family:Arial,sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:16px}
+  .cover h1{font-size:32px;font-weight:normal;letter-spacing:0.5px;margin-bottom:8px}
+  .cover-sub{font-size:14px;color:rgba(255,255,255,0.65);margin-top:8px}
+  .cover-authors{margin-top:24px;font-size:13px;color:rgba(255,255,255,0.5);border-top:1px solid rgba(255,255,255,0.12);padding-top:16px}
+  .toc{background:#fff;border-bottom:1px solid #e8e2d8;padding:28px 48px}
+  .toc h2{font-family:Arial,sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-bottom:16px;font-weight:normal}
+  .toc-list{list-style:none}
+  .toc-list li{display:flex;align-items:baseline;gap:8px;padding:5px 0;font-size:14px}
+  .toc-list li a{color:#1a3060;text-decoration:none}
+  .toc-list li a:hover{text-decoration:underline}
+  .toc-num{font-family:Arial,sans-serif;font-size:11px;color:#aaa;min-width:20px}
+  .toc-dots{flex:1;border-bottom:1px dotted #d0c9be;margin:0 6px}
+  .toc-pg{font-family:Arial,sans-serif;font-size:12px;color:#aaa}
+  main{max-width:720px;margin:0 auto;padding:40px 48px 80px}
+  section{margin-bottom:52px}
+  .section-label{font-family:Arial,sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#b08a5a;margin-bottom:6px}
+  h2{font-size:22px;font-weight:normal;color:#1a2a4a;margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid #e0d8cc}
+  h3{font-size:16px;font-weight:normal;color:#1a2a4a;margin:28px 0 10px;font-style:italic}
+  p{margin-bottom:14px;text-align:justify}
+  .quote-block{margin:24px 0;padding:16px 20px 16px 24px;border-left:3px solid #1a3060;background:#f4f0e8;border-radius:0 4px 4px 0}
+  .quote-block p{margin:0;font-style:italic;font-size:14px;color:#2a2a2a;line-height:1.75}
+  .quote-ref{font-family:Arial,sans-serif;font-size:11px;color:#888;margin-top:6px;font-style:normal}
+  .concept-box{background:#fff;border:1px solid #ddd7cc;border-radius:6px;padding:16px 20px;margin:20px 0}
+  .concept-box .cb-label{font-family:Arial,sans-serif;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-bottom:8px}
+  .concept-box p{margin:0;font-size:14px}
+  .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0}
+  .compare-card{border:1px solid #ddd7cc;border-radius:6px;padding:16px 18px;background:#fff}
+  .compare-card .cc-title{font-family:Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#fff;background:#1a2a4a;display:inline-block;padding:3px 10px;border-radius:3px;margin-bottom:10px}
+  .compare-card ul{list-style:none;padding:0}
+  .compare-card ul li{font-size:13px;padding:4px 0;border-bottom:1px solid #f0ece4;color:#333;line-height:1.5}
+  .compare-card ul li:last-child{border-bottom:none}
+  .compare-card ul li::before{content:"▸ ";color:#b08a5a;font-size:11px}
+  .highlight-box{background:#1a2a4a;color:#fff;border-radius:6px;padding:18px 22px;margin:24px 0}
+  .highlight-box p{color:rgba(255,255,255,0.9);margin:0;font-size:14px;line-height:1.75}
+  .highlight-box strong{color:#fff}
+  .timeline{margin:20px 0}
+  .tl-item{display:flex;gap:16px;margin-bottom:12px;align-items:flex-start}
+  .tl-year{font-family:Arial,sans-serif;font-size:12px;font-weight:bold;color:#fff;background:#1a2a4a;padding:3px 8px;border-radius:3px;min-width:60px;text-align:center;margin-top:2px}
+  .tl-text{font-size:14px;color:#333;flex:1;padding-top:4px}
+  .authors-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0}
+  .author-card{border:1px solid #ddd7cc;border-radius:6px;padding:12px 14px;background:#fff;text-align:center}
+  .author-initial{width:40px;height:40px;border-radius:50%;background:#1a2a4a;color:#fff;display:flex;align-items:center;justify-content:center;font-family:Arial,sans-serif;font-size:16px;margin:0 auto 8px}
+  .author-name{font-size:13px;font-weight:bold;color:#1a2a4a}
+  .author-role{font-size:11px;color:#888;margin-top:3px;font-family:Arial,sans-serif}
+  .power-diagram{display:flex;gap:12px;margin:20px 0;align-items:stretch}
+  .power-pillar{flex:1;border:1px solid #ddd7cc;border-radius:6px;overflow:hidden;background:#fff}
+  .power-pillar-header{background:#1a3060;color:#fff;padding:10px 12px;text-align:center;font-family:Arial,sans-serif;font-size:12px;letter-spacing:0.5px}
+  .power-pillar-body{padding:12px;font-size:12px;color:#444;line-height:1.6}
+  .power-pillar-body li{list-style:none;padding:3px 0;border-bottom:1px solid #f0ece4}
+  .power-pillar-body li:last-child{border-bottom:none}
+  .power-pillar-body li::before{content:"→ ";color:#b08a5a}
+  .ref-list{list-style:none;padding:0}
+  .ref-list li{font-size:13px;padding:5px 0;border-bottom:1px dotted #e0d8cc;color:#444}
+  .ref-list li:last-child{border-bottom:none}
+  .section-divider{text-align:center;color:#ccc;letter-spacing:8px;margin:32px 0;font-size:12px}
+
+  /* RESUMO */
+  .resumo-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0}
+  .resumo-card{background:#fff;border:1px solid #ddd7cc;border-radius:6px;overflow:hidden}
+  .resumo-card-header{background:#1a2a4a;color:#fff;padding:8px 14px;font-family:Arial,sans-serif;font-size:11px;letter-spacing:0.8px}
+  .resumo-card-body{padding:12px 14px}
+  .resumo-card-body ul{list-style:none;padding:0}
+  .resumo-card-body ul li{font-size:13px;padding:4px 0;border-bottom:1px solid #f5f2ec;color:#333;line-height:1.5}
+  .resumo-card-body ul li:last-child{border-bottom:none}
+  .resumo-card-body ul li::before{content:"• ";color:#b08a5a}
+  .conceitos-chave{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0}
+  .ck-item{background:#f4f0e8;border-radius:5px;padding:10px 12px;text-align:center}
+  .ck-term{font-family:Arial,sans-serif;font-size:12px;font-weight:bold;color:#1a2a4a;margin-bottom:4px}
+  .ck-def{font-size:11px;color:#555;line-height:1.45}
+  .mapa-autores{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0}
+  .ma-card{border:1px solid #ddd7cc;border-radius:5px;overflow:hidden;background:#fff}
+  .ma-header{background:#2e4a7a;color:#fff;padding:6px 10px;font-family:Arial,sans-serif;font-size:11px}
+  .ma-body{padding:8px 10px;font-size:12px;color:#444}
+  .ma-body li{list-style:none;padding:2px 0}
+  .ma-body li::before{content:"→ ";color:#b08a5a;font-size:11px}
+
+  /* QUESTÕES COM RESPOSTAS */
+  .qa-item{margin-bottom:24px;border:1px solid #ddd7cc;border-radius:6px;overflow:hidden;background:#fff}
+  .qa-pergunta{background:#1a2a4a;color:#fff;padding:12px 18px;font-size:14px;font-family:Georgia,serif;line-height:1.5}
+  .qa-pergunta span{font-family:Arial,sans-serif;font-size:11px;color:rgba(255,255,255,0.5);display:block;margin-bottom:4px;letter-spacing:1px}
+  .qa-resposta{padding:16px 18px}
+  .qa-resposta p{margin-bottom:10px;font-size:14px}
+  .qa-resposta p:last-child{margin-bottom:0}
+  .qa-resposta ul{list-style:none;padding:0;margin:8px 0}
+  .qa-resposta ul li{font-size:13px;padding:4px 0;border-bottom:1px solid #f5f2ec;color:#333}
+  .qa-resposta ul li:last-child{border-bottom:none}
+  .qa-resposta ul li::before{content:"▸ ";color:#b08a5a}
+  .qa-fonte{font-family:Arial,sans-serif;font-size:11px;color:#aaa;margin-top:10px;font-style:normal;display:block}
+  .perguntas-adicionais{background:#f0f4fb;border:1px solid #c5d4ec;border-radius:6px;padding:20px 24px;margin-top:20px}
+  .perguntas-adicionais h3{font-style:normal;margin:0 0 14px;font-size:14px;font-family:Arial,sans-serif;letter-spacing:0.5px;color:#444}
+  .perguntas-adicionais ol{padding-left:18px}
+  .perguntas-adicionais ol li{font-size:14px;padding:5px 0;color:#333}
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="cover-badge">Ciências Políticas · Graduação</div>
+  <h1>Os Federalistas</h1>
+  <p class="cover-sub">Federalismo, República, Separação de Poderes e o Papel dos Tribunais</p>
+  <div class="cover-authors">
+    Baseado nos artigos de James Madison, Alexander Hamilton e John Jay (1787–1788) · Prof. Vitor Bizerril
+  </div>
+</div>
+
+<div class="toc">
+  <h2>Sumário</h2>
+  <ul class="toc-list">
+    <li><span class="toc-num">1.</span><a href="#ctx">Contexto histórico</a><span class="toc-dots"></span><span class="toc-pg">§1</span></li>
+    <li><span class="toc-num">2.</span><a href="#uniao">A importância da União e o problema do faccionismo</a><span class="toc-dots"></span><span class="toc-pg">§2</span></li>
+    <li><span class="toc-num">3.</span><a href="#demrep">Democracia vs. República</a><span class="toc-dots"></span><span class="toc-pg">§3</span></li>
+    <li><span class="toc-num">4.</span><a href="#poderes">Pesos e contrapesos — uma outra separação dos poderes</a><span class="toc-dots"></span><span class="toc-pg">§4</span></li>
+    <li><span class="toc-num">5.</span><a href="#tribunais">O papel dos tribunais</a><span class="toc-dots"></span><span class="toc-pg">§5</span></li>
+    <li><span class="toc-num">6.</span><a href="#resumo">Resumo para revisão</a><span class="toc-dots"></span><span class="toc-pg">§6</span></li>
+    <li><span class="toc-num">7.</span><a href="#fixacao">Questões com respostas</a><span class="toc-dots"></span><span class="toc-pg">§7</span></li>
+    <li><span class="toc-num">8.</span><a href="#refs">Referências</a><span class="toc-dots"></span><span class="toc-pg">§8</span></li>
+  </ul>
+</div>
+
+<main>
+
+<!-- 1. CONTEXTO -->
+<section id="ctx">
+  <div class="section-label">Seção 1</div>
+  <h2>Contexto histórico</h2>
+  <p>Os <em>Artigos Federalistas</em> emergem em um dos momentos mais decisivos da história política moderna: o processo de ratificação da Constituição dos Estados Unidos, aprovada na Convenção de Filadélfia em 1787. Escritos sob o pseudônimo coletivo <strong>Publius</strong>, os 85 artigos foram publicados em jornais de Nova York entre 1787 e 1788 com o objetivo de convencer o público a apoiar a nova Constituição.</p>
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-year">1775–83</div><div class="tl-text">Guerra de Independência dos EUA contra a Grã-Bretanha.</div></div>
+    <div class="tl-item"><div class="tl-year">1776</div><div class="tl-text">Declaração de Independência dos EUA — afirmação dos direitos naturais e da soberania popular.</div></div>
+    <div class="tl-item"><div class="tl-year">1781–87</div><div class="tl-text">Vigência dos <em>Artigos da Confederação</em>: governo central fraco, sem poder tributário nem executivo forte. Instabilidade crescente.</div></div>
+    <div class="tl-item"><div class="tl-year">1787</div><div class="tl-text">Convenção de Filadélfia elabora a Constituição Federal. Início dos debates entre federalistas e antifederalistas.</div></div>
+    <div class="tl-item"><div class="tl-year">1787–88</div><div class="tl-text">Publicação dos <em>Papéis Federalistas</em> por Madison, Hamilton e Jay. Ratificação da Constituição.</div></div>
+  </div>
+  <div class="authors-grid">
+    <div class="author-card"><div class="author-initial">JM</div><div class="author-name">James Madison</div><div class="author-role">Pai da Constituição · Nºs X, LI</div></div>
+    <div class="author-card"><div class="author-initial">AH</div><div class="author-name">Alexander Hamilton</div><div class="author-role">Secretário do Tesouro · Nºs IX, LXXVIII</div></div>
+    <div class="author-card"><div class="author-initial">JJ</div><div class="author-name">John Jay</div><div class="author-role">Diplomata · artigos sobre política externa</div></div>
+  </div>
+  <p>O problema central que os federalistas precisavam resolver era duplo: (1) demonstrar que o governo central proposto não era uma ameaça à liberdade dos Estados; e (2) mostrar que ele era necessário para conter os vícios do faccionismo e garantir estabilidade republicana.</p>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 2. UNIÃO E FACCIONISMO -->
+<section id="uniao">
+  <div class="section-label">Seção 2</div>
+  <h2>A importância da União e o problema do faccionismo</h2>
+  <p>O argumento central do <strong>Federalista nº IX</strong> (Hamilton) e do <strong>Federalista nº X</strong> (Madison) é que uma União firme constitui a melhor salvaguarda contra o faccionismo e a insurreição doméstica — os maiores males que ameaçam os governos populares.</p>
+  <h3>O que é facção?</h3>
+  <div class="concept-box">
+    <div class="cb-label">Definição — Madison, Federalista nº X</div>
+    <p>Facção é certo número de cidadãos — seja maioria ou minoria — unidos e movidos por algum impulso comum de paixão ou interesse que é adverso aos direitos dos demais cidadãos ou aos interesses permanentes e coletivos da comunidade.</p>
+  </div>
+  <p>Madison identifica <strong>dois métodos</strong> para curar os males do faccionismo: remover suas causas ou controlar seus efeitos. A remoção das causas é impraticável — exigiria destruir a liberdade ou forçar uniformidade de opiniões. A saída republicana está no controle dos efeitos.</p>
+  <h3>Por que a União contém o faccionismo?</h3>
+  <p>A lógica é territorial e escalar: quanto maior o território e o número de cidadãos, menor a probabilidade de que uma maioria faccional se organize e imponha sua vontade ao conjunto.</p>
+  <div class="quote-block">
+    <p>A influência dos líderes facciosos pode atiçar uma chama em seus Estados particulares, mas será incapaz de disseminar uma conflagração pelos outros Estados. Um furor por papel-moeda, por uma anulação de dívidas [...] terá menos condições de impregnar todo o corpo da União que um de seus membros.</p>
+    <div class="quote-ref">Madison, Federalista nº X</div>
+  </div>
+  <div class="highlight-box">
+    <p><strong>Síntese:</strong> A extensão geográfica e a pluralidade de interesses na União não são fraquezas — são, paradoxalmente, as melhores defesas contra a tirania da maioria. Quanto mais diversificada a sociedade, mais improvável se torna a formação de uma maioria opressora.</p>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 3. DEMOCRACIA vs REPÚBLICA -->
+<section id="demrep">
+  <div class="section-label">Seção 3</div>
+  <h2>Democracia vs. República</h2>
+  <p>Um dos argumentos mais originais do <strong>Federalista nº X</strong> é a distinção entre <em>democracia pura</em> e <em>república representativa</em>. Para Madison, a democracia direta não oferece remédio contra o faccionismo — ao contrário, potencializa-o.</p>
+  <div class="compare-grid">
+    <div class="compare-card">
+      <span class="cc-title">Democracia pura</span>
+      <ul>
+        <li>Pequeno número de cidadãos</li>
+        <li>Governo administrado pessoalmente</li>
+        <li>Território necessariamente restrito</li>
+        <li>Suscetível à paixão das facções</li>
+        <li>Vida breve e violentamente interrompida</li>
+        <li>Sem filtro para deliberação</li>
+      </ul>
+    </div>
+    <div class="compare-card">
+      <span class="cc-title">República representativa</span>
+      <ul>
+        <li>Grande número de cidadãos</li>
+        <li>Governo delegado a representantes eleitos</li>
+        <li>Extensão territorial ampla</li>
+        <li>Representantes filtram as paixões</li>
+        <li>Estabilidade garantida pela mediação</li>
+        <li>Deliberação racional e patriótica</li>
+      </ul>
+    </div>
+  </div>
+  <div class="quote-block">
+    <p>O efeito da primeira diferença é depurar e ampliar as opiniões do povo, que são filtradas por uma assembleia escolhida de cidadãos, cuja sabedoria pode melhor discernir o verdadeiro interesse de seu país e cujo patriotismo e amor à justiça serão menos propensos a sacrificá-lo a considerações temporárias ou parciais.</p>
+    <div class="quote-ref">Madison, Federalista nº X</div>
+  </div>
+  <div class="concept-box">
+    <div class="cb-label">Atenção — a ambivalência da representação</div>
+    <p>Madison reconhece o risco oposto: representantes de temperamento faccioso podem, por intriga ou corrupção, trair os interesses do povo. Daí a importância do tamanho da república — em repúblicas maiores, a representação terá maior probabilidade de incluir pessoas com ideias esclarecidas e sentimentos virtuosos.</p>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 4. PESOS E CONTRAPESOS -->
+<section id="poderes">
+  <div class="section-label">Seção 4</div>
+  <h2>Pesos e contrapesos — uma outra separação dos poderes</h2>
+  <p>Os <strong>Federalistas nº XLVII, XLVIII e LI</strong> (Madison) travam um debate sofisticado com Montesquieu sobre a separação dos poderes. O ponto central é que a máxima da separação não exige que os poderes sejam completamente estanques — essa separação absoluta seria perigosa e ineficaz.</p>
+  <h3>A releitura de Montesquieu</h3>
+  <p>Madison argumenta que a própria Constituição britânica, modelo de Montesquieu, jamais manteve os poderes absolutamente independentes. O que Montesquieu quis dizer é que quando <em>todo</em> o poder de um ramo é exercido pelas mesmas mãos que exercem todo o poder de outro, a liberdade está subvertida — não que os poderes não possam ter qualquer ingerência parcial uns sobre os outros.</p>
+  <div class="power-diagram">
+    <div class="power-pillar">
+      <div class="power-pillar-header">Legislativo</div>
+      <ul class="power-pillar-body">
+        <li>Faz as leis</li>
+        <li>Aprova orçamento</li>
+        <li>Impeachment do executivo e judiciário</li>
+        <li>Confirma nomeações (Senado)</li>
+        <li>Pode ser limitado pelo veto executivo</li>
+      </ul>
+    </div>
+    <div class="power-pillar">
+      <div class="power-pillar-header">Executivo</div>
+      <ul class="power-pillar-body">
+        <li>Executa as leis</li>
+        <li>Nomeia juízes e ministros</li>
+        <li>Veto sobre legislação</li>
+        <li>Não pode fazer leis diretamente</li>
+        <li>Sujeito a impeachment</li>
+      </ul>
+    </div>
+    <div class="power-pillar">
+      <div class="power-pillar-header">Judiciário</div>
+      <ul class="power-pillar-body">
+        <li>Interpreta as leis</li>
+        <li>Declara inconstitucionalidade</li>
+        <li>Vitaliciedade dos juízes</li>
+        <li>Sem força nem bolsa próprios</li>
+        <li>Depende do executivo p/ eficácia</li>
+      </ul>
+    </div>
+  </div>
+  <div class="quote-block">
+    <p>A grande garantia contra uma concentração gradual dos vários poderes no mesmo braço consiste em dar aos que administram cada poder os meios constitucionais necessários e os motivos pessoais para resistir aos abusos dos outros. A ambição deve poder contra-atacar a ambição.</p>
+    <div class="quote-ref">Madison, Federalista nº LI</div>
+  </div>
+  <div class="quote-block">
+    <p>A conclusão que posso seguramente extrair destas observações é que a mera demarcação no papel dos limites constitucionais dos vários poderes não é uma salvaguarda suficiente contra aqueles abusos que levam uma concentração tirânica de todos os poderes de governo nas mesmas mãos.</p>
+    <div class="quote-ref">Madison, Federalista nº XLVIII</div>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 5. TRIBUNAIS -->
+<section id="tribunais">
+  <div class="section-label">Seção 5</div>
+  <h2>O papel dos tribunais</h2>
+  <p>O <strong>Federalista nº LXXVIII</strong> (Hamilton) é o texto fundacional do controle de constitucionalidade judicial. Hamilton parte da constatação de que o judiciário é o mais fraco dos três poderes — não tem força (espada do executivo) nem bolsa (orçamento do legislativo), apenas julgamento.</p>
+  <div class="quote-block">
+    <p>A completa independência dos tribunais de justiça é peculiarmente essencial numa Constituição limitada [...]. Na prática, limitações desse tipo não podem ser preservadas senão por meio dos tribunais de justiça, cuja missão deverá ser declarar nulos todos os atos contrários ao sentido manifesto da Constituição.</p>
+    <div class="quote-ref">Hamilton, Federalista nº LXXVIII</div>
+  </div>
+  <div class="quote-block">
+    <p>Portanto, nenhum ato legislativo contrário à Constituição pode ser válido. Negar isto seria afirmar que o delegado é maior que o outorgante; que o servidor está acima do senhor; que os representantes do povo são superiores ao próprio povo.</p>
+    <div class="quote-ref">Hamilton, Federalista nº LXXVIII</div>
+  </div>
+  <div class="concept-box">
+    <div class="cb-label">Atenção — não é supremacia judicial</div>
+    <p>O controle de constitucionalidade <em>não implica superioridade do judiciário sobre o legislativo</em>. Ambos estão subordinados ao povo. Quando a lei contraria a Constituição, os juízes fazem prevalecer a vontade maior — a do povo constituinte — sobre a vontade menor — a dos representantes ordinários.</p>
+  </div>
+  <div class="quote-block">
+    <p>Esta conclusão não supõe de modo algum uma superioridade do poder judiciário sobre o legislativo. Supõe apenas que o poder do povo é superior a ambos, e que, quando a vontade do legislativo, expressa em suas leis, entra em oposição com a do povo, expressa na Constituição, os juízes devem ser governados por esta última e não pelas primeiras.</p>
+    <div class="quote-ref">Hamilton, Federalista nº LXXVIII</div>
+  </div>
+  <div class="highlight-box">
+    <p><strong>Legado:</strong> O argumento de Hamilton influenciou diretamente <em>Marbury v. Madison</em> (1803), em que o Chief Justice John Marshall estabeleceu formalmente o controle judicial de constitucionalidade nos EUA — base do constitucionalismo moderno, presente também no Brasil (art. 102, CF/88).</p>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 6. RESUMO PARA REVISÃO -->
+<section id="resumo">
+  <div class="section-label">Seção 6</div>
+  <h2>Resumo para revisão</h2>
+
+  <h3>Conceitos fundamentais</h3>
+  <div class="conceitos-chave">
+    <div class="ck-item"><div class="ck-term">Facção</div><div class="ck-def">Grupo movido por interesse ou paixão contrários ao bem comum. Principal ameaça ao governo popular.</div></div>
+    <div class="ck-item"><div class="ck-term">União</div><div class="ck-def">Solução estrutural para o faccionismo: a escala e diversidade tornam improvável uma maioria opressora.</div></div>
+    <div class="ck-item"><div class="ck-term">República</div><div class="ck-def">Governo por representação. Filtra as paixões populares e amplia o alcance territorial do governo.</div></div>
+    <div class="ck-item"><div class="ck-term">Checks &amp; Balances</div><div class="ck-def">Cada poder tem meios constitucionais para limitar os outros dois. Vai além da separação formal de Montesquieu.</div></div>
+    <div class="ck-item"><div class="ck-term">Judicial Review</div><div class="ck-def">Poder dos tribunais de declarar nulos atos contrários à Constituição. Não é supremacia judicial.</div></div>
+    <div class="ck-item"><div class="ck-term">Const. limitada</div><div class="ck-def">Constituição que fixa exceções ao poder legislativo. Exige tribunais independentes para ser efetiva.</div></div>
+  </div>
+
+  <h3>Mapa por autor e artigo</h3>
+  <div class="mapa-autores">
+    <div class="ma-card">
+      <div class="ma-header">Hamilton — Federalista IX</div>
+      <ul class="ma-body">
+        <li>União contra o faccionismo</li>
+        <li>República confederada</li>
+        <li>Crítica às pequenas repúblicas gregas e italianas</li>
+      </ul>
+    </div>
+    <div class="ma-card">
+      <div class="ma-header">Madison — Federalista X</div>
+      <ul class="ma-body">
+        <li>Definição de facção</li>
+        <li>Democracia vs. república</li>
+        <li>Extensão territorial como antídoto</li>
+      </ul>
+    </div>
+    <div class="ma-card">
+      <div class="ma-header">Madison — Federalista XLVII</div>
+      <ul class="ma-body">
+        <li>Releitura de Montesquieu</li>
+        <li>Separação não é absoluta</li>
+        <li>Análise das constituições estaduais</li>
+      </ul>
+    </div>
+    <div class="ma-card">
+      <div class="ma-header">Madison — Federalista XLVIII</div>
+      <ul class="ma-body">
+        <li>Demarcação no papel é insuficiente</li>
+        <li>Legislativo tende à expansão</li>
+        <li>Necessidade de freios práticos</li>
+      </ul>
+    </div>
+    <div class="ma-card">
+      <div class="ma-header">Madison — Federalista LI</div>
+      <ul class="ma-body">
+        <li>Ambição contra ambição</li>
+        <li>Estrutura interna do governo</li>
+        <li>Dupla segurança no federalismo</li>
+      </ul>
+    </div>
+    <div class="ma-card">
+      <div class="ma-header">Hamilton — Federalista LXXVIII</div>
+      <ul class="ma-body">
+        <li>Judiciário como poder mais fraco</li>
+        <li>Vitaliciedade e independência</li>
+        <li>Controle de constitucionalidade</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Argumentos centrais por tema</h3>
+  <div class="resumo-grid">
+    <div class="resumo-card">
+      <div class="resumo-card-header">Por que criar a União?</div>
+      <ul class="resumo-card-body">
+        <li>Barreira contra o faccionismo e insurreição</li>
+        <li>Fraqueza da Confederação de 1781</li>
+        <li>Escala impede maioria faccional coordenada</li>
+        <li>Segurança externa e interna</li>
+        <li>Controle mútuo entre Estados</li>
+      </ul>
+    </div>
+    <div class="resumo-card">
+      <div class="resumo-card-header">Democracia vs. República</div>
+      <ul class="resumo-card-body">
+        <li>Democracia: governo direto, pequena escala</li>
+        <li>República: representação + grande escala</li>
+        <li>Representação "filtra e depura" as paixões</li>
+        <li>Mais cidadãos → menor risco faccional</li>
+        <li>Risco inverso: representante faccioso</li>
+      </ul>
+    </div>
+    <div class="resumo-card">
+      <div class="resumo-card-header">Separação de poderes</div>
+      <ul class="resumo-card-body">
+        <li>Montesquieu: separação estanque (mal interpretada)</li>
+        <li>Federalistas: poderes misturados o suficiente</li>
+        <li>Cada poder deve ter controle sobre os outros</li>
+        <li>Papel escrito não basta — necessário motivo pessoal</li>
+        <li>Legislativo é o poder mais perigoso</li>
+      </ul>
+    </div>
+    <div class="resumo-card">
+      <div class="resumo-card-header">Papel dos tribunais</div>
+      <ul class="resumo-card-body">
+        <li>Judiciário: mais fraco (só tem julgamento)</li>
+        <li>Independência via vitaliciedade</li>
+        <li>Guardiões da Constituição limitada</li>
+        <li>Declaram nulos atos inconstitucionais</li>
+        <li>Não é supremacia judicial — é supremacia do povo</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 7. QUESTÕES COM RESPOSTAS -->
+<section id="fixacao">
+  <div class="section-label">Seção 7</div>
+  <h2>Questões com respostas</h2>
+
+  <div class="qa-item">
+    <div class="qa-pergunta">
+      <span>Questão 1</span>
+      Quais os motivos para a União ser criada?
+    </div>
+    <div class="qa-resposta">
+      <p>Os federalistas apresentam essencialmente dois grupos de argumentos para justificar a criação de uma União forte no lugar da fraca Confederação de 1781.</p>
+      <p>O primeiro argumento é de ordem interna: a União é a principal barreira contra o <strong>faccionismo</strong> e a insurreição doméstica. Como Madison demonstra no Federalista nº X, facções surgem inevitavelmente da natureza humana e da diversidade de interesses numa sociedade livre. Numa pequena república, uma facção majoritária pode facilmente se organizar e oprimir as minorias. Numa União extensa, porém, a multiplicidade de interesses, partidos e seitas torna praticamente impossível que uma maioria opressora se forme e coordene sua ação em escala nacional.</p>
+      <p>O segundo argumento é de ordem externa: a União proporciona força coletiva para defesa contra ameaças estrangeiras e capacidade de firmar tratados internacionais — impossível com treze Estados agindo de forma dispersa.</p>
+      <p>Por fim, Hamilton acrescenta que a Confederação tinha demonstrado na prática sua incapacidade: sem poder tributário autônomo, sem executivo forte e sem mecanismos de controle sobre os Estados individuais, o governo central era ineficaz para qualquer fim.</p>
+      <span class="qa-fonte">Referência: Federalistas nº IX (Hamilton) e X (Madison)</span>
+    </div>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-pergunta">
+      <span>Questão 2</span>
+      Quais as diferenças entre democracia e república?
+    </div>
+    <div class="qa-resposta">
+      <p>Para Madison, a distinção entre democracia e república não é meramente nominal — ela tem implicações práticas decisivas para o problema do faccionismo.</p>
+      <p>A <strong>democracia pura</strong> é uma sociedade formada por um pequeno número de cidadãos que se unem e administram <em>pessoalmente</em> o governo. Por ser direta e de pequena escala, ela é incapaz de conter o faccionismo: uma paixão ou interesse comum contamina facilmente toda a maioria, que passa então a oprimir a minoria sem nenhum freio institucional. Historicamente, essas democracias tiveram vidas breves e violentamente encerradas.</p>
+      <p>A <strong>república</strong>, por sua vez, define-se por dois traços fundamentais: (1) a <em>delegação do governo</em> a um número reduzido de cidadãos eleitos pelos demais — o que "filtra e depura" as paixões populares por meio de representantes mais esclarecidos e patrióticos; e (2) a capacidade de exercer-se sobre um território muito maior e um número muito maior de cidadãos — o que torna improvável que uma maioria faccional se coordene.</p>
+      <p>Em suma: a república resolve o problema da democracia pura por meio da <em>representação</em> (que racionaliza a deliberação) e da <em>extensão</em> (que fragmenta as facções potenciais).</p>
+      <span class="qa-fonte">Referência: Federalista nº X (Madison)</span>
+    </div>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-pergunta">
+      <span>Questão 3</span>
+      Por que a separação de poderes proposta pelos Federalistas é diferente daquela formulada por Montesquieu?
+    </div>
+    <div class="qa-resposta">
+      <p>A diferença central está no que os federalistas chamam de <strong>pesos e contrapesos</strong> (<em>checks and balances</em>), que vai além da simples separação orgânica entre poderes formulada por Montesquieu.</p>
+      <p>Madison, no Federalista nº XLVII, começa por contestar a leitura mais comum de Montesquieu: o próprio modelo britânico que o filósofo admirava nunca manteve os poderes completamente estanques entre si. O executivo britânico integra o legislativo; juízes são designados pelo executivo e removíveis pelo legislativo. O que Montesquieu quis dizer, na interpretação de Madison, é que <em>todo</em> o poder de um ramo não pode estar nas mesmas mãos que detêm <em>todo</em> o poder de outro — não que não possa haver nenhuma ingerência parcial.</p>
+      <p>A inovação federalista, elaborada no Federalista nº XLVIII e nº LI, é que a separação formal no papel é <em>insuficiente</em>. É preciso que cada poder tenha instrumentos constitucionais <em>e</em> motivos pessoais para resistir às usurpações dos demais. "A ambição deve poder contra-atacar a ambição." O sistema deve ser desenhado de modo que o interesse do agente coincida com a defesa dos direitos constitucionais de seu cargo.</p>
+      <p>Assim, enquanto Montesquieu propunha separação como princípio estático, os federalistas propõem um sistema <em>dinâmico</em> de equilíbrio ativo entre poderes que se fiscalizam mutuamente.</p>
+      <span class="qa-fonte">Referência: Federalistas nº XLVII, XLVIII e LI (Madison)</span>
+    </div>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-pergunta">
+      <span>Questão 4</span>
+      Qual o papel dos tribunais?
+    </div>
+    <div class="qa-resposta">
+      <p>Para Hamilton, os tribunais desempenham uma função dupla e insubstituível: são guardiões da Constituição limitada e protetores dos direitos individuais contra abusos legislativos.</p>
+      <p>O argumento parte de uma constatação sobre a hierarquia normativa: a Constituição é a expressão da vontade do povo soberano, enquanto as leis ordinárias expressam a vontade dos representantes — que é derivada e subordinada. Quando há conflito entre lei e Constituição, a Constituição deve prevalecer. Os tribunais são o instrumento institucional para garantir essa prevalência, declarando nulos os atos legislativos contrários ao texto constitucional.</p>
+      <p>Hamilton é explícito em afastar a objeção de que isso implicaria supremacia judicial: os juízes não estão acima do legislativo — ambos estão subordinados ao povo. O judiciário apenas faz prevalecer a vontade <em>maior</em> do povo (expressa na Constituição) sobre a vontade <em>menor</em> dos seus representantes (expressa nas leis ordinárias).</p>
+      <p>Para garantir essa função, Hamilton defende a <strong>vitaliciedade</strong> dos cargos judiciais condicionada ao bom comportamento: juízes com mandato temporário seriam vulneráveis a pressões do executivo e do legislativo, comprometendo sua independência.</p>
+      <span class="qa-fonte">Referência: Federalista nº LXXVIII (Hamilton)</span>
+    </div>
+  </div>
+
+  <div class="perguntas-adicionais">
+    <h3>Questões adicionais para aprofundamento</h3>
+    <ol>
+      <li>Como a distinção entre <em>confederação</em> e <em>consolidação</em> dos Estados se relaciona com o debate atual sobre federalismo no Brasil?</li>
+      <li>O argumento de Madison sobre a extensão territorial como antídoto ao faccionismo pressupõe que interesses diversificados nunca se coordenam. Essa premissa é válida?</li>
+      <li>A vitaliciedade dos cargos judiciais é compatível com os princípios democráticos? Discuta à luz do debate contemporâneo sobre ativismo judicial.</li>
+      <li>O sistema de <em>checks and balances</em> pressupõe que "a ambição deve poder contra-atacar a ambição". Que visão de natureza humana está por trás dessa afirmação? Compare com Rousseau.</li>
+    </ol>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 8. REFERÊNCIAS -->
+<section id="refs">
+  <div class="section-label">Seção 8</div>
+  <h2>Referências</h2>
+  <ul class="ref-list">
+    <li>HAMILTON, Alexander; MADISON, James; JAY, John. <em>Os Artigos Federalistas</em>. Rio de Janeiro: Nova Fronteira, 1993.</li>
+    <li>MADISON, James. Federalista nº X — Desenvolvimento do tema. p. 132–139.</li>
+    <li>MADISON, James. Federalista nº XLVII — Exame e definição do significado da máxima que impõe a separação dos poderes. p. 330–337.</li>
+    <li>MADISON, James. Federalista nº XLVIII — Desenvolvimento do tema, com exame dos meios de dar eficácia prática à máxima. p. 338–342.</li>
+    <li>MADISON, James. Federalista nº LI — Desenvolvimento do tema na mesma perspectiva e conclusão. p. 349–352.</li>
+    <li>HAMILTON, Alexander. Federalista nº IX — A utilidade da União como salvaguarda contra o facciosismo. p. 128–131.</li>
+    <li>HAMILTON, Alexander. Federalista nº LXXVIII — Exame da organização do poder judiciário. p. 478–485.</li>
+    <li>MONTESQUIEU. <em>O Espírito das Leis</em>. São Paulo: Martins Fontes, 1996.</li>
+  </ul>
+</section>
+
+</main>
+</body>
+</html>
