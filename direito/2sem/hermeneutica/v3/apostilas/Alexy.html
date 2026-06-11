@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teoria da Argumentação Jurídica — Robert Alexy</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Georgia,'Times New Roman',serif;font-size:15px;line-height:1.8;color:#1a1a1a;background:#fdfaf6}
+
+  /* ===== CAPA ===== */
+  .cover{background:linear-gradient(160deg,#1a3a2a 60%,#2e6b4a);color:#fff;padding:64px 48px 48px;position:relative;overflow:hidden}
+  .cover::after{content:"§";position:absolute;right:-20px;bottom:-70px;font-size:300px;color:rgba(255,255,255,.05);font-style:italic}
+  .badge{display:inline-block;border:1px solid rgba(255,255,255,.4);padding:5px 14px;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:28px;font-family:Verdana,sans-serif}
+  .cover h1{font-size:38px;font-weight:normal;line-height:1.25;margin-bottom:10px}
+  .cover .subtitle{font-size:17px;font-style:italic;color:#cfe3d4;margin-bottom:32px}
+  .cover .meta{font-size:13px;color:#a8c5b0;border-top:1px solid rgba(255,255,255,.2);padding-top:18px;line-height:2}
+
+  main{max-width:860px;margin:0 auto;padding:0 32px 60px}
+
+  /* ===== SUMÁRIO ===== */
+  .toc{background:#fff;border:1px solid #e3ddd2;padding:32px 36px;margin:40px 0}
+  .toc h2{font-size:13px;letter-spacing:2.5px;text-transform:uppercase;color:#2a5a3a;margin-bottom:18px;font-family:Verdana,sans-serif}
+  .toc ol{list-style:none;counter-reset:toc}
+  .toc li{counter-increment:toc;padding:7px 0;font-size:15px}
+  .toc a{color:#1a1a1a;text-decoration:none;display:flex;align-items:baseline}
+  .toc a:hover{color:#2a5a3a}
+  .toc a::before{content:counter(toc,decimal-leading-zero);color:#3a7a50;font-size:12px;margin-right:14px;font-family:Verdana,sans-serif}
+  .toc-dots{flex:1;border-bottom:1px dotted #c5bcab;margin:0 10px;transform:translateY(-4px)}
+
+  /* ===== SEÇÕES ===== */
+  section{margin:56px 0}
+  .section-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#3a7a50;font-family:Verdana,sans-serif;margin-bottom:8px}
+  h2{font-size:26px;font-weight:normal;color:#1a3a2a;margin-bottom:20px;line-height:1.3}
+  h3{font-size:19px;font-weight:normal;color:#2a5a3a;margin:30px 0 12px;font-style:italic}
+  p{margin-bottom:16px;text-align:justify}
+  .section-divider{text-align:center;color:#b8ae9c;letter-spacing:10px;margin:50px 0;font-size:18px}
+
+  /* ===== CITAÇÕES ===== */
+  blockquote{border-left:3px solid #3a7a50;padding:14px 24px;margin:24px 0;background:#f4f0e8;font-style:italic;color:#3a3a3a}
+  blockquote .fonte{display:block;font-style:normal;font-size:12.5px;color:#6b7d6f;margin-top:10px;font-family:Verdana,sans-serif}
+
+  /* ===== CAIXAS ===== */
+  .concept-box{background:#eef4ef;border:1px solid #c9dccb;padding:22px 26px;margin:24px 0}
+  .concept-box .cb-title{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:#2a5a3a;font-family:Verdana,sans-serif;margin-bottom:10px}
+  .highlight-box{background:#1a3a2a;color:#f0ead9;padding:26px 30px;margin:30px 0}
+  .highlight-box .hb-title{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:#9fc7a8;font-family:Verdana,sans-serif;margin-bottom:12px}
+  .highlight-box p{color:#f0ead9;margin-bottom:0}
+
+  /* ===== GRIDS ===== */
+  .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:26px 0}
+  .compare-grid.three{grid-template-columns:1fr 1fr 1fr}
+  .compare-col{background:#fff;border:1px solid #e3ddd2;border-top:4px solid #2a5a3a;padding:20px 22px}
+  .compare-col.alt{border-top-color:#b08a5a}
+  .compare-col h4{font-size:15px;color:#1a3a2a;margin-bottom:10px;font-family:Verdana,sans-serif;font-weight:bold}
+  .compare-col ul{padding-left:18px;font-size:14px}
+  .compare-col li{margin-bottom:8px}
+  .compare-col p{font-size:14px;text-align:left;margin-bottom:8px}
+
+  .four-card,.three-card{display:grid;gap:14px;margin:24px 0}
+  .four-card{grid-template-columns:1fr 1fr}
+  .three-card{grid-template-columns:1fr 1fr 1fr}
+  .mini-card{background:#fff;border:1px solid #e3ddd2;padding:18px 20px}
+  .mini-card .num{font-size:22px;color:#3a7a50;font-style:italic;display:block;margin-bottom:6px}
+  .mini-card h5{font-size:14px;color:#1a3a2a;margin-bottom:6px;font-family:Verdana,sans-serif}
+  .mini-card p{font-size:13.5px;text-align:left;margin-bottom:0;line-height:1.65}
+
+  /* ===== MAPA DE OBRAS ===== */
+  .mapa-obras{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:26px 0}
+  .obra-card{background:#fff;border:1px solid #e3ddd2;padding:22px 24px;border-left:5px solid #2a5a3a}
+  .obra-card .obra-ano{font-family:Verdana,sans-serif;font-size:11px;letter-spacing:2px;color:#3a7a50;text-transform:uppercase;display:block;margin-bottom:6px}
+  .obra-card h4{font-size:16px;color:#1a3a2a;font-style:italic;margin-bottom:8px;font-weight:normal}
+  .obra-card p{font-size:13.5px;text-align:left;margin-bottom:0;line-height:1.65}
+
+  /* ===== DIAGRAMA ===== */
+  .power-diagram{background:#fff;border:1px solid #e3ddd2;padding:34px 30px;margin:28px 0;text-align:center}
+  .pd-outer{border:2px dashed #b08a5a;padding:28px 22px 22px;position:relative}
+  .pd-outer .pd-label-out{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#fff;padding:0 14px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#b08a5a;font-family:Verdana,sans-serif;white-space:nowrap}
+  .pd-inner{border:2px solid #2a5a3a;background:#eef4ef;padding:20px 16px}
+  .pd-inner .pd-label-in{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#1a3a2a;font-family:Verdana,sans-serif;margin-bottom:12px;font-weight:bold}
+  .pd-tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+  .pd-tag{background:#1a3a2a;color:#fff;font-size:12px;padding:5px 12px;font-family:Verdana,sans-serif}
+  .pd-shared{margin-top:16px;font-size:13px;color:#5a5345;font-style:italic}
+
+  /* ===== TIMELINE ===== */
+  .timeline{margin:26px 0;border-left:2px solid #2a5a3a;padding-left:26px}
+  .tl-item{position:relative;margin-bottom:20px}
+  .tl-item::before{content:"";position:absolute;left:-33px;top:7px;width:12px;height:12px;border-radius:50%;background:#3a7a50;border:2px solid #fdfaf6}
+  .tl-item .tl-year{font-family:Verdana,sans-serif;font-size:12.5px;font-weight:bold;color:#2a5a3a;letter-spacing:1px}
+  .tl-item p{margin-bottom:0;font-size:14px}
+
+  /* ===== RESUMO PARA REVISÃO ===== */
+  .resumo-section{background:#f4f0e8;border:1px solid #e0d8c8;padding:36px;margin:50px 0}
+  .resumo-section>h2{margin-top:0}
+  .resumo-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:22px 0}
+  .resumo-card{background:#fff;border-left:4px solid #2a5a3a;padding:16px 20px}
+  .resumo-card h5{font-size:13.5px;color:#1a3a2a;font-family:Verdana,sans-serif;margin-bottom:6px}
+  .resumo-card p{font-size:13.5px;text-align:left;margin-bottom:0;line-height:1.65}
+  .conceitos-chave{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:22px 0}
+  .cc-item{background:#fff;border:1px solid #e3ddd2;padding:14px 16px}
+  .cc-item .cc-termo{font-family:Verdana,sans-serif;font-size:12.5px;font-weight:bold;color:#2a5a3a;display:block;margin-bottom:5px}
+  .cc-item .cc-def{font-size:12.5px;line-height:1.6}
+
+  /* ===== Q&A EXPANSÍVEL ===== */
+  .qa-item{background:#fff;border:1px solid #e3ddd2;margin:18px 0;overflow:hidden}
+  .qa-pergunta{font-size:15px;font-weight:bold;color:#1a3a2a;font-family:Verdana,sans-serif;line-height:1.55;padding:20px 26px;cursor:pointer;display:flex;align-items:baseline;gap:10px;user-select:none}
+  .qa-pergunta:hover{background:#f7f4ec}
+  .qa-pergunta .q-mark{color:#3a7a50;flex-shrink:0}
+  .qa-pergunta .q-toggle{margin-left:auto;color:#3a7a50;font-size:18px;flex-shrink:0;transition:transform .25s}
+  .qa-item.open .q-toggle{transform:rotate(45deg)}
+  .qa-resposta{font-size:14.5px;max-height:0;transition:max-height .35s ease;overflow:hidden}
+  .qa-item.open .qa-resposta{max-height:1200px}
+  .qa-resposta-inner{padding:4px 26px 22px;border-top:1px dotted #c5bcab}
+  .qa-resposta p{text-align:justify;margin-top:14px}
+  .qa-fonte{font-size:12px;color:#6b7d6f;font-family:Verdana,sans-serif;border-top:1px dotted #c5bcab;padding-top:10px;margin-top:14px}
+  .qa-dica{font-size:12.5px;color:#8a8273;font-style:italic;margin:6px 2px 0;text-align:center}
+
+  .perguntas-adicionais{background:#eef4ef;border:1px dashed #2a5a3a;padding:24px 28px;margin:30px 0}
+  .perguntas-adicionais h4{font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:#2a5a3a;font-family:Verdana,sans-serif;margin-bottom:14px}
+  .perguntas-adicionais ol{padding-left:20px}
+  .perguntas-adicionais li{margin-bottom:10px;font-size:14.5px}
+
+  /* ===== QUIZ ===== */
+  .quiz{background:#1a3a2a;padding:36px;margin:50px 0;color:#f0ead9}
+  .quiz h2{color:#fff}
+  .quiz .section-label{color:#9fc7a8}
+  .quiz-q{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);padding:22px 24px;margin:18px 0}
+  .quiz-q .qq-text{font-size:15px;font-family:Verdana,sans-serif;font-weight:bold;margin-bottom:14px;line-height:1.6;color:#fff}
+  .quiz-opt{display:block;width:100%;text-align:left;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#f0ead9;padding:11px 16px;margin:8px 0;font-size:14px;font-family:Georgia,serif;cursor:pointer;transition:background .2s}
+  .quiz-opt:hover{background:rgba(255,255,255,.16)}
+  .quiz-opt.correct{background:#3a7a50;border-color:#5ea874;color:#fff}
+  .quiz-opt.wrong{background:#7a3a3a;border-color:#a85e5e;color:#fff}
+  .quiz-opt:disabled{cursor:default}
+  .quiz-feedback{font-size:13px;font-style:italic;margin-top:10px;color:#cfe3d4;display:none}
+  .quiz-q.answered .quiz-feedback{display:block}
+  .quiz-score{text-align:center;font-size:17px;margin-top:26px;padding:18px;border:1px solid rgba(255,255,255,.25);display:none;font-family:Verdana,sans-serif}
+  .quiz-score.show{display:block}
+  .quiz-reset{display:block;margin:18px auto 0;background:#b08a5a;color:#fff;border:none;padding:10px 26px;font-size:13px;font-family:Verdana,sans-serif;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer}
+  .quiz-reset:hover{background:#c79b66}
+
+  /* ===== REFERÊNCIAS ===== */
+  .ref-list{list-style:none}
+  .ref-list li{padding:10px 0;border-bottom:1px dotted #d5cdbc;font-size:14px}
+
+  footer{background:#1a3a2a;color:#a8c5b0;text-align:center;padding:26px;font-size:12.5px;font-family:Verdana,sans-serif;letter-spacing:1px;margin-top:60px}
+
+  @media(max-width:640px){
+    .compare-grid,.compare-grid.three,.four-card,.three-card,.resumo-grid,.conceitos-chave,.mapa-obras{grid-template-columns:1fr}
+    .cover{padding:44px 28px 36px}
+    .cover h1{font-size:28px}
+    main{padding:0 18px 40px}
+    .resumo-section,.quiz{padding:24px 20px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== CAPA ===== -->
+<div class="cover">
+  <span class="badge">Hermenêutica e Argumentação Jurídica · 2º Semestre</span>
+  <h1>Teoria da Argumentação Jurídica</h1>
+  <div class="subtitle">Robert Alexy — racionalidade, discurso e justificação das decisões jurídicas</div>
+  <div class="meta">
+    Apostila de estudo · Baseada nos slides da disciplina (aula de 21.11.2023)<br>
+    Obra de referência: ALEXY, Robert. <em>Teoria da Argumentação Jurídica</em><br>
+    Faculdade Farias Brito · Curso de Direito
+  </div>
+</div>
+
+<main>
+
+<!-- ===== SUMÁRIO ===== -->
+<nav class="toc">
+  <h2>Sumário</h2>
+  <ol>
+    <li><a href="#s1">Robert Alexy: vida e obras<span class="toc-dots"></span></a></li>
+    <li><a href="#s2">Introdução: os limites da subsunção<span class="toc-dots"></span></a></li>
+    <li><a href="#s3">Casos simples × casos difíceis<span class="toc-dots"></span></a></li>
+    <li><a href="#s4">O problema da fundamentação e os juízos de valor<span class="toc-dots"></span></a></li>
+    <li><a href="#s5">A teoria do discurso<span class="toc-dots"></span></a></li>
+    <li><a href="#s6">A tese do caso especial<span class="toc-dots"></span></a></li>
+    <li><a href="#s7">Justificação interna<span class="toc-dots"></span></a></li>
+    <li><a href="#s8">Consistência × coerência<span class="toc-dots"></span></a></li>
+    <li><a href="#s9">Justificação externa: os seis grupos<span class="toc-dots"></span></a></li>
+    <li><a href="#resumo">Resumo para revisão<span class="toc-dots"></span></a></li>
+    <li><a href="#questoes">Questões norteadoras com respostas<span class="toc-dots"></span></a></li>
+    <li><a href="#quiz">Quiz interativo<span class="toc-dots"></span></a></li>
+    <li><a href="#refs">Referências<span class="toc-dots"></span></a></li>
+  </ol>
+</nav>
+
+<!-- ===== 1. VIDA E OBRAS ===== -->
+<section id="s1">
+  <div class="section-label">Seção 1</div>
+  <h2>Robert Alexy: vida e obras</h2>
+  <p>Robert Alexy graduou-se em Direito e Filosofia pela Universidade de Göttingen, na Alemanha. Sua trajetória acadêmica é marcada por duas obras que se tornaram clássicos da Filosofia e da Teoria do Direito: a dissertação de doutorado <em>Uma Teoria da Argumentação Jurídica</em> (PhD, 1976) e a tese de habilitação <em>Teoria dos Direitos Fundamentais</em> (1984).</p>
+  <p>A definição de direito de Alexy é uma síntese original: ela mescla o <strong>normativismo de Hans Kelsen</strong> (versão influente do positivismo jurídico) com o <strong>jusnaturalismo de Gustav Radbruch</strong>. Contudo, a sua teoria da argumentação o aproximou do <strong>interpretativismo jurídico</strong> — corrente que enxerga o direito como prática argumentativa e interpretativa, e não como mero sistema de normas postas.</p>
+
+  <div class="timeline">
+    <div class="tl-item"><span class="tl-year">1976</span><p>PhD pela Universidade de Göttingen com a dissertação <em>Uma Teoria da Argumentação Jurídica</em>.</p></div>
+    <div class="tl-item"><span class="tl-year">1984</span><p>Habilitação com a <em>Teoria dos Direitos Fundamentais</em> — segunda obra clássica do autor.</p></div>
+    <div class="tl-item"><span class="tl-year">2002</span><p>Professor da Universidade de Kiel, é indicado para a Academy of Sciences and Humanities da Universidade de Göttingen.</p></div>
+    <div class="tl-item"><span class="tl-year">2010</span><p>Recebe a Ordem do Mérito da República Federal da Alemanha.</p></div>
+  </div>
+
+  <h3>Mapa de obras</h3>
+  <div class="mapa-obras">
+    <div class="obra-card">
+      <span class="obra-ano">1976 · Dissertação (PhD)</span>
+      <h4>Uma Teoria da Argumentação Jurídica</h4>
+      <p>Objeto desta aula. Investiga como justificar racionalmente as decisões jurídicas quando a subsunção lógica não basta. Propõe a teoria do discurso, a tese do caso especial e a dupla justificação (interna e externa).</p>
+    </div>
+    <div class="obra-card">
+      <span class="obra-ano">1984 · Habilitação</span>
+      <h4>Teoria dos Direitos Fundamentais</h4>
+      <p>Desenvolve a distinção entre regras e princípios e a técnica da ponderação (proporcionalidade). Os princípios desta obra completam o modelo argumentativo iniciado em 1976.</p>
+    </div>
+  </div>
+
+  <div class="concept-box">
+    <div class="cb-title">Posição teórica de Alexy</div>
+    <p style="margin-bottom:0">Kelsen (normativismo/positivismo) + Radbruch (jusnaturalismo) → síntese própria que, com a teoria da argumentação, aproxima-se do <em>interpretativismo jurídico</em>. Alexy não abandona a lei, mas recusa reduzir o direito à pura lógica formal.</p>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- ===== 2. INTRODUÇÃO ===== -->
+<section id="s2">
+  <div class="section-label">Seção 2</div>
+  <h2>Introdução: os limites da subsunção</h2>
+  <p>Na <em>Teoria da Argumentação Jurídica</em>, Alexy parte de uma constatação que considera <strong>unânime</strong>: a aplicação das leis não se restringe à subsunção lógica, isto é, a uma atividade meramente silogística (premissa maior = norma; premissa menor = fato; conclusão = decisão). Quatro motivos explicam por que a lógica formal é insuficiente:</p>
+
+  <div class="four-card">
+    <div class="mini-card"><span class="num">i</span><h5>Imprecisão da linguagem</h5><p>A linguagem do direito é vaga e ambígua; os termos normativos não têm significado unívoco.</p></div>
+    <div class="mini-card"><span class="num">ii</span><h5>Conflito entre normas</h5><p>Normas válidas podem colidir entre si, e a lógica não diz qual deve prevalecer.</p></div>
+    <div class="mini-card"><span class="num">iii</span><h5>Lacunas (anomia)</h5><p>Existem casos sem regulação jurídica pré-existente, para os quais não há norma a subsumir.</p></div>
+    <div class="mini-card"><span class="num">iv</span><h5>Decisões contra legem</h5><p>Em casos especiais, há a possibilidade de decisões contrárias ao texto da lei.</p></div>
+  </div>
+
+  <p>Por isso, em grande número de casos, a afirmação normativa singular que expressa um julgamento jurídico <strong>não é uma conclusão lógica</strong> derivada de normas pressupostamente válidas tomadas junto com afirmações de fatos comprovados ou pressupostamente verdadeiros.</p>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- ===== 3. CASOS SIMPLES X DIFÍCEIS ===== -->
+<section id="s3">
+  <div class="section-label">Seção 3</div>
+  <h2>Casos simples × casos difíceis</h2>
+  <p>Para evitar lacunas jurídicas ao tratar de casos difíceis, deve-se estabelecer um <strong>sistema de enunciados</strong> do qual se possam deduzir as premissas normativas ausentes, necessárias à fundamentação. A distinção entre os dois tipos de caso gira em torno da dedutibilidade desse sistema:</p>
+
+  <div class="compare-grid">
+    <div class="compare-col">
+      <h4>Casos simples</h4>
+      <ul>
+        <li>A problematização <strong>não</strong> se dá: o raciocínio dedutivo opera sem maiores problemas.</li>
+        <li>O sistema axiológico proposto <strong>pode ser extraído</strong> das normas pressupostas.</li>
+        <li>As regras de interpretação <strong>bastam</strong> à construção silogística da decisão.</li>
+        <li>É o "caso comum" da prática jurídica.</li>
+      </ul>
+    </div>
+    <div class="compare-col alt">
+      <h4>Casos difíceis</h4>
+      <ul>
+        <li>O sistema de enunciados <strong>não é dedutível</strong> das normas pressupostas.</li>
+        <li>A decisão não terá fundamentação lógica ante as normas do ordenamento.</li>
+        <li>A solução justa exige decisão que <strong>não decorre logicamente</strong> do ordenamento nem das regras de interpretação.</li>
+        <li>O aplicador deve <strong>escolher</strong> o enunciado normativo singular — afirmado (por volição) ou construído (por argumentos extrajurídicos).</li>
+      </ul>
+    </div>
+  </div>
+
+  <p>Nos casos difíceis, decidir envolve <strong>preferir</strong> um comportamento a outro: na base dessa ação está a alternativa eleita como melhor em algum sentido. Essa ação de preferência exige um julgamento de que a alternativa escolhida é, em algum sentido, melhor do que a outra — e é exatamente nesse ponto que se constitui a base de um <strong>juízo de valor</strong>, que será o núcleo da fundamentação.</p>
+
+  <div class="highlight-box">
+    <div class="hb-title">Ideia central</div>
+    <p>Nos casos difíceis, a escolha do aplicador encerra necessariamente um juízo de valor. A pergunta que estrutura toda a obra de Alexy é: <em>como esses julgamentos de valor podem ser racionalmente justificados?</em></p>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- ===== 4. PROBLEMA DA FUNDAMENTAÇÃO ===== -->
+<section id="s4">
+  <div class="section-label">Seção 4</div>
+  <h2>O problema da fundamentação e os juízos de valor</h2>
+  <p>Quando o julgamento não segue a forma de silogismos, surge o <strong>problema fundamental da metodologia jurídica</strong>: como esses julgamentos podem ser justificados? A primeira tentativa de solução recorre aos <strong>cânones de interpretação</strong> (gramatical, lógico, histórico, sistemático). Mas eles apresentam três dificuldades:</p>
+
+  <div class="three-card">
+    <div class="mini-card"><h5>Número controvertido</h5><p>Não há consenso sequer sobre quantos cânones existem.</p></div>
+    <div class="mini-card"><h5>Ausência de hierarquia</h5><p>Discute-se se existe ou não hierarquia entre eles — e qual seria.</p></div>
+    <div class="mini-card"><h5>Imprecisão</h5><p>Os próprios cânones são vagos e levam a resultados divergentes.</p></div>
+  </div>
+
+  <blockquote>
+    "Uma regra como 'interprete cada norma de modo a que se cumpra seu objetivo' só pode levar a resultados incompatíveis entre si, quando cada um dos dois intérpretes tem um ponto de vista diferente sobre o objetivo da norma em questão."
+    <span class="fonte">ALEXY, Teoria da Argumentação Jurídica (apud slides da disciplina)</span>
+  </blockquote>
+
+  <p>Alexy compartilha da ideia de que <strong>não é possível fugir</strong> do elemento normativo-teleológico e dos elementos políticos inerentes a cada interpretação. É preciso <em>incorporar</em> esse elemento: os juízos de valor são moralmente relevantes na argumentação jurídica e por isso devem ser analisados e ponderados, buscando-se valores moralmente corretos para o caso.</p>
+  <p>Não se trata de uma questão de alternativas estritas — orientar-se pelas próprias convicções <em>ou</em> pelas convicções daqueles em nome de quem a justiça é feita. É necessário um modelo que, de um lado, acolha as convicções comumente aceitas e os resultados de discussões jurídicas prévias e, de outro, deixe espaço aberto para os <strong>critérios de correção</strong>.</p>
+
+  <div class="concept-box">
+    <div class="cb-title">O papel dos princípios</div>
+    <p style="margin-bottom:0">Os princípios dão base a esse sistema porque: permitem exceções; podem ser mutuamente inconsistentes e até contraditórios; não reivindicam aplicação exclusiva; seu significado real só se desenvolve por um processo de ajustamento e limitação de duas mãos alternadas; e precisam, para sua realização, da concretização via princípios subordinados e julgamentos particulares de valor com conteúdo material independente.</p>
+  </div>
+
+  <blockquote>
+    "(...) grande peso para o problema de legitimidade da regulação de conflitos sociais através de sentenças judiciais. Pois se os julgamentos têm como base julgamentos de valor e esses julgamentos de valor não são racionalmente fundamentados, então, no mínimo, em muitos casos as convicções normativas, respectivamente as decisões de um grupo profissional, formam a base para essa regularização de conflitos, uma base que não tem mais nenhuma justificação."
+    <span class="fonte">ALEXY, Teoria da Argumentação Jurídica, p. 20-21</span>
+  </blockquote>
+
+  <p>Para responder a essa questão de legitimidade, Alexy propõe desenvolver uma teoria <strong>normativa</strong> (que propõe e justifica os critérios para a racionalização do discurso jurídico) e <strong>analítica</strong> (que trata da estrutura lógica encontrada de fato nos argumentos ou nos argumentos possíveis).</p>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- ===== 5. TEORIA DO DISCURSO ===== -->
+<section id="s5">
+  <div class="section-label">Seção 5</div>
+  <h2>A teoria do discurso</h2>
+  <p><strong>Discursos</strong> são séries de ações interligadas devotadas a testar a verdade ou a correção das coisas que dizemos. Os discursos que se preocupam com a correção de afirmações <strong>normativas</strong> são <strong>discursos práticos</strong>.</p>
+  <p>Alexy afirma que a importância das regras da teoria do discurso — mesmo que só possam ser cumpridas por aproximação — reside no fato de poderem ser utilizadas como <strong>critérios para julgar a correção de afirmações normativas</strong>.</p>
+
+  <blockquote>
+    As regras da teoria do discurso seriam um "instrumento crítico para excluir tudo o que não seja racional numa justificação objetiva, e/ou por tornar mais visível um ideal pelo qual valha a pena lutar".
+    <span class="fonte">ALEXY, Teoria da Argumentação Jurídica (apud slides da disciplina)</span>
+  </blockquote>
+
+  <div class="concept-box">
+    <div class="cb-title">Pretensão de correção</div>
+    <p style="margin-bottom:0">Aquele que apresenta uma proposição normativa juridicamente vinculante coloca a <strong>pretensão de correção</strong>: afirma que a proposição é correta, garante a sua justificação e espera o reconhecimento dessa correção (aceitação) pelos demais.</p>
+  </div>
+
+  <p>Resta, então, demonstrar a tese central: o discurso jurídico pode ser entendido como um <strong>caso especial do discurso prático geral</strong>, exercido sob condições limitadoras — tais como os estatutos (a lei), a dogmática jurídica e os precedentes.</p>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- ===== 6. TESE DO CASO ESPECIAL ===== -->
+<section id="s6">
+  <div class="section-label">Seção 6</div>
+  <h2>A tese do caso especial</h2>
+  <p>A tese de Alexy de que o discurso jurídico é um caso especial do discurso prático geral é embasada em <strong>três predicados</strong>:</p>
+
+  <div class="three-card">
+    <div class="mini-card"><span class="num">1</span><h5>Questões práticas</h5><p>As discussões jurídicas se preocupam com questões práticas — com o que deve ou não ser feito ou deixado de fazer.</p></div>
+    <div class="mini-card"><span class="num">2</span><h5>Exigência de correção</h5><p>As questões jurídicas são discutidas com a exigência de que a afirmação normativa possa ser justificada racionalmente segundo a orientação valorativa do ordenamento.</p></div>
+    <div class="mini-card"><span class="num">3</span><h5>Condições limitadoras</h5><p>As questões são debatidas com limitações próprias: vinculação à lei válida, à dogmática e aos precedentes.</p></div>
+  </div>
+
+  <div class="power-diagram">
+    <div class="pd-outer">
+      <span class="pd-label-out">Discurso prático geral</span>
+      <div class="pd-shared" style="margin:0 0 14px">Questões práticas · Racionalidade das proposições normativas · Pretensão de correção</div>
+      <div class="pd-inner">
+        <div class="pd-label-in">Discurso jurídico (caso especial)</div>
+        <div class="pd-tags">
+          <span class="pd-tag">Dogmática jurídica</span>
+          <span class="pd-tag">Precedentes</span>
+          <span class="pd-tag">Sistema normativo</span>
+        </div>
+      </div>
+    </div>
+    <div class="pd-shared">O discurso jurídico compartilha a natureza do discurso prático, mas opera sob condições limitadoras.</div>
+  </div>
+
+  <h3>A pretensão de correção no discurso jurídico</h3>
+  <p>O discurso jurídico é um caso especial porque ambos — jurídico e prático geral — tratam de questões práticas, da racionalidade das proposições normativas, e ambos têm a pretensão de correção. Contudo, o discurso jurídico submete-se, ainda, à <strong>dogmática jurídica</strong>, aos <strong>precedentes judiciais</strong> e ao <strong>sistema normativo</strong>. A pretensão de correção aqui não é a mesma do discurso prático: ela deve estar <strong>de acordo com o sistema normativo</strong>, enquanto no discurso prático a correção não é vinculada à lei.</p>
+  <p>Em países como a Alemanha e o Brasil, as decisões judiciais exigem a correção em face da lei positiva; porém, mesmo com a falta da exigência de correção, a decisão <strong>é válida, embora defeituosa</strong> para além do sentido moral. Para fundamentar a tese, Alexy argumenta que há deliberações jurídicas que envolvem discussão sobre a correção de uma decisão e que são entendidas pelos participantes como uma <strong>busca pela decisão correta</strong>.</p>
+  <p>Além disso, a justificação judicial cumpre funções que se traduzem na exigência de correção: explicar racionalmente ao ser humano uma decisão que afeta seus interesses, assegurando que seus direitos estarão garantidos por essa instituição que é a fundamentação racional.</p>
+
+  <h3>Decisão, racionalidade e a resposta correta</h3>
+  <p>Pelo fato de o procedimento do discurso jurídico deixar aberta <strong>mais de uma solução</strong>, existe o processo judicial — que não trata apenas de argumentação, mas também de <strong>decisão</strong>. Isso não significa que, por ser ato de decisão, o processo seja irracional: ele se submete aos procedimentos do discurso geral e, sendo resultado deste, pode ser justificado racionalmente.</p>
+  <p>Critica-se que o juiz teria autoridade para decidir, o que seria contrário à teoria do discurso (que estabelece igualdade de condições entre os participantes). A crítica é superada: o processo pode ser desenvolvido conforme as regras da teoria do discurso, a depender do comportamento argumentativo do autor, do juiz e do réu. <strong>Quanto mais próximo da teoria do discurso, mais racional será a decisão.</strong></p>
+
+  <div class="highlight-box">
+    <div class="hb-title">Atenção para a prova</div>
+    <p>Para Alexy, o procedimento do discurso jurídico <em>não leva a uma única resposta correta</em> — o máximo que consegue buscar são as <strong>melhores razões</strong>. (Contraste clássico com Dworkin e a tese da "única resposta correta".)</p>
+  </div>
+
+  <p>Em suma: a racionalidade do discurso prático geral não se confunde com a aplicada no discurso jurídico (embora não sejam incompatíveis). No discurso jurídico, espera-se que os espectadores (os que não estão no processo) aceitem a decisão por ser "medida de justiça", e que as partes a aceitem mesmo quando contrária aos seus interesses, porque ela está <strong>racionalmente justificada na lei</strong>, na limitação imposta pelo ordenamento. No discurso prático geral, por sua vez, qualquer argumento racional — por vezes ilimitado — seria potencialmente aceito.</p>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- ===== 7. JUSTIFICAÇÃO INTERNA ===== -->
+<section id="s7">
+  <div class="section-label">Seção 7</div>
+  <h2>Justificação interna</h2>
+  <p>Para Alexy, a argumentação jurídica subdivide-se em <strong>dois modelos de justificação</strong>: a <strong>justificação interna</strong>, que verifica se uma opinião se justifica logicamente a partir das premissas identificadas; e a <strong>justificação externa</strong>, que trata da <em>correção dessas premissas</em>.</p>
+  <p>A justificação interna consiste em uma primeira etapa de identificação de quais premissas serão utilizadas na decisão judicial. Vale-se do <strong>silogismo</strong> (que exerce papel predominante nessa fase), mas também da identificação de <em>tantas premissas universais quanto for possível</em>, exaurindo-se a análise das razões logicamente compreendidas no fato apresentado ao julgador e a compatibilidade com a lei positiva — encontrando-se, então, a subsunção do fato à norma.</p>
+
+  <div class="concept-box">
+    <div class="cb-title">Exemplo de silogismo (dos slides)</div>
+    <p style="margin-bottom:0">Premissa maior: <em>estudantes de direito são inteligentes.</em><br>Premissa menor: <em>Pedro é estudante de direito.</em><br>Conclusão: <em>logo, Pedro é inteligente.</em></p>
+  </div>
+
+  <p>A justificação interna trata da <strong>implicação lógica entre as premissas e a conclusão</strong>, por meio da subsunção (regras de inferência). Verifica a validade da inferência: se não há saltos lógicos ou contradições — isto é, se a decisão é <strong>consistente</strong>. O raciocínio jurídico é dedutivo, <em>com reservas</em>, pois não se exaure na subsunção: devem ser inseridas tantas premissas quanto necessário para fundamentar logicamente a conclusão, permitindo uma fundamentação completa. A justificação interna deve resultar, pelo menos, de uma <strong>norma universal</strong>; cuida de juízos passíveis de verdade; e é internamente racional: explicitadas as razões, o silogismo é válido.</p>
+  <p>No curso da justificação interna torna-se claro <strong>quais premissas têm de ser externamente justificadas</strong>. Pressuposições que de outro modo permaneceriam ocultas têm de ser explicitamente formuladas — o que aumenta a possibilidade de reconhecer erros e criticá-los. Por fim, articular regras universais facilita a consistência da tomada de decisão e contribui para a <strong>justiça</strong> e a <strong>segurança jurídica</strong>.</p>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- ===== 8. CONSISTÊNCIA X COERÊNCIA ===== -->
+<section id="s8">
+  <div class="section-label">Seção 8</div>
+  <h2>Consistência × coerência</h2>
+  <p>Não basta a justificação interna para a racionalidade das decisões judiciais: elas devem ser <strong>coerentes</strong>. A coerência é uma propriedade do sistema de proposições que, <em>no conjunto</em>, faz sentido em sua totalidade. Quanto melhor a estrutura da fundamentação, mais coerência terá — medida por grau de coerência, conforme submetida aos critérios de coerência.</p>
+
+  <div class="compare-grid">
+    <div class="compare-col">
+      <h4>Consistência</h4>
+      <p>Estar <strong>livre de contradições</strong>. É verificada na justificação interna: a conclusão decorre logicamente das premissas, sem saltos lógicos.</p>
+      <p>Propriedade <em>interna</em> do raciocínio.</p>
+    </div>
+    <div class="compare-col alt">
+      <h4>Coerência</h4>
+      <p>Estar <strong>de acordo com o TODO</strong> — fazer sentido em relação ao conjunto do sistema jurídico, inclusive seus princípios.</p>
+      <p>Propriedade <em>sistêmica</em> da fundamentação.</p>
+    </div>
+  </div>
+
+  <div class="concept-box">
+    <div class="cb-title">Exemplo clássico (dos slides)</div>
+    <p style="margin-bottom:0">Uma decisão judicial à época do nazismo poderia possuir justificação interna <strong>consistente</strong> — sem saltos lógicos, com a conclusão decorrendo logicamente das premissas. Contudo, essa decisão poderia <strong>não ser coerente</strong> em relação aos princípios, como a dignidade humana. Lembre-se: os princípios fazem parte do sistema jurídico. Logo, se a decisão não está de acordo com os princípios, ela não faz sentido em relação ao TODO — não é coerente.</p>
+  </div>
+
+  <div class="highlight-box">
+    <div class="hb-title">Síntese</div>
+    <p>Uma decisão pode ser consistente sem ser coerente. Consistência = ausência de contradição interna; coerência = harmonia com a totalidade do sistema, princípios incluídos.</p>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- ===== 9. JUSTIFICAÇÃO EXTERNA ===== -->
+<section id="s9">
+  <div class="section-label">Seção 9</div>
+  <h2>Justificação externa: os seis grupos</h2>
+  <p>A justificação externa corresponde à <strong>justificação das premissas</strong> usadas no processo de justificação interna. Alexy distingue três tipos de premissas: <strong>regras da lei positiva</strong>, <strong>afirmações empíricas</strong> e <strong>premissas que não correspondem a nenhuma das anteriores</strong>. A argumentação jurídica pode ter significado decisivo na interpretação da norma válida, em relação às premissas correspondentes às regras da lei positiva, estabelecendo também a sua validade.</p>
+  <p>A justificação externa é composta por regras e formas de argumento classificadas por Alexy em <strong>seis grupos</strong>:</p>
+
+  <div class="three-card">
+    <div class="mini-card"><span class="num">1</span><h5>Interpretação</h5><p>Os cânones interpretativos (semântico, genético, histórico, comparativo, sistemático, teleológico).</p></div>
+    <div class="mini-card"><span class="num">2</span><h5>Argumentação dogmática</h5><p>Apoio na ciência jurídica que descreve, analisa e sistematiza a lei em vigor.</p></div>
+    <div class="mini-card"><span class="num">3</span><h5>Uso de precedentes</h5><p>Decisões anteriores como razão para decidir, fundadas no princípio da universalidade.</p></div>
+    <div class="mini-card"><span class="num">4</span><h5>Argumentação prática geral</h5><p>A base última de toda a argumentação jurídica.</p></div>
+    <div class="mini-card"><span class="num">5</span><h5>Argumentação empírica</h5><p>Afirmações sobre fatos, presentes em quase todas as formas de argumento jurídico.</p></div>
+    <div class="mini-card"><span class="num">6</span><h5>Formas especiais</h5><p>Analogia, argumentum e contrario, a fortiori e ad absurdum.</p></div>
+  </div>
+
+  <h3>9.1 — Interpretação: os cânones</h3>
+  <p>As regras de interpretação são chamadas por Alexy de <strong>cânones de interpretação</strong> e representam o conjunto formador da <strong>hermenêutica jurídica</strong>, fundamental para a justificação do discurso jurídico — principalmente porque os contextos em que as leis positivas são criadas ou aplicadas apresentam considerável dinamismo, em decorrência da mutabilidade das conjunturas e interesses de um povo ao longo do tempo. Os cânones podem justificar as interpretações do juiz e influenciar a justificação de normas não positivas (as sociais, por exemplo) e outras afirmações jurídicas. Alexy os classifica em seis grupos:</p>
+
+  <div class="three-card">
+    <div class="mini-card"><h5>Semântica</h5><p>Leva em conta rigorosamente o que está disposto no termo normativo; os argumentos semânticos podem demonstrar que um significado é admissível.</p></div>
+    <div class="mini-card"><h5>Genética</h5><p>Considera a vontade do legislador no momento da criação do dispositivo legal.</p></div>
+    <div class="mini-card"><h5>Histórica</h5><p>Fatos relativos à história dos problemas jurídicos em questão são oferecidos como meio de justificação racional.</p></div>
+    <div class="mini-card"><h5>Comparativa</h5><p>Faz referência a outros estados de coisas comparáveis ao caso analisado.</p></div>
+    <div class="mini-card"><h5>Sistemática</h5><p>Tem como base a posição da norma no texto jurídico, em relação às demais normas.</p></div>
+    <div class="mini-card"><h5>Teleológica</h5><p>Busca o sentido da norma pela descoberta do objetivo de sua inclusão no ordenamento — a vontade abstrata da lei aplicada ao mundo dos fatos. Exige exame minucioso dos conceitos de fins e meios, desejo, intenção, necessidade prática e objetivo.</p></div>
+  </div>
+
+  <div class="concept-box">
+    <div class="cb-title">Hierarquia entre os cânones?</div>
+    <p style="margin-bottom:0">Para Alexy, é <strong>impossível construir um catálogo hierárquico</strong> dos cânones, mas é possível orientar como cada um pode ser utilizado: os cânones que trazem <strong>ligações claras com a lei devem ser mais valorizados</strong>, a menos que motivos racionais sejam citados para garantir a precedência de outros argumentos. Assim garante-se a racionalidade e a universalidade da decisão com grau confiável de certeza.</p>
+  </div>
+
+  <h3>9.2 — Argumentação dogmática</h3>
+  <p>A dogmática é a <strong>ciência jurídica</strong> que: descreve a lei em vigor; sujeita a lei a uma análise conceitual e sistemática; e elabora propostas para a solução adequada de problemas jurídicos. A justificação dogmática pode ser <strong>não-justificativa</strong> (quando a noção aplicada faz parte do pensamento dominante) ou <strong>justificativa</strong> (quando a noção exige mais argumentos a seu favor do que a mera apresentação como correta, por não fazer parte do pensamento dominante).</p>
+  <p>Alexy analisa o <strong>instituto do exame</strong>: todas as proposições dogmáticas podem e devem ser sistematicamente examinadas, tanto em relação ao ordenamento quanto em relação ao caso em si (e a casos semelhantes, por meio da argumentação prática — em que consiste o cerne da argumentação dogmática), para que sua aplicabilidade seja confirmada.</p>
+  <p>A dogmática tem <strong>três tarefas</strong>: (1) análise lógica dos conceitos jurídicos; (2) unificação dessa análise num sistema; (3) aplicação dos resultados dessa análise para justificar decisões jurídicas. A aplicação de argumentos dogmáticos é reconhecida como <strong>indispensável</strong> para o contexto do discurso jurídico.</p>
+
+  <h3>9.3 — Uso de precedentes</h3>
+  <p>A aplicação dos precedentes já ocorria em larga escala na Europa de Alexy, e a razão básica para segui-los é o <strong>princípio da universalidade</strong>: a exigência de tratar casos iguais de modo igual. Isso revela uma das dificuldades de sua aplicação: <strong>dois casos nunca são totalmente idênticos</strong>. Cumpre saber quais diferenças são relevantes — e Alexy atribui esse encargo à argumentação: <em>quem desejar se afastar de um precedente fica com o encargo do argumento</em>.</p>
+  <p>Os precedentes, junto à dogmática jurídica, servem às funções de <strong>estabilização, desenvolvimento e redução do encargo argumentativo</strong> — e por isso devem ser usados sempre que possível. Alexy infere que a "aplicação de um precedente implica a aplicação da norma subjacente à decisão no caso". Exemplo prático dos slides: usar uma decisão do <strong>STJ</strong> para argumentar sobre algo específico — essa argumentação pressupõe os argumentos práticos gerais.</p>
+
+  <h3>9.4 — Argumentação prática geral</h3>
+  <p>A argumentação prática geral pode ser requerida, concomitantemente à dogmática e ao uso da lei: na justificação de premissas normativas necessárias para satisfazer as diferentes formas de argumento; na justificação de uma escolha entre diferentes formas de argumento que levam a diferentes resultados; na justificação e exame de proposições da dogmática jurídica; na justificação da aplicação ou da distinção entre precedentes e casos fáticos; e na justificação de afirmações usadas na justificação interna.</p>
+  <div class="highlight-box">
+    <div class="hb-title">Por que é a base de tudo</div>
+    <p>A argumentação prática geral é a <strong>base da argumentação jurídica</strong>, porque seus argumentos, em última instância, são usados para testar e justificar a aplicabilidade da lei ao caso.</p>
+  </div>
+
+  <h3>9.5 — Argumentação empírica</h3>
+  <p>A importância da argumentação empírica está no fato de que <strong>quase todas as formas de argumento jurídico incluem afirmações empíricas</strong>. Vale para o discurso jurídico a regra de que "é possível para todo orador a qualquer tempo fazer uma transição para um discurso teórico (empírico)". Surge, porém, a problemática de que o conhecimento empírico não é totalmente certo — sendo necessária a existência de <strong>regras racionais de presunção dos fatos</strong>. No âmbito prático, a argumentação empírica mostra-se decisiva em disputas legais em que se busque, por exemplo, a verdade real, sendo a decisão judicial fundamentada nos fatos.</p>
+
+  <h3>9.6 — Formas especiais de argumento jurídico</h3>
+  <p>São as formas de argumento com as quais se lida na metodologia jurídica:</p>
+  <div class="four-card">
+    <div class="mini-card"><h5>Analogia</h5><p>Inferência lógica de algo não determinado na lei a partir de algo determinado, baseada no princípio da universalidade: estados de coisas semelhantes do ponto de vista jurídico devem ter consequências jurídicas semelhantes.</p></div>
+    <div class="mini-card"><h5>Argumentum e contrario</h5><p>Interpretação inversa, bem ilustrada na máxima "aquilo que a lei não proíbe é permitido", obtida pela inversão de outro argumento.</p></div>
+    <div class="mini-card"><h5>Argumentum a fortiori</h5><p>A presença de um predicado implica a aceitação de outro com muito mais razão: "quem pode mais, pode menos".</p></div>
+    <div class="mini-card"><h5>Argumentum ad absurdum</h5><p>Expressão jurídica do plano da não-contradição: rejeita-se a interpretação que conduz a resultado absurdo.</p></div>
+  </div>
+</section>
+
+<!-- ===== RESUMO PARA REVISÃO ===== -->
+<section id="resumo" class="resumo-section">
+  <div class="section-label">Revisão</div>
+  <h2>Resumo para revisão</h2>
+
+  <h3>O argumento de Alexy em 6 passos</h3>
+  <div class="resumo-grid">
+    <div class="resumo-card"><h5>1 · A subsunção não basta</h5><p>Imprecisão da linguagem, conflitos de normas, lacunas e decisões contra legem mostram que a decisão jurídica não é mera dedução lógica.</p></div>
+    <div class="resumo-card"><h5>2 · Casos difíceis exigem valoração</h5><p>Quando a solução não decorre do ordenamento nem das regras de interpretação, o aplicador escolhe — e essa escolha encerra um juízo de valor.</p></div>
+    <div class="resumo-card"><h5>3 · O problema: justificar juízos de valor</h5><p>Os cânones de interpretação são insuficientes (número controvertido, sem hierarquia, imprecisos). Sem fundamentação racional, a decisão perde legitimidade.</p></div>
+    <div class="resumo-card"><h5>4 · A solução: teoria do discurso</h5><p>As regras do discurso, mesmo cumpridas por aproximação, servem de critério para julgar a correção de afirmações normativas.</p></div>
+    <div class="resumo-card"><h5>5 · Tese do caso especial</h5><p>O discurso jurídico é caso especial do discurso prático geral: questões práticas + pretensão de correção, mas sob limites (lei, dogmática, precedentes).</p></div>
+    <div class="resumo-card"><h5>6 · Dupla justificação</h5><p>Justificação interna (lógica das premissas à conclusão: consistência) + justificação externa (correção das premissas: seis grupos de argumentos) + coerência com o todo.</p></div>
+  </div>
+
+  <h3>Conceitos-chave</h3>
+  <div class="conceitos-chave">
+    <div class="cc-item"><span class="cc-termo">Subsunção</span><span class="cc-def">Enquadramento lógico do fato à norma via silogismo. Necessária, mas insuficiente.</span></div>
+    <div class="cc-item"><span class="cc-termo">Casos difíceis</span><span class="cc-def">Casos em que a decisão não é dedutível das normas pressupostas; exigem escolha e juízo de valor.</span></div>
+    <div class="cc-item"><span class="cc-termo">Pretensão de correção</span><span class="cc-def">Quem afirma uma proposição normativa afirma que ela é correta, garante a justificação e espera aceitação.</span></div>
+    <div class="cc-item"><span class="cc-termo">Tese do caso especial</span><span class="cc-def">O discurso jurídico é caso especial do discurso prático geral, sob condições limitadoras.</span></div>
+    <div class="cc-item"><span class="cc-termo">Justificação interna</span><span class="cc-def">Verifica a implicação lógica entre premissas e conclusão (consistência, ausência de saltos lógicos).</span></div>
+    <div class="cc-item"><span class="cc-termo">Justificação externa</span><span class="cc-def">Justifica a correção das próprias premissas, por meio de seis grupos de regras e formas de argumento.</span></div>
+    <div class="cc-item"><span class="cc-termo">Consistência</span><span class="cc-def">Ausência de contradições internas no raciocínio.</span></div>
+    <div class="cc-item"><span class="cc-termo">Coerência</span><span class="cc-def">Harmonia da decisão com o TODO do sistema, inclusive os princípios (ex.: dignidade humana).</span></div>
+    <div class="cc-item"><span class="cc-termo">Cânones de interpretação</span><span class="cc-def">Semântico, genético, histórico, comparativo, sistemático e teleológico; sem hierarquia fixa.</span></div>
+    <div class="cc-item"><span class="cc-termo">Dogmática jurídica</span><span class="cc-def">Ciência que descreve, sistematiza e propõe soluções; tem três tarefas e é indispensável ao discurso jurídico.</span></div>
+    <div class="cc-item"><span class="cc-termo">Princípio da universalidade</span><span class="cc-def">Tratar casos iguais de modo igual — fundamento do uso de precedentes e da analogia.</span></div>
+    <div class="cc-item"><span class="cc-termo">Encargo do argumento</span><span class="cc-def">Quem deseja se afastar de um precedente assume o ônus de argumentar pela distinção.</span></div>
+  </div>
+
+  <h3>Comparações que caem em prova</h3>
+  <div class="compare-grid">
+    <div class="compare-col">
+      <h4>Discurso prático geral × discurso jurídico</h4>
+      <ul>
+        <li><strong>Comum:</strong> questões práticas, racionalidade das proposições normativas, pretensão de correção.</li>
+        <li><strong>Próprio do jurídico:</strong> vinculação à lei válida, dogmática e precedentes; limite de tempo; regulação pelas leis processuais; correção aferida em face do sistema normativo.</li>
+      </ul>
+    </div>
+    <div class="compare-col alt">
+      <h4>Justificação interna × externa</h4>
+      <ul>
+        <li><strong>Interna:</strong> a conclusão decorre logicamente das premissas? (silogismo, consistência)</li>
+        <li><strong>Externa:</strong> as premissas estão corretas? (interpretação, dogmática, precedentes, prática geral, empírica, formas especiais)</li>
+      </ul>
+    </div>
+    <div class="compare-col">
+      <h4>Consistência × coerência</h4>
+      <ul>
+        <li><strong>Consistência:</strong> livre de contradição interna.</li>
+        <li><strong>Coerência:</strong> de acordo com o conjunto do sistema e seus princípios. Decisão nazista: consistente, mas incoerente.</li>
+      </ul>
+    </div>
+    <div class="compare-col alt">
+      <h4>Alexy × Dworkin (resposta correta)</h4>
+      <ul>
+        <li><strong>Alexy:</strong> o procedimento do discurso jurídico não leva a uma única resposta correta — busca as melhores razões.</li>
+        <li><strong>Dworkin:</strong> tese da única resposta correta (Hércules). Contraste clássico em hermenêutica.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Conexões com a Hermenêutica Jurídica</h3>
+  <div class="resumo-grid">
+    <div class="resumo-card"><h5>Cânones como núcleo da hermenêutica</h5><p>Os cânones de interpretação de Alexy correspondem ao conjunto formador da hermenêutica jurídica: o problema clássico dos métodos interpretativos é reposicionado dentro de uma teoria da argumentação.</p></div>
+    <div class="resumo-card"><h5>Da interpretação à argumentação</h5><p>Alexy desloca a pergunta hermenêutica: não basta saber "qual o sentido da norma", é preciso saber "como justificar racionalmente a interpretação escolhida".</p></div>
+    <div class="resumo-card"><h5>Fundamentação das decisões (CF/88)</h5><p>A exigência de fundamentação racional dialoga diretamente com o art. 93, IX, da CF/88: toda decisão judicial deve ser fundamentada — a teoria de Alexy oferece os critérios de racionalidade dessa fundamentação.</p></div>
+    <div class="resumo-card"><h5>Princípios e pós-positivismo</h5><p>O papel dos princípios (que admitem exceções e ponderação) conecta esta aula à Teoria dos Direitos Fundamentais de Alexy e ao debate pós-positivista sobre regras × princípios.</p></div>
+  </div>
+</section>
+
+<!-- ===== QUESTÕES NORTEADORAS ===== -->
+<section id="questoes">
+  <div class="section-label">Questões</div>
+  <h2>Questões norteadoras com respostas</h2>
+  <p class="qa-dica">Clique em cada pergunta para revelar a resposta — tente responder mentalmente antes de abrir.</p>
+
+  <div class="qa-item">
+    <div class="qa-pergunta" onclick="toggleQA(this)"><span class="q-mark">Q1.</span>Por que, para Alexy, a aplicação do direito não se reduz à subsunção lógica?<span class="q-toggle">+</span></div>
+    <div class="qa-resposta"><div class="qa-resposta-inner">
+      <p>Porque há quatro motivos, reconhecidos como unânimes, que impedem a redução da aplicação das leis a uma atividade silogística: (i) a imprecisão da linguagem do direito; (ii) a possibilidade de conflito entre normas; (iii) a existência de casos sem regulação jurídica pré-existente; e (iv) a possibilidade de decisões contra a lei em casos especiais. Em grande número de casos, portanto, a afirmação normativa singular que expressa o julgamento não é conclusão lógica derivada de normas válidas somadas a fatos comprovados.</p>
+      <div class="qa-fonte">Fonte: ALEXY, Teoria da Argumentação Jurídica — Introdução (slides da disciplina, 21.11.2023)</div>
+    </div></div>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-pergunta" onclick="toggleQA(this)"><span class="q-mark">Q2.</span>Diferencie casos simples de casos difíceis e explique por que os casos difíceis envolvem necessariamente um juízo de valor.<span class="q-toggle">+</span></div>
+    <div class="qa-resposta"><div class="qa-resposta-inner">
+      <p>Casos simples são aqueles em que a problematização não se dá: o sistema axiológico pode ser extraído das normas pressupostas e as regras de interpretação bastam à construção silogística da decisão. Casos difíceis são aqueles em que o sistema de enunciados não é dedutível das normas pressupostas, de modo que a decisão não terá fundamentação lógica perante o ordenamento. Neles, o aplicador deve escolher o enunciado normativo singular a ser afirmado (por volição) ou construído (por argumentos extrajurídicos). Como decidir é preferir uma alternativa por considerá-la melhor em algum sentido, essa preferência exige um julgamento — e é aí que se constitui o juízo de valor, núcleo da fundamentação.</p>
+      <div class="qa-fonte">Fonte: ALEXY, Teoria da Argumentação Jurídica — Casos simples × casos difíceis (slides da disciplina)</div>
+    </div></div>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-pergunta" onclick="toggleQA(this)"><span class="q-mark">Q3.</span>Em que consiste a tese do caso especial e quais são as condições limitadoras do discurso jurídico?<span class="q-toggle">+</span></div>
+    <div class="qa-resposta"><div class="qa-resposta-inner">
+      <p>A tese do caso especial sustenta que o discurso jurídico é um caso especial do discurso prático geral. Ambos tratam de questões práticas (o que deve ou não ser feito), da racionalidade das proposições normativas e levantam a pretensão de correção. Contudo, o discurso jurídico submete-se a condições limitadoras: a lei válida (o sistema normativo), a dogmática jurídica e os precedentes judiciais — além de possuir limite de tempo e ser regulado pelas leis processuais. A pretensão de correção, no discurso jurídico, deve estar de acordo com o sistema normativo, ao passo que, no discurso prático geral, a correção não é vinculada à lei.</p>
+      <div class="qa-fonte">Fonte: ALEXY, Teoria da Argumentação Jurídica — A tese do caso especial (slides da disciplina)</div>
+    </div></div>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-pergunta" onclick="toggleQA(this)"><span class="q-mark">Q4.</span>Distinga justificação interna e justificação externa na teoria de Alexy.<span class="q-toggle">+</span></div>
+    <div class="qa-resposta"><div class="qa-resposta-inner">
+      <p>A justificação interna verifica se a decisão se justifica logicamente a partir das premissas identificadas: trata da implicação lógica entre premissas e conclusão, por meio da subsunção, e controla a validade da inferência — ausência de saltos lógicos e contradições (consistência). Deve resultar, ao menos, de uma norma universal, e seu desenvolvimento explicita pressuposições que de outro modo ficariam ocultas, facilitando a crítica e contribuindo para a justiça e a segurança jurídica. A justificação externa, por sua vez, cuida da correção das próprias premissas usadas na justificação interna. Alexy distingue três tipos de premissas (regras da lei positiva, afirmações empíricas e premissas que não correspondem a nenhuma das anteriores) e organiza a justificação externa em seis grupos de regras e formas de argumento: interpretação, argumentação dogmática, uso de precedentes, argumentação prática geral, argumentação empírica e formas especiais de argumentos jurídicos.</p>
+      <div class="qa-fonte">Fonte: ALEXY, Teoria da Argumentação Jurídica — Justificação interna e externa (slides da disciplina)</div>
+    </div></div>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-pergunta" onclick="toggleQA(this)"><span class="q-mark">Q5.</span>Uma decisão consistente é necessariamente coerente? Justifique com o exemplo trabalhado em aula.<span class="q-toggle">+</span></div>
+    <div class="qa-resposta"><div class="qa-resposta-inner">
+      <p>Não. Consistência é estar livre de contradições internas; coerência é estar de acordo com o TODO — fazer sentido em relação ao conjunto do sistema jurídico, do qual os princípios fazem parte. Uma decisão judicial à época do nazismo poderia ter justificação interna consistente, com a conclusão decorrendo logicamente das premissas, sem saltos lógicos; e, ainda assim, não ser coerente em relação aos princípios, como a dignidade humana. Se a decisão não está de acordo com os princípios, ela não faz sentido em relação ao todo — não é coerente. Por isso, a justificação interna não basta: a racionalidade das decisões judiciais exige também coerência, medida por grau conforme os critérios de coerência.</p>
+      <div class="qa-fonte">Fonte: ALEXY, Teoria da Argumentação Jurídica — Coerência (slides da disciplina)</div>
+    </div></div>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-pergunta" onclick="toggleQA(this)"><span class="q-mark">Q6.</span>Como Alexy resolve o problema da hierarquia entre os cânones de interpretação?<span class="q-toggle">+</span></div>
+    <div class="qa-resposta"><div class="qa-resposta-inner">
+      <p>Para Alexy, é impossível construir um catálogo que ordene hierarquicamente os cânones de interpretação — o próprio número deles é controvertido. O que é possível é orientar como cada cânone pode ser utilizado: os cânones que trazem ligações claras com a lei devem ser mais valorizados, a menos que motivos racionais sejam apresentados para garantir a precedência de outros argumentos. Com essa diretriz, garante-se a racionalidade e a universalidade da decisão com um grau confiável de certeza.</p>
+      <div class="qa-fonte">Fonte: ALEXY, Teoria da Argumentação Jurídica — Justificação externa: interpretação (slides da disciplina)</div>
+    </div></div>
+  </div>
+
+  <div class="perguntas-adicionais">
+    <h4>Perguntas adicionais para aprofundamento</h4>
+    <ol>
+      <li>Em que medida a tese do caso especial responde à crítica de que o juiz, por ter autoridade para decidir, violaria a igualdade de condições exigida pela teoria do discurso?</li>
+      <li>Compare a posição de Alexy ("melhores razões") com a tese da única resposta correta de Dworkin: quais as consequências práticas de cada uma para o controle das decisões judiciais?</li>
+      <li>Como o exemplo do uso de decisão do STJ ilustra a relação entre precedentes, princípio da universalidade e encargo do argumento no contexto brasileiro?</li>
+      <li>A exigência de fundamentação das decisões judiciais no art. 93, IX, da CF/88 pode ser lida como uma positivação da pretensão de correção de Alexy? Argumente.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===== QUIZ ===== -->
+<section id="quiz" class="quiz">
+  <div class="section-label">Teste seus conhecimentos</div>
+  <h2>Quiz interativo</h2>
+
+  <div class="quiz-q" data-correct="3">
+    <div class="qq-text">1. Qual das alternativas abaixo NÃO é um dos quatro motivos apontados por Alexy para a insuficiência da subsunção lógica?</div>
+    <button class="quiz-opt" onclick="answer(this,0)">A imprecisão da linguagem do direito</button>
+    <button class="quiz-opt" onclick="answer(this,1)">A possibilidade de conflito entre normas</button>
+    <button class="quiz-opt" onclick="answer(this,2)">A existência de casos sem regulação jurídica pré-existente</button>
+    <button class="quiz-opt" onclick="answer(this,3)">A hierarquia rígida entre os cânones de interpretação</button>
+    <div class="quiz-feedback"></div>
+  </div>
+
+  <div class="quiz-q" data-correct="1">
+    <div class="qq-text">2. Segundo a tese do caso especial, o discurso jurídico distingue-se do discurso prático geral porque se submete a:</div>
+    <button class="quiz-opt" onclick="answer(this,0)">Apenas à vontade do legislador histórico</button>
+    <button class="quiz-opt" onclick="answer(this,1)">Dogmática jurídica, precedentes e sistema normativo</button>
+    <button class="quiz-opt" onclick="answer(this,2)">Exclusivamente aos costumes sociais</button>
+    <button class="quiz-opt" onclick="answer(this,3)">À moral individual do julgador</button>
+    <div class="quiz-feedback"></div>
+  </div>
+
+  <div class="quiz-q" data-correct="2">
+    <div class="qq-text">3. A justificação interna, na teoria de Alexy, ocupa-se de:</div>
+    <button class="quiz-opt" onclick="answer(this,0)">Verificar a correção das premissas utilizadas na decisão</button>
+    <button class="quiz-opt" onclick="answer(this,1)">Classificar os seis grupos de argumentos jurídicos</button>
+    <button class="quiz-opt" onclick="answer(this,2)">Verificar a implicação lógica entre as premissas e a conclusão, via subsunção</button>
+    <button class="quiz-opt" onclick="answer(this,3)">Ponderar princípios colidentes pela proporcionalidade</button>
+    <div class="quiz-feedback"></div>
+  </div>
+
+  <div class="quiz-q" data-correct="0">
+    <div class="qq-text">4. O exemplo da decisão judicial à época do nazismo, trabalhado em aula, ilustra que uma decisão pode ser:</div>
+    <button class="quiz-opt" onclick="answer(this,0)">Consistente, mas não coerente com os princípios do sistema</button>
+    <button class="quiz-opt" onclick="answer(this,1)">Coerente, mas não consistente em sua lógica interna</button>
+    <button class="quiz-opt" onclick="answer(this,2)">Simultaneamente consistente e coerente</button>
+    <button class="quiz-opt" onclick="answer(this,3)">Nem consistente nem fundamentada</button>
+    <div class="quiz-feedback"></div>
+  </div>
+
+  <div class="quiz-q" data-correct="2">
+    <div class="qq-text">5. Para Alexy, o procedimento do discurso jurídico:</div>
+    <button class="quiz-opt" onclick="answer(this,0)">Conduz sempre a uma única resposta correta</button>
+    <button class="quiz-opt" onclick="answer(this,1)">É irracional, por depender de ato de decisão do juiz</button>
+    <button class="quiz-opt" onclick="answer(this,2)">Não leva a uma única resposta correta — o máximo que busca são as melhores razões</button>
+    <button class="quiz-opt" onclick="answer(this,3)">Dispensa a argumentação prática geral</button>
+    <div class="quiz-feedback"></div>
+  </div>
+
+  <div class="quiz-score" id="quizScore"></div>
+  <button class="quiz-reset" onclick="resetQuiz()">Refazer quiz</button>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- ===== REFERÊNCIAS ===== -->
+<section id="refs">
+  <div class="section-label">Referências</div>
+  <h2>Referências</h2>
+  <ul class="ref-list">
+    <li>ALEXY, Robert. <em>Teoria da Argumentação Jurídica</em>: a teoria do discurso racional como teoria da fundamentação jurídica. São Paulo: Landy, 2005.</li>
+    <li>ALEXY, Robert. <em>Teoria dos Direitos Fundamentais</em>. São Paulo: Malheiros, 2008.</li>
+    <li>Slides da disciplina de Hermenêutica e Argumentação Jurídica — "Teoria da Argumentação Jurídica – Robert Alexy" (aula de 21.11.2023).</li>
+    <li>BRASIL. Constituição da República Federativa do Brasil de 1988. Brasília: Senado, 1988.</li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  Hermenêutica e Argumentação Jurídica · 2º Semestre · Faculdade Farias Brito
+</footer>
+
+<script>
+function toggleQA(el){
+  el.parentElement.classList.toggle('open');
+}
+
+var answered = 0, score = 0, total = 5;
+var feedbackRight = ['Exato!','Correto!','Muito bem!','Isso mesmo!','Perfeito!'];
+
+function answer(btn, idx){
+  var q = btn.closest('.quiz-q');
+  if(q.classList.contains('answered')) return;
+  q.classList.add('answered');
+  var correct = parseInt(q.dataset.correct, 10);
+  var opts = q.querySelectorAll('.quiz-opt');
+  opts.forEach(function(o){ o.disabled = true; });
+  opts[correct].classList.add('correct');
+  var fb = q.querySelector('.quiz-feedback');
+  if(idx === correct){
+    score++;
+    fb.textContent = feedbackRight[Math.floor(Math.random()*feedbackRight.length)];
+  } else {
+    btn.classList.add('wrong');
+    fb.textContent = 'Não foi dessa vez — a alternativa correta está destacada em verde.';
+  }
+  answered++;
+  if(answered === total){
+    var box = document.getElementById('quizScore');
+    var msg;
+    if(score === 5) msg = 'Domínio total da teoria de Alexy. Pronta para a prova!';
+    else if(score >= 4) msg = 'Excelente! Revise apenas o ponto que escapou.';
+    else if(score >= 3) msg = 'Bom resultado — releia o Resumo para Revisão e tente de novo.';
+    else msg = 'Vale reler as seções 6 a 9 e refazer o quiz.';
+    box.innerHTML = 'Você acertou <strong>' + score + ' de ' + total + '</strong>.<br>' + msg;
+    box.classList.add('show');
+  }
+}
+
+function resetQuiz(){
+  answered = 0; score = 0;
+  document.querySelectorAll('.quiz-q').forEach(function(q){
+    q.classList.remove('answered');
+    q.querySelectorAll('.quiz-opt').forEach(function(o){
+      o.disabled = false;
+      o.classList.remove('correct','wrong');
+    });
+    q.querySelector('.quiz-feedback').textContent = '';
+  });
+  var box = document.getElementById('quizScore');
+  box.classList.remove('show');
+  box.innerHTML = '';
+}
+</script>
+
+</body>
+</html>
