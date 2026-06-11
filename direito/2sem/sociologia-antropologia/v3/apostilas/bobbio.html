@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bobbio e o Positivismo Jurídico — Sociologia e Antropologia Jurídica</title>
+<style>
+  :root{
+    --verde-escuro:#1a3a2a;
+    --verde-medio:#2a5a3a;
+    --verde-claro:#3a7a50;
+    --verde-suave:#e7efe8;
+    --verde-borda:#cfe0d2;
+    --pergaminho:#fdfaf6;
+    --texto:#26241f;
+    --texto-suave:#4a463f;
+    --branco:#ffffff;
+    --sombra:0 2px 14px rgba(26,58,42,.10);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--pergaminho);
+    color:var(--texto);
+    font-family:Georgia,"Times New Roman",serif;
+    line-height:1.7;
+    font-size:17px;
+  }
+  .wrap{max-width:880px;margin:0 auto;padding:0 22px;}
+
+  /* ====== CAPA ====== */
+  .capa{
+    background:linear-gradient(150deg,#0f2419 0%,var(--verde-escuro) 45%,var(--verde-medio) 100%);
+    color:#f4efe6;
+    padding:80px 22px 70px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .capa::after{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(circle at 80% 15%,rgba(58,122,80,.35),transparent 55%);
+    pointer-events:none;
+  }
+  .capa-inner{position:relative;z-index:1;max-width:760px;margin:0 auto;}
+  .badge{
+    display:inline-block;font-family:Arial,Helvetica,sans-serif;
+    font-size:12.5px;letter-spacing:1.6px;text-transform:uppercase;
+    border:1px solid rgba(244,239,230,.5);border-radius:30px;
+    padding:7px 18px;margin-bottom:30px;color:#dfe9df;
+  }
+  .capa h1{
+    font-size:38px;line-height:1.2;margin:0 0 8px;font-weight:normal;
+    letter-spacing:.3px;
+  }
+  .capa .sub{
+    font-style:italic;font-size:20px;color:#cdd9cd;margin:10px 0 28px;
+  }
+  .capa .fonte{
+    font-family:Arial,Helvetica,sans-serif;font-size:13.5px;color:#bcc9bc;
+    line-height:1.9;border-top:1px solid rgba(244,239,230,.25);
+    padding-top:22px;margin-top:10px;display:inline-block;
+  }
+  .capa .fonte strong{color:#eef3ee;font-weight:600;}
+
+  /* ====== SUMÁRIO ====== */
+  .toc{
+    background:var(--branco);border:1px solid var(--verde-borda);
+    border-radius:12px;box-shadow:var(--sombra);
+    padding:26px 30px;margin:38px 0;
+  }
+  .toc h2{
+    font-family:Arial,Helvetica,sans-serif;font-size:13px;letter-spacing:1.5px;
+    text-transform:uppercase;color:var(--verde-medio);margin:0 0 16px;
+  }
+  .toc-dots{list-style:none;margin:0;padding:0;}
+  .toc-dots li{margin:0;}
+  .toc-dots a{
+    display:flex;align-items:baseline;gap:10px;text-decoration:none;
+    color:var(--texto);padding:7px 0;border-bottom:1px dotted var(--verde-borda);
+    transition:color .15s;
+  }
+  .toc-dots li:last-child a{border-bottom:none;}
+  .toc-dots a:hover{color:var(--verde-claro);}
+  .toc-dots .num{
+    font-family:Arial,Helvetica,sans-serif;font-size:13px;font-weight:700;
+    color:var(--verde-claro);min-width:26px;
+  }
+  .toc-dots .txt{flex:1;}
+
+  /* ====== SEÇÕES ====== */
+  section{margin:54px 0;}
+  .section-label{
+    font-family:Arial,Helvetica,sans-serif;font-size:12px;letter-spacing:1.8px;
+    text-transform:uppercase;color:var(--verde-claro);font-weight:700;
+    margin-bottom:6px;
+  }
+  section h2{
+    font-size:27px;font-weight:normal;color:var(--verde-escuro);
+    margin:0 0 18px;line-height:1.25;border-bottom:2px solid var(--verde-borda);
+    padding-bottom:12px;
+  }
+  section h3{
+    font-size:20px;color:var(--verde-medio);font-weight:normal;
+    margin:30px 0 10px;
+  }
+  p{margin:0 0 16px;}
+  strong{color:var(--verde-escuro);}
+  em.term{font-style:italic;color:var(--verde-medio);}
+
+  /* ====== COMPONENTES ====== */
+  .concept-box{
+    background:var(--verde-suave);border-left:5px solid var(--verde-claro);
+    border-radius:0 10px 10px 0;padding:18px 22px;margin:22px 0;
+  }
+  .concept-box .rotulo{
+    font-family:Arial,Helvetica,sans-serif;font-size:11.5px;letter-spacing:1.4px;
+    text-transform:uppercase;color:var(--verde-medio);font-weight:700;margin-bottom:6px;
+  }
+  .concept-box p:last-child{margin-bottom:0;}
+
+  .quote-block{
+    border-left:4px solid var(--verde-medio);
+    background:var(--branco);
+    font-style:italic;color:var(--texto-suave);
+    padding:20px 26px;margin:26px 0;border-radius:0 10px 10px 0;
+    box-shadow:var(--sombra);
+  }
+  .quote-block .autor{
+    display:block;font-style:normal;font-family:Arial,Helvetica,sans-serif;
+    font-size:13px;letter-spacing:.5px;color:var(--verde-claro);margin-top:12px;
+    text-align:right;font-weight:600;
+  }
+
+  .highlight-box{
+    background:linear-gradient(135deg,var(--verde-escuro),var(--verde-medio));
+    color:#f1f6f1;border-radius:12px;padding:24px 26px;margin:26px 0;
+    box-shadow:var(--sombra);
+  }
+  .highlight-box .rotulo{
+    font-family:Arial,Helvetica,sans-serif;font-size:11.5px;letter-spacing:1.5px;
+    text-transform:uppercase;color:#bfe0c6;font-weight:700;margin-bottom:8px;
+  }
+  .highlight-box p{margin:0;}
+  .highlight-box strong{color:#fff;}
+
+  .atencao{
+    background:#fbf3e6;border:1px solid #e6cfa0;border-left:5px solid #c08a3e;
+    border-radius:0 10px 10px 0;padding:16px 22px;margin:22px 0;
+  }
+  .atencao .rotulo{
+    font-family:Arial,Helvetica,sans-serif;font-size:11.5px;letter-spacing:1.4px;
+    text-transform:uppercase;color:#9a6a23;font-weight:700;margin-bottom:6px;
+  }
+  .atencao p:last-child{margin-bottom:0;}
+
+  .compare-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0;
+  }
+  .compare-grid.tres{grid-template-columns:1fr 1fr 1fr;}
+  .compare-card{
+    background:var(--branco);border:1px solid var(--verde-borda);
+    border-top:4px solid var(--verde-claro);border-radius:10px;
+    padding:18px 20px;box-shadow:var(--sombra);
+  }
+  .compare-card h4{
+    font-family:Arial,Helvetica,sans-serif;font-size:15px;color:var(--verde-escuro);
+    margin:0 0 4px;
+  }
+  .compare-card .tag{
+    font-family:Arial,Helvetica,sans-serif;font-size:11px;letter-spacing:.8px;
+    text-transform:uppercase;color:var(--verde-claro);font-weight:700;display:block;margin-bottom:10px;
+  }
+  .compare-card p{font-size:15.5px;margin:0 0 10px;}
+  .compare-card p:last-child{margin-bottom:0;}
+
+  /* ====== TIMELINE ====== */
+  .timeline{margin:26px 0;border-left:2px solid var(--verde-borda);padding-left:24px;}
+  .timeline .ev{position:relative;margin-bottom:22px;}
+  .timeline .ev::before{
+    content:"";position:absolute;left:-31px;top:5px;width:13px;height:13px;
+    background:var(--verde-claro);border:3px solid var(--pergaminho);border-radius:50%;
+  }
+  .timeline .ev h4{
+    font-family:Arial,Helvetica,sans-serif;font-size:15px;color:var(--verde-escuro);margin:0 0 3px;
+  }
+  .timeline .ev p{font-size:15.5px;margin:0;color:var(--texto-suave);}
+
+  /* ====== CONCEITOS-CHAVE ====== */
+  .conceitos-chave{
+    display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:24px 0;
+  }
+  .cc-item{
+    background:var(--branco);border:1px solid var(--verde-borda);border-radius:9px;
+    padding:14px 16px;
+  }
+  .cc-item .termo{
+    font-family:Arial,Helvetica,sans-serif;font-weight:700;font-size:14px;
+    color:var(--verde-medio);display:block;margin-bottom:5px;
+  }
+  .cc-item .def{font-size:14px;line-height:1.55;color:var(--texto-suave);}
+
+  /* ====== RESUMO ====== */
+  .sub-rotulo{
+    font-family:Arial,Helvetica,sans-serif;font-style:italic;font-size:17px;
+    color:var(--verde-medio);margin:30px 0 12px;
+  }
+  /* mapa por autor e tema */
+  .mapa-autores{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0;}
+  .ma-card{
+    background:var(--branco);border:1px solid var(--verde-borda);border-radius:10px;
+    overflow:hidden;box-shadow:var(--sombra);
+  }
+  .ma-header{
+    background:var(--verde-escuro);color:#eef3ee;padding:9px 16px;
+    font-family:Arial,Helvetica,sans-serif;font-size:12.5px;letter-spacing:.4px;font-weight:600;
+  }
+  .ma-body{list-style:none;margin:0;padding:12px 18px;}
+  .ma-body li{
+    font-size:14.5px;line-height:1.55;padding:5px 0;color:var(--texto-suave);
+    border-bottom:1px solid #f1ede5;
+  }
+  .ma-body li:last-child{border-bottom:none;}
+  .ma-body li::before{content:"→ ";color:var(--verde-claro);font-weight:700;}
+  /* argumentos centrais por tema */
+  .resumo-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0;}
+  .resumo-card{
+    background:var(--branco);border:1px solid var(--verde-borda);border-radius:10px;
+    overflow:hidden;box-shadow:var(--sombra);
+  }
+  .resumo-card-header{
+    background:var(--verde-medio);color:#eef3ee;padding:9px 16px;
+    font-family:Arial,Helvetica,sans-serif;font-size:12.5px;letter-spacing:.4px;font-weight:600;
+  }
+  .resumo-card-body{list-style:none;margin:0;padding:12px 18px;}
+  .resumo-card-body li{
+    font-size:14.5px;line-height:1.55;padding:5px 0;color:var(--texto-suave);
+    border-bottom:1px solid #f5f2ec;
+  }
+  .resumo-card-body li:last-child{border-bottom:none;}
+  .resumo-card-body li::before{content:"• ";color:var(--verde-claro);font-weight:700;}
+
+  .conexao-card{
+    background:var(--verde-suave);border:1px solid var(--verde-borda);
+    border-radius:10px;padding:16px 20px;margin-bottom:12px;
+  }
+  .conexao-card h4{
+    font-family:Arial,Helvetica,sans-serif;font-size:14.5px;color:var(--verde-medio);
+    margin:0 0 6px;display:flex;align-items:center;gap:8px;
+  }
+  .conexao-card h4::before{content:"◆";color:var(--verde-claro);font-size:12px;}
+  .conexao-card p{font-size:15px;margin:0;color:var(--texto-suave);}
+
+  /* ====== Q&A ====== */
+  .qa-item{
+    background:var(--branco);border:1px solid var(--verde-borda);border-radius:10px;
+    overflow:hidden;margin:22px 0;box-shadow:var(--sombra);
+  }
+  .qa-pergunta{
+    background:var(--verde-escuro);color:#f1f6f1;padding:14px 20px;
+    font-size:16.5px;line-height:1.45;
+  }
+  .qa-pergunta .qnum{
+    display:block;font-family:Arial,Helvetica,sans-serif;font-size:11.5px;
+    letter-spacing:1.4px;text-transform:uppercase;color:#a9c8b3;
+    font-weight:700;margin-bottom:5px;
+  }
+  .qa-resposta{padding:18px 22px;}
+  .qa-resposta p{margin:0 0 12px;font-size:15.5px;}
+  .qa-resposta p:last-of-type{margin-bottom:0;}
+  .qa-fonte{
+    display:block;font-family:Arial,Helvetica,sans-serif;font-size:12px;
+    color:var(--verde-claro);border-top:1px dotted var(--verde-borda);
+    padding-top:12px;margin-top:14px;font-style:italic;
+  }
+  .qa-fonte::before{content:"Fonte: ";font-style:normal;font-weight:700;text-transform:uppercase;letter-spacing:.6px;font-size:10.5px;}
+
+  .perguntas-adicionais{
+    background:var(--verde-suave);border:1px solid var(--verde-borda);
+    border-left:5px solid var(--verde-claro);
+    border-radius:0 10px 10px 0;padding:22px 26px;margin:28px 0;
+  }
+  .perguntas-adicionais h3{
+    font-family:Arial,Helvetica,sans-serif;font-style:normal;font-size:13px;
+    letter-spacing:1px;text-transform:uppercase;color:var(--verde-medio);
+    font-weight:700;margin:0 0 14px;
+  }
+  .perguntas-adicionais ol{margin:0;padding-left:22px;}
+  .perguntas-adicionais li{margin-bottom:11px;font-size:15.5px;line-height:1.6;}
+  .perguntas-adicionais li:last-child{margin-bottom:0;}
+
+  /* ====== BIBLIOGRAFIA ====== */
+  .biblio{margin:22px 0;}
+  .biblio p{
+    font-size:15px;padding-left:28px;text-indent:-28px;margin-bottom:14px;
+    color:var(--texto-suave);
+  }
+
+  /* ====== RODAPÉ ====== */
+  footer{
+    background:var(--verde-escuro);color:#cdd9cd;text-align:center;
+    padding:34px 22px;margin-top:60px;font-family:Arial,Helvetica,sans-serif;
+    font-size:13px;line-height:1.9;
+  }
+  footer strong{color:#eef3ee;}
+
+  @media (max-width:680px){
+    .compare-grid,.compare-grid.tres,.conceitos-chave,.resumo-grid,.mapa-autores{grid-template-columns:1fr;}
+    .capa h1{font-size:29px;}
+    body{font-size:16px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ CAPA ============ -->
+<header class="capa">
+  <div class="capa-inner">
+    <span class="badge">Sociologia e Antropologia Jurídica · 2º Semestre</span>
+    <h1>A Teoria de Norberto Bobbio Frente ao Positivismo Jurídico</h1>
+    <p class="sub">Validade, eficácia e justiça — e os limites do jurídico</p>
+    <span class="fonte">
+      <strong>Conteúdo norteador:</strong> aula do Prof. João Victor Furtado<br>
+      <strong>Complementos:</strong> "Ética e Política" (N. Bobbio) e "Antropologia e Direitos Humanos" (R. L. Segato)<br>
+      Faculdade Farias Brito · Direito
+    </span>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- ============ SUMÁRIO ============ -->
+  <nav class="toc">
+    <h2>Sumário</h2>
+    <ul class="toc-dots">
+      <li><a href="#s1"><span class="num">01</span><span class="txt">A compreensão do fenômeno jurídico</span></a></li>
+      <li><a href="#s2"><span class="num">02</span><span class="txt">As três dimensões do positivismo: justiça, validade e eficácia</span></a></li>
+      <li><a href="#s3"><span class="num">03</span><span class="txt">Os três critérios de valoração e as reduções</span></a></li>
+      <li><a href="#s4"><span class="num">04</span><span class="txt">A estrutura lógico-linguística da norma</span></a></li>
+      <li><a href="#s5"><span class="num">05</span><span class="txt">Imperativos autônomos e heterônomos</span></a></li>
+      <li><a href="#s6"><span class="num">06</span><span class="txt">A imperatividade da norma</span></a></li>
+      <li><a href="#s7"><span class="num">07</span><span class="txt">Ser e dever-ser: ilícito e sanção</span></a></li>
+      <li><a href="#s8"><span class="num">08</span><span class="txt">Normas morais, sociais e jurídicas: a adesão espontânea</span></a></li>
+      <li><a href="#s9"><span class="num">09</span><span class="txt">Complemento I — Ética e Política (Bobbio)</span></a></li>
+      <li><a href="#s10"><span class="num">10</span><span class="txt">Complemento II — Lei, moral e ética; Bobbio e os direitos humanos (Segato)</span></a></li>
+      <li><a href="#s11"><span class="num">11</span><span class="txt">Resumo para revisão</span></a></li>
+      <li><a href="#s12"><span class="num">12</span><span class="txt">Questões com respostas comentadas</span></a></li>
+      <li><a href="#s13"><span class="num">13</span><span class="txt">Bibliografia</span></a></li>
+    </ul>
+  </nav>
+
+  <!-- ============ SEÇÃO 1 ============ -->
+  <section id="s1">
+    <div class="section-label">Unidade 01</div>
+    <h2>A compreensão do fenômeno jurídico</h2>
+    <p>O ponto de partida de Bobbio é distinguir o que <strong>caracteriza</strong> o jurídico do que apenas o <strong>condiciona</strong>. A vida social pressupõe sujeitos em relação (intersubjetividade) e algum grau de organização; mas esses elementos, embora indispensáveis, não bastam para que exista <em class="term">ordem jurídica</em>. O traço definidor é a <strong>normatividade</strong>.</p>
+
+    <div class="quote-block">
+      A intersubjetividade e a organização são condições necessárias para a formação de uma ordem jurídica; o aspecto normativo é a condição necessária e suficiente.
+      <span class="autor">Síntese da aula — Prof. João Victor Furtado</span>
+    </div>
+
+    <p>Há, portanto, uma hierarquia entre as condições: intersubjetividade e organização são <strong>necessárias, mas não suficientes</strong>; somente o aspecto normativo é, ao mesmo tempo, <strong>necessário e suficiente</strong>. Não é o fato de o direito ser organizado que o classifica como fenômeno jurídico — é o fato de ser <strong>norma</strong>.</p>
+
+    <div class="atencao">
+      <div class="rotulo">Exemplo de prova</div>
+      <p>As <strong>facções criminosas</strong> são organizadas e intersubjetivas — possuem hierarquia, regras internas e divisão de funções. Ainda assim, não constituem fenômeno jurídico, porque a organização, isoladamente, não converte um grupo em ordenamento jurídico. O exemplo serve para mostrar que <strong>organização ≠ juridicidade</strong>.</p>
+    </div>
+  </section>
+
+  <!-- ============ SEÇÃO 2 ============ -->
+  <section id="s2">
+    <div class="section-label">Unidade 02</div>
+    <h2>As três dimensões do positivismo: justiça, validade e eficácia</h2>
+    <p>Bobbio decompõe a análise da norma jurídica em <strong>três problemas distintos e independentes entre si</strong>. Cada um corresponde a um saber e a um modo de investigação. A grande lição metodológica é que esses planos <strong>não se confundem</strong>: uma norma pode ser válida sem ser justa, justa sem ser eficaz, eficaz sem ser válida.</p>
+
+    <div class="compare-grid tres">
+      <div class="compare-card">
+        <h4>Justiça</h4>
+        <span class="tag">Filosofia do Direito · Deontologia</span>
+        <p>Investiga a <strong>conexão da norma com os valores</strong> — se a norma corresponde a um ideal de justiça (dever-ser valorativo).</p>
+        <p><em>Pergunta:</em> a norma é <strong>justa</strong>?</p>
+      </div>
+      <div class="compare-card">
+        <h4>Validade</h4>
+        <span class="tag">Teoria do Direito · Ontologia</span>
+        <p>Investiga o <strong>ser</strong> da norma: se o agente que a criou tinha competência para tanto e se ela pertence ao ordenamento.</p>
+        <p><em>Pergunta:</em> a norma <strong>existe juridicamente</strong>?</p>
+      </div>
+      <div class="compare-card">
+        <h4>Eficácia</h4>
+        <span class="tag">Sociologia e Antropologia Jurídica · Fenomenologia</span>
+        <p>Investiga se a norma <strong>está sendo seguida</strong> e se produz os resultados pretendidos no plano dos fatos.</p>
+        <p><em>Pergunta:</em> a norma é <strong>cumprida</strong>?</p>
+      </div>
+    </div>
+
+    <div class="highlight-box">
+      <div class="rotulo">Conexão com a disciplina</div>
+      <p>A <strong>eficácia</strong> — a dimensão fenomenológica da norma — é justamente o objeto da <strong>Sociologia e Antropologia Jurídica</strong>. Enquanto o filósofo pergunta se a norma é justa e o teórico pergunta se ela é válida, o sociólogo do direito pergunta se ela <strong>vigora de fato</strong> na vida social.</p>
+    </div>
+  </section>
+
+  <!-- ============ SEÇÃO 3 ============ -->
+  <section id="s3">
+    <div class="section-label">Unidade 03</div>
+    <h2>Os três critérios de valoração e as reduções</h2>
+    <p>A independência entre justiça, validade e eficácia é a posição rigorosa de Bobbio. As grandes correntes da filosofia do direito, porém, tendem a <strong>reduzir</strong> um critério a outro, colapsando os três planos em um só. Cada corrente realiza uma redução característica:</p>
+
+    <div class="compare-grid tres">
+      <div class="compare-card">
+        <h4>Direito Natural (Jusnaturalismo)</h4>
+        <span class="tag">Reduz a validade à justiça</span>
+        <p>Só é <strong>válida</strong> a norma <strong>justa</strong>. Uma lei injusta, por ser injusta, não seria verdadeiramente direito (<em>lex iniusta non est lex</em>).</p>
+      </div>
+      <div class="compare-card">
+        <h4>Positivismo Jurídico</h4>
+        <span class="tag">Reduz a justiça à validade</span>
+        <p>É <strong>justa</strong> a norma <strong>válida</strong>. A justiça da norma decorre de sua existência regular no ordenamento; o juízo de valor cede ao juízo de competência.</p>
+      </div>
+      <div class="compare-card">
+        <h4>Realismo Jurídico</h4>
+        <span class="tag">Reduz a validade à eficácia</span>
+        <p>Só é <strong>válida</strong> a norma <strong>eficaz</strong>. O direito é o que os tribunais efetivamente aplicam; a norma não cumprida não é direito.</p>
+      </div>
+    </div>
+
+    <div class="atencao">
+      <div class="rotulo">Atenção — armadilha de prova</div>
+      <p>O erro mais comum é trocar o <strong>sentido</strong> da redução. Memorize a direção: o <strong>jusnaturalismo</strong> reduz validade → justiça; o <strong>positivismo</strong> reduz justiça → validade; o <strong>realismo</strong> reduz validade → eficácia. Jusnaturalismo e positivismo partem de polos opostos exatamente porque <strong>invertem</strong> a relação entre validade e justiça.</p>
+    </div>
+  </section>
+
+  <!-- ============ SEÇÃO 4 ============ -->
+  <section id="s4">
+    <div class="section-label">Unidade 04</div>
+    <h2>A estrutura lógico-linguística da norma</h2>
+    <p>Bobbio analisa a norma do <strong>ponto de vista formal</strong>, isto é, examina sua estrutura <em>independentemente do conteúdo</em>. A distinção fundamental é entre <strong>forma</strong> e <strong>matéria</strong>:</p>
+
+    <div class="concept-box">
+      <div class="rotulo">Forma e matéria</div>
+      <p><strong>Forma</strong> é o que <strong>delimita</strong> a norma — sua estrutura lógico-linguística. <strong>Matéria</strong> é o que é <strong>tratado</strong> — o conteúdo concreto que a norma regula. O olhar formal isola a estrutura, mas não é o único modo de considerar a norma jurídica.</p>
+    </div>
+
+    <h3>Sentido literal × interpretação</h3>
+    <p>A norma não se esgota em seu sentido literal: ela <strong>necessita de interpretação</strong> para que se alcance sua análise e aplicação. O texto é o ponto de partida, não o ponto de chegada.</p>
+
+    <h3>Proposições prescritivas × descritivas</h3>
+    <div class="compare-grid">
+      <div class="compare-card">
+        <h4>Proposição prescritiva</h4>
+        <span class="tag">Fazer fazer</span>
+        <p>Visa <strong>alterar a conduta</strong> do destinatário — está no campo do <em>dever-ser</em>. É a forma própria da norma jurídica.</p>
+        <p><strong>Elementos:</strong> modificação de comportamento, sanção, validade e justiça.</p>
+      </div>
+      <div class="compare-card">
+        <h4>Proposição descritiva</h4>
+        <span class="tag">Fazer conhecer</span>
+        <p>Visa <strong>transmitir conhecimento</strong> sobre o mundo — está no campo do <em>ser</em>. Pode ser verdadeira ou falsa, mas não obriga.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SEÇÃO 5 ============ -->
+  <section id="s5">
+    <div class="section-label">Unidade 05</div>
+    <h2>Imperativos autônomos e heterônomos</h2>
+    <p>Toda norma é um imperativo, mas Bobbio distingue dois tipos conforme a relação entre <strong>quem formula</strong> e <strong>quem executa</strong> o comando. Esse critério separa a norma moral da norma jurídica.</p>
+
+    <div class="compare-grid">
+      <div class="compare-card">
+        <h4>Norma moral — imperativo autônomo</h4>
+        <span class="tag">Formulador = executor</span>
+        <p>A <strong>mesma pessoa</strong> que formula a norma é a que a executa. O sujeito impõe a si mesmo o dever; a obrigação nasce de dentro (autonomia da vontade).</p>
+      </div>
+      <div class="compare-card">
+        <h4>Norma jurídica — imperativo heterônomo</h4>
+        <span class="tag">Formulador ≠ executor</span>
+        <p>A pessoa que <strong>formula</strong> a norma é <strong>diferente</strong> da que a segue. A obrigação é imposta por outrem (o poder competente), de fora do sujeito.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SEÇÃO 6 ============ -->
+  <section id="s6">
+    <div class="section-label">Unidade 06</div>
+    <h2>A imperatividade da norma</h2>
+    <p>Para Bobbio, <strong>todas as normas são imperativos</strong> — proposições prescritivas situadas no campo do <em>dever-ser</em> e voltadas à mudança de comportamento. Daí ele extrair o <strong>afastamento das teorias exclusivas</strong>, que pretendem reduzir a norma a um único tipo de comando.</p>
+
+    <div class="concept-box">
+      <div class="rotulo">Afastamento das teorias exclusivas</div>
+      <p>A norma compõe-se de <strong>imperativos negativos e positivos</strong> — proibições e comandos —, expressando a <strong>união entre liberdade e cooperação</strong>. "Comando" e "imperativo" exercem o mesmo significado. E as <strong>normas permissivas</strong>? Bobbio as integra ao sistema como o reverso lógico dos imperativos: permitir é o avesso de proibir ou de obrigar.</p>
+    </div>
+
+    <div class="highlight-box">
+      <div class="rotulo">Direito e dever</div>
+      <p><strong>Direito e dever são dois lados de uma mesma moeda.</strong> A toda posição de direito de um sujeito corresponde uma posição de dever de outro: a relação jurídica é, por estrutura, correlativa.</p>
+    </div>
+  </section>
+
+  <!-- ============ SEÇÃO 7 ============ -->
+  <section id="s7">
+    <div class="section-label">Unidade 07</div>
+    <h2>Ser e dever-ser: ilícito e sanção</h2>
+    <p>O <strong>ilícito</strong> é o descumprimento do dever-ser. Sua forma varia conforme o tipo de imperativo violado:</p>
+
+    <div class="compare-grid">
+      <div class="compare-card">
+        <h4>Ilícito por ação</h4>
+        <span class="tag">Inobservância · imperativo negativo</span>
+        <p>Ocorre quando a norma <strong>proíbe</strong> e o sujeito <strong>age</strong> contra a proibição. Viola-se fazendo o que era vedado.</p>
+      </div>
+      <div class="compare-card">
+        <h4>Ilícito por omissão</h4>
+        <span class="tag">Inexecução · imperativo positivo</span>
+        <p>Ocorre quando a norma <strong>obriga</strong> e o sujeito <strong>deixa de fazer</strong> o devido. Viola-se não fazendo o que era exigido.</p>
+      </div>
+    </div>
+
+    <h3>Os três tipos de sanção</h3>
+    <p>A resposta ao ilícito é a <strong>sanção</strong>. Bobbio gradua três tipos, segundo sejam internas/externas e institucionalizadas ou não — distinção que será decisiva para diferenciar o direito da moral e dos usos sociais:</p>
+
+    <div class="compare-grid tres">
+      <div class="compare-card">
+        <h4>Sanção moral</h4>
+        <span class="tag">Apenas interior</span>
+        <p>Opera no foro íntimo: remorso, culpa, peso de consciência. Não há aparato externo de aplicação.</p>
+      </div>
+      <div class="compare-card">
+        <h4>Sanção social</h4>
+        <span class="tag">Externa, não institucionalizada</span>
+        <p>Vem do grupo (reprovação, exclusão, ridicularização), mas <strong>sem órgão</strong> e sem procedimento previamente organizado.</p>
+      </div>
+      <div class="compare-card">
+        <h4>Sanção jurídica</h4>
+        <span class="tag">Externa e institucionalizada</span>
+        <p>Aplicada por <strong>órgão competente</strong>, segundo procedimento previsto. É o traço que distingue o ordenamento jurídico.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SEÇÃO 8 ============ -->
+  <section id="s8">
+    <div class="section-label">Unidade 08</div>
+    <h2>Normas morais, sociais e jurídicas: a adesão espontânea</h2>
+    <p>Se a sanção institucionalizada é o que distingue o jurídico, surge uma objeção: e se um ordenamento fosse <strong>sempre cumprido espontaneamente</strong>, sem jamais recorrer à sanção? Bobbio responde que tal ordenamento não seria reconhecido como direito.</p>
+
+    <div class="quote-block">
+      Um ordenamento normativo em que não houvesse nunca necessidade de recorrer à sanção e fosse sempre seguido espontaneamente, seria tão diferente dos ordenamentos históricos que costumamos chamar de jurídicos que ninguém ousaria ver ali realizada a ideia de direito: sinal evidente de que a adesão espontânea acompanha a formação e a perduração de um ordenamento jurídico, mas não o caracteriza.
+      <span class="autor">Norberto Bobbio</span>
+    </div>
+
+    <div class="highlight-box">
+      <div class="rotulo">Tese central</div>
+      <p>A <strong>adesão espontânea acompanha</strong>, mas <strong>não caracteriza</strong> o ordenamento jurídico. O que o caracteriza é a <strong>possibilidade da sanção institucionalizada</strong>. O cumprimento voluntário é frequente e desejável, porém é a estrutura sancionatória organizada — não o consenso espontâneo — que define o direito.</p>
+    </div>
+  </section>
+
+  <!-- ============ SEÇÃO 9 ============ -->
+  <section id="s9">
+    <div class="section-label">Complemento I</div>
+    <h2>Ética e Política (Bobbio)</h2>
+    <p>No ensaio <em>Ética e Política</em>, Bobbio oferece um "mapa" das soluções historicamente dadas à relação entre os dois sistemas normativos — o <strong>moral</strong> e o <strong>político</strong>. A tipologia aprofunda a distinção, já vista, entre norma moral e norma jurídica, e fornece o instrumental para pensar o conflito entre <em>princípios</em> e <em>consequências</em>.</p>
+
+    <h3>Monismo × Dualismo</h3>
+    <div class="compare-grid">
+      <div class="compare-card">
+        <h4>Monismo</h4>
+        <span class="tag">Não há contraste real</span>
+        <p>Sustenta que existe <strong>um só sistema normativo</strong>. Subdivide-se em <strong>rígido</strong> (sem exceções) e <strong>flexível</strong> (admite exceções legítimas).</p>
+      </div>
+      <div class="compare-card">
+        <h4>Dualismo</h4>
+        <span class="tag">Ética e política distintas</span>
+        <p>Reconhece <strong>dois sistemas</strong> distintos. Subdivide-se em <strong>aparente</strong> (relação hierárquica) e <strong>real/verdadeiro</strong> (dois critérios irredutíveis).</p>
+      </div>
+    </div>
+
+    <h3>As quatro grandes soluções</h3>
+    <div class="compare-grid">
+      <div class="compare-card">
+        <h4>Monismo rígido</h4>
+        <span class="tag">Erasmo · Hobbes</span>
+        <p><strong>Erasmo</strong> reduz a política à moral (o "príncipe cristão", virtudes puramente morais, antítese de Maquiavel). <strong>Hobbes</strong> reduz a moral à política: só o soberano define justo e injusto, e o autor não distingue o príncipe do tirano.</p>
+      </div>
+      <div class="compare-card">
+        <h4>Monismo flexível</h4>
+        <span class="tag">Lex specialis · estado de necessidade</span>
+        <p>Há um só sistema, mas com <strong>exceções legítimas</strong> (a dispensa, a equidade, o estado de necessidade — "a necessidade não tem lei: é a própria lei"). É aqui que se aloja "o fim justifica os meios", como exceção por necessidade.</p>
+      </div>
+      <div class="compare-card">
+        <h4>Dualismo aparente</h4>
+        <span class="tag">Croce · Hegel</span>
+        <p>Relação <strong>hierárquica</strong> entre os dois sistemas. <strong>Croce</strong>: a moral é superior à política. <strong>Hegel</strong>: a política/Estado é superior à moral individual (§ 337 da <em>Filosofia do Direito</em>: o bem do Estado é distinto do bem do indivíduo).</p>
+      </div>
+      <div class="compare-card">
+        <h4>Dualismo real</h4>
+        <span class="tag">Ética da convicção × da responsabilidade</span>
+        <p>Dois critérios <strong>irredutíveis</strong> de juízo. Julgar pelos <strong>princípios</strong> (o que antecede a ação) ou pelas <strong>consequências</strong> (o que vem depois) — a célebre distinção weberiana. O contraste é, nesse plano, "realmente insolúvel".</p>
+      </div>
+    </div>
+
+    <div class="concept-box">
+      <div class="rotulo">Ética da convicção × ética da responsabilidade</div>
+      <p>Uma ação <strong>moralmente boa</strong> é a que se conforma a princípios universais, sem cálculo do resultado. Uma ação <strong>politicamente boa</strong> é a que teve êxito, que atingiu seu fim. Bobbio ilustra com a figura do terrorista que se diz "arrependido" não por remorso moral, mas por a ação ter <strong>falhado</strong> quanto ao objetivo — sinal de que se move pela ética do resultado, não pela ética dos princípios.</p>
+    </div>
+
+    <div class="atencao">
+      <div class="rotulo">Valor das doutrinas</div>
+      <p>Bobbio classifica ainda as soluções por sua função: o <strong>monismo rígido</strong> e o <strong>dualismo aparente</strong> têm valor mais <strong>prescritivo</strong> (querem dar solução prática ao contraste); o <strong>monismo flexível</strong> e o <strong>dualismo real</strong> têm valor mais <strong>analítico</strong> (querem explicar por que o contraste existe). Confundir as funções produz falsos debates.</p>
+    </div>
+  </section>
+
+  <!-- ============ SEÇÃO 10 ============ -->
+  <section id="s10">
+    <div class="section-label">Complemento II</div>
+    <h2>Lei, moral e ética; Bobbio e os direitos humanos (Segato)</h2>
+    <p>Rita Laura Segato, em <em>Antropologia e Direitos Humanos</em>, leva a discussão para o terreno próprio da <strong>Sociologia e Antropologia Jurídica</strong>: a coabitação de diversas <strong>comunidades morais</strong> sob a mediação da lei, e a tensão entre o relativismo antropológico e o universalismo dos direitos humanos. Para tanto, distingue <strong>três princípios normativos em interação</strong>.</p>
+
+    <div class="compare-grid tres">
+      <div class="compare-card">
+        <h4>Moral</h4>
+        <span class="tag">Costume · cultura</span>
+        <p>Arraigada na tradição e nos costumes. É <strong>substantiva</strong> (positivável em mandamentos), estável e lenta. Faz-nos membros natos de uma comunidade moral.</p>
+      </div>
+      <div class="compare-card">
+        <h4>Lei</h4>
+        <span class="tag">Contrato · promulgação</span>
+        <p>Produto do ato deliberado e racional do contrato e da promulgação. Também <strong>substantiva</strong> e positivável, é um <strong>campo de luta simbólica</strong> — o poder nominador do direito (Bourdieu).</p>
+      </div>
+      <div class="compare-card">
+        <h4>Ética</h4>
+        <span class="tag">Impulso · insatisfação</span>
+        <p><strong>Pulsional</strong> e inquieta, <strong>sem conteúdos enumeráveis</strong>. É a "ética da insatisfação": disponibilidade para a interpelação pelo outro (Lévinas, Nietzsche, Dussel).</p>
+      </div>
+    </div>
+
+    <h3>Bobbio na argumentação de Segato</h3>
+    <p>Segato mobiliza diretamente Bobbio — sobretudo o ensaio <em>Sobre o fundamento dos direitos do homem</em> — para sustentar a <strong>historicidade</strong> dos direitos humanos:</p>
+
+    <div class="quote-block">
+      A lista dos direitos do homem modificou-se e continua a se modificar com a mudança das condições históricas [...]. Direitos declarados absolutos em fins do século XVIII foram submetidos a radicais limitações; direitos que as declarações do século XVIII sequer mencionavam, como os direitos sociais, estão proclamados em todas as declarações recentes.
+      <span class="autor">Norberto Bobbio, apud Segato (2006)</span>
+    </div>
+
+    <div class="highlight-box">
+      <div class="rotulo">A virada antijusnaturalista de Bobbio</div>
+      <p>Bobbio usa a historicidade para <strong>invalidar o jusnaturalismo</strong>: não há valores objetivos, permanentes e auto-evidentes que fundem os direitos. O que os funda é um <strong>consenso produzido historicamente</strong>. A Declaração Universal é <strong>ponto de partida</strong> de um processo inacabado, não meta acabada.</p>
+    </div>
+
+    <p>Segato <strong>concorda</strong> com Bobbio contra o jusnaturalismo, mas estende a crítica também ao <strong>juspositivismo</strong>: a validade da lei já firmada não explica o <em>movimento</em> de expansão das leis. Por isso ela acrescenta um terceiro princípio — o <strong>impulso ético</strong> —, motor da despositivação da lei e da contínua ampliação dos direitos. Registra-se ainda a crítica de <strong>Cançado Trindade</strong> à tese das "gerações de direitos" associada a Bobbio (de formulação original atribuída a Karel Vasak), por hierarquizar e tolerar disparidades entre direitos civis e direitos econômico-sociais.</p>
+
+    <div class="concept-box">
+      <div class="rotulo">Por que isto importa para a disciplina</div>
+      <p>Aqui o positivismo de Bobbio encontra a antropologia jurídica: a <strong>eficácia</strong> e a <strong>expansão histórica</strong> das normas (em especial os direitos humanos) aparecem como <strong>fenômenos sociais</strong> — produto de lutas, consensos e pluralismo de comunidades morais — e não como dados de uma natureza eterna.</p>
+    </div>
+  </section>
+
+  <!-- ============ SEÇÃO 11 — RESUMO ============ -->
+  <section id="s11">
+    <div class="section-label">Revisão</div>
+    <h2>Resumo para revisão</h2>
+
+    <p class="sub-rotulo">Conceitos fundamentais</p>
+    <div class="conceitos-chave">
+      <div class="cc-item"><span class="termo">Intersubjetividade</span><span class="def">Relação entre sujeitos; condição necessária, mas não suficiente, da ordem jurídica.</span></div>
+      <div class="cc-item"><span class="termo">Normatividade</span><span class="def">Aspecto que caracteriza o jurídico — condição necessária e suficiente.</span></div>
+      <div class="cc-item"><span class="termo">Validade</span><span class="def">O ser da norma; competência do órgão criador. Plano ontológico.</span></div>
+      <div class="cc-item"><span class="termo">Eficácia</span><span class="def">Observância e produção de efeitos. Plano fenomenológico — Sociologia Jurídica.</span></div>
+      <div class="cc-item"><span class="termo">Justiça</span><span class="def">Adequação da norma a valores. Plano deontológico.</span></div>
+      <div class="cc-item"><span class="termo">Imperativo autônomo</span><span class="def">Formulador e executor coincidem (norma moral).</span></div>
+      <div class="cc-item"><span class="termo">Imperativo heterônomo</span><span class="def">Formulador difere do executor (norma jurídica).</span></div>
+      <div class="cc-item"><span class="termo">Sanção institucionalizada</span><span class="def">Externa e organizada por órgão competente; marca do direito.</span></div>
+      <div class="cc-item"><span class="termo">Adesão espontânea</span><span class="def">Acompanha, mas não caracteriza, o ordenamento jurídico.</span></div>
+      <div class="cc-item"><span class="termo">Ética da convicção</span><span class="def">Juízo pelos princípios que antecedem a ação (Weber/Bobbio).</span></div>
+      <div class="cc-item"><span class="termo">Ética da responsabilidade</span><span class="def">Juízo pelas consequências da ação (Weber/Bobbio).</span></div>
+      <div class="cc-item"><span class="termo">Lei, moral e ética</span><span class="def">Três princípios normativos distintos em interação (Segato).</span></div>
+      <div class="cc-item"><span class="termo">Localismo nacionalizado</span><span class="def">Lei confundida com a moral do grupo dominante, imposta como universal (Segato).</span></div>
+      <div class="cc-item"><span class="termo">Consenso histórico</span><span class="def">Fundamento dos direitos humanos contra o jusnaturalismo (Bobbio).</span></div>
+      <div class="cc-item"><span class="termo">Ética da insatisfação</span><span class="def">Impulso ético; motor da expansão dos direitos (Segato).</span></div>
+    </div>
+
+    <p class="sub-rotulo">Mapa por autor e tema</p>
+    <div class="mapa-autores">
+      <div class="ma-card">
+        <div class="ma-header">Bobbio / Furtado — Fenômeno jurídico e norma</div>
+        <ul class="ma-body">
+          <li>Fenômeno jurídico: intersubjetividade + organização (necessárias) e normatividade (necessária e suficiente)</li>
+          <li>Organização não basta — exemplo das facções criminosas</li>
+          <li>Três critérios independentes: justiça, validade, eficácia</li>
+          <li>Três reduções: jusnaturalismo, positivismo, realismo</li>
+          <li>Imperativos: autônomo (moral) × heterônomo (jurídico); positivos e negativos</li>
+          <li>Sanção: moral (interior), social (externa), jurídica (institucionalizada)</li>
+          <li>Adesão espontânea: acompanha, mas não caracteriza o direito</li>
+        </ul>
+      </div>
+      <div class="ma-card">
+        <div class="ma-header">Bobbio — Ética e Política (1984)</div>
+        <ul class="ma-body">
+          <li>Monismo rígido: Erasmo (política→moral) × Hobbes (moral→política)</li>
+          <li>Monismo flexível: exceções por necessidade, lex specialis</li>
+          <li>Dualismo aparente: Croce (moral superior) × Hegel (Estado superior)</li>
+          <li>Dualismo real: Weber — convicção × responsabilidade (única analítica)</li>
+          <li>Valor prescritivo (rígido/aparente) × valor analítico (flexível/real)</li>
+          <li>Tensão insolúvel: a história dos poderosos ≠ a história dos justos</li>
+        </ul>
+      </div>
+      <div class="ma-card">
+        <div class="ma-header">Segato — Antropologia e Direitos Humanos (2006)</div>
+        <ul class="ma-body">
+          <li>Lei, moral e ética: três princípios distintos em interação</li>
+          <li>Lei ≠ moral: a lei media comunidades morais sem coincidir com nenhuma</li>
+          <li>Localismo nacionalizado: lei confundida com a moral do dominante</li>
+          <li>Impulso ético: terceiro princípio, motor da expansão dos direitos</li>
+          <li>Convenção 169 (OIT) e Cedaw: pluralismo com limite nos direitos humanos</li>
+          <li>Lévinas, Nietzsche, Foucault, Dussel: a alteridade como fundamento ético</li>
+        </ul>
+      </div>
+      <div class="ma-card">
+        <div class="ma-header">Bobbio em Segato — Direitos humanos</div>
+        <ul class="ma-body">
+          <li>"Sobre o fundamento dos direitos do homem" (1991)</li>
+          <li>Historicidade: a lista de direitos é variável (propriedade, tortura, direitos sociais)</li>
+          <li>Antijusnaturalismo: não há valores eternos e auto-evidentes</li>
+          <li>Fundamento dos direitos: consenso produzido historicamente</li>
+          <li>Cançado Trindade critica as "gerações de direitos" (origem em Karel Vasak)</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="sub-rotulo">Argumentos centrais por tema</p>
+    <div class="resumo-grid">
+      <div class="resumo-card">
+        <div class="resumo-card-header">O fenômeno jurídico e a norma</div>
+        <ul class="resumo-card-body">
+          <li>O aspecto normativo é condição necessária e suficiente do direito</li>
+          <li>Organização ≠ juridicidade (facções criminosas)</li>
+          <li>A norma é imperativo prescritivo, heterônomo e sancionado</li>
+          <li>Sanção jurídica = externa + institucionalizada</li>
+          <li>Adesão espontânea acompanha, mas não caracteriza o ordenamento</li>
+        </ul>
+      </div>
+      <div class="resumo-card">
+        <div class="resumo-card-header">Os três critérios e as reduções</div>
+        <ul class="resumo-card-body">
+          <li>Justiça (deontologia), validade (ontologia), eficácia (fenomenologia)</li>
+          <li>Critérios independentes: combinações assimétricas são possíveis</li>
+          <li>Jusnaturalismo: validade → justiça</li>
+          <li>Positivismo: justiça → validade</li>
+          <li>Realismo: validade → eficácia</li>
+        </ul>
+      </div>
+      <div class="resumo-card">
+        <div class="resumo-card-header">Ética e Política — as quatro concepções</div>
+        <ul class="resumo-card-body">
+          <li>Monismo rígido: um sistema, duas versões opostas (Erasmo/Hobbes)</li>
+          <li>Monismo flexível: exceções racionais (necessidade, lex specialis)</li>
+          <li>Dualismo aparente: hierarquia entre sistemas (Croce/Hegel)</li>
+          <li>Dualismo real: convicção × responsabilidade (única analítica)</li>
+          <li>O contraste é, nesse plano, insolúvel neste mundo</li>
+        </ul>
+      </div>
+      <div class="resumo-card">
+        <div class="resumo-card-header">Lei, moral e ética; direitos humanos (Segato)</div>
+        <ul class="resumo-card-body">
+          <li>Lei e moral são substantivas; a ética é pulsional e inquieta</li>
+          <li>A lei media comunidades morais sem coincidir com nenhuma</li>
+          <li>Historicidade dos direitos (Bobbio): lista variável, consenso histórico</li>
+          <li>Antijusnaturalismo compartilhado por Bobbio e Segato</li>
+          <li>Impulso ético: motor da expansão dos direitos</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="sub-rotulo">Comparação entre autores</p>
+    <div class="compare-grid">
+      <div class="compare-card">
+        <h4>Erasmo × Hobbes</h4>
+        <span class="tag">Monismo rígido</span>
+        <p>Erasmo reduz a política à moral (príncipe cristão); Hobbes reduz a moral à política (o soberano define o justo; não distingue príncipe de tirano).</p>
+      </div>
+      <div class="compare-card">
+        <h4>Croce × Hegel</h4>
+        <span class="tag">Dualismo aparente</span>
+        <p>Croce: moral superior à política. Hegel: política/Estado superior à moral individual — bem do Estado distinto do bem do indivíduo.</p>
+      </div>
+      <div class="compare-card">
+        <h4>Weber / Bobbio</h4>
+        <span class="tag">Dualismo real</span>
+        <p>Dois critérios irredutíveis: ética da convicção (princípios) e ética da responsabilidade (consequências). Contraste insolúvel.</p>
+      </div>
+      <div class="compare-card">
+        <h4>Bobbio × Segato</h4>
+        <span class="tag">Direitos humanos</span>
+        <p>Ambos recusam o jusnaturalismo. Bobbio funda os direitos no consenso histórico; Segato acrescenta o impulso ético como motor da expansão e critica também o juspositivismo.</p>
+      </div>
+    </div>
+
+    <p class="sub-rotulo">Conexões com a Sociologia e Antropologia Jurídica</p>
+    <div class="conexao-card">
+      <h4>A eficácia como objeto da disciplina</h4>
+      <p>A dimensão fenomenológica da norma — saber se ela é seguida e produz efeitos — é precisamente o campo da Sociologia Jurídica, distinto da validade (teoria do direito) e da justiça (filosofia do direito).</p>
+    </div>
+    <div class="conexao-card">
+      <h4>A sanção institucionalizada como fato social</h4>
+      <p>A institucionalização da sanção organiza o controle social pelo direito e o distingue da moral e dos usos sociais — um arranjo que a antropologia jurídica estuda comparativamente entre sociedades.</p>
+    </div>
+    <div class="conexao-card">
+      <h4>Historicidade e expansão dos direitos</h4>
+      <p>Lida com Segato, a tese de Bobbio mostra os direitos como produto de lutas sociais e consenso histórico, e não de natureza eterna — leitura sociológica da dinâmica normativa.</p>
+    </div>
+    <div class="conexao-card">
+      <h4>Pluralismo jurídico e comunidades morais</h4>
+      <p>A tensão lei/moral/ética e a coabitação de comunidades morais sob a mediação da lei conectam o positivismo de Bobbio ao pluralismo jurídico (Segato, Sousa Santos) e ao poder nominador do direito (Bourdieu).</p>
+    </div>
+  </section>
+
+  <!-- ============ SEÇÃO 12 — QUESTÕES ============ -->
+  <section id="s12">
+    <div class="section-label">Fixação</div>
+    <h2>Questões com respostas comentadas</h2>
+
+    <div class="qa-item">
+      <div class="qa-pergunta">
+        <span class="qnum">Questão 1</span>
+        O que caracteriza o fenômeno jurídico para Bobbio? Por que a organização, isoladamente, não converte um grupo em ordenamento jurídico? Discuta o exemplo das facções criminosas.
+      </div>
+      <div class="qa-resposta">
+        <p>Para Bobbio, a formação de uma ordem jurídica pressupõe duas condições de fundo: a <strong>intersubjetividade</strong> — a existência de relações entre sujeitos — e a <strong>organização</strong> — a presença de uma estrutura que ordene essas relações. Contudo, ambas são apenas condições <em>necessárias</em>; nenhuma delas, nem as duas somadas, basta para caracterizar o jurídico.</p>
+        <p>O elemento decisivo é o <strong>aspecto normativo</strong>, que Bobbio define como condição ao mesmo tempo <strong>necessária e suficiente</strong>. É a presença da norma — proposição prescritiva, no campo do dever-ser, voltada a modificar comportamentos e dotada de sanção — que constitui propriamente o fenômeno jurídico. Não é, portanto, o fato de algo ser organizado que o classifica como direito.</p>
+        <p>O exemplo das <strong>facções criminosas</strong> é o teste dessa tese. Uma facção é fortemente intersubjetiva e organizada: possui hierarquia, divisão de funções, regras internas e até mecanismos de punição. Ainda assim, ninguém a reconhece como ordenamento jurídico. Isso demonstra que <strong>organização não equivale a juridicidade</strong>: a estrutura organizativa, por si, não gera direito. O exemplo serve, pedagogicamente, para isolar o que de fato caracteriza o jurídico — a normatividade institucionalizada — daquilo que apenas o acompanha.</p>
+        <span class="qa-fonte">Aula "A teoria de Norberto Bobbio frente ao positivismo jurídico" (Prof. João Victor Furtado).</span>
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-pergunta">
+        <span class="qnum">Questão 2</span>
+        Quais são os três critérios de valoração da norma jurídica segundo Bobbio? Por que são independentes entre si? Explique o reducionismo de cada grande corrente, atentando ao sentido de cada redução.
+      </div>
+      <div class="qa-resposta">
+        <p>Bobbio decompõe a análise da norma em três problemas distintos, cada um ligado a um saber. A <strong>justiça</strong> (Filosofia do Direito, deontologia) pergunta se a norma se conforma a valores — se é justa. A <strong>validade</strong> (Teoria do Direito, ontologia) pergunta se a norma existe juridicamente — se foi criada por agente competente e pertence ao ordenamento. A <strong>eficácia</strong> (Sociologia e Antropologia Jurídica, fenomenologia) pergunta se a norma é efetivamente seguida e produz os resultados pretendidos.</p>
+        <p>Os três planos são <strong>independentes</strong> porque admitem combinações assimétricas: há normas válidas e injustas (lei discriminatória aprovada pelo procedimento correto), justas e inválidas (princípio moral aceito, mas não positivado), válidas e ineficazes (lei que "não pegou") e eficazes sem validade formal (costume que orienta condutas sem positivação). Tratar os critérios como esferas distintas é, para Bobbio, condição de uma compreensão plena do fenômeno jurídico.</p>
+        <p>Cada grande corrente, porém, colapsa os planos por meio de uma redução característica. O <strong>Direito Natural</strong> reduz a validade à justiça: só é válida a norma justa (<em>lex iniusta non est lex</em>). O <strong>Positivismo Jurídico</strong> faz o caminho inverso, reduzindo a justiça à validade: é justa a norma válida, pois a justiça decorre da existência regular no ordenamento — daí a separação entre direito e moral. O <strong>Realismo Jurídico</strong> reduz a validade à eficácia: é direito o que os tribunais efetivamente aplicam.</p>
+        <p><strong>Atenção ao sentido das reduções</strong> — é a armadilha mais comum em prova. Jusnaturalismo e positivismo partem de polos opostos exatamente porque <em>invertem</em> a relação entre validade e justiça: o primeiro subordina a validade à justiça; o segundo, a justiça à validade.</p>
+        <span class="qa-fonte">Aula (Prof. João Victor Furtado), com a formulação clássica de Bobbio sobre justiça, validade e eficácia.</span>
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-pergunta">
+        <span class="qnum">Questão 3</span>
+        Caracterize a norma jurídica quanto à imperatividade, ao tipo de imperativo, ao ilícito e à sanção. Por que a adesão espontânea não caracteriza o ordenamento jurídico?
+      </div>
+      <div class="qa-resposta">
+        <p>Para Bobbio, <strong>toda norma é um imperativo</strong> — proposição prescritiva situada no campo do dever-ser, voltada à mudança de comportamento. A norma jurídica é, mais precisamente, um <strong>imperativo heterônomo</strong>: quem formula a norma é diferente de quem a executa, ao contrário da norma moral, que é <strong>autônoma</strong> (formulador e executor coincidem).</p>
+        <p>Bobbio afasta as <em>teorias exclusivas</em>: a norma compõe-se de imperativos <strong>negativos</strong> (proibições) e <strong>positivos</strong> (comandos/obrigações), expressando a união entre liberdade e cooperação; "comando" e "imperativo" têm o mesmo significado, e as próprias normas permissivas integram o sistema como o reverso lógico dos imperativos. Direito e dever, nessa estrutura, são dois lados da mesma moeda.</p>
+        <p>O <strong>ilícito</strong> é o descumprimento do dever-ser, e sua forma varia conforme o imperativo violado: dá-se por <strong>ação</strong> (inobservância) quando a norma é um imperativo negativo — viola-se fazendo o proibido; e por <strong>omissão</strong> (inexecução) quando a norma é um imperativo positivo — viola-se deixando de fazer o devido. A resposta ao ilícito é a <strong>sanção</strong>, que Bobbio gradua em três tipos: <strong>moral</strong> (apenas interior), <strong>social</strong> (externa, mas não institucionalizada) e <strong>jurídica</strong> (externa e institucionalizada). É esse último traço — a institucionalização — que distingue o ordenamento jurídico.</p>
+        <p>Daí a tese sobre a <strong>adesão espontânea</strong>: um ordenamento sempre cumprido voluntariamente, sem jamais recorrer à sanção, seria tão distinto dos ordenamentos históricos que não seria reconhecido como direito. A adesão espontânea <em>acompanha</em> a formação e a perduração do ordenamento, mas <em>não o caracteriza</em>. O que o caracteriza é a possibilidade da sanção institucionalizada — não o consenso voluntário.</p>
+        <span class="qa-fonte">Aula (Prof. João Victor Furtado); citação de N. Bobbio reproduzida em aula.</span>
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-pergunta">
+        <span class="qnum">Questão 4</span>
+        Explique as quatro concepções de Bobbio sobre a relação entre ética e política. Qual delas ele considera a única genuinamente analítica e por quê?
+      </div>
+      <div class="qa-resposta">
+        <p>Em <em>Ética e Política</em>, Bobbio organiza as soluções históricas em <strong>monistas</strong> e <strong>dualistas</strong>, subdividindo cada grupo em duas variantes. As monistas negam o contraste entre os dois sistemas normativos (moral e político); as dualistas reconhecem dois sistemas distintos.</p>
+        <p>O <strong>monismo rígido</strong> sustenta um só sistema, em duas versões opostas: <strong>Erasmo</strong> reduz a política à moral (o "príncipe cristão", cujas virtudes são puramente morais, antítese de Maquiavel); <strong>Hobbes</strong> reduz a moral à política (só o soberano define o justo e o injusto; sustentar o contrário é tese sediciosa, e o autor sequer distingue príncipe de tirano). O <strong>monismo flexível</strong> também admite um só sistema, mas com exceções racionalmente justificáveis — a <em>lex specialis</em>, a dispensa, a equidade e, sobretudo, o estado de necessidade ("a necessidade não tem lei: é a própria lei"). É aqui que se aloja a máxima "o fim justifica os meios".</p>
+        <p>O <strong>dualismo aparente</strong> reconhece dois sistemas em relação hierárquica: <strong>Croce</strong> coloca a moral como superior à política; <strong>Hegel</strong> inverte, fazendo do Estado a substância ética superior à moralidade subjetiva (§ 337 da <em>Filosofia do Direito</em>). O <strong>dualismo real</strong> (verdadeiro), por fim, sustenta que moral e política correspondem a dois critérios <strong>irredutíveis</strong> de juízo das ações: pelos <em>princípios</em> que antecedem a ação ou pelas <em>consequências</em> que dela decorrem — a distinção weberiana entre ética da convicção e ética da responsabilidade.</p>
+        <p>Para Bobbio, o <strong>dualismo real</strong> é a única doutrina genuinamente <strong>analítica</strong>: não pretende prescrever nem justificar uma solução, mas apenas constatar e explicar o contraste. Nesse plano, o problema é "realmente insolúvel" — só uma ética extra-mundana, em que o respeito aos princípios fosse sempre premiado, o resolveria. Bobbio classifica ainda as doutrinas por sua função: o monismo rígido e o dualismo aparente têm valor <em>prescritivo</em>; o monismo flexível e o dualismo real, valor <em>analítico</em>.</p>
+        <span class="qa-fonte">N. Bobbio, "Ética e Política", Lua Nova, n. 25, 1992.</span>
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-pergunta">
+        <span class="qnum">Questão 5</span>
+        Como Segato distingue lei, moral e ética? Em que sentido ela mobiliza Bobbio para tratar dos direitos humanos, e o que acrescenta à argumentação dele?
+      </div>
+      <div class="qa-resposta">
+        <p>Segato, no terreno da antropologia jurídica, distingue <strong>três princípios normativos</strong> em interação. A <strong>moral</strong> é arraigada na tradição e nos costumes de uma comunidade particular: é substantiva, positivável e estável, e nos faz membros natos de uma <em>comunidade moral</em>. A <strong>lei</strong> moderna é produto do ato deliberado e racional do contrato e da promulgação; também substantiva, funciona como campo de luta simbólica — o poder nominador do direito (Bourdieu) confere status de realidade ao que nomeia. A <strong>ética</strong>, por sua vez, é pulsional e inquieta, sem conteúdos enumeráveis: é a "ética da insatisfação", disponibilidade para a interpelação pelo outro.</p>
+        <p>Segato distingue lei e moral a partir de um caso concreto — a pergunta de uma advogada indígena sobre se o costume tradicional equivaleria à lei. Sua resposta é que a lei deve <strong>mediar a coabitação de comunidades morais distintas sem coincidir com nenhuma</strong>; quando a lei adere à moral do grupo dominante e se apresenta como universal, produz-se o "localismo nacionalizado", uma forma de "colonialismo moral interno".</p>
+        <p>É nesse ponto que ela mobiliza <strong>Bobbio</strong>. Recorrendo ao ensaio "Sobre o fundamento dos direitos do homem", Segato invoca a tese da <strong>historicidade</strong>: a lista dos direitos do homem é variável — a propriedade, "sagrada e inviolável" em 1789, foi radicalmente limitada; os direitos sociais, ausentes no século XVIII, hoje são proclamados; a tortura, antes aceita como procedimento judicial, é hoje repudiada. Bobbio usa essa variabilidade para <strong>invalidar o jusnaturalismo</strong>: não há valores objetivos, permanentes e auto-evidentes; o que funda os direitos é um <strong>consenso produzido historicamente</strong>.</p>
+        <p>Segato <strong>concorda</strong> com Bobbio contra o jusnaturalismo, mas estende a crítica ao próprio <strong>juspositivismo</strong>: a validade dos contratos jurídicos já firmados não explica o <em>movimento</em> de expansão das leis. Por isso acrescenta um terceiro princípio — o <strong>impulso ético</strong> —, motor da despositivação da lei e da contínua ampliação dos direitos, alimentado pela presença da alteridade (Lévinas, Nietzsche, Foucault, Dussel). Registre-se ainda que Cançado Trindade critica a tese das "gerações de direitos" associada a Bobbio (de formulação original atribuída a Karel Vasak), por hierarquizar direitos civis e econômico-sociais.</p>
+        <span class="qa-fonte">R. L. Segato, "Antropologia e Direitos Humanos", Mana, 12(1), 2006 (cita Bobbio, 1991).</span>
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-pergunta">
+        <span class="qnum">Questão 6</span>
+        De que modo o positivismo de Bobbio e a antropologia jurídica de Segato se conectam? Por que esse diálogo é central para a Sociologia e Antropologia Jurídica?
+      </div>
+      <div class="qa-resposta">
+        <p>O elo está na dimensão da <strong>eficácia</strong>. Na tríade de Bobbio, a eficácia — saber se a norma é seguida e produz efeitos — é justamente o <strong>plano fenomenológico</strong> que constitui o objeto da Sociologia e Antropologia Jurídica, distinto da validade (teoria do direito) e da justiça (filosofia do direito). É por essa porta que o positivismo metodológico de Bobbio se abre para a investigação social do direito.</p>
+        <p>Segato leva esse plano adiante ao tratar a <strong>expansão histórica das normas</strong> — em especial os direitos humanos — como fenômeno social: produto de lutas, consensos e da coabitação de comunidades morais, e não de uma natureza eterna. A historicidade que Bobbio diagnostica encontra, em Segato, um <em>motor</em> (o impulso ético) e um <em>cenário</em> (o pluralismo das comunidades morais sob a mediação da lei).</p>
+        <p>Há ainda convergências e tensões produtivas. Ambos rejeitam o jusnaturalismo como fundamento dos direitos; o <strong>dualismo real</strong> de Bobbio (convicção × responsabilidade) ecoa na distinção de Segato entre lei, moral e ética. Mas Bobbio é <strong>pessimista</strong> quanto à tensão ética-política — "insolúvel" neste mundo, em que a história celebrada é a dos poderosos, não a dos justos —, ao passo que Segato é mais <strong>otimista</strong>: vê na alteridade e na "ética da insatisfação" a força que, lentamente, inscreve novas aspirações no discurso da lei.</p>
+        <p>Para a disciplina, esse diálogo é central porque articula a <strong>estrutura da norma</strong> (Bobbio) com a <strong>dinâmica social do direito</strong> (Segato): mostra que a vigência efetiva, a sanção institucionalizada, o pluralismo jurídico e a expansão dos direitos são <em>fatos sociais</em> — exatamente o objeto da Sociologia e Antropologia Jurídica.</p>
+        <span class="qa-fonte">Síntese a partir de Bobbio (Ética e Política; teoria da norma) e Segato (Mana, 2006).</span>
+      </div>
+    </div>
+
+    <div class="perguntas-adicionais">
+      <h3>Questões adicionais para aprofundamento</h3>
+      <ol>
+        <li>A conclusão pessimista de Bobbio — a tensão entre ética da convicção e ética da responsabilidade é insolúvel neste mundo — é compatível com o otimismo de Segato sobre a expansão dos direitos pelo impulso ético?</li>
+        <li>A crítica de Cançado Trindade à teoria das "gerações de direitos" é procedente? A ideia de direitos de "segunda geração" tende a validar a tolerância às desigualdades econômicas ao mesmo tempo em que condena a discriminação civil?</li>
+        <li>O conceito de "localismo nacionalizado" descreve adequadamente a relação entre o direito brasileiro e a moral religiosa dominante em debates como o do aborto e o do casamento entre pessoas do mesmo sexo?</li>
+        <li>Em que medida o exemplo das facções criminosas ilumina a distinção entre organização e juridicidade — e quais são seus limites como argumento?</li>
+        <li>Como a distinção lei/moral/ética de Segato dialoga com a independência entre validade, justiça e eficácia em Bobbio?</li>
+      </ol>
+    </div>
+  </section>
+
+
+  <!-- ============ SEÇÃO 13 — BIBLIOGRAFIA ============ -->
+  <section id="s13">
+    <div class="section-label">Referências</div>
+    <h2>Bibliografia</h2>
+    <div class="biblio">
+      <p>BOBBIO, Norberto. <em>Ética e Política</em>. Lua Nova: Revista de Cultura e Política, n. 25, p. 131–140, 1992. (Trad. Marcos Tadeu del Roio; orig. <em>Etica e politica</em>, Parma, Patriche Editriche, 1984.)</p>
+      <p>BOBBIO, Norberto. Sobre o fundamento dos direitos do homem. In: <em>A Era dos Direitos</em>. Rio de Janeiro: Campus/Elsevier. (Ed. esp. <em>El tiempo de los derechos</em>, Madri: Editorial Sistema, 1991, cit. apud Segato, 2006.)</p>
+      <p>BOBBIO, Norberto. <em>Teoria da Norma Jurídica</em> e <em>O Positivismo Jurídico: lições de filosofia do direito</em>. (Obras de referência em que o autor desenvolve as teses de justiça, validade e eficácia e a tipologia das sanções abordadas na aula.)</p>
+      <p>SEGATO, Rita Laura. Antropologia e Direitos Humanos: alteridade e ética no movimento de expansão dos direitos universais. <em>Mana</em>, v. 12, n. 1, p. 207–236, 2006.</p>
+      <p>FURTADO, João Victor. <em>A teoria de Norberto Bobbio frente ao positivismo jurídico</em>. Material de aula — Sociologia e Antropologia Jurídica, Faculdade Farias Brito.</p>
+    </div>
+  </section>
+
+</div>
+
+<!-- ============ RODAPÉ ============ -->
+<footer>
+  <strong>Sociologia e Antropologia Jurídica · 2º Semestre</strong><br>
+  Faculdade Farias Brito · Direito<br>
+  Apostila de estudo — Norberto Bobbio e o positivismo jurídico
+</footer>
+
+</body>
+</html>
