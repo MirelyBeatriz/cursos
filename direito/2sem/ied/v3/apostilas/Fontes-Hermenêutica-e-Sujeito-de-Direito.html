@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IED — Fontes do Direito, Hermenêutica e Sujeito de Direito</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Georgia,'Times New Roman',serif;font-size:15px;line-height:1.8;color:#1a1a1a;background:#fdfaf6}
+  .cover{background:linear-gradient(160deg,#1a3a2a 60%,#2e6a4a);color:#fff;padding:60px 48px 48px;min-height:220px;position:relative;overflow:hidden}
+  .cover::before{content:'';position:absolute;right:-40px;top:-40px;width:220px;height:220px;border-radius:50%;border:1px solid rgba(255,255,255,0.08)}
+  .cover::after{content:'';position:absolute;right:20px;top:20px;width:140px;height:140px;border-radius:50%;border:1px solid rgba(255,255,255,0.06)}
+  .cover-badge{font-family:Arial,sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:16px}
+  .cover h1{font-size:32px;font-weight:normal;letter-spacing:0.5px;margin-bottom:8px}
+  .cover-sub{font-size:14px;color:rgba(255,255,255,0.65);margin-top:8px}
+  .cover-authors{margin-top:24px;font-size:13px;color:rgba(255,255,255,0.5);border-top:1px solid rgba(255,255,255,0.12);padding-top:16px}
+  .toc{background:#fff;border-bottom:1px solid #e8e2d8;padding:28px 48px}
+  .toc h2{font-family:Arial,sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-bottom:16px;font-weight:normal}
+  .toc-list{list-style:none}
+  .toc-list li{display:flex;align-items:baseline;gap:8px;padding:5px 0;font-size:14px}
+  .toc-list li a{color:#1a3a2a;text-decoration:none}
+  .toc-list li a:hover{text-decoration:underline}
+  .toc-num{font-family:Arial,sans-serif;font-size:11px;color:#aaa;min-width:20px}
+  .toc-dots{flex:1;border-bottom:1px dotted #d0c9be;margin:0 6px}
+  .toc-pg{font-family:Arial,sans-serif;font-size:12px;color:#aaa}
+  main{max-width:720px;margin:0 auto;padding:40px 48px 80px}
+  section{margin-bottom:52px}
+  .section-label{font-family:Arial,sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#2e6a4a;margin-bottom:6px}
+  h2{font-size:22px;font-weight:normal;color:#1a3a2a;margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid #e0d8cc}
+  h3{font-size:16px;font-weight:normal;color:#1a3a2a;margin:28px 0 10px;font-style:italic}
+  p{margin-bottom:14px;text-align:justify}
+  .quote-block{margin:24px 0;padding:16px 20px 16px 24px;border-left:3px solid #1a3a2a;background:#f0f5f2;border-radius:0 4px 4px 0}
+  .quote-block p{margin:0;font-style:italic;font-size:14px;color:#2a2a2a;line-height:1.75}
+  .quote-ref{font-family:Arial,sans-serif;font-size:11px;color:#888;margin-top:6px;font-style:normal}
+  .concept-box{background:#fff;border:1px solid #ddd7cc;border-radius:6px;padding:16px 20px;margin:20px 0}
+  .concept-box .cb-label{font-family:Arial,sans-serif;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-bottom:8px}
+  .concept-box p{margin:0;font-size:14px}
+  .highlight-box{background:#1a3a2a;color:#fff;border-radius:6px;padding:18px 22px;margin:24px 0}
+  .highlight-box p{color:rgba(255,255,255,0.9);margin:0;font-size:14px;line-height:1.75}
+  .highlight-box strong{color:#fff}
+  .timeline{margin:20px 0}
+  .tl-item{display:flex;gap:16px;margin-bottom:12px;align-items:flex-start}
+  .tl-year{font-family:Arial,sans-serif;font-size:12px;font-weight:bold;color:#fff;background:#1a3a2a;padding:3px 8px;border-radius:3px;min-width:72px;text-align:center;margin-top:2px}
+  .tl-text{font-size:14px;color:#333;flex:1;padding-top:4px}
+  .fontes-diagram{display:flex;gap:12px;margin:20px 0;align-items:stretch;flex-wrap:wrap}
+  .fonte-pillar{flex:1;min-width:140px;border:1px solid #ddd7cc;border-radius:6px;overflow:hidden;background:#fff}
+  .fonte-pillar-header{background:#1a3a2a;color:#fff;padding:10px 12px;text-align:center;font-family:Arial,sans-serif;font-size:12px;letter-spacing:0.5px}
+  .fonte-pillar-body{padding:12px;font-size:12px;color:#444;line-height:1.6}
+  .fonte-pillar-body li{list-style:none;padding:3px 0;border-bottom:1px solid #f0ece4}
+  .fonte-pillar-body li:last-child{border-bottom:none}
+  .fonte-pillar-body li::before{content:"→ ";color:#2e6a4a}
+  .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0}
+  .compare-card{border:1px solid #ddd7cc;border-radius:6px;padding:16px 18px;background:#fff}
+  .compare-card .cc-title{font-family:Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#fff;background:#1a3a2a;display:inline-block;padding:3px 10px;border-radius:3px;margin-bottom:10px}
+  .compare-card ul{list-style:none;padding:0}
+  .compare-card ul li{font-size:13px;padding:4px 0;border-bottom:1px solid #f0ece4;color:#333;line-height:1.5}
+  .compare-card ul li:last-child{border-bottom:none}
+  .compare-card ul li::before{content:"▸ ";color:#2e6a4a;font-size:11px}
+  .escolas-grid{display:grid;grid-template-columns:1fr;gap:12px;margin:20px 0}
+  .escola-item{border:1px solid #ddd7cc;border-radius:6px;overflow:hidden;background:#fff}
+  .escola-header{background:#2e6a4a;color:#fff;padding:8px 16px;font-family:Arial,sans-serif;font-size:12px;letter-spacing:0.5px}
+  .escola-body{padding:12px 16px;font-size:13px;color:#444;line-height:1.6}
+  .ref-list{list-style:none;padding:0}
+  .ref-list li{font-size:13px;padding:5px 0;border-bottom:1px dotted #e0d8cc;color:#444}
+  .ref-list li:last-child{border-bottom:none}
+  .section-divider{text-align:center;color:#ccc;letter-spacing:8px;margin:32px 0;font-size:12px}
+  .resumo-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0}
+  .resumo-card{background:#fff;border:1px solid #ddd7cc;border-radius:6px;overflow:hidden}
+  .resumo-card-header{background:#1a3a2a;color:#fff;padding:8px 14px;font-family:Arial,sans-serif;font-size:11px;letter-spacing:0.8px}
+  .resumo-card-body{padding:12px 14px}
+  .resumo-card-body ul{list-style:none;padding:0}
+  .resumo-card-body ul li{font-size:13px;padding:4px 0;border-bottom:1px solid #f5f2ec;color:#333;line-height:1.5}
+  .resumo-card-body ul li:last-child{border-bottom:none}
+  .resumo-card-body ul li::before{content:"• ";color:#2e6a4a}
+  .conceitos-chave{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0}
+  .ck-item{background:#f0f5f2;border-radius:5px;padding:10px 12px;text-align:center}
+  .ck-term{font-family:Arial,sans-serif;font-size:12px;font-weight:bold;color:#1a3a2a;margin-bottom:4px}
+  .ck-def{font-size:11px;color:#555;line-height:1.45}
+  .qa-item{margin-bottom:24px;border:1px solid #ddd7cc;border-radius:6px;overflow:hidden;background:#fff}
+  .qa-pergunta{background:#1a3a2a;color:#fff;padding:12px 18px;font-size:14px;font-family:Georgia,serif;line-height:1.5}
+  .qa-pergunta span{font-family:Arial,sans-serif;font-size:11px;color:rgba(255,255,255,0.5);display:block;margin-bottom:4px;letter-spacing:1px}
+  .qa-resposta{padding:16px 18px}
+  .qa-resposta p{margin-bottom:10px;font-size:14px}
+  .qa-resposta p:last-child{margin-bottom:0}
+  .qa-resposta ul{list-style:none;padding:0;margin:8px 0}
+  .qa-resposta ul li{font-size:13px;padding:4px 0;border-bottom:1px solid #f5f2ec;color:#333}
+  .qa-resposta ul li:last-child{border-bottom:none}
+  .qa-resposta ul li::before{content:"▸ ";color:#2e6a4a}
+  .qa-fonte{font-family:Arial,sans-serif;font-size:11px;color:#aaa;margin-top:10px;font-style:normal;display:block}
+  .perguntas-adicionais{background:#eef5f1;border:1px solid #b4d4c2;border-radius:6px;padding:20px 24px;margin-top:20px}
+  .perguntas-adicionais h3{font-style:normal;margin:0 0 14px;font-size:14px;font-family:Arial,sans-serif;letter-spacing:0.5px;color:#444}
+  .perguntas-adicionais ol{padding-left:18px}
+  .perguntas-adicionais ol li{font-size:14px;padding:5px 0;color:#333}
+  .mapa-obras{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}
+  .mo-card{border:1px solid #ddd7cc;border-radius:5px;overflow:hidden;background:#fff}
+  .mo-header{background:#2e6a4a;color:#fff;padding:6px 12px;font-family:Arial,sans-serif;font-size:11px}
+  .mo-body{padding:10px 12px;font-size:12px;color:#444}
+  .mo-body li{list-style:none;padding:2px 0}
+  .mo-body li::before{content:"→ ";color:#2e6a4a;font-size:11px}
+  .trad-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0}
+  .trad-card{border:1px solid #ddd7cc;border-radius:6px;overflow:hidden;background:#fff}
+  .trad-header{padding:10px 14px;font-family:Arial,sans-serif;font-size:12px;letter-spacing:0.5px;color:#fff}
+  .trad-header.civil{background:#1a3a2a}
+  .trad-header.common{background:#5a3a1a}
+  .trad-body{padding:12px 14px}
+  .trad-body ul{list-style:none;padding:0}
+  .trad-body ul li{font-size:13px;padding:4px 0;border-bottom:1px solid #f5f2ec;color:#333}
+  .trad-body ul li:last-child{border-bottom:none}
+  .trad-body ul li::before{content:"▸ ";font-size:11px}
+  .trad-card.civil .trad-body ul li::before{color:#2e6a4a}
+  .trad-card.common .trad-body ul li::before{color:#a0662a}
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="cover-badge">Introdução ao Estudo do Direito · Graduação</div>
+  <h1>Fontes, Hermenêutica e Sujeito de Direito</h1>
+  <p class="cover-sub">Fontes do Direito · Interpretação · Integração · Personalidade Jurídica · Divisão do Direito</p>
+  <div class="cover-authors">
+    Baseado em <em>Lições Preliminares de Direito</em> de Miguel Reale · Caps. XII–XIV, XVIII, XXI–XXII, XXV
+  </div>
+</div>
+
+<div class="toc">
+  <h2>Sumário</h2>
+  <ul class="toc-list">
+    <li><span class="toc-num">1.</span><a href="#fontes1">Fontes do Direito — conceito e poder</a><span class="toc-dots"></span><span class="toc-pg">§1</span></li>
+    <li><span class="toc-num">2.</span><a href="#fontes2">Civil law e common law</a><span class="toc-dots"></span><span class="toc-pg">§2</span></li>
+    <li><span class="toc-num">3.</span><a href="#fontes3">Lei e costume — distinções</a><span class="toc-dots"></span><span class="toc-pg">§3</span></li>
+    <li><span class="toc-num">4.</span><a href="#jurisprudencia">Jurisprudência e doutrina</a><span class="toc-dots"></span><span class="toc-pg">§4</span></li>
+    <li><span class="toc-num">5.</span><a href="#hermeneutica">Hermenêutica — escolas e métodos</a><span class="toc-dots"></span><span class="toc-pg">§5</span></li>
+    <li><span class="toc-num">6.</span><a href="#integracao">Integração e aplicação do Direito</a><span class="toc-dots"></span><span class="toc-pg">§6</span></li>
+    <li><span class="toc-num">7.</span><a href="#sujeito">Sujeito de Direito e personalidade jurídica</a><span class="toc-dots"></span><span class="toc-pg">§7</span></li>
+    <li><span class="toc-num">8.</span><a href="#divisao">Divisão do Direito</a><span class="toc-dots"></span><span class="toc-pg">§8</span></li>
+    <li><span class="toc-num">9.</span><a href="#resumo">Resumo para revisão</a><span class="toc-dots"></span><span class="toc-pg">§9</span></li>
+    <li><span class="toc-num">10.</span><a href="#fixacao">Questões com respostas</a><span class="toc-dots"></span><span class="toc-pg">§10</span></li>
+    <li><span class="toc-num">11.</span><a href="#refs">Referências</a><span class="toc-dots"></span><span class="toc-pg">§11</span></li>
+  </ul>
+</div>
+
+<main>
+
+<!-- 1. FONTES DO DIREITO — CONCEITO E PODER -->
+<section id="fontes1">
+  <div class="section-label">Seção 1</div>
+  <h2>Fontes do Direito — conceito e poder</h2>
+
+  <p>A expressão "fonte do direito" carrega historicamente uma ambiguidade prejudicial: a distinção entre <em>fonte material</em> (causas filosóficas ou sociológicas das normas) e <em>fonte formal</em> (os meios de produção normativa). Miguel Reale rejeita essa duplicidade e reserva o termo para indicar exclusivamente os <strong>processos de produção de normas jurídicas</strong>.</p>
+
+  <div class="quote-block">
+    <p>Por "fonte do direito" designamos os processos ou meios em virtude dos quais as regras jurídicas se positivam com legítima força obrigatória, isto é, com vigência e eficácia no contexto de uma estrutura normativa.</p>
+    <div class="quote-ref">REALE, Miguel. <em>Lições Preliminares de Direito</em>, Cap. XII</div>
+  </div>
+
+  <p>O dado central é que toda fonte pressupõe uma <strong>estrutura de poder</strong>. Não há norma jurídica obrigatória sem um centro de poder que a emane — seja o poder estatal (processo legislativo), o poder judiciário (jurisdição), o poder social anônimo (costumes) ou o poder negocial (autonomia da vontade).</p>
+
+  <div class="fontes-diagram">
+    <div class="fonte-pillar">
+      <div class="fonte-pillar-header">Processo Legislativo</div>
+      <ul class="fonte-pillar-body">
+        <li>Expressão do Poder Legislativo</li>
+        <li>Produz normas gerais e abstratas</li>
+        <li>Origem certa e predeterminada</li>
+        <li>Vigência erga omnes desde a publicação</li>
+        <li>Prevalente no civil law</li>
+      </ul>
+    </div>
+    <div class="fonte-pillar">
+      <div class="fonte-pillar-header">Jurisdição</div>
+      <ul class="fonte-pillar-body">
+        <li>Corresponde ao Poder Judiciário</li>
+        <li>Revela o Direito no caso concreto</li>
+        <li>Cria normas particulares (sentenças)</li>
+        <li>Jurisprudência unifica decisões</li>
+        <li>Prevalente no common law</li>
+      </ul>
+    </div>
+    <div class="fonte-pillar">
+      <div class="fonte-pillar-header">Usos e Costumes</div>
+      <ul class="fonte-pillar-body">
+        <li>Expressão do poder social anônimo</li>
+        <li>Origem indeterminada e espontânea</li>
+        <li>Exige repetição + opinio juris</li>
+        <li>Vigência deflui da eficácia</li>
+        <li>Forte no Direito Internacional</li>
+      </ul>
+    </div>
+    <div class="fonte-pillar">
+      <div class="fonte-pillar-header">Fonte Negocial</div>
+      <ul class="fonte-pillar-body">
+        <li>Expressão da autonomia da vontade</li>
+        <li>Normas particulares entre partes</li>
+        <li>Exige: legitimidade, forma lícita, objeto lícito, equilíbrio</li>
+        <li>Inclui cláusulas contratuais</li>
+        <li>Abuso invalida o negócio</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="concept-box">
+    <div class="cb-label">Por que a doutrina não é fonte?</div>
+    <p>Reale exclui a doutrina do rol das fontes porque ela não opera dentro de uma <em>estrutura de poder</em>. Os ensinamentos dos jurisconsultos, por mais prestigiados que sejam, não têm força normativa vinculante. A doutrina produz <em>modelos dogmáticos</em> (esquemas teóricos que explicam e sistematizam as normas), enquanto as fontes produzem <em>modelos jurídicos prescritivos</em> (normas que vinculam comportamentos). Excepcionalmente, em Roma, os jurisconsultos foram dotados de <em>jus respondendi</em> vinculatório — mas isso foi uma atribuição de poder estatal, não uma propriedade intrínseca da doutrina.</p>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 2. CIVIL LAW E COMMON LAW -->
+<section id="fontes2">
+  <div class="section-label">Seção 2</div>
+  <h2>Civil law e common law</h2>
+
+  <p>Não há razão lógica abstrata para determinar qual fonte do Direito deve prevalecer. O primado desta ou daquela fonte resulta de <strong>circunstâncias sociais e históricas</strong>. O confronto entre os dois grandes sistemas ocidentais demonstra isso com clareza.</p>
+
+  <div class="trad-grid">
+    <div class="trad-card civil">
+      <div class="trad-header civil">Tradição romanística (civil law)</div>
+      <div class="trad-body">
+        <ul>
+          <li>Nações latinas, germânicas e latino-americanas</li>
+          <li>Primado do processo legislativo</li>
+          <li>Lei = expressão da vontade geral (Rousseau)</li>
+          <li>Marco: Código Civil napoleônico de 1804</li>
+          <li>Costumes têm papel secundário e complementar</li>
+          <li>Precedentes ganham importância crescente (súmulas)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="trad-card common">
+      <div class="trad-header common">Tradição anglo-saxã (common law)</div>
+      <div class="trad-body">
+        <ul>
+          <li>Inglaterra, EUA, países da Commonwealth</li>
+          <li>Primado dos usos/costumes e da jurisdição</li>
+          <li>Direito revelado por precedentes judiciais</li>
+          <li>Sem Código Civil sistematizado (Inglaterra)</li>
+          <li>Processo legislativo cresce progressivamente</li>
+          <li>EUA: Constituição rígida (diverge da Inglaterra)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <p><strong>Convergência progressiva:</strong> Nos países de civil law, os precedentes judiciais (súmulas) assumem papel crescente. Nos de common law, as normas legais ganham importância. O que persiste, em ambos, é a <em>supremacia das normas editadas pelo Estado</em> sobre as fontes de caráter puramente social — seja pela via da lei (civil law) seja pela via do precedente judicial reconhecido pelo Estado (common law).</p>
+  </div>
+
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-year">Séc. XI</div><div class="tl-text">Glosadores redescobrem o Direito Romano. Início da reelaboração científica do Direito.</div></div>
+    <div class="tl-item"><div class="tl-year">Séc. XV–XVI</div><div class="tl-text">Ordenações reais (Afonsinas 1446, Manuelinas 1512). Primeiras consolidações legislativas modernas.</div></div>
+    <div class="tl-item"><div class="tl-year">1789</div><div class="tl-text">Revolução Francesa. Proclama o Direito nacional único e igualitário. Fim dos privilégios de classe.</div></div>
+    <div class="tl-item"><div class="tl-year">1804</div><div class="tl-text">Código Civil napoleônico. Marco do primado da lei no civil law. Escola da Exegese.</div></div>
+    <div class="tl-item"><div class="tl-year">1916/2002</div><div class="tl-text">Código Civil brasileiro. Tradição romanística. Art. 4º da LINDB: lacuna → analogia, costumes, princípios gerais.</div></div>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 3. LEI E COSTUME -->
+<section id="fontes3">
+  <div class="section-label">Seção 3</div>
+  <h2>Lei e costume — distinções</h2>
+
+  <p>A lei e o costume são as duas grandes formas de expressão do Direito positivo, e se diferenciam em múltiplos critérios. Compreender essas diferenças é essencial para aplicar corretamente o art. 4º da LINDB.</p>
+
+  <div class="compare-grid">
+    <div class="compare-card">
+      <span class="cc-title">Lei</span>
+      <ul>
+        <li>Origem certa: órgão predeterminado (Congresso + Presidente)</li>
+        <li>Elaboração com trâmites fixados na Constituição</li>
+        <li>Forma escrita sempre</li>
+        <li>Vigência: dura até revogação por nova lei</li>
+        <li>Vigência é <em>prius</em>; eficácia é <em>posterius</em></li>
+        <li>Opera erga omnes — dispensa prova de existência</li>
+        <li>Inova no ordenamento por si mesma</li>
+      </ul>
+    </div>
+    <div class="compare-card">
+      <span class="cc-title">Costume</span>
+      <ul>
+        <li>Origem anônima e indeterminada</li>
+        <li>Elaboração espontânea e imprevisível</li>
+        <li>Pode ser escrito ou não escrito</li>
+        <li>Vigência: perde-se pelo desuso</li>
+        <li>Vigência deflui da eficácia (inverso da lei)</li>
+        <li>Suscetível de prova em contrário</li>
+        <li>Papel relevante no Direito Internacional e Comercial</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Elementos do costume jurídico</h3>
+
+  <p>Nem todo uso social é costume jurídico. Para adquirir juridicidade, o comportamento reiterado precisa reunir dois elementos:</p>
+
+  <div class="compare-grid">
+    <div class="compare-card">
+      <span class="cc-title">Elemento objetivo</span>
+      <ul>
+        <li>Repetição habitual de um comportamento</li>
+        <li>Duração no tempo</li>
+        <li>Constância e uniformidade</li>
+      </ul>
+    </div>
+    <div class="compare-card">
+      <span class="cc-title">Elemento subjetivo (opinio juris)</span>
+      <ul>
+        <li>Consciência social da obrigatoriedade</li>
+        <li>Convicção de juridicidade do comportamento</li>
+        <li><em>Opinio juris seu necessitatis</em></li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>O processo legislativo como fonte legal</h3>
+
+  <p>A <em>lei em sentido técnico</em> é apenas a norma que <strong>inova</strong> no ordenamento, introduzindo obrigações novas com caráter cogente. Não são leis, em sentido próprio, os regulamentos e decretos — eles só podem executar ou especificar leis existentes, sem ultrapassar seus limites. Nos termos do art. 59 da CF/88, o processo legislativo compreende: emendas constitucionais, leis complementares, leis ordinárias, leis delegadas, medidas provisórias, decretos legislativos e resoluções.</p>
+
+  <div class="concept-box">
+    <div class="cb-label">Medidas provisórias e sua problemática</div>
+    <p>A CF/88 criou as medidas provisórias em substituição aos decretos-leis. Embora sujeitas a "rigorosas cautelas" (art. 62), presidentes e o Congresso as têm usado e abusado de forma similar ao período autoritário. Para Reale, isso demonstra que <em>"de nada valem os textos constitucionais quando não há consciência constitucional, pois o que importa na lei não é a sua letra, mas o seu espírito"</em>.</p>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 4. JURISPRUDÊNCIA E DOUTRINA -->
+<section id="jurisprudencia">
+  <div class="section-label">Seção 4</div>
+  <h2>Jurisprudência e doutrina</h2>
+
+  <p>A jurisprudência é a forma de revelação do Direito que se processa <strong>através do exercício da jurisdição</strong>, por meio de uma sucessão harmônica e coerente de decisões dos tribunais. Uma ou três sentenças isoladas não formam jurisprudência — é necessária uma linha de continuidade.</p>
+
+  <div class="quote-block">
+    <p>A jurisprudência, muitas vezes, inova em matéria jurídica, estabelecendo normas que não se contêm estritamente na lei, mas resultam de uma construção obtida graças à conexão de dispositivos, até então considerados separadamente, ou, ao contrário, mediante a separação de preceitos por largo tempo unidos entre si.</p>
+    <div class="quote-ref">REALE, Miguel. <em>Lições Preliminares de Direito</em>, Cap. XIV</div>
+  </div>
+
+  <h3>As súmulas como horizonte da jurisprudência</h3>
+
+  <p>As divergências entre tribunais são inevitáveis, dado o caráter criador do ato de julgar. Para atenuá-las, o ordenamento brasileiro prevê mecanismos de uniformização: o prejulgado (art. 476 do CPC) e, acima de tudo, as <strong>súmulas</strong> do STF e do STJ — sistematizações das teses reiteradamente consagradas, que funcionam como "horizonte da jurisprudência". As súmulas não têm força obrigatória sobre os demais juízes, que preservam integralmente o poder-dever de julgar conforme suas convicções.</p>
+
+  <div class="compare-grid">
+    <div class="compare-card">
+      <span class="cc-title">Jurisprudência (fonte)</span>
+      <ul>
+        <li>Atua dentro de uma estrutura de poder (Judiciário)</li>
+        <li>Produz normas concretas (sentenças, acórdãos)</li>
+        <li>Obriga as partes do processo</li>
+        <li>Pode inovar e adaptar a lei a novos fatos</li>
+        <li>Seus precedentes influenciam outros juízes</li>
+      </ul>
+    </div>
+    <div class="compare-card">
+      <span class="cc-title">Doutrina (não é fonte)</span>
+      <ul>
+        <li>Não atua em estrutura de poder</li>
+        <li>Produz modelos dogmáticos (teóricos)</li>
+        <li>Não vincula juízes ou partes</li>
+        <li>Esclarece, sistematiza e critica as normas</li>
+        <li>Influência indireta, não coercitiva</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <p><strong>Variações semânticas:</strong> Uma lei pode permanecer com o mesmo texto por décadas, mas seu conteúdo se modifica pela jurisprudência. "Destaca-se da pessoa do legislador como uma criança se liberta do ventre materno" (Barassi). O que antes obrigava significando X pode passar a significar Y ou Z, pela consagração jurisprudencial de novo sentido — sem alteração de uma vírgula na lei.</p>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 5. HERMENÊUTICA -->
+<section id="hermeneutica">
+  <div class="section-label">Seção 5</div>
+  <h2>Hermenêutica — escolas e métodos</h2>
+
+  <p>A interpretação jurídica é o processo pelo qual se determina o sentido e o alcance das normas. As principais escolas hermenêuticas representam diferentes respostas à pergunta: <em>até onde pode ir o intérprete?</em></p>
+
+  <div class="escolas-grid">
+    <div class="escola-item">
+      <div class="escola-header">Escola da Exegese (séc. XIX — França)</div>
+      <div class="escola-body">Interpreta a lei segundo a <strong>intenção original do legislador</strong>, pelos métodos gramatical (análise morfossintática do texto) e lógico-sistemático (o preceito no conjunto do ordenamento). "A lei é tudo" — Demolombe. O juiz deve ater-se ao texto, sem buscar soluções externas. Fraqueza: o texto não prevê todos os fatos supervenientes.</div>
+    </div>
+    <div class="escola-item">
+      <div class="escola-header">Interpretação histórico-evolutiva (Windscheid / Saleilles)</div>
+      <div class="escola-body">A lei se desprende do legislador e adquire vida própria. O intérprete deve descobrir a <strong>intenção possível do legislador</strong> — o que ele teria resolvido se vivesse hoje. Saleilles: ir além do Código, mas <em>através</em> do Código. Ainda opera dentro dos limites do texto.</div>
+    </div>
+    <div class="escola-item">
+      <div class="escola-header">Livre pesquisa do Direito — Gény (França)</div>
+      <div class="escola-body">Quando a lei não oferece solução, o juiz deve realizar <strong>pesquisa científica dos fatos sociais</strong> para descobrir a norma adequada. A fórmula: <em>Além do Código, mas através do Código</em>. O Direito tem uma parte "dada" (fatores históricos, econômicos, valorativos) e uma parte "construída" (elaboração lógica e técnica). Revaloriza o costume como fonte complementar.</div>
+    </div>
+    <div class="escola-item">
+      <div class="escola-header">Direito Livre — Kantorowicz (Alemanha)</div>
+      <div class="escola-body">Posição radical: o juiz deve julgar segundo sua ciência e consciência, <em>contra legem</em> se necessário. Kantorowicz ("Gneus Flavius"): o que deve prevalecer é o direito justo, com ou sem lei. Crítica de Reale: reduziria o Direito a arbítrio judicial, comprometendo a certeza e a segurança jurídica.</div>
+    </div>
+    <div class="escola-item">
+      <div class="escola-header">Hermenêutica estrutural — posição atual (Reale)</div>
+      <div class="escola-body">Toda interpretação é <strong>teleológica</strong> (finalística) e <strong>axiológica</strong> (valorativa). Interpreta-se a norma dentro do sistema, em correlação com outras normas, fatos e valores — tanto os originários quanto os supervenientes. O intérprete tem papel <em>criador</em>, mas não arbitrário: opera a norma como "substrato condicionador" de suas indagações. A lei é um <em>modelo operacional</em> aberto à atualização histórica.</div>
+    </div>
+  </div>
+
+  <div class="concept-box">
+    <div class="cb-label">Interpretação extensiva e estrita</div>
+    <p>A interpretação <em>extensiva</em> aplica a norma a casos além do que usualmente se contempla, revelando algo implícito no texto. A interpretação <em>estrita</em> limita a incidência da norma para evitar efeitos danosos. Ambas são formas de <em>aplicação prudente</em> do Direito, não de sua deformação. São especialmente relevantes no Direito Penal, onde o princípio da legalidade estrita impede a analogia in malam partem.</p>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 6. INTEGRAÇÃO E APLICAÇÃO -->
+<section id="integracao">
+  <div class="section-label">Seção 6</div>
+  <h2>Integração e aplicação do Direito</h2>
+
+  <p>Três conceitos distintos e correlatos estruturam o processo de realização do Direito: <strong>interpretação</strong> (determinar o sentido da norma), <strong>integração</strong> (preencher lacunas) e <strong>aplicação</strong> (impor a diretriz por força de competência legal).</p>
+
+  <h3>Os mecanismos de integração</h3>
+
+  <p>O art. 4º da LINDB estabelece a ordem de recursos para colmatar lacunas: (1) analogia, (2) costumes, (3) princípios gerais de direito. A equidade aparece como instrumento auxiliar de moderação.</p>
+
+  <div class="escolas-grid">
+    <div class="escola-item">
+      <div class="escola-header">Analogia (analogia legis)</div>
+      <div class="escola-body">Estende a um caso <em>não previsto</em> a solução dada a caso semelhante, desde que haja <em>identidade de razão jurídica</em> (<em>ubi eadem ratio, ibi eadem juris dispositio</em>). Atenção: uma nota diferenciadora mínima pode gerar máximas consequências jurídicas (<em>minima differentia facti maximas inducit consequentias juris</em>). Proibida em Direito Penal (in malam partem) e em normas restritivas de direitos.</div>
+    </div>
+    <div class="escola-item">
+      <div class="escola-header">Analogia juris (princípios gerais)</div>
+      <div class="escola-body">Quando nem a analogia legis oferece solução, recorre-se aos <strong>princípios gerais do Direito</strong> — valores e diretrizes que fundamentam o ordenamento como um todo. Corresponde à heterointegração mais ampla do sistema.</div>
+    </div>
+    <div class="escola-item">
+      <div class="escola-header">Equidade</div>
+      <div class="escola-body">Justiça amoldada à especificidade do caso concreto. Tempera a aplicação rígida da lei para evitar o <em>summum jus, summa injuria</em> (rigor máximo da lei = injustiça máxima). Só se aplica quando o juiz é expressamente autorizado a decidir por equidade.</div>
+    </div>
+  </div>
+
+  <div class="quote-block">
+    <p>O ato de subordinação ou subsunção do fato à norma não é um ato reflexo e passivo, mas antes um ato de participação criadora do juiz, com a sua sensibilidade e tato, sua intuição e prudência, operando a norma como substrato condicionador de suas indagações teóricas e técnicas.</p>
+    <div class="quote-ref">REALE, Miguel. <em>Lições Preliminares de Direito</em>, Cap. XXII</div>
+  </div>
+
+  <div class="concept-box">
+    <div class="cb-label">O "silogismo jurídico" e sua insuficiência</div>
+    <p>Durante muito tempo imaginou-se que a aplicação do Direito reduzia-se a um silogismo: premissa maior = norma legal; premissa menor = fato; conclusão = sentença. Reale demonstra a insuficiência desse modelo: o juiz não parte da norma para o fato de forma linear — ele vai e vem entre norma e fato, cotejando-os repetidamente até firmar sua convicção. A escolha da norma aplicável já pressupõe uma leitura provisória do fato; a qualificação do fato já implica referência às normas. É um processo dialético, não silogístico.</p>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 7. SUJEITO DE DIREITO -->
+<section id="sujeito">
+  <div class="section-label">Seção 7</div>
+  <h2>Sujeito de Direito e personalidade jurídica</h2>
+
+  <p>Todo ser humano é, desde o nascimento, sujeito de direitos e obrigações na ordem civil (art. 1º do CC/2002). Essa conquista — que parece trivial — é resultado de milênios de evolução jurídica: no mundo antigo, a liberdade civil dependia da cidadania política; escravos não eram pessoas.</p>
+
+  <h3>Personalidade e capacidade</h3>
+
+  <div class="compare-grid">
+    <div class="compare-card">
+      <span class="cc-title">Personalidade</span>
+      <ul>
+        <li>Capacidade in abstracto de ser sujeito de direitos</li>
+        <li>Começa com o nascimento com vida</li>
+        <li>Independe de sexo, idade ou discernimento</li>
+        <li>A lei protege o nascituro desde a concepção</li>
+        <li>Todo ser humano tem personalidade</li>
+      </ul>
+    </div>
+    <div class="compare-card">
+      <span class="cc-title">Capacidade</span>
+      <ul>
+        <li>Medida concreta do exercício da personalidade</li>
+        <li>Pressupõe condições de fato (idade, discernimento)</li>
+        <li>Capacidade de fato: aptidão material para o exercício</li>
+        <li>Capacidade de direito: aptidão legal para os atos</li>
+        <li>Incapazes têm personalidade, mas não plena capacidade</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Pessoas jurídicas — teorias</h3>
+
+  <p>A pessoa jurídica é uma entidade distinta das pessoas naturais que a compõem, reconhecida pelo Direito como sujeito de direitos. Três grandes teorias explicam sua natureza:</p>
+
+  <div class="escolas-grid">
+    <div class="escola-item">
+      <div class="escola-header">Teoria da ficção (Savigny)</div>
+      <div class="escola-body">A pessoa jurídica é uma <em>fictio juris</em> — artifício técnico sem existência real, criado para coordenar normas e disciplinar responsabilidades coletivas. Crítica de Reale: não explica por que a falência da sociedade não atinge os sócios, se a sociedade é mera ficção.</div>
+    </div>
+    <div class="escola-item">
+      <div class="escola-header">Teoria organicista/real (Gierke)</div>
+      <div class="escola-body">A pessoa jurídica tem existência real e substancial — como um organismo biológico. O grupo forma uma entidade nova, com qualidades irredutíveis à soma de seus membros. Exagero: atribui existência ontológica onde há, na verdade, realidade teleológica.</div>
+    </div>
+    <div class="escola-item">
+      <div class="escola-header">Teoria institucional (Hauriou) — preferida por Reale</div>
+      <div class="escola-body">A pessoa jurídica é uma <em>instituição</em> — unidade de fins (<em>unitas ordinis</em>). O que a constitui é a ideia diretora que congrega pessoas em torno de um objetivo comum. Sua existência é <em>teleológica</em>, não biológica. Para a teoria tridimensional de Reale: realidade normativa fundamentada em fatos e valores.</div>
+    </div>
+  </div>
+
+  <div class="mapa-obras">
+    <div class="mo-card">
+      <div class="mo-header">Pessoas jurídicas de Direito Público (art. 41, CC)</div>
+      <ul class="mo-body">
+        <li>União, Estados, DF, Territórios</li>
+        <li>Municípios</li>
+        <li>Autarquias (ex.: USP)</li>
+        <li>Demais entidades públicas criadas por lei</li>
+        <li>Soberanas (Estado) × autônomas (Estados-membros)</li>
+      </ul>
+    </div>
+    <div class="mo-card">
+      <div class="mo-header">Pessoas jurídicas de Direito Privado (art. 44, CC)</div>
+      <ul class="mo-body">
+        <li>Associações: fins não econômicos</li>
+        <li>Sociedades: fins econômicos, lucro partilhado</li>
+        <li>Fundações: patrimônio destinado a fim específico</li>
+        <li>Existência legal: a partir do registro</li>
+        <li>Desconsideração da personalidade: coibir fraudes</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 8. DIVISÃO DO DIREITO -->
+<section id="divisao">
+  <div class="section-label">Seção 8</div>
+  <h2>Divisão do Direito</h2>
+
+  <p>A divisão clássica entre Direito Público e Direito Privado — formulada pelos romanos pelo critério da utilidade (pública ou particular) — permanece válida, mas exige reformulação. O critério moderno combina <strong>conteúdo</strong> (prevalência do interesse público vs. privado) e <strong>forma</strong> (relação de subordinação vs. coordenação).</p>
+
+  <div class="compare-grid">
+    <div class="compare-card">
+      <span class="cc-title">Direito Público</span>
+      <ul>
+        <li>Interesse geral imediato e prevalente</li>
+        <li>Relação de subordinação (Estado × particular)</li>
+        <li>Normas cogentes (não derrogáveis pelas partes)</li>
+        <li>Ramos: Constitucional, Administrativo, Penal, Processual, Trabalho, Internacional Público, Financeiro/Tributário</li>
+      </ul>
+    </div>
+    <div class="compare-card">
+      <span class="cc-title">Direito Privado</span>
+      <ul>
+        <li>Interesse particular imediato e prevalente</li>
+        <li>Relação de coordenação (igualdade entre partes)</li>
+        <li>Normas dispositivas (derrogáveis pela vontade)</li>
+        <li>Ramos: Civil, Empresarial/Comercial, Internacional Privado</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Breve mapa dos ramos do Direito Público</h3>
+
+  <div class="fontes-diagram">
+    <div class="fonte-pillar">
+      <div class="fonte-pillar-header">Constitucional</div>
+      <ul class="fonte-pillar-body">
+        <li>Organização do Estado</li>
+        <li>Direitos fundamentais</li>
+        <li>Distribuição de competências</li>
+        <li>Controle de constitucionalidade</li>
+      </ul>
+    </div>
+    <div class="fonte-pillar">
+      <div class="fonte-pillar-header">Administrativo</div>
+      <ul class="fonte-pillar-body">
+        <li>Serviços públicos</li>
+        <li>Poder Executivo</li>
+        <li>Autarquias e entidades paraestatais</li>
+        <li>Interesse próprio do Estado</li>
+      </ul>
+    </div>
+    <div class="fonte-pillar">
+      <div class="fonte-pillar-header">Processual</div>
+      <ul class="fonte-pillar-body">
+        <li>Prestação jurisdicional</li>
+        <li>Ação, processo e lide</li>
+        <li>Civil e Penal</li>
+        <li>Interesse das partes mediado pelo Estado</li>
+      </ul>
+    </div>
+    <div class="fonte-pillar">
+      <div class="fonte-pillar-header">Tributário</div>
+      <ul class="fonte-pillar-body">
+        <li>Fisco × contribuintes</li>
+        <li>Fato gerador</li>
+        <li>Legalidade tributária (CF, art. 146)</li>
+        <li>Impostos, taxas, contribuições</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="concept-box">
+    <div class="cb-label">Direito Internacional Privado como "sobredireito"</div>
+    <p>O Direito Internacional Privado não rege relações entre pessoas — rege <em>regras sobre regras</em>: determina qual ordenamento nacional deve ser aplicado quando há conflito de normas de países distintos. Por isso Zitelmann o denomina <em>Überrecht</em> (sobredireito). Em linguagem atual: é uma <em>metalinguagem jurídica</em>. Sua característica central é o critério de <em>ordem pública</em>, que limita a aplicação do direito estrangeiro no Brasil.</p>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 9. RESUMO PARA REVISÃO -->
+<section id="resumo">
+  <div class="section-label">Seção 9</div>
+  <h2>Resumo para revisão</h2>
+
+  <h3>Conceitos fundamentais</h3>
+  <div class="conceitos-chave">
+    <div class="ck-item"><div class="ck-term">Fonte do Direito</div><div class="ck-def">Processo de produção de normas jurídicas. Sempre pressupõe uma estrutura de poder.</div></div>
+    <div class="ck-item"><div class="ck-term">Nomogênese</div><div class="ck-def">Gênese da norma jurídica. Só ocorre por interferência de um centro de poder.</div></div>
+    <div class="ck-item"><div class="ck-term">Opinio juris</div><div class="ck-def">Elemento subjetivo do costume: convicção de obrigatoriedade do comportamento.</div></div>
+    <div class="ck-item"><div class="ck-term">Vigência × eficácia</div><div class="ck-def">Na lei: vigência precede eficácia. No costume: eficácia gera vigência (inversão).</div></div>
+    <div class="ck-item"><div class="ck-term">Modelos dogmáticos</div><div class="ck-def">Esquemas teóricos da doutrina, que explicam e sistematizam as normas. Não vinculam.</div></div>
+    <div class="ck-item"><div class="ck-term">Interpretação teleológica</div><div class="ck-def">Interpreta a norma segundo seus fins valorativos, dentro do sistema como um todo.</div></div>
+    <div class="ck-item"><div class="ck-term">Analogia legis</div><div class="ck-def">Extensão de norma existente a caso similar por identidade de razão jurídica.</div></div>
+    <div class="ck-item"><div class="ck-term">Personalidade jurídica</div><div class="ck-def">Capacidade genérica (in abstracto) de ser sujeito de direitos. Todos os humanos possuem.</div></div>
+    <div class="ck-item"><div class="ck-term">Teoria institucional</div><div class="ck-def">Pessoa jurídica como unidade de fins (unitas ordinis). Existência teleológica, não biológica.</div></div>
+  </div>
+
+  <h3>Argumentos centrais por tema</h3>
+  <div class="resumo-grid">
+    <div class="resumo-card">
+      <div class="resumo-card-header">As quatro fontes do Direito</div>
+      <ul class="resumo-card-body">
+        <li>Processo legislativo (Poder Legislativo)</li>
+        <li>Jurisdição (Poder Judiciário)</li>
+        <li>Usos e costumes (poder social anônimo)</li>
+        <li>Fonte negocial (autonomia da vontade)</li>
+        <li>Doutrina: influencia, mas não é fonte</li>
+      </ul>
+    </div>
+    <div class="resumo-card">
+      <div class="resumo-card-header">Civil law × common law</div>
+      <ul class="resumo-card-body">
+        <li>Civil law: primado da lei (França, Brasil)</li>
+        <li>Common law: primado do precedente judicial</li>
+        <li>Distinção é histórica, não lógica</li>
+        <li>Convergência crescente entre os sistemas</li>
+        <li>Em ambos: norma estatal prevalece sobre social</li>
+      </ul>
+    </div>
+    <div class="resumo-card">
+      <div class="resumo-card-header">Interpretação (escolas)</div>
+      <ul class="resumo-card-body">
+        <li>Exegese: intenção original do legislador</li>
+        <li>Histórico-evolutiva: intenção possível atual</li>
+        <li>Livre pesquisa (Gény): pesquisa científica dos fatos</li>
+        <li>Direito livre: contra legem — rejeitada por Reale</li>
+        <li>Hermenêutica estrutural: teleológica + axiológica</li>
+      </ul>
+    </div>
+    <div class="resumo-card">
+      <div class="resumo-card-header">Integração e lacunas</div>
+      <ul class="resumo-card-body">
+        <li>Lacunas existem na lei, não no ordenamento</li>
+        <li>Analogia legis: caso semelhante previsto</li>
+        <li>Analogia juris: princípios gerais do Direito</li>
+        <li>Costumes como recurso complementar</li>
+        <li>Equidade: abrandar o summum jus, summa injuria</li>
+      </ul>
+    </div>
+    <div class="resumo-card">
+      <div class="resumo-card-header">Personalidade jurídica</div>
+      <ul class="resumo-card-body">
+        <li>Começa com nascimento com vida (art. 2º CC)</li>
+        <li>Personalidade ≠ capacidade (medida concreta)</li>
+        <li>Pessoa jurídica: distinta dos membros</li>
+        <li>Teorias: ficção × real × institucional</li>
+        <li>Desconsideração: coibir abuso da personalidade</li>
+      </ul>
+    </div>
+    <div class="resumo-card">
+      <div class="resumo-card-header">Divisão do Direito</div>
+      <ul class="resumo-card-body">
+        <li>Público: interesse geral prevalente + subordinação</li>
+        <li>Privado: interesse particular + coordenação</li>
+        <li>Não existe terceiro gênero (Reale critica)</li>
+        <li>DIPr = sobredireito (metalinguagem)</li>
+        <li>Direito do Trabalho = Direito Público (Reale)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 10. QUESTÕES COM RESPOSTAS -->
+<section id="fixacao">
+  <div class="section-label">Seção 10</div>
+  <h2>Questões com respostas</h2>
+
+  <div class="qa-item">
+    <div class="qa-pergunta">
+      <span>Questão 1</span>
+      O que são fontes do Direito? Por que Reale exclui a doutrina desse conceito?
+    </div>
+    <div class="qa-resposta">
+      <p>Para Reale, fontes do Direito são os <strong>processos ou meios pelos quais as regras jurídicas se positivam com legítima força obrigatória</strong>, ou seja, com vigência e eficácia dentro de uma estrutura normativa. O dado central é que toda fonte pressupõe uma <em>estrutura de poder</em>: não há norma obrigatória sem um centro de poder que a emane, sustente e garanta.</p>
+      <p>À luz desse critério, Reale identifica quatro fontes: o processo legislativo (Poder Legislativo), a jurisdição (Poder Judiciário), os usos e costumes (poder social anônimo) e a fonte negocial (autonomia da vontade). A doutrina é excluída porque ela não opera em nenhuma dessas estruturas de poder — os ensinamentos dos juristas, por mais prestigiosos que sejam, não vinculam comportamentos. A doutrina produz <em>modelos dogmáticos</em> (esquemas teóricos de compreensão das normas), enquanto as fontes produzem <em>modelos jurídicos prescritivos</em> (normas cogentes). A influência da doutrina é indireta: ela inspira legisladores, orienta juízes e alimenta a jurisprudência — mas não tem força normativa autônoma.</p>
+      <span class="qa-fonte">Referência: <em>Lições Preliminares de Direito</em>, Caps. XII e XIV</span>
+    </div>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-pergunta">
+      <span>Questão 2</span>
+      Quais são as diferenças entre lei e costume como fontes do Direito?
+    </div>
+    <div class="qa-resposta">
+      <p>Lei e costume se distinguem em quatro dimensões principais:</p>
+      <ul>
+        <li><strong>Origem:</strong> a lei tem origem certa e predeterminada (órgão legislativo constitucionalmente previsto); o costume nasce de forma anônima e imprevisível, sem localização no tempo ou no espaço.</li>
+        <li><strong>Elaboração:</strong> a lei segue trâmites fixados constitucionalmente; o costume se forma espontaneamente, pela repetição habitual de um comportamento (elemento objetivo) somada à convicção de sua obrigatoriedade — a <em>opinio juris seu necessitatis</em> (elemento subjetivo).</li>
+        <li><strong>Vigência e eficácia:</strong> na lei, a vigência é <em>prius</em> — ela obriga desde a publicação, até ser revogada por nova lei. No costume, a relação se inverte: a vigência <em>deflui da eficácia</em> — o costume vigora enquanto efetivamente praticado, e perde força pelo desuso.</li>
+        <li><strong>Força probatória:</strong> a lei opera erga omnes e dispensa prova de existência (presunção de conhecimento). O costume, mesmo quando consolidado por escrito, é suscetível de prova em contrário.</li>
+      </ul>
+      <p>Vale lembrar que o art. 4º da LINDB consagra o costume como recurso de integração na omissão da lei, ao lado da analogia e dos princípios gerais de direito.</p>
+      <span class="qa-fonte">Referência: <em>Lições Preliminares de Direito</em>, Cap. XIII</span>
+    </div>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-pergunta">
+      <span>Questão 3</span>
+      Quais são os principais métodos de interpretação jurídica e qual é a posição atual da hermenêutica?
+    </div>
+    <div class="qa-resposta">
+      <p>A história da hermenêutica jurídica pode ser lida como um progressivo alargamento da margem criativa do intérprete:</p>
+      <ul>
+        <li><strong>Escola da Exegese:</strong> prende o intérprete ao texto e à intenção original do legislador, pelos métodos gramatical e lógico-sistemático.</li>
+        <li><strong>Interpretação histórico-evolutiva</strong> (Windscheid, Saleilles): a lei se destaca do legislador e adquire vida própria; o intérprete busca a intenção <em>possível</em> do legislador — o que ele teria decidido diante dos fatos atuais.</li>
+        <li><strong>Livre pesquisa do Direito</strong> (Gény): quando a lei é insuficiente, o juiz deve pesquisar cientificamente os fatos sociais para descobrir a norma adequada, respeitando a índole do sistema ("além do Código, mas através do Código").</li>
+        <li><strong>Direito Livre</strong> (Kantorowicz): o juiz pode julgar contra a lei; Reale rejeita essa posição por comprometer a certeza e a segurança jurídica.</li>
+      </ul>
+      <p>A posição atual, que Reale denomina <strong>hermenêutica estrutural</strong>, sustenta que toda interpretação é (a) teleológica — orientada pelos fins valorativos da norma; (b) realizada dentro de uma estrutura de significações — cada preceito se interpreta no todo do ordenamento; e (c) criadora — o intérprete não é passivo, mas tem papel positivo na atualização histórica do sentido da norma, articulando fatos e valores originários com os supervenientes.</p>
+      <span class="qa-fonte">Referência: <em>Lições Preliminares de Direito</em>, Cap. XXI</span>
+    </div>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-pergunta">
+      <span>Questão 4</span>
+      O que é personalidade jurídica? Quais as teorias sobre a natureza da pessoa jurídica?
+    </div>
+    <div class="qa-resposta">
+      <p><strong>Personalidade jurídica</strong> é a capacidade genérica (<em>in abstracto</em>) de ser sujeito de direitos e obrigações. Difere da capacidade, que é a medida concreta do exercício dessa aptidão — todo ser humano tem personalidade, mas nem todos têm plena capacidade (ex.: menores, incapazes). A personalidade da pessoa natural começa com o nascimento com vida, embora a lei ponha a salvo, desde a concepção, os direitos do nascituro (art. 2º, CC/2002).</p>
+      <p>Três grandes teorias explicam a natureza da <em>pessoa jurídica</em>:</p>
+      <ul>
+        <li><strong>Teoria da ficção</strong> (Savigny): a pessoa jurídica é um artifício técnico sem existência real — uma <em>fictio juris</em>. Crítica: não explica por que a falência da sociedade não atinge os sócios.</li>
+        <li><strong>Teoria organicista</strong> (Gierke): a pessoa jurídica tem existência real e substancial, como um organismo. Exagera ao conferir existência biológica a uma realidade que é teleológica.</li>
+        <li><strong>Teoria institucional</strong> (Hauriou): a pessoa jurídica é uma instituição — uma unidade de fins (<em>unitas ordinis</em>). O elemento nuclear é a ideia diretora que congrega os membros em torno de um objetivo comum. Reale endossa essa teoria, situando a pessoa jurídica como realidade normativa fundamentada em fatos e valores — o que se coaduna com a teoria tridimensional do Direito.</li>
+      </ul>
+      <span class="qa-fonte">Referência: <em>Lições Preliminares de Direito</em>, Cap. XVIII</span>
+    </div>
+  </div>
+
+  <div class="perguntas-adicionais">
+    <h3>Questões adicionais para aprofundamento</h3>
+    <ol>
+      <li>A Constituição brasileira de 1988 é rígida e escrita, enquanto a britânica é costumeira e flexível. Que consequências práticas essa diferença produz para a relação entre lei e costume como fontes do Direito em cada sistema?</li>
+      <li>O art. 4º da LINDB determina que, na omissão da lei, o juiz recorra "à analogia, aos costumes e aos princípios gerais de direito". Essa hierarquia é absoluta ou há hipóteses em que o juiz pode inverter a ordem de preferência?</li>
+      <li>Reale afirma que a lei "se destaca da pessoa do legislador como uma criança se liberta do ventre materno". Compare essa ideia com a crítica de Gény ao intérprete histórico-evolutivo. São posições compatíveis?</li>
+      <li>A desconsideração da personalidade jurídica (disregard of legal entity) é admitida pelo CDC e pelo CC/2002. Como ela se relaciona com as teorias sobre a natureza da pessoa jurídica — especialmente com a teoria da ficção e a teoria institucional?</li>
+    </ol>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 11. REFERÊNCIAS -->
+<section id="refs">
+  <div class="section-label">Seção 11</div>
+  <h2>Referências</h2>
+  <ul class="ref-list">
+    <li>REALE, Miguel. <em>Lições Preliminares de Direito</em>. 27. ed. São Paulo: Saraiva, 2002. Caps. XII, XIII, XIV, XVIII, XXI, XXII e XXV.</li>
+    <li>REALE, Miguel. <em>Fontes e Modelos do Direito</em>. São Paulo: Saraiva, 1994.</li>
+    <li>REALE, Miguel. <em>O Direito como Experiência</em>. São Paulo: Saraiva, 1968.</li>
+    <li>REALE, Miguel. <em>Filosofia do Direito</em>. 19. ed. São Paulo: Saraiva, 1999.</li>
+    <li>BRASIL. Código Civil de 2002. Lei n. 10.406/2002. Arts. 1º, 2º, 40–69, 981.</li>
+    <li>BRASIL. Lei de Introdução às Normas do Direito Brasileiro (LINDB). Decreto-Lei n. 4.657/1942. Art. 4º.</li>
+    <li>BRASIL. Constituição Federal de 1988. Arts. 59, 62, 68, 146 e 173.</li>
+    <li>COULANGES, Fustel de. <em>A Cidade Antiga</em>. São Paulo: Martins Fontes, 1998. (Para o Direito primitivo e o culto dos mortos.)</li>
+    <li>GÉNY, François. <em>Méthode d'interprétation et sources de droit en droit privé positif</em>. Paris, 1899.</li>
+    <li>KELSEN, Hans. <em>Teoria Pura do Direito</em>. São Paulo: Martins Fontes, 1994.</li>
+  </ul>
+</section>
+
+</main>
+</body>
+</html>

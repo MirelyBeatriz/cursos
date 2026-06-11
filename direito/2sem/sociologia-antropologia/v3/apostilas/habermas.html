@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Habermas — Direito, Democracia e Ação Comunicativa</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Georgia,'Times New Roman',serif;font-size:15px;line-height:1.8;color:#1a1a1a;background:#fdfaf6}
+  .cover{background:linear-gradient(160deg,#1a3a2a 60%,#2e5a3a);color:#fff;padding:60px 48px 48px;min-height:220px;position:relative;overflow:hidden}
+  .cover::before{content:'';position:absolute;right:-40px;top:-40px;width:220px;height:220px;border-radius:50%;border:1px solid rgba(255,255,255,0.08)}
+  .cover::after{content:'';position:absolute;right:20px;top:20px;width:140px;height:140px;border-radius:50%;border:1px solid rgba(255,255,255,0.06)}
+  .cover-badge{font-family:Arial,sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:16px}
+  .cover h1{font-size:30px;font-weight:normal;letter-spacing:0.5px;margin-bottom:8px}
+  .cover-sub{font-size:14px;color:rgba(255,255,255,0.65);margin-top:8px}
+  .cover-authors{margin-top:24px;font-size:13px;color:rgba(255,255,255,0.5);border-top:1px solid rgba(255,255,255,0.12);padding-top:16px}
+  .toc{background:#fff;border-bottom:1px solid #e8e2d8;padding:28px 48px}
+  .toc h2{font-family:Arial,sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-bottom:16px;font-weight:normal}
+  .toc-list{list-style:none}
+  .toc-list li{display:flex;align-items:baseline;gap:8px;padding:5px 0;font-size:14px}
+  .toc-list li a{color:#1a4030;text-decoration:none}
+  .toc-list li a:hover{text-decoration:underline}
+  .toc-num{font-family:Arial,sans-serif;font-size:11px;color:#aaa;min-width:20px}
+  .toc-dots{flex:1;border-bottom:1px dotted #d0c9be;margin:0 6px}
+  .toc-pg{font-family:Arial,sans-serif;font-size:12px;color:#aaa}
+  main{max-width:720px;margin:0 auto;padding:40px 48px 80px}
+  section{margin-bottom:52px}
+  .section-label{font-family:Arial,sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#5a8a6a;margin-bottom:6px}
+  h2{font-size:22px;font-weight:normal;color:#1a3a2a;margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid #e0d8cc}
+  h3{font-size:16px;font-weight:normal;color:#1a3a2a;margin:28px 0 10px;font-style:italic}
+  p{margin-bottom:14px;text-align:justify}
+  .quote-block{margin:24px 0;padding:16px 20px 16px 24px;border-left:3px solid #1a4030;background:#f4f0e8;border-radius:0 4px 4px 0}
+  .quote-block p{margin:0;font-style:italic;font-size:14px;color:#2a2a2a;line-height:1.75}
+  .quote-ref{font-family:Arial,sans-serif;font-size:11px;color:#888;margin-top:6px;font-style:normal}
+  .concept-box{background:#fff;border:1px solid #ddd7cc;border-radius:6px;padding:16px 20px;margin:20px 0}
+  .concept-box .cb-label{font-family:Arial,sans-serif;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-bottom:8px}
+  .concept-box p{margin:0;font-size:14px}
+  .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0}
+  .compare-card{border:1px solid #ddd7cc;border-radius:6px;padding:16px 18px;background:#fff}
+  .compare-card .cc-title{font-family:Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#fff;background:#1a3a2a;display:inline-block;padding:3px 10px;border-radius:3px;margin-bottom:10px}
+  .compare-card ul{list-style:none;padding:0}
+  .compare-card ul li{font-size:13px;padding:4px 0;border-bottom:1px solid #f0ece4;color:#333;line-height:1.5}
+  .compare-card ul li:last-child{border-bottom:none}
+  .compare-card ul li::before{content:"▸ ";color:#5a8a6a;font-size:11px}
+  .highlight-box{background:#1a3a2a;color:#fff;border-radius:6px;padding:18px 22px;margin:24px 0}
+  .highlight-box p{color:rgba(255,255,255,0.9);margin:0;font-size:14px;line-height:1.75}
+  .highlight-box strong{color:#fff}
+  .three-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:20px 0}
+  .three-card{border:1px solid #ddd7cc;border-radius:6px;overflow:hidden;background:#fff}
+  .three-card-header{background:#1a3a2a;color:#fff;padding:9px 14px;font-family:Arial,sans-serif;font-size:12px;letter-spacing:0.5px}
+  .three-card-body{padding:12px 14px;font-size:13px;color:#333;line-height:1.6}
+  .three-card-body li{list-style:none;padding:3px 0;border-bottom:1px solid #f0ece4}
+  .three-card-body li:last-child{border-bottom:none}
+  .three-card-body li::before{content:"→ ";color:#5a8a6a}
+  .authors-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0}
+  .author-card{border:1px solid #ddd7cc;border-radius:6px;padding:12px 14px;background:#fff;text-align:center}
+  .author-initial{width:40px;height:40px;border-radius:50%;background:#1a3a2a;color:#fff;display:flex;align-items:center;justify-content:center;font-family:Arial,sans-serif;font-size:14px;margin:0 auto 8px}
+  .author-name{font-size:13px;font-weight:bold;color:#1a3a2a}
+  .author-role{font-size:11px;color:#888;margin-top:3px;font-family:Arial,sans-serif}
+  .section-divider{text-align:center;color:#ccc;letter-spacing:8px;margin:32px 0;font-size:12px}
+  .resumo-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0}
+  .resumo-card{background:#fff;border:1px solid #ddd7cc;border-radius:6px;overflow:hidden}
+  .resumo-card-header{background:#1a3a2a;color:#fff;padding:8px 14px;font-family:Arial,sans-serif;font-size:11px;letter-spacing:0.8px}
+  .resumo-card-body{padding:12px 14px}
+  .resumo-card-body ul{list-style:none;padding:0}
+  .resumo-card-body ul li{font-size:13px;padding:4px 0;border-bottom:1px solid #f5f2ec;color:#333;line-height:1.5}
+  .resumo-card-body ul li:last-child{border-bottom:none}
+  .resumo-card-body ul li::before{content:"• ";color:#5a8a6a}
+  .conceitos-chave{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0}
+  .ck-item{background:#f4f0e8;border-radius:5px;padding:10px 12px;text-align:center}
+  .ck-term{font-family:Arial,sans-serif;font-size:12px;font-weight:bold;color:#1a3a2a;margin-bottom:4px}
+  .ck-def{font-size:11px;color:#555;line-height:1.45}
+  .mapa-autores{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:16px 0}
+  .ma-card{border:1px solid #ddd7cc;border-radius:5px;overflow:hidden;background:#fff}
+  .ma-header{background:#2e5a3a;color:#fff;padding:6px 10px;font-family:Arial,sans-serif;font-size:11px}
+  .ma-body{padding:8px 10px;font-size:12px;color:#444}
+  .ma-body li{list-style:none;padding:2px 0}
+  .ma-body li::before{content:"→ ";color:#5a8a6a;font-size:11px}
+  .qa-item{margin-bottom:24px;border:1px solid #ddd7cc;border-radius:6px;overflow:hidden;background:#fff}
+  .qa-pergunta{background:#1a3a2a;color:#fff;padding:12px 18px;font-size:14px;font-family:Georgia,serif;line-height:1.5}
+  .qa-pergunta span{font-family:Arial,sans-serif;font-size:11px;color:rgba(255,255,255,0.5);display:block;margin-bottom:4px;letter-spacing:1px}
+  .qa-resposta{padding:16px 18px}
+  .qa-resposta p{margin-bottom:10px;font-size:14px}
+  .qa-resposta p:last-child{margin-bottom:0}
+  .qa-resposta ul{list-style:none;padding:0;margin:8px 0}
+  .qa-resposta ul li{font-size:13px;padding:4px 0;border-bottom:1px solid #f5f2ec;color:#333}
+  .qa-resposta ul li:last-child{border-bottom:none}
+  .qa-resposta ul li::before{content:"▸ ";color:#5a8a6a}
+  .qa-fonte{font-family:Arial,sans-serif;font-size:11px;color:#aaa;margin-top:10px;font-style:normal;display:block}
+  .perguntas-adicionais{background:#f0f6f2;border:1px solid #b5d4c5;border-radius:6px;padding:20px 24px;margin-top:20px}
+  .perguntas-adicionais h3{font-style:normal;margin:0 0 14px;font-size:14px;font-family:Arial,sans-serif;letter-spacing:0.5px;color:#444}
+  .perguntas-adicionais ol{padding-left:18px}
+  .perguntas-adicionais ol li{font-size:14px;padding:5px 0;color:#333}
+  .ref-list{list-style:none;padding:0}
+  .ref-list li{font-size:13px;padding:5px 0;border-bottom:1px dotted #e0d8cc;color:#444}
+  .ref-list li:last-child{border-bottom:none}
+  .atencao-box{background:#fffbf0;border:1px solid #e8d87a;border-radius:6px;padding:14px 18px;margin:16px 0;font-size:13px;color:#444}
+  .atencao-box strong{color:#8a6a00}
+  .poder-diagram{display:flex;gap:12px;margin:20px 0;align-items:stretch}
+  .poder-pillar{flex:1;border:1px solid #ddd7cc;border-radius:6px;overflow:hidden;background:#fff}
+  .poder-pillar-header{background:#1a3a2a;color:#fff;padding:10px 12px;text-align:center;font-family:Arial,sans-serif;font-size:12px;letter-spacing:0.5px}
+  .poder-pillar-body{padding:12px;font-size:12px;color:#444;line-height:1.6}
+  .poder-pillar-body li{list-style:none;padding:3px 0;border-bottom:1px solid #f0ece4}
+  .poder-pillar-body li:last-child{border-bottom:none}
+  .poder-pillar-body li::before{content:"→ ";color:#5a8a6a}
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="cover-badge">Sociologia e Antropologia Jurídica · Graduação em Direito</div>
+  <h1>Habermas: Direito, Democracia e Ação Comunicativa</h1>
+  <p class="cover-sub">Estado Democrático de Direito · Facticidade e Validade · Soberania Popular como Procedimento</p>
+  <div class="cover-authors">
+    Baseado em Habermas, Barbieri e Herdy · Sociologia e Antropologia Jurídica
+  </div>
+</div>
+
+<div class="toc">
+  <h2>Sumário</h2>
+  <ul class="toc-list">
+    <li><span class="toc-num">1.</span><a href="#ctx">Contexto: Habermas e a Escola de Frankfurt</a><span class="toc-dots"></span><span class="toc-pg">§1</span></li>
+    <li><span class="toc-num">2.</span><a href="#tac">Teoria da Ação Comunicativa: Sistema e Mundo da Vida</a><span class="toc-dots"></span><span class="toc-pg">§2</span></li>
+    <li><span class="toc-num">3.</span><a href="#direito-politica">Direito e Política: a conexão interna</a><span class="toc-dots"></span><span class="toc-pg">§3</span></li>
+    <li><span class="toc-num">4.</span><a href="#poderes">Os três tipos de poder</a><span class="toc-dots"></span><span class="toc-pg">§4</span></li>
+    <li><span class="toc-num">5.</span><a href="#soberania">Soberania popular como procedimento</a><span class="toc-dots"></span><span class="toc-pg">§5</span></li>
+    <li><span class="toc-num">6.</span><a href="#discurso">Princípio do discurso e divisão de poderes</a><span class="toc-dots"></span><span class="toc-pg">§6</span></li>
+    <li><span class="toc-num">7.</span><a href="#paradigmas">Paradigmas jurídicos e fechamento institucional</a><span class="toc-dots"></span><span class="toc-pg">§7</span></li>
+    <li><span class="toc-num">8.</span><a href="#peirce">Habermas e o pragmatismo de Peirce</a><span class="toc-dots"></span><span class="toc-pg">§8</span></li>
+    <li><span class="toc-num">9.</span><a href="#resumo">Resumo para revisão</a><span class="toc-dots"></span><span class="toc-pg">§9</span></li>
+    <li><span class="toc-num">10.</span><a href="#fixacao">Questões com respostas</a><span class="toc-dots"></span><span class="toc-pg">§10</span></li>
+    <li><span class="toc-num">11.</span><a href="#refs">Referências</a><span class="toc-dots"></span><span class="toc-pg">§11</span></li>
+  </ul>
+</div>
+
+<main>
+
+<!-- 1. CONTEXTO -->
+<section id="ctx">
+  <div class="section-label">Seção 1</div>
+  <h2>Contexto: Habermas e a Escola de Frankfurt</h2>
+  <p>Jürgen Habermas (1929–) é o principal representante da segunda geração da <strong>Escola de Frankfurt</strong> e um dos filósofos mais influentes do século XX. Herdeiro da Teoria Crítica de Adorno e Horkheimer, Habermas reformulou o projeto crítico ao substituir a filosofia da consciência pela filosofia da linguagem e da comunicação, rompendo com o pessimismo cultural de seus predecessores.</p>
+  <div class="authors-grid">
+    <div class="author-card"><div class="author-initial">JH</div><div class="author-name">Jürgen Habermas</div><div class="author-role">Teoria da Ação Comunicativa (1981) · Entre Fatos e Normas (1992)</div></div>
+    <div class="author-card"><div class="author-initial">AB</div><div class="author-name">Aylton Barbieri</div><div class="author-role">Estado democrático de direito e a teoria do discurso (2009)</div></div>
+    <div class="author-card"><div class="author-initial">RH</div><div class="author-name">Rachel Herdy</div><div class="author-role">Habermas, Pragmatismo e Direito — influência de Peirce (2009)</div></div>
+  </div>
+  <p>A obra central para este estudo é <em>Faktizität und Geltung</em> (Entre Fatos e Normas, 1992), na qual Habermas apresenta sua <strong>teoria discursiva do direito e da democracia</strong>. O título já revela a tensão central: <em>facticidade</em> (o que existe de fato — o direito positivo coercitivo) e <em>validade</em> (a legitimidade normativa que o justifica). O projeto habermasiano é mostrar que essa tensão não é apenas um paradoxo a ser tolerado, mas o motor do Estado Democrático de Direito.</p>
+  <div class="concept-box">
+    <div class="cb-label">Tese central de Habermas</div>
+    <p>O Estado Democrático de Direito constitui-se por meio de uma <strong>conexão interna entre direito e política</strong>: o direito precisa da política para adquirir capacidade de coação; a política precisa do direito para obter legitimidade. Nenhum dos dois pode cumprir sua função sem o outro.</p>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 2. TEORIA DA AÇÃO COMUNICATIVA -->
+<section id="tac">
+  <div class="section-label">Seção 2</div>
+  <h2>Teoria da Ação Comunicativa: Sistema e Mundo da Vida</h2>
+  <p>Para compreender a teoria do direito de Habermas, é indispensável partir de sua <strong>Teoria da Ação Comunicativa</strong> (1981), na qual ele distingue dois tipos de racionalidade e dois planos da vida social.</p>
+
+  <h3>Sociedades tradicionais vs. sociedades modernas</h3>
+  <div class="compare-grid">
+    <div class="compare-card">
+      <span class="cc-title">Sociedades Tradicionais</span>
+      <ul>
+        <li>Número restrito de indivíduos</li>
+        <li>Pouco diferenciadas socialmente</li>
+        <li>Culturalmente homogêneas</li>
+        <li>Pouco dissenso — consenso fácil</li>
+        <li>Pouco reflexivas</li>
+        <li>Cosmovisão unificada religiosamente</li>
+        <li>Norma moral, jurídica e religiosa se confundem</li>
+        <li>Imunidade discursiva: não se questiona a validade da norma</li>
+      </ul>
+    </div>
+    <div class="compare-card">
+      <span class="cc-title">Sociedades Modernas</span>
+      <ul>
+        <li>Altamente populosas</li>
+        <li>Grande diferenciação social</li>
+        <li>Culturalmente heterogêneas</li>
+        <li>Muito dissenso — consenso difícil</li>
+        <li>Reflexivas: questionam as normas</li>
+        <li>Sem monopólio religioso</li>
+        <li>Normas moral, jurídica e religiosa diferenciadas</li>
+        <li>Distinção entre coerção por medo e por convencimento</li>
+      </ul>
+    </div>
+  </div>
+  <p>Nas sociedades tradicionais, vigorava o que Habermas chama de <strong>imunidade discursiva</strong>: independentemente do argumento apresentado, o indivíduo não mudaria seu padrão de comportamento, pois a norma era sagrada e inquestionável. Com a modernidade, surge a exigência de <em>legitimidade racional</em>: a norma precisa ser justificada discursivamente para ser obedecida.</p>
+
+  <h3>Sistema e Mundo da Vida</h3>
+  <p>Habermas divide a sociedade em dois planos:</p>
+  <div class="compare-grid">
+    <div class="compare-card">
+      <span class="cc-title">Mundo da Vida (Lebenswelt)</span>
+      <ul>
+        <li>Esfera da interação cotidiana</li>
+        <li>Regido pela racionalidade comunicativa</li>
+        <li>Agentes buscam entendimento mútuo</li>
+        <li>Linguagem ordinária, argumentação</li>
+        <li>Integração social por solidariedade</li>
+        <li>Inclui: esfera pública, sociedade civil</li>
+      </ul>
+    </div>
+    <div class="compare-card">
+      <span class="cc-title">Sistema</span>
+      <ul>
+        <li>Subsistema econômico (meio: dinheiro)</li>
+        <li>Subsistema político (meio: poder)</li>
+        <li>Regido pela racionalidade instrumental/estratégica</li>
+        <li>Agentes buscam êxito e eficiência</li>
+        <li>Lógica própria, autorreferencial</li>
+        <li>Tende a colonizar o mundo da vida</li>
+      </ul>
+    </div>
+  </div>
+  <div class="highlight-box">
+    <p><strong>Colonização do mundo da vida:</strong> Quando a lógica sistêmica (dinheiro e poder) invade o espaço do mundo da vida, a racionalidade comunicativa é sufocada. O cidadão vira cliente do Estado ou consumidor do mercado. A juridicização excessiva das relações sociais é um exemplo: ao transformar relações cotidianas em relações jurídicas, o Estado retira espaço para o entendimento espontâneo.</p>
+  </div>
+  <p>A tese central de Habermas é que a <strong>legitimidade do direito moderno</strong> não pode mais vir do medo ou da tradição religiosa — ela precisa emergir do <em>convencimento</em> racional, obtido pelo livre confronto de ideias no qual o melhor argumento prevalece. Isso exige uma simbiose entre direito e democracia.</p>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 3. DIREITO E POLÍTICA -->
+<section id="direito-politica">
+  <div class="section-label">Seção 3</div>
+  <h2>Direito e Política: a conexão interna</h2>
+  <p>O Estado Democrático de Direito forma-se pela <strong>conexão interna entre direito e política</strong>, dois sistemas que possuem funções próprias, mas que precisam cumprir funções recíprocas entre si.</p>
+
+  <h3>Funções próprias e funções recíprocas</h3>
+  <div class="compare-grid">
+    <div class="compare-card">
+      <span class="cc-title">Sistema Jurídico</span>
+      <ul>
+        <li>Função própria: coordenar ações e resolver conflitos</li>
+        <li>Diferença da moral: dispõe de coerção institucionalizada</li>
+        <li>Precisa da política: para ter capacidade de implementação</li>
+        <li>Oferece à política: legitimidade normativa</li>
+        <li>Polo normativo do Estado de Direito</li>
+      </ul>
+    </div>
+    <div class="compare-card">
+      <span class="cc-title">Sistema Político</span>
+      <ul>
+        <li>Função própria: realizar programas coletivos de ação</li>
+        <li>Meio: poder (violência institucionalizada)</li>
+        <li>Precisa do direito: para constituir suas instituições</li>
+        <li>Oferece ao direito: capacidade de coação</li>
+        <li>Polo de poder do Estado de Direito</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>A tensão entre facticidade e validade</h3>
+  <p>No interior do Estado de Direito, o direito e a política constituem dois polos em tensão permanente. Essa tensão interna entre <strong>facticidade</strong> (o direito como fato social coercitivo) e <strong>validade</strong> (o direito como norma legítima) é o que explica a ambiguidade do direito moderno identificada por Habermas.</p>
+  <div class="concept-box">
+    <div class="cb-label">A dupla racionalidade do agente jurídico</div>
+    <p>O destinatário de uma norma jurídica pode segui-la de dois modos: por <strong>autonomia privada</strong> (uso estratégico da liberdade subjetiva — cumpre a lei para evitar a sanção) ou por <strong>autonomia pública</strong> (liberdade comunicativa — cumpre a lei por respeito, por convicção de sua validade). Essa duplicidade gera o aparente paradoxo da legitimidade surgindo da legalidade.</p>
+  </div>
+  <div class="quote-block">
+    <p>A tensão entre o polo poder e o polo normativo do estado de direito pode ser deslocada para uma direção ou para outra. Se impera a positividade do poder político, o estado de direito ameaça converter-se em simples exercício arbitrário do poder; mas, caso prevaleça a normatividade do direito, então as instituições do estado de direito poderiam gerar as condições para a autolegislação democrática dos próprios cidadãos.</p>
+    <div class="quote-ref">Habermas, 1994, p. 172 — sintetizado por Barbieri</div>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 4. TRÊS TIPOS DE PODER -->
+<section id="poderes">
+  <div class="section-label">Seção 4</div>
+  <h2>Os três tipos de poder</h2>
+  <p>Habermas, a partir de uma releitura de Hannah Arendt, distingue três formas de poder que circulam no Estado Democrático de Direito. Para Arendt, poder e violência são opostos: o poder nasce do consenso comunicativo, a violência da imposição. Habermas reconstrói esses conceitos com base na sua teoria da ação comunicativa.</p>
+  <div class="poder-diagram">
+    <div class="poder-pillar">
+      <div class="poder-pillar-header">Poder Comunicativo</div>
+      <ul class="poder-pillar-body">
+        <li>Nasce na esfera pública</li>
+        <li>Força geradora de consenso</li>
+        <li>Comunicação orientada ao entendimento</li>
+        <li>Liberdade comunicativa dos cidadãos</li>
+        <li>Origem legítima do direito</li>
+        <li>Bem escasso: não se produz por decreto</li>
+      </ul>
+    </div>
+    <div class="poder-pillar">
+      <div class="poder-pillar-header">Poder Administrativo</div>
+      <ul class="poder-pillar-body">
+        <li>Violência organizada do Estado</li>
+        <li>Constitui legislativo, executivo e judiciário</li>
+        <li>Toma decisões vinculantes</li>
+        <li>Deve ser subordinado ao poder comunicativo</li>
+        <li>Tendência à autoprogramação</li>
+        <li>O direito o converte em legítimo</li>
+      </ul>
+    </div>
+    <div class="poder-pillar">
+      <div class="poder-pillar-header">Poder Social</div>
+      <ul class="poder-pillar-body">
+        <li>Capacidade de impor interesses nas relações sociais</li>
+        <li>Nasce da pressão de grupos de interesse</li>
+        <li>Compete com o poder comunicativo</li>
+        <li>Pode representar interesses geralizáveis (ONGs)</li>
+        <li>Ou ser manipulado pela publicidade e mídia</li>
+        <li>Deve ser neutralizado na legislação</li>
+      </ul>
+    </div>
+  </div>
+  <div class="highlight-box">
+    <p><strong>O circuito legítimo:</strong> O poder comunicativo deve penetrar nas instituições do Estado de Direito e converter-se em poder administrativo, sem perder sua natureza comunicativa. O Estado de Direito deve neutralizar o poder social, de modo que somente as pretensões legítimas dos cidadãos — mediadas pela formação da opinião e da vontade na esfera pública — possam se converter em poder administrativo.</p>
+  </div>
+  <div class="atencao-box">
+    <strong>Ponto de prova:</strong> O poder administrativo possui uma tendência à <em>autoprogramação</em>: ele tende a determinar seus próprios programas de ação, submetendo os cidadãos a normas produzidas independentemente de sua participação. Isso ocorreu com o Estado do Bem-Estar Social — o direito possibilitou a intromissão burocrática na vida das pessoas, em vez de institucionalizar o poder comunicativo delas.
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 5. SOBERANIA POPULAR COMO PROCEDIMENTO -->
+<section id="soberania">
+  <div class="section-label">Seção 5</div>
+  <h2>Soberania popular como procedimento</h2>
+  <p>O texto "Soberania Popular como Procedimento" (1988) é o eixo do projeto político de Habermas. Nele, Habermas resolve a disputa histórica entre <strong>liberais</strong> e <strong>republicanos</strong> sobre a relação entre direitos humanos e soberania popular.</p>
+
+  <h3>O debate liberal vs. republicano</h3>
+  <div class="compare-grid">
+    <div class="compare-card">
+      <span class="cc-title">Liberais</span>
+      <ul>
+        <li>Direitos humanos são pré-políticos</li>
+        <li>Valem independentemente da vontade popular</li>
+        <li>Devem ser blindados contra a maioria</li>
+        <li>Império da lei protege o indivíduo</li>
+        <li>Risco: tecnocracia, afastamento democrático</li>
+      </ul>
+    </div>
+    <div class="compare-card">
+      <span class="cc-title">Republicanos</span>
+      <ul>
+        <li>Só o povo pode legislar — soberania popular suprema</li>
+        <li>Direitos decorrem da soberania popular</li>
+        <li>Povo unido não comete injustiça contra si mesmo</li>
+        <li>Exige virtude cívica dos cidadãos</li>
+        <li>Risco: tirania da maioria, supressão de minorias</li>
+      </ul>
+    </div>
+  </div>
+  <p>A saída de Habermas é um <strong>conceito procedimental de soberania popular</strong>, que supera a filosofia do sujeito — tanto a do sujeito individual (liberal) quanto a do sujeito coletivo (republicano) — e ancora a soberania nas redes de comunicação da esfera pública.</p>
+  <div class="concept-box">
+    <div class="cb-label">Soberania popular procedimental — definição</div>
+    <p>A soberania popular não se encontra localizada em nenhum sujeito concreto (nem no indivíduo, nem no povo como macrossujeito), mas está <strong>dispersa na ampla rede de comunicação</strong> que perpassa a esfera pública — nas redes informais de comunicação da sociedade civil e nas instituições formais do Estado de Direito. Ela é anônima, sem sujeito, e se manifesta como poder comunicativo.</p>
+  </div>
+  <div class="quote-block">
+    <p>Em lugar de localizar a soberania popular no povo reunido como um macrossujeito, Habermas prefere difundi-la por meio do intercâmbio entre as redes informais de comunicação da esfera pública e as instituições formais do estado de direito, com o objetivo de produzir uma figura anônima ou carente de sujeito.</p>
+    <div class="quote-ref">Barbieri, 2009, p. 7 — parafraseando Habermas, 1994</div>
+  </div>
+  <h3>Direitos humanos e soberania popular: cooriginalidade</h3>
+  <p>A grande contribuição de Habermas é demonstrar que direitos humanos e soberania popular não se opõem — são <strong>cooriginários</strong> (ou coequiprimordiáis): um é condição de possibilidade do outro. Somente cidadãos portadores de direitos subjetivos fundamentais podem participar nos discursos de fundamentação dos princípios do Estado de Direito. E somente nesses discursos os direitos fundamentais se constituem legitimamente.</p>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 6. PRINCÍPIO DO DISCURSO E DIVISÃO DE PODERES -->
+<section id="discurso">
+  <div class="section-label">Seção 6</div>
+  <h2>Princípio do discurso e divisão de poderes</h2>
+  <p>O <strong>princípio do discurso (D)</strong> é o núcleo da teoria habermasiana e conecta a ética da comunicação à ordem jurídica e política.</p>
+  <div class="concept-box">
+    <div class="cb-label">Princípio do Discurso (D) — Habermas</div>
+    <p>São válidas as normas de ação com as quais <strong>todas as pessoas possivelmente afetadas</strong> poderiam concordar como participantes em <strong>discursos racionais</strong>. A validade da norma depende do assentimento de todos os implicados, em condições de livre argumentação.</p>
+  </div>
+
+  <h3>Tipos de discurso prático</h3>
+  <div class="three-grid">
+    <div class="three-card">
+      <div class="three-card-header">Discursos Pragmáticos</div>
+      <ul class="three-card-body">
+        <li>Avaliam programas coletivos de ação</li>
+        <li>Critério: eficácia e adequação técnica</li>
+        <li>Próprios do executivo</li>
+        <li>Racionalidade estratégica</li>
+      </ul>
+    </div>
+    <div class="three-card">
+      <div class="three-card-header">Discursos Éticos</div>
+      <ul class="three-card-body">
+        <li>Investigam valores coletivos</li>
+        <li>Autoentendimento da forma de vida</li>
+        <li>Identidade coletiva</li>
+        <li>Todos os membros devem participar</li>
+      </ul>
+    </div>
+    <div class="three-card">
+      <div class="three-card-header">Discursos Morais</div>
+      <ul class="three-card-body">
+        <li>Examinam quais normas são corretas</li>
+        <li>Interesse simétrico de todos os implicados</li>
+        <li>Universalidade — não só membros da comunidade</li>
+        <li>Representantes devem ser sensíveis à esfera pública</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>A nova divisão de poderes em Habermas</h3>
+  <p>A divisão de poderes clássica (liberal) fundamentava-se na forma semântica da lei — a lei geral e abstrata garantia igualdade perante ela. Para Habermas, a lei deve ser compreendida <em>pragmaticamente</em>: o que a legitima não é sua forma gramatical, mas o <strong>procedimento democrático de sua produção</strong>.</p>
+  <div class="compare-grid">
+    <div class="compare-card">
+      <span class="cc-title">Legislativo</span>
+      <ul>
+        <li>Dispõe de todo o espectro de razões e formas de comunicação</li>
+        <li>Discursos de fundamentação das normas</li>
+        <li>Em sintonia com a opinião pública</li>
+        <li>Discursos pragmáticos, éticos, morais + negociações</li>
+      </ul>
+    </div>
+    <div class="compare-card">
+      <span class="cc-title">Judiciário</span>
+      <ul>
+        <li>Discursos de aplicação (não fundamentação)</li>
+        <li>Princípio da adequação (Klaus Günther)</li>
+        <li>Coerência do ordenamento jurídico</li>
+        <li>Juiz: representante imparcial da comunidade jurídica</li>
+      </ul>
+    </div>
+  </div>
+  <div class="atencao-box">
+    <strong>Princípio da proibição da ilegalidade do Estado:</strong> O executivo somente pode usar poder administrativo como condição de possibilidade para institucionalizar os discursos práticos. Se o executivo se sobrepõe à legislação e à justiça com restrições que bloqueiam os procedimentos comunicativos, perde a legitimidade das leis e sentenças. A subordinação do executivo à lei produzida pelo legislativo é o núcleo da divisão de poderes em Habermas.
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 7. PARADIGMAS JURÍDICOS -->
+<section id="paradigmas">
+  <div class="section-label">Seção 7</div>
+  <h2>Paradigmas jurídicos e fechamento institucional</h2>
+  <p>Habermas identifica dois paradigmas jurídicos que dominaram o pensamento moderno — o <strong>Estado Liberal</strong> e o <strong>Estado Social</strong> — e propõe um terceiro: o <strong>Estado Democrático de Direito procedimental</strong>.</p>
+
+  <h3>Os paradigmas em conflito</h3>
+  <div class="compare-grid">
+    <div class="compare-card">
+      <span class="cc-title">Estado Liberal</span>
+      <ul>
+        <li>Livre-mercado e autorregulação</li>
+        <li>Liberdades individuais (autonomia privada)</li>
+        <li>Direito de propriedade e cumprimento de contratos</li>
+        <li>Estado mínimo, não intervencionista</li>
+        <li>Problema: crise do mercado, desigualdade crescente</li>
+        <li>Paradigma: lei geral e abstrata garante igualdade formal</li>
+      </ul>
+    </div>
+    <div class="compare-card">
+      <span class="cc-title">Estado Social (Bem-Estar)</span>
+      <ul>
+        <li>Direitos sociais e compensação de desigualdades</li>
+        <li>Intervenção do Estado no mercado</li>
+        <li>Combate às crises econômicas e injustiças materiais</li>
+        <li>Problema: paternalismo, burocracia, juridicização</li>
+        <li>Transforma cidadãos em clientes do Estado</li>
+        <li>Desloca crises do econômico para o político</li>
+      </ul>
+    </div>
+  </div>
+  <p>Habermas critica ambos os paradigmas como insuficientes. O Estado Liberal e o Estado Social compartilham o mesmo paradigma produtivista — a utopia da sociedade do trabalho livre — e ambos terminam por colonizar o mundo da vida, cada qual à sua maneira: o Liberal pela lógica do mercado, o Social pela burocracia estatal.</p>
+  <div class="highlight-box">
+    <p><strong>A solução habermasiana — Estado Democrático de Direito Procedimental:</strong> Em vez de definir substantivamente o que é o bem comum (liberal) ou a igualdade material (social), Habermas propõe garantir as <em>condições procedimentais</em> para que os próprios cidadãos, por meio de discursos racionais livres, definam coletivamente seus objetivos. A legitimidade vem do processo, não do conteúdo.</p>
+  </div>
+
+  <h3>Fechamento institucional</h3>
+  <p>Habermas reconhece que o ideal procedimental enfrenta obstáculos concretos — o que ele chama de <strong>fechamento institucional</strong>: bloqueios que impedem o livre fluxo de ideias e a reflexividade que enriquece e legitima o direito.</p>
+  <div class="three-grid">
+    <div class="three-card">
+      <div class="three-card-header">Democracia representativa deficitária</div>
+      <ul class="three-card-body">
+        <li>Representantes não representam efetivamente os eleitores</li>
+        <li>Mandatos imperativos bloqueiam discursos éticos e morais</li>
+        <li>Distância entre esfera pública e parlamento</li>
+      </ul>
+    </div>
+    <div class="three-card">
+      <div class="three-card-header">Manipulação midiática</div>
+      <ul class="three-card-body">
+        <li>Mídia distorce o fluxo de informações</li>
+        <li>Poder social de grandes grupos substitui poder comunicativo</li>
+        <li>Publicidade coloniza a esfera pública</li>
+      </ul>
+    </div>
+    <div class="three-card">
+      <div class="three-card-header">Déficit educacional e apatia</div>
+      <ul class="three-card-body">
+        <li>Déficit educacional limita participação qualificada</li>
+        <li>Indiferença dos cidadãos ao debate público</li>
+        <li>Esvaziamento da sociedade civil</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 8. HABERMAS E PEIRCE -->
+<section id="peirce">
+  <div class="section-label">Seção 8</div>
+  <h2>Habermas e o pragmatismo de Peirce</h2>
+  <p>Segundo Rachel Herdy, Habermas foi influenciado pelo pragmatismo em três domínios intelectuais: na <strong>epistemologia</strong> (Charles S. Peirce), na <strong>teoria social</strong> (George-Herbert Mead) e na <strong>teoria política</strong> (John Dewey). Herdy propõe adicionar um quarto domínio: a <strong>filosofia do direito</strong>.</p>
+
+  <h3>A contribuição de Peirce</h3>
+  <p>Charles Sanders Peirce (1839–1914) inaugurou uma epistemologia semiótico-pragmatista que substituiu a relação diádica sujeito-objeto (filosofia da consciência) por uma relação <strong>triádica</strong>: sujeito, objeto e <em>interpretante</em>. O conhecimento deixa de ser certeza privada do sujeito e passa a ser determinado pelas práticas públicas de justificação de uma <strong>comunidade de investigadores</strong>.</p>
+  <div class="concept-box">
+    <div class="cb-label">Máxima Pragmática de Peirce</div>
+    <p>Considere quais efeitos, que possam concebivelmente ter implicações práticas, nós concebemos ter o objeto de nossa concepção. Então, nossa concepção sobre tais efeitos é o todo da nossa concepção sobre o objeto. A validade de uma proposição depende do consenso que ela poderia alcançar em uma comunidade de investigadores idealmente ampliada no tempo e no espaço.</p>
+  </div>
+  <p>Habermas extrai de Peirce o conceito-guia de <strong>Opinião Final</strong>: a verdade e a realidade são aquilo em que, sob condições favoráveis, a comunidade de investigadores acabaria concordando. Esse conceito contrafático orienta a sua teoria da racionalidade comunicativa e, posteriormente, o princípio do discurso na filosofia do direito.</p>
+
+  <h3>Habermas vs. Apel: pragmática formal vs. transcendental</h3>
+  <div class="compare-grid">
+    <div class="compare-card">
+      <span class="cc-title">Habermas — Pragmática Formal</span>
+      <ul>
+        <li>Pressupostos comunicativos são quasi-transcendentais</li>
+        <li>Situados em contextos histórico-sociológicos do mundo da vida</li>
+        <li>Não transcendem o mundo empírico</li>
+        <li>Moral e direito são cooriginários, complementares</li>
+        <li>Direito não é subordinado à moral</li>
+        <li>"Princípio do discurso" neutro entre moral e direito</li>
+      </ul>
+    </div>
+    <div class="compare-card">
+      <span class="cc-title">Apel — Pragmática Transcendental</span>
+      <ul>
+        <li>Pressupostos comunicativos são transcendentais, a priori</li>
+        <li>Transcendem o mundo empírico</li>
+        <li>São necessários para evitar contradição performativa</li>
+        <li>Direito fundado em argumento moral necessário</li>
+        <li>Fundação transcendental, não histórica</li>
+        <li>Critica Habermas por petitio principii</li>
+      </ul>
+    </div>
+  </div>
+  <div class="atencao-box">
+    <strong>Princípio do Discurso (D) e Máxima Pragmática de Peirce:</strong> Herdy identifica uma semelhança estrutural entre os dois postulados. Ambos depositam a força da validade nas <em>consequências</em>: em Habermas, nas consequências que podem ser antecipadas e aceitas por todos os afetados; em Peirce, nos efeitos que podem ser concebidos para a conduta. A filosofia do direito de Habermas pode ser lida como uma versão pragmatista neoclássica — em oposição ao neopragmatismo de Rorty e Posner.
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 9. RESUMO -->
+<section id="resumo">
+  <div class="section-label">Seção 9</div>
+  <h2>Resumo para revisão</h2>
+
+  <h3>Conceitos fundamentais</h3>
+  <div class="conceitos-chave">
+    <div class="ck-item"><div class="ck-term">Ação comunicativa</div><div class="ck-def">Ação orientada ao entendimento mútuo. Base da racionalidade do mundo da vida.</div></div>
+    <div class="ck-item"><div class="ck-term">Facticidade</div><div class="ck-def">Dimensão empírica do direito: a norma como fato social coercitivo.</div></div>
+    <div class="ck-item"><div class="ck-term">Validade</div><div class="ck-def">Dimensão normativa: a legitimidade racional da norma jurídica.</div></div>
+    <div class="ck-item"><div class="ck-term">Poder comunicativo</div><div class="ck-def">Força consensual gerada na esfera pública. Origem legítima do direito democrático.</div></div>
+    <div class="ck-item"><div class="ck-term">Princípio D</div><div class="ck-def">Normas válidas são aquelas que todos os afetados poderiam aceitar em discurso racional.</div></div>
+    <div class="ck-item"><div class="ck-term">Cooriginalidade</div><div class="ck-def">Direitos humanos e soberania popular pressupõem-se mutuamente. Não se opõem.</div></div>
+    <div class="ck-item"><div class="ck-term">Esfera pública</div><div class="ck-def">Espaço informal de formação da opinião pública. Mediação entre mundo da vida e Estado.</div></div>
+    <div class="ck-item"><div class="ck-term">Colonização</div><div class="ck-def">Quando a lógica do sistema (poder/dinheiro) invade e sufoca o mundo da vida.</div></div>
+    <div class="ck-item"><div class="ck-term">Fechamento institucional</div><div class="ck-def">Bloqueios que impedem o livre fluxo comunicativo: mídia, déficit democrático, apatia.</div></div>
+  </div>
+
+  <h3>Mapa por autor e tema</h3>
+  <div class="mapa-autores">
+    <div class="ma-card">
+      <div class="ma-header">Habermas — Teoria da Ação Comunicativa (1981)</div>
+      <ul class="ma-body">
+        <li>Sistema vs. Mundo da vida</li>
+        <li>Racionalidade comunicativa vs. instrumental</li>
+        <li>Sociedades tradicionais vs. modernas</li>
+        <li>Colonização do mundo da vida</li>
+        <li>Esfera pública e sociedade civil</li>
+      </ul>
+    </div>
+    <div class="ma-card">
+      <div class="ma-header">Habermas — Entre Fatos e Normas (1992)</div>
+      <ul class="ma-body">
+        <li>Conexão interna entre direito e política</li>
+        <li>Facticidade e validade</li>
+        <li>Princípio do discurso (D)</li>
+        <li>Soberania popular como procedimento</li>
+        <li>Cooriginalidade: direitos humanos e soberania</li>
+      </ul>
+    </div>
+    <div class="ma-card">
+      <div class="ma-header">Barbieri — Estado democrático de direito (2009)</div>
+      <ul class="ma-body">
+        <li>Três tipos de poder: comunicativo, administrativo, social</li>
+        <li>Tensão entre polo poder e polo normativo</li>
+        <li>Autoprogramação do executivo</li>
+        <li>Divisão de poderes procedimental</li>
+        <li>Princípios do Estado de Direito</li>
+      </ul>
+    </div>
+    <div class="ma-card">
+      <div class="ma-header">Herdy — Habermas, Pragmatismo e Direito (2009)</div>
+      <ul class="ma-body">
+        <li>Influência de Peirce na teoria de Habermas</li>
+        <li>Comunidade de investigadores → legitimidade</li>
+        <li>Máxima pragmática e princípio do discurso</li>
+        <li>Habermas vs. Apel: formal vs. transcendental</li>
+        <li>Habermas: pragmatista neoclássico</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Argumentos centrais por tema</h3>
+  <div class="resumo-grid">
+    <div class="resumo-card">
+      <div class="resumo-card-header">Sistema e Mundo da Vida</div>
+      <ul class="resumo-card-body">
+        <li>Sistema: econômico (dinheiro) + político (poder)</li>
+        <li>Mundo da vida: esfera pública + sociedade civil</li>
+        <li>Racionalidade comunicativa vs. instrumental</li>
+        <li>Colonização = sistema invade o mundo da vida</li>
+        <li>Cidadão vira cliente do Estado ou consumidor</li>
+      </ul>
+    </div>
+    <div class="resumo-card">
+      <div class="resumo-card-header">Os três poderes</div>
+      <ul class="resumo-card-body">
+        <li>Comunicativo: nasce na esfera pública, consenso</li>
+        <li>Administrativo: violência organizada, tende à autoprogramação</li>
+        <li>Social: grupos de pressão — deve ser neutralizado</li>
+        <li>Circuito legítimo: comunicativo → administrativo</li>
+        <li>O direito converte poder comunicativo em administrativo</li>
+      </ul>
+    </div>
+    <div class="resumo-card">
+      <div class="resumo-card-header">Paradigmas jurídicos</div>
+      <ul class="resumo-card-body">
+        <li>Liberal: livre-mercado, autonomia privada</li>
+        <li>Social: direitos sociais, Estado intervencionista</li>
+        <li>Ambos colonizam o mundo da vida</li>
+        <li>Habermas: procedimento democrático como solução</li>
+        <li>Legitimidade vem do processo, não do conteúdo</li>
+      </ul>
+    </div>
+    <div class="resumo-card">
+      <div class="resumo-card-header">Soberania e princípio D</div>
+      <ul class="resumo-card-body">
+        <li>Liberal vs. republicano: falsa oposição</li>
+        <li>Soberania popular: dispersa nas redes comunicativas</li>
+        <li>Cooriginalidade: direitos humanos = condição da soberania</li>
+        <li>Princípio D: validade pelo assentimento de todos</li>
+        <li>Autonomia pública e privada se pressupõem</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 10. QUESTÕES -->
+<section id="fixacao">
+  <div class="section-label">Seção 10</div>
+  <h2>Questões com respostas</h2>
+
+  <div class="qa-item">
+    <div class="qa-pergunta">
+      <span>Questão 1</span>
+      O que Habermas entende por "conexão interna entre direito e política"? Por que essa conexão é constitutiva do Estado Democrático de Direito?
+    </div>
+    <div class="qa-resposta">
+      <p>Para Habermas, o Estado Democrático de Direito não é a simples soma de um sistema jurídico e de um sistema político que funcionam em paralelo — ele é o resultado de uma <strong>conexão interna</strong> entre os dois, pela qual cada um cumpre funções recíprocas para o outro.</p>
+      <p>O sistema jurídico tem como função própria a coordenação de ações e a resolução de conflitos entre os cidadãos. Diferentemente da moral racional pós-convencional, que só pode obrigar pela convicção, o direito dispõe de <strong>coerção institucionalizada</strong>. Mas essa coerção, por si só, não basta para legitimar o direito — ela pode ser dispensada quando os cidadãos cumprem a lei por respeito ou convicção.</p>
+      <p>O sistema político, por sua vez, realiza programas coletivos de ação por meio do meio poder. Mas as instituições políticas só se constituem juridicamente — elas precisam do direito para definir competências, procedimentos e fins coletivos.</p>
+      <p>Por isso, a conexão é <em>interna</em> e não meramente instrumental: a política fornece ao direito a capacidade de coação sem a qual as normas jurídicas seriam apenas recomendações; o direito fornece à política a legitimidade normativa sem a qual o poder seria mero exercício de força. A tensão entre o polo do poder e o polo normativo é o que explica tanto a ameaça do autoritarismo (quando o poder coloniza o direito) quanto a possibilidade da autolegislação democrática (quando o direito institucionaliza o poder comunicativo dos cidadãos).</p>
+      <span class="qa-fonte">Referência: Barbieri (2009); Habermas, Faktizität und Geltung (1994), p. 171–179</span>
+    </div>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-pergunta">
+      <span>Questão 2</span>
+      Explique os três tipos de poder identificados por Habermas e como eles se relacionam no Estado Democrático de Direito.
+    </div>
+    <div class="qa-resposta">
+      <p>A partir de uma releitura de Hannah Arendt, Habermas distingue três formas de poder que circulam nas sociedades democráticas modernas.</p>
+      <p>O <strong>poder comunicativo</strong> é a força geradora de consenso que emerge da comunicação orientada ao entendimento na esfera pública e na sociedade civil. Trata-se de um bem escasso que não pode ser reproduzido artificialmente pelo Estado. É a fonte legítima de toda criação jurídica democrática: as leis devem refletir o poder comunicativo dos cidadãos.</p>
+      <p>O <strong>poder administrativo</strong> é a violência organizada do Estado, que permite a constituição das instâncias do legislativo, executivo e judiciário e a tomada de decisões vinculantes. Deve ser subordinado ao poder comunicativo — mas possui uma tendência estrutural à <em>autoprogramação</em>: ele tende a produzir seus próprios programas de ação independentemente da participação cidadã, como demonstrou o fracasso do Estado do Bem-Estar.</p>
+      <p>O <strong>poder social</strong> é a capacidade de grupos de interesse de impor seus interesses nas relações sociais. Pode expressar interesses generalizáveis (como movimentos ecológicos) ou ser manipulado por grandes grupos econômicos e pela publicidade. Na perspectiva normativa da legislação, o poder social deve ser neutralizado: somente as pretensões legítimas mediadas pelo poder comunicativo devem se converter em poder administrativo.</p>
+      <p>O circuito legítimo do Estado Democrático de Direito é: poder comunicativo → (mediado pelo direito) → poder administrativo. O direito funciona como o médium que realiza essa conversão sem destruir a natureza comunicativa do poder original.</p>
+      <span class="qa-fonte">Referência: Barbieri (2009); Habermas (1994), p. 182–187</span>
+    </div>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-pergunta">
+      <span>Questão 3</span>
+      O que é a "soberania popular como procedimento"? Como Habermas supera a oposição entre liberais e republicanos?
+    </div>
+    <div class="qa-resposta">
+      <p>A oposição clássica entre liberais e republicanos gira em torno da relação entre direitos humanos e soberania popular. Para os liberais, os direitos humanos são pré-políticos e devem ser blindados contra a vontade da maioria. Para os republicanos, somente a soberania popular pode gerar direitos legítimos, incluindo os direitos humanos.</p>
+      <p>Habermas supera essa oposição com um <strong>conceito procedimental de soberania popular</strong> que abandona a filosofia do sujeito. Em vez de localizar a soberania em um sujeito individual (liberal) ou coletivo (o povo reunido, como nos republicanos), ele a difunde pelas <em>redes de comunicação</em> da esfera pública — nas trocas informais entre a sociedade civil e as instituições formais do Estado de Direito.</p>
+      <p>A soberania popular, assim concebida, é anônima e sem sujeito. Ela se manifesta como poder comunicativo: a liberdade comunicativa dos cidadãos, exercida por meio de discursos práticos (pragmáticos, éticos e morais) e negociações sob condições equitativas, que formam a opinião pública e orientam a tomada de decisões institucionais.</p>
+      <p>A chave da solução é a <em>cooriginalidade</em>: direitos humanos e soberania popular não se opõem porque se pressupõem mutuamente. Somente cidadãos portadores de direitos subjetivos fundamentais podem participar nos discursos democráticos de fundamentação do direito; e somente nesses discursos os direitos fundamentais se constituem legitimamente. Um é condição de possibilidade do outro.</p>
+      <span class="qa-fonte">Referência: Barbieri (2009); Habermas, "Soberania Popular como Procedimento" (1988) e Faktizität und Geltung (1994), p. 208–211</span>
+    </div>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-pergunta">
+      <span>Questão 4</span>
+      Como Habermas critica os paradigmas jurídicos do Estado Liberal e do Estado Social? Qual é a sua proposta alternativa?
+    </div>
+    <div class="qa-resposta">
+      <p>Habermas identifica dois paradigmas jurídicos dominantes na modernidade, que partilham um mesmo equívoco fundamental: ambos pretendem definir <em>substantivamente</em> o bem comum, em vez de garantir as condições <em>procedimentais</em> para que os cidadãos o definam por si mesmos.</p>
+      <p>O <strong>Estado Liberal</strong> funda-se na crença de que o livre-mercado, ao se autorregular, produziria trabalho livre e prosperidade. O direito liberal protege as liberdades individuais, o direito de propriedade e o cumprimento de contratos, mantendo o Estado afastado. A crítica de Habermas é dupla: empiricamente, o mercado não se autorregula e produz crises e desigualdades crescentes; normativamente, a igualdade formal perante a lei mascara desigualdades materiais reais.</p>
+      <p>O <strong>Estado Social</strong> reconhece o fracasso do liberalismo e intervém no mercado para compensar desigualdades e crises. Mas ao fazê-lo, produz um paternalismo burocrático que transforma os cidadãos em clientes dos serviços do bem-estar, adicionando uma nova forma de exclusão aos que pretendia ajudar. A juridicização excessiva das relações sociais coloniza o mundo da vida.</p>
+      <p>A proposta de Habermas é o <strong>Estado Democrático de Direito procedimental</strong>: em vez de definir conteúdos (livre-mercado ou igualdade material), o Estado deve garantir as condições de participação nos discursos públicos. A Constituição não fixa uma única concepção do bem, mas assegura os procedimentos comunicativos pelos quais os cidadãos podem definir, revisar e atualizar coletivamente seus objetivos. A legitimidade vem do processo, não do conteúdo.</p>
+      <span class="qa-fonte">Referência: slides FBuni; Barbieri (2009); Habermas (1987, 1994)</span>
+    </div>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-pergunta">
+      <span>Questão 5</span>
+      Qual é a influência do pragmatismo de Peirce na filosofia do direito de Habermas? Como Habermas se distingue de Apel nessa perspectiva?
+    </div>
+    <div class="qa-resposta">
+      <p>Segundo Rachel Herdy, a filosofia do direito de Habermas foi animada, em aspectos fundamentais, pelo espírito pragmatista de Charles Sanders Peirce. A contribuição central de Peirce foi a epistemologia semiótico-pragmatista: o conhecimento deixa de ser a certeza privada de um sujeito e passa a ser determinado pelas práticas públicas de justificação de uma <em>comunidade de investigadores</em> idealmente ampliada.</p>
+      <p>Habermas extrai de Peirce o conceito contrafático de <strong>Opinião Final</strong>: a verdade é aquilo em que, sob condições de investigação idealmente favoráveis, a comunidade acabaria acordando. Transposto para o direito, esse conceito orienta o princípio do discurso: a validade de uma norma jurídica depende do assentimento que ela poderia alcançar de todos os afetados em condições de argumentação racional. Herdy identifica ainda uma semelhança estrutural entre o princípio do discurso (D) e a Máxima Pragmática de Peirce — ambos fundamentam a validade (normativa ou epistemológica) nas consequências que podem ser antecipadas ou concebidas.</p>
+      <p>A divergência entre Habermas e Apel emerge precisamente aqui. Apel, igualmente influenciado por Peirce, desenvolve uma <em>Pragmática Transcendental</em>: os pressupostos comunicativos da argumentação são <em>a priori</em>, transcendem o mundo empírico e são condição necessária para evitar contradição performativa. Para Apel, sem esse fundamento transcendental, Habermas comete uma <em>petitio principii</em>.</p>
+      <p>Habermas recusa essa transcendentalização e opta por uma <em>Pragmática Formal</em>: os pressupostos comunicativos são <em>quasi-transcendentais</em> — necessários, mas sempre situados em contextos histórico-sociológicos do mundo da vida. Para ele, postular pressupostos que transcendem o mundo empírico representaria um retorno ao direito natural, incompatível com o pensamento pós-metafísico.</p>
+      <span class="qa-fonte">Referência: Herdy (2009); Barbieri (2009)</span>
+    </div>
+  </div>
+
+  <div class="perguntas-adicionais">
+    <h3>Questões adicionais para aprofundamento</h3>
+    <ol>
+      <li>O conceito habermasiano de "fechamento institucional" (democracia representativa deficitária, manipulação midiática, déficit educacional) descreve adequadamente o cenário político brasileiro? Quais mecanismos institucionais poderiam abrir o sistema?</li>
+      <li>Habermas afirma que o direito não imita a moral — são cooriginários, complementares, mas distintos. Essa distinção é sustentável na prática constitucional do Brasil, onde o STF frequentemente recorre a princípios morais para decidir questões políticas?</li>
+      <li>A "colonização do mundo da vida" pelo sistema econômico é um processo reversível? Quais condições institucionais permitiriam recuperar espaço para a racionalidade comunicativa?</li>
+      <li>Compare a soberania popular procedimental de Habermas com a soberania clássica de Dallari (una, indivisível, inalienável, imprescritível). As duas concepções são compatíveis ou mutuamente excludentes?</li>
+    </ol>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 11. REFERÊNCIAS -->
+<section id="refs">
+  <div class="section-label">Seção 11</div>
+  <h2>Referências</h2>
+  <ul class="ref-list">
+    <li>BARBIERI, Aylton. O estado democrático de direito. <em>Trans/Form/Ação</em>, São Paulo, v. 32, n. 1, p. 119–137, 2009.</li>
+    <li>HERDY, Rachel. Habermas, pragmatismo e direito. <em>Kriterion</em>, Belo Horizonte, n. 119, p. 43–61, jun. 2009.</li>
+    <li>HABERMAS, Jürgen. <em>Faktizität und Geltung: Beiträge zur Diskurstheorie des Rechts und des demokratischen Rechtsstaats</em>. 4. ed. Frankfurt am Main: Suhrkamp, 1994. [Trad. br.: <em>Direito e Democracia: entre facticidade e validade</em>. Rio de Janeiro: Tempo Brasileiro, 1997. 2 v.]</li>
+    <li>HABERMAS, Jürgen. <em>Theorie des kommunikativen Handelns</em>. Frankfurt am Main: Suhrkamp, 1981. [Trad. br.: <em>Teoria do Agir Comunicativo</em>. São Paulo: Martins Fontes, 2012. 2 v.]</li>
+    <li>HABERMAS, Jürgen. Soberania Popular como Procedimento. <em>Novos Estudos CEBRAP</em>, n. 26, p. 100–113, 1990. [Original: 1988]</li>
+    <li>HABERMAS, Jürgen. A nova intransparência: a crise do Estado de Bem-Estar Social e o esgotamento das energias utópicas. <em>Novos Estudos CEBRAP</em>, n. 18, p. 103–114, 1987.</li>
+    <li>PEIRCE, Charles Sanders. <em>The Collected Papers of Charles Sanders Peirce</em>. Ed. Charles Hartshorne e Paul Weiss. Cambridge: Belknap Press, 1974. v. 5–6.</li>
+    <li>APEL, Karl-Otto. <em>Transformação da Filosofia II: o a priori da comunidade de comunicação</em>. São Paulo: Loyola, 2000.</li>
+    <li>FBUNI — Centro Universitário Farias Brito. Slides: <em>Habermas e a Ambiguidade do Direito Moderno</em>. Fortaleza, 2026.</li>
+  </ul>
+</section>
+
+</main>
+</body>
+</html>

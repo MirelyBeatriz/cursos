@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Judicialização da Política</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Georgia,'Times New Roman',serif;font-size:15px;line-height:1.8;color:#1a1a1a;background:#fdfaf6}
+  .cover{background:linear-gradient(160deg,#1a3a2a 60%,#2e6b4a);color:#fff;padding:60px 48px 48px;min-height:220px;position:relative;overflow:hidden}
+  .cover::before{content:'';position:absolute;right:-40px;top:-40px;width:220px;height:220px;border-radius:50%;border:1px solid rgba(255,255,255,0.08)}
+  .cover::after{content:'';position:absolute;right:20px;top:20px;width:140px;height:140px;border-radius:50%;border:1px solid rgba(255,255,255,0.06)}
+  .cover-badge{font-family:Arial,sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:16px}
+  .cover h1{font-size:30px;font-weight:normal;letter-spacing:0.5px;margin-bottom:8px}
+  .cover-sub{font-size:14px;color:rgba(255,255,255,0.65);margin-top:8px}
+  .cover-authors{margin-top:24px;font-size:13px;color:rgba(255,255,255,0.5);border-top:1px solid rgba(255,255,255,0.12);padding-top:16px}
+  .toc{background:#fff;border-bottom:1px solid #e8e2d8;padding:28px 48px}
+  .toc h2{font-family:Arial,sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-bottom:16px;font-weight:normal}
+  .toc-list{list-style:none}
+  .toc-list li{display:flex;align-items:baseline;gap:8px;padding:5px 0;font-size:14px}
+  .toc-list li a{color:#1a3a2a;text-decoration:none}
+  .toc-list li a:hover{text-decoration:underline}
+  .toc-num{font-family:Arial,sans-serif;font-size:11px;color:#aaa;min-width:20px}
+  .toc-dots{flex:1;border-bottom:1px dotted #d0c9be;margin:0 6px}
+  .toc-pg{font-family:Arial,sans-serif;font-size:12px;color:#aaa}
+  main{max-width:720px;margin:0 auto;padding:40px 48px 80px}
+  section{margin-bottom:52px}
+  .section-label{font-family:Arial,sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#2e6b4a;margin-bottom:6px}
+  h2{font-size:22px;font-weight:normal;color:#1a3a2a;margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid #e0d8cc}
+  h3{font-size:16px;font-weight:normal;color:#1a3a2a;margin:28px 0 10px;font-style:italic}
+  p{margin-bottom:14px;text-align:justify}
+  .quote-block{margin:24px 0;padding:16px 20px 16px 24px;border-left:3px solid #1a3a2a;background:#f4f0e8;border-radius:0 4px 4px 0}
+  .quote-block p{margin:0;font-style:italic;font-size:14px;color:#2a2a2a;line-height:1.75}
+  .quote-ref{font-family:Arial,sans-serif;font-size:11px;color:#888;margin-top:6px;font-style:normal}
+  .concept-box{background:#fff;border:1px solid #ddd7cc;border-radius:6px;padding:16px 20px;margin:20px 0}
+  .concept-box .cb-label{font-family:Arial,sans-serif;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-bottom:8px}
+  .concept-box p{margin:0;font-size:14px}
+  .highlight-box{background:#1a3a2a;color:#fff;border-radius:6px;padding:18px 22px;margin:24px 0}
+  .highlight-box p{color:rgba(255,255,255,0.9);margin:0;font-size:14px;line-height:1.75}
+  .highlight-box strong{color:#fff}
+  .power-diagram{display:flex;gap:12px;margin:20px 0;align-items:stretch;flex-wrap:wrap}
+  .power-pillar{flex:1;min-width:160px;border:1px solid #ddd7cc;border-radius:6px;overflow:hidden;background:#fff}
+  .power-pillar-header{background:#1a3a2a;color:#fff;padding:10px 12px;text-align:center;font-family:Arial,sans-serif;font-size:12px;letter-spacing:0.5px}
+  .power-pillar-body{padding:12px;font-size:12px;color:#444;line-height:1.6}
+  .power-pillar-body li{list-style:none;padding:3px 0;border-bottom:1px solid #f0ece4}
+  .power-pillar-body li:last-child{border-bottom:none}
+  .power-pillar-body li::before{content:"→ ";color:#2e6b4a}
+  .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0}
+  .compare-card{border:1px solid #ddd7cc;border-radius:6px;padding:16px 18px;background:#fff}
+  .compare-card .cc-title{font-family:Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#fff;background:#1a3a2a;display:inline-block;padding:3px 10px;border-radius:3px;margin-bottom:10px}
+  .compare-card ul{list-style:none;padding:0}
+  .compare-card ul li{font-size:13px;padding:4px 0;border-bottom:1px solid #f0ece4;color:#333;line-height:1.5}
+  .compare-card ul li:last-child{border-bottom:none}
+  .compare-card ul li::before{content:"▸ ";color:#2e6b4a;font-size:11px}
+  .ausencia-grid{display:grid;grid-template-columns:1fr;gap:12px;margin:20px 0}
+  .ausencia-item{border:1px solid #ddd7cc;border-radius:6px;overflow:hidden;background:#fff}
+  .ausencia-header{background:#2e6b4a;color:#fff;padding:8px 16px;font-family:Arial,sans-serif;font-size:12px;letter-spacing:0.5px}
+  .ausencia-body{padding:12px 16px;font-size:13px;color:#444;line-height:1.6}
+  .ref-list{list-style:none;padding:0}
+  .ref-list li{font-size:13px;padding:5px 0;border-bottom:1px dotted #e0d8cc;color:#444}
+  .ref-list li:last-child{border-bottom:none}
+  .section-divider{text-align:center;color:#ccc;letter-spacing:8px;margin:32px 0;font-size:12px}
+  .resumo-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0}
+  .resumo-card{background:#fff;border:1px solid #ddd7cc;border-radius:6px;overflow:hidden}
+  .resumo-card-header{background:#1a3a2a;color:#fff;padding:8px 14px;font-family:Arial,sans-serif;font-size:11px;letter-spacing:0.8px}
+  .resumo-card-body{padding:12px 14px}
+  .resumo-card-body ul{list-style:none;padding:0}
+  .resumo-card-body ul li{font-size:13px;padding:4px 0;border-bottom:1px solid #f5f2ec;color:#333;line-height:1.5}
+  .resumo-card-body ul li:last-child{border-bottom:none}
+  .resumo-card-body ul li::before{content:"• ";color:#2e6b4a}
+  .conceitos-chave{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0}
+  .ck-item{background:#f4f0e8;border-radius:5px;padding:10px 12px;text-align:center}
+  .ck-term{font-family:Arial,sans-serif;font-size:12px;font-weight:bold;color:#1a3a2a;margin-bottom:4px}
+  .ck-def{font-size:11px;color:#555;line-height:1.45}
+  .mapa-obras{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}
+  .mo-card{border:1px solid #ddd7cc;border-radius:5px;overflow:hidden;background:#fff}
+  .mo-header{background:#2e6b4a;color:#fff;padding:6px 12px;font-family:Arial,sans-serif;font-size:11px}
+  .mo-body{padding:10px 12px;font-size:12px;color:#444}
+  .mo-body li{list-style:none;padding:2px 0}
+  .mo-body li::before{content:"→ ";color:#2e6b4a;font-size:11px}
+  .qa-item{margin-bottom:24px;border:1px solid #ddd7cc;border-radius:6px;overflow:hidden;background:#fff}
+  .qa-pergunta{background:#1a3a2a;color:#fff;padding:12px 18px;font-size:14px;font-family:Georgia,serif;line-height:1.5}
+  .qa-pergunta span{font-family:Arial,sans-serif;font-size:11px;color:rgba(255,255,255,0.5);display:block;margin-bottom:4px;letter-spacing:1px}
+  .qa-resposta{padding:16px 18px}
+  .qa-resposta p{margin-bottom:10px;font-size:14px}
+  .qa-resposta p:last-child{margin-bottom:0}
+  .qa-resposta ul{list-style:none;padding:0;margin:8px 0}
+  .qa-resposta ul li{font-size:13px;padding:4px 0;border-bottom:1px solid #f5f2ec;color:#333}
+  .qa-resposta ul li:last-child{border-bottom:none}
+  .qa-resposta ul li::before{content:"▸ ";color:#2e6b4a}
+  .qa-fonte{font-family:Arial,sans-serif;font-size:11px;color:#aaa;margin-top:10px;font-style:normal;display:block}
+  .perguntas-adicionais{background:#f0f7f4;border:1px solid #b4d4c4;border-radius:6px;padding:20px 24px;margin-top:20px}
+  .perguntas-adicionais h3{font-style:normal;margin:0 0 14px;font-size:14px;font-family:Arial,sans-serif;letter-spacing:0.5px;color:#444}
+  .perguntas-adicionais ol{padding-left:18px}
+  .perguntas-adicionais ol li{font-size:14px;padding:5px 0;color:#333}
+  .alerta-box{background:#fff8e1;border:1px solid #f0c040;border-radius:6px;padding:14px 18px;margin:20px 0;font-size:13px;color:#555}
+  .alerta-box strong{color:#b8860b}
+  @media(max-width:600px){
+    main{padding:24px 20px 60px}
+    .cover{padding:40px 24px 32px}
+    .toc{padding:20px 24px}
+    .compare-grid,.resumo-grid,.conceitos-chave,.mapa-obras{grid-template-columns:1fr}
+    .power-diagram{flex-direction:column}
+  }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="cover-badge">Introdução ao Estudo do Direito · Graduação</div>
+  <h1>Judicialização da Política e o STF</h1>
+  <p class="cover-sub">A toga de fumaça, o HC 152.752/PR e o perigo democrático brasileiro</p>
+  <div class="cover-authors">
+    Baseado em Lima &amp; Gonçalves (2024) · <em>Revista Brasileira de Estudos Políticos</em>, n. 129
+  </div>
+</div>
+
+<div class="toc">
+  <h2>Sumário</h2>
+  <ul class="toc-list">
+    <li><span class="toc-num">1.</span><a href="#contexto">Contexto: neoconstitucionalismo e poder judiciário</a><span class="toc-dots"></span><span class="toc-pg">§1</span></li>
+    <li><span class="toc-num">2.</span><a href="#faces">As três faces da judicialização (Ran Hirschl)</a><span class="toc-dots"></span><span class="toc-pg">§2</span></li>
+    <li><span class="toc-num">3.</span><a href="#brasil">Judicialização no Brasil redemocratizado</a><span class="toc-dots"></span><span class="toc-pg">§3</span></li>
+    <li><span class="toc-num">4.</span><a href="#hc">O julgamento do HC 152.752/PR</a><span class="toc-dots"></span><span class="toc-pg">§4</span></li>
+    <li><span class="toc-num">5.</span><a href="#toga">A toga de fumaça e a judicialização turva</a><span class="toc-dots"></span><span class="toc-pg">§5</span></li>
+    <li><span class="toc-num">6.</span><a href="#consequencias">Consequências democráticas</a><span class="toc-dots"></span><span class="toc-pg">§6</span></li>
+    <li><span class="toc-num">7.</span><a href="#resumo">Resumo para revisão</a><span class="toc-dots"></span><span class="toc-pg">§7</span></li>
+    <li><span class="toc-num">8.</span><a href="#fixacao">Questões com respostas</a><span class="toc-dots"></span><span class="toc-pg">§8</span></li>
+    <li><span class="toc-num">9.</span><a href="#refs">Referências</a><span class="toc-dots"></span><span class="toc-pg">§9</span></li>
+  </ul>
+</div>
+
+<main>
+
+<!-- 1. CONTEXTO -->
+<section id="contexto">
+  <div class="section-label">Seção 1</div>
+  <h2>Contexto: neoconstitucionalismo e poder judiciário</h2>
+
+  <p>No século XX, o movimento jurídico-político neoconstitucionalista atribuiu efeito normativo às constituições e, por meio da crescente atuação do Poder Judiciário, visou a uma maior proteção dos direitos e garantias fundamentais. Juízes e tribunais passaram a decidir, recorrentemente, dilemas cujas implicações refletiram nas estruturas basilares das sociedades contemporâneas.</p>
+
+  <p>No Brasil, esse processo tornou-se especialmente visível após a redemocratização de 1985 e a promulgação da Constituição Federal de 1988, a chamada "Constituição Cidadã". Com o Executivo e o Legislativo fragilizados e sem delimitação clara de prerrogativas, o Poder Judiciário assumiu o papel de moderador político e "construtor da ordem".</p>
+
+  <div class="concept-box">
+    <div class="cb-label">Definição central</div>
+    <p>A <strong>judicialização da política</strong> é o fenômeno no qual juízes e tribunais — em especial cortes constitucionais — decidem controvérsias que ultrapassam as barreiras jurídicas tradicionais e incidem diretamente sobre os pilares democráticos das sociedades contemporâneas. A competência para resolver dilemas políticos desloca-se do povo e dos Poderes representativos (Executivo e Legislativo) para o Poder Judiciário.</p>
+  </div>
+
+  <div class="alerta-box">
+    <strong>⚠ Distinção importante:</strong> Judicialização da política ≠ ativismo judicial. O ativismo é uma postura interpretativa ativa do juiz; a judicialização é um fenômeno estrutural de deslocamento de poder. Confundi-los é erro frequente em provas.
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 2. AS TRÊS FACES -->
+<section id="faces">
+  <div class="section-label">Seção 2</div>
+  <h2>As três faces da judicialização (Ran Hirschl)</h2>
+
+  <p>O autor canadense Ran Hirschl subdivide a judicialização da política em três categorias, por ele chamadas de "faces". Esta é a taxonomia central do artigo e tende a ser cobrada em provas.</p>
+
+  <div class="power-diagram">
+    <div class="power-pillar">
+      <div class="power-pillar-header">1ª Face — Orgânica</div>
+      <ul class="power-pillar-body">
+        <li>Disseminação de discursos e jargões jurídicos na esfera política</li>
+        <li>Substituição do status informal pelo processo judicial formal</li>
+        <li>Regulação social via Direito</li>
+        <li>Menos relevante para o artigo em estudo</li>
+      </ul>
+    </div>
+    <div class="power-pillar">
+      <div class="power-pillar-header">2ª Face — Vinda de Baixo</div>
+      <ul class="power-pillar-body">
+        <li>Expansão do Judiciário para definir políticas públicas</li>
+        <li>Proteção do devido processo legal (ex.: caso Ramdan v. Rumsfeld)</li>
+        <li>Proteção de direitos fundamentais (ex.: Brown v. Board of Education)</li>
+        <li>Uso "comum" do controle de constitucionalidade</li>
+      </ul>
+    </div>
+    <div class="power-pillar">
+      <div class="power-pillar-header">3ª Face — Megapolítica</div>
+      <ul class="power-pillar-body">
+        <li>Julgamento de controvérsias políticas nucleares</li>
+        <li>Interferência em processos eleitorais</li>
+        <li>Corroboração de transformações de regime político</li>
+        <li>Formação de identidades coletivas</li>
+        <li>Ex.: impeachment sul-coreano (Roh Moo-Hyun, 2004)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <p><strong>Por que a megapolítica é a mais perigosa?</strong> Porque incide sobre dilemas eminentemente morais e políticos — e não jurídicos —, representando o maior risco de desmantelamento democrático. Ela coloca em xeque as credenciais democráticas da jurisdição constitucional.</p>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 3. BRASIL -->
+<section id="brasil">
+  <div class="section-label">Seção 3</div>
+  <h2>Judicialização no Brasil redemocratizado</h2>
+
+  <p>Após o regime ditatorial de 1964–1985, a democracia brasileira em formação enfrentou duplo vácuo institucional: o povo, detentor da soberania, não sabia como exercer o poder cidadão; os Três Poderes não sabiam como fundar e consolidar o welfare state.</p>
+
+  <p>Nesse contexto, o STF assumiu gradualmente o papel de intérprete-último e guardião constitucional, buscando promover uma "revolução sem revolução" — transição não disruptiva do regime ditatorial ao democrático.</p>
+
+  <h3>Casos emblemáticos de judicialização no Brasil</h3>
+
+  <div class="mapa-obras">
+    <div class="mo-card">
+      <div class="mo-header">2ª Face (Vinda de Baixo)</div>
+      <ul class="mo-body">
+        <li>ADPF 54/DF (2012) — aborto de fetos anencéfalos</li>
+        <li>RE 597.285/RS (2012) — cotas raciais na UFRGS</li>
+        <li>ADI 4.277 (2011) — união homoafetiva equiparada ao casamento civil</li>
+        <li>ADO 26 (2019) — criminalização da homo/transfobia</li>
+      </ul>
+    </div>
+    <div class="mo-card">
+      <div class="mo-header">3ª Face (Megapolítica)</div>
+      <ul class="mo-body">
+        <li>ADPF 378/DF e ADI 5.498/DF (2016) — rito do impeachment de Dilma Rousseff</li>
+        <li>HC 152.752/PR (2018) — prisão provisória de Lula; exclusão das eleições presidenciais</li>
+        <li>ADC 43, 44 e 54 (2019) — reversão do entendimento sobre prisão em 2ª instância</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="concept-box">
+    <div class="cb-label">Inflação institucional</div>
+    <p>A aceitação popular da atuação do STF na proteção de direitos fundamentais gerou a <strong>inflação institucional da Corte</strong>: ao ser reconhecido como agente de transformação social, o Judiciário expandiu progressivamente seu campo de atuação até alcançar dilemas de política pura.</p>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 4. HC -->
+<section id="hc">
+  <div class="section-label">Seção 4</div>
+  <h2>O julgamento do HC 152.752/PR</h2>
+
+  <p>Em 04 de abril de 2018 — poucos meses antes das eleições presidenciais —, o STF julgou o Habeas Corpus 152.752/PR, impetrado pelo ex-presidente Luiz Inácio Lula da Silva, pré-candidato de maior popularidade naquele ano.</p>
+
+  <h3>O que estava em jogo</h3>
+
+  <div class="compare-grid">
+    <div class="compare-card">
+      <span class="cc-title">Argumento da defesa</span>
+      <ul>
+        <li>A prisão provisória após condenação em 2ª instância (TRF-4) afrontaria a presunção de inocência</li>
+        <li>Fundamento: art. 5º, LVII, CF/88 — ninguém será considerado culpado até o trânsito em julgado</li>
+        <li>Comitê de DH da ONU determinou que o Brasil garantisse a participação de Lula nas eleições</li>
+      </ul>
+    </div>
+    <div class="compare-card">
+      <span class="cc-title">Decisão do STF</span>
+      <ul>
+        <li>Constitucionalidade da prisão provisória a partir da condenação em 2ª instância</li>
+        <li>Relatoria do Min. Edson Fachin — interpretação extensiva do art. 5º, LVII</li>
+        <li>Lula preso em 07/04/2018; ficou 580 dias na prisão</li>
+        <li>TSE rejeitou decisão cautelar da ONU (6 votos a 1)</li>
+        <li>Em novembro de 2019, o próprio STF reverteu o entendimento nas ADCs 43, 44 e 54</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="alerta-box">
+    <strong>⚠ Contradição central:</strong> Em 2018, o STF considerou constitucional a prisão em 2ª instância. Em novembro de 2019 — sem mudança fática ou legislativa —, o mesmo tribunal declarou inconstitucional essa prisão, confirmando o art. 283 do CPP. Essa <em>imprevisibilidade decisional</em> é um dos pilares do conceito de "toga de fumaça".
+  </div>
+
+  <h3>Natureza híbrida do julgamento</h3>
+  <p>O HC 152.752/PR apresenta elementos de <em>duas</em> faces da judicialização ao mesmo tempo:</p>
+
+  <div class="ausencia-grid">
+    <div class="ausencia-item">
+      <div class="ausencia-header">2ª Face — Judicialização vinda de baixo</div>
+      <div class="ausencia-body">O STF decidiu sobre a aplicação do princípio da presunção de inocência e do devido processo legal — matéria de direitos fundamentais. Utilizou os mecanismos "comuns" do controle de constitucionalidade para resolver o conflito jurídico.</div>
+    </div>
+    <div class="ausencia-item">
+      <div class="ausencia-header">3ª Face — Judicialização da megapolítica</div>
+      <div class="ausencia-body">Ao determinar a exclusão do candidato de maior popularidade do processo eleitoral de 2018, o STF interferiu diretamente no principal processo democrático de uma república presidencialista. Restringiu o sufrágio popular e a autodeterminação política do povo — sem dialogar com o soberano.</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 5. TOGA DE FUMAÇA -->
+<section id="toga">
+  <div class="section-label">Seção 5</div>
+  <h2>A toga de fumaça e a judicialização turva</h2>
+
+  <p>O conceito central do artigo é a <strong>judicialização turva da política</strong>, que os autores identificam como uma quarta face não prevista por Hirschl. Ela consiste na interferência do STF em controvérsias políticas nucleares sob o falso argumento de estar resolvendo impasses de direitos fundamentais.</p>
+
+  <div class="quote-block">
+    <p>A judicialização turva da política consiste na judicialização da megapolítica travestida de judicialização vinda de baixo.</p>
+    <div class="quote-ref">Lima &amp; Gonçalves, 2024, p. 423</div>
+  </div>
+
+  <h3>O mecanismo da toga de fumaça</h3>
+  <p>A toga de fumaça é o <em>construto heurístico</em> pelo qual o STF reveste seus vereditos políticos de fundamentos jurídicos, tornando-se praticamente intangível a qualquer crítica ou limitação funcional. O mecanismo opera assim:</p>
+
+  <div class="ausencia-grid">
+    <div class="ausencia-item">
+      <div class="ausencia-header">Passo 1 — Abertura semântica dos princípios</div>
+      <div class="ausencia-body">O STF se vale da textura aberta dos princípios constitucionais (dignidade da pessoa humana, devido processo legal, presunção de inocência) para adaptar seu sentido conforme a agenda política da Corte — sem adotar critério interpretativo definitivo.</div>
+    </div>
+    <div class="ausencia-item">
+      <div class="ausencia-header">Passo 2 — Conversão do político em jurídico</div>
+      <div class="ausencia-body">Decisões sobre a <em>raison d'être</em> da democracia brasileira são apresentadas como meras determinações sobre embates entre direitos fundamentais, ocultando seu caráter político nuclear.</div>
+    </div>
+    <div class="ausencia-item">
+      <div class="ausencia-header">Passo 3 — Intangibilidade política</div>
+      <div class="ausencia-body">Revestido de toga de fumaça, o STF torna-se insuscetível a críticas técnicas ou limitações funcionais. Qualquer questionamento é repelido como "ataque às instituições" ou "desrespeito à Constituição".</div>
+    </div>
+    <div class="ausencia-item">
+      <div class="ausencia-header">Passo 4 — Exercício funcional ilimitado</div>
+      <div class="ausencia-body">A intangibilidade resultante permite que o STF potencialmente resolva qualquer controvérsia política nuclear, submetendo a vontade popular à vontade do Poder Judiciário.</div>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <p><strong>Metáfora de Ingeborg Maus:</strong> O STF se propõe a representar o <em>Superego</em> que freia os impulsos destrutivos do povo (o <em>Id</em> da sociedade brasileira). Na prática, porém, apenas freia os impulsos políticos populares — imprescindíveis para a consolidação do estado democrático de direito.</p>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 6. CONSEQUÊNCIAS -->
+<section id="consequencias">
+  <div class="section-label">Seção 6</div>
+  <h2>Consequências democráticas</h2>
+
+  <p>Os autores identificam três consequências principais da judicialização turva da política para a democracia brasileira:</p>
+
+  <div class="compare-grid">
+    <div class="compare-card">
+      <span class="cc-title">1. Infantilização política</span>
+      <ul>
+        <li>O povo e seus representantes tornam-se dependentes do STF</li>
+        <li>A construção da identidade nacional fica à mercê da Corte</li>
+        <li>Relação de subalternação com o Judiciário se consolida</li>
+      </ul>
+    </div>
+    <div class="compare-card">
+      <span class="cc-title">2. Inibição da ruptura social</span>
+      <ul>
+        <li>O STF produz apenas "revolução sem revolução"</li>
+        <li>Preserva os vínculos pré-redemocratização superficialmente rompidos</li>
+        <li>Consolida democracia dependente da Corte, não do pluralismo político</li>
+      </ul>
+    </div>
+    <div class="compare-card">
+      <span class="cc-title">3. Usurpação da soberania</span>
+      <ul>
+        <li>CF/88, art. 1º: o poder emana do povo</li>
+        <li>CF/88, art. 14: soberania exercida pelo sufrágio universal</li>
+        <li>Ao excluir Lula das eleições, o STF limitou o direito ao voto</li>
+        <li>O povo soberano submeteu-se ao STF soberano usurpador</li>
+      </ul>
+    </div>
+    <div class="compare-card">
+      <span class="cc-title">Risco final: Juristocracia</span>
+      <ul>
+        <li>País cujo poder absoluto se concentra em juízes e tribunais — e não no povo</li>
+        <li>Forma anômala de governo: governo de juízes soberanos</li>
+        <li>Talvez o julgamento do HC 152.752/PR tenha marcado o início dessa forma de governo no Brasil</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 7. RESUMO -->
+<section id="resumo">
+  <div class="section-label">Seção 7</div>
+  <h2>Resumo para revisão</h2>
+
+  <h3>Conceitos fundamentais</h3>
+  <div class="conceitos-chave">
+    <div class="ck-item"><div class="ck-term">Judicialização da política</div><div class="ck-def">Interferência do Judiciário em dilemas políticos, morais e culturais, deslocando poder dos representantes tradicionais.</div></div>
+    <div class="ck-item"><div class="ck-term">3 faces de Hirschl</div><div class="ck-def">Orgânica, vinda de baixo e da megapolítica. O HC 152.752/PR combina a 2ª e a 3ª face simultaneamente.</div></div>
+    <div class="ck-item"><div class="ck-term">Judicialização turva</div><div class="ck-def">4ª face: megapolítica travestida de vinda de baixo. O STF decide política nuclear fingindo decidir direitos fundamentais.</div></div>
+    <div class="ck-item"><div class="ck-term">Toga de fumaça</div><div class="ck-def">Construto heurístico que reveste decisões políticas de fundamentos jurídicos, tornando o STF intangível a críticas.</div></div>
+    <div class="ck-item"><div class="ck-term">Juristocracia</div><div class="ck-def">Governo de juízes soberanos — forma anômala de governo em que o Judiciário usurpa a soberania popular.</div></div>
+    <div class="ck-item"><div class="ck-term">Neoconstitucionalismo</div><div class="ck-def">Movimento que atribuiu efeito normativo às constituições e expandiu o papel do Judiciário na proteção de direitos.</div></div>
+  </div>
+
+  <h3>Linha do tempo do HC 152.752/PR</h3>
+  <div class="resumo-grid">
+    <div class="resumo-card">
+      <div class="resumo-card-header">Eventos de 2018</div>
+      <ul class="resumo-card-body">
+        <li>24/01/2018 — TRF-4 confirma condenação de Lula</li>
+        <li>04/04/2018 — STF julga HC 152.752/PR; constitucionalidade da prisão em 2ª instância</li>
+        <li>07/04/2018 — Lula preso (início de 580 dias de prisão)</li>
+        <li>17/08/2018 — ONU/CDH determina garantia de participação eleitoral de Lula</li>
+        <li>01/09/2018 — TSE rejeita decisão cautelar da ONU (6 × 1)</li>
+      </ul>
+    </div>
+    <div class="resumo-card">
+      <div class="resumo-card-header">A virada de 2019</div>
+      <ul class="resumo-card-body">
+        <li>07/11/2019 — STF julga ADCs 43, 44 e 54</li>
+        <li>Decide pela constitucionalidade do art. 283 do CPP</li>
+        <li>Reconhece: prisão somente após trânsito em julgado</li>
+        <li>Sem mudança fática ou legislativa desde 2018</li>
+        <li>Evidência da imprevisibilidade decisional e da toga de fumaça</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>As 4 conclusões do artigo</h3>
+  <div class="ausencia-grid">
+    <div class="ausencia-item">
+      <div class="ausencia-header">1ª — Judicialização como fenômeno global</div>
+      <div class="ausencia-body">A judicialização da política, segundo Hirschl, subdivide-se em três faces. A megapolítica representa o maior risco social, colocando em xeque as credenciais democráticas da jurisdição constitucional.</div>
+    </div>
+    <div class="ausencia-item">
+      <div class="ausencia-header">2ª — O Brasil como caso exemplar</div>
+      <div class="ausencia-body">O STF pós-redemocratização assumiu progressivamente o papel de transformador social, chegando a resolver impasses políticos nucleares (impeachment de Dilma, HC 152.752/PR) que moldaram a identidade nacional.</div>
+    </div>
+    <div class="ausencia-item">
+      <div class="ausencia-header">3ª — HC 152.752/PR como julgamento híbrido</div>
+      <div class="ausencia-body">O caso possui elementos tanto da judicialização vinda de baixo (direitos fundamentais / presunção de inocência) quanto da megapolítica (interferência no processo eleitoral de 2018). É, portanto, um julgamento de natureza híbrida.</div>
+    </div>
+    <div class="ausencia-item">
+      <div class="ausencia-header">4ª — Toga de fumaça e juricialização turva</div>
+      <div class="ausencia-body">Ao decidir política nuclear fingindo decidir direitos fundamentais, o STF cobriu-se de toga de fumaça, obteve intangibilidade política e inaugurou a juricialização turva — pavimentando o caminho para a juristocracia.</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 8. QUESTÕES -->
+<section id="fixacao">
+  <div class="section-label">Seção 8</div>
+  <h2>Questões com respostas</h2>
+
+  <div class="qa-item">
+    <div class="qa-pergunta">
+      <span>Questão 1</span>
+      O que é judicialização da política e como ela se distingue do ativismo judicial?
+    </div>
+    <div class="qa-resposta">
+      <p>A <strong>judicialização da política</strong> é um fenômeno estrutural: a interferência do Poder Judiciário — especialmente de cortes constitucionais — na resolução de controvérsias que ultrapassam as barreiras jurídicas e incidem sobre os pilares democráticos das sociedades. O poder de resolver dilemas políticos desloca-se dos representantes tradicionais (Executivo e Legislativo) para o Judiciário.</p>
+      <p>O <strong>ativismo judicial</strong>, por sua vez, é uma postura interpretativa: o comportamento do juiz que, ao interpretar a lei, expande criativamente o alcance das normas para além do texto legal, muitas vezes tomando decisões que caberiam ao legislador. Enquanto a judicialização descreve <em>quem</em> decide (o Judiciário, em lugar dos poderes representativos), o ativismo descreve <em>como</em> o juiz decide (interpretativamente expansivo).</p>
+      <p>Os dois fenômenos se alimentam mutuamente: a expansão do ativismo judicial favorece a judicialização; e a judicialização, ao transferir poder para o Judiciário, cria incentivos para o ativismo.</p>
+      <span class="qa-fonte">Referência: Lima &amp; Gonçalves, 2024, pp. 406–407</span>
+    </div>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-pergunta">
+      <span>Questão 2</span>
+      Explique as três faces da judicialização da política segundo Ran Hirschl e enquadre o HC 152.752/PR nessa tipologia.
+    </div>
+    <div class="qa-resposta">
+      <p>Ran Hirschl distingue três faces:</p>
+      <ul>
+        <li><strong>Judicialização orgânica:</strong> disseminação de jargões e procedimentos jurídicos na vida cotidiana e política. É a forma mais difusa e menos relevante para o caso em análise.</li>
+        <li><strong>Judicialização vinda de baixo:</strong> expansão do Judiciário para definir políticas públicas, garantir o devido processo legal e proteger direitos fundamentais via controle de constitucionalidade. Exemplo: <em>Brown v. Board of Education</em> (segregação racial escolar).</li>
+        <li><strong>Judicialização da megapolítica:</strong> julgamento de controvérsias políticas nucleares que definem a raison d'être de uma sociedade, incluindo interferência em processos eleitorais e transformações de regime. Exemplo: impeachment sul-coreano de Roh Moo-Hyun (2004).</li>
+      </ul>
+      <p>O HC 152.752/PR é um <strong>julgamento híbrido</strong>: ao decidir sobre a presunção de inocência e o devido processo legal, exibe traços da 2ª face; ao excluir o candidato de maior popularidade das eleições presidenciais de 2018 — sem diálogo com o povo soberano —, configura a 3ª face. Os autores denominam essa combinação de <em>judicialização turva da política</em>: a megapolítica travestida de vinda de baixo.</p>
+      <span class="qa-fonte">Referência: Lima &amp; Gonçalves, 2024, pp. 408–423</span>
+    </div>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-pergunta">
+      <span>Questão 3</span>
+      O que é a "toga de fumaça" do STF e quais são suas consequências para a democracia brasileira?
+    </div>
+    <div class="qa-resposta">
+      <p>A toga de fumaça é um <strong>construto heurístico</strong> pelo qual o Supremo Tribunal Federal reveste decisões de natureza eminentemente política de fundamentos jurídicos. Isso é possível pela abertura semântica dos princípios constitucionais, que permite à Corte adaptar seu sentido conforme a própria agenda política, sem adotar critério interpretativo definitivo.</p>
+      <p>No HC 152.752/PR, o STF decidiu uma controvérsia política nuclear — a participação de Lula nas eleições de 2018 — sob o pretexto de resolver um conflito sobre direitos fundamentais. Ao fazê-lo, revestiu-se de intangibilidade política que o tornou insuscetível a qualquer crítica ou limitação funcional.</p>
+      <p>As principais consequências são:</p>
+      <ul>
+        <li><strong>Infantilização política:</strong> o povo e seus representantes tornam-se politicamente dependentes do STF, incapazes de decidir sozinhos as grandes controvérsias nacionais.</li>
+        <li><strong>Inibição da ruptura social:</strong> o Judiciário produz mudanças apenas formais, preservando os vínculos estruturais do período pré-democrático.</li>
+        <li><strong>Usurpação da soberania:</strong> o povo, soberano constitucional (CF/88, arts. 1º e 14), submete-se ao STF soberano usurpador — pavimentando o caminho para a <em>juristocracia</em>.</li>
+      </ul>
+      <span class="qa-fonte">Referência: Lima &amp; Gonçalves, 2024, pp. 422–427</span>
+    </div>
+  </div>
+
+  <div class="perguntas-adicionais">
+    <h3>Questões adicionais para aprofundamento</h3>
+    <ol>
+      <li>A reversão do entendimento sobre prisão em 2ª instância em 2019 (ADCs 43, 44 e 54), sem qualquer mudança fática ou legislativa, confirma ou refuta a teoria da toga de fumaça? Justifique.</li>
+      <li>Compare o papel do Judiciário na teoria de Montesquieu (juiz como "boca da lei") com o que o STF exerce na prática descrita pelo artigo. Quais seriam as implicações de cada modelo para a separação dos poderes?</li>
+      <li>A decisão do Comitê de Direitos Humanos da ONU, ignorada pelo TSE, levanta questões sobre soberania nacional e direito internacional. Como a teoria da soberania (Bodin, Hobbes) se aplica a esse conflito?</li>
+      <li>A metáfora freudiana de Ingeborg Maus — STF como Superego, povo como Id — é adequada para descrever a relação entre Judiciário e sociedade brasileira? Há limites nessa analogia?</li>
+    </ol>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 9. REFERÊNCIAS -->
+<section id="refs">
+  <div class="section-label">Seção 9</div>
+  <h2>Referências</h2>
+  <ul class="ref-list">
+    <li>LIMA, Martonio Mont'Alverne Barreto; GONÇALVES, Ítalo Reis. A judicialização turva da política no Brasil redemocratizado: o julgamento do Habeas Corpus 152.752/PR e a toga de fumaça do Supremo Tribunal Federal. <em>Revista Brasileira de Estudos Políticos</em>, Belo Horizonte, n. 129, pp. 393–435, jul./dez. 2024.</li>
+    <li>HIRSCHL, Ran. The new constitutionalism and the judicialization of pure politics worldwide. <em>Fordham Law Review</em>, New York, v. 75, n. 2, pp. 721–753, 2006.</li>
+    <li>HIRSCHL, Ran. <em>Towards Juristocracy: The Origins and Consequences of the New Constitutionalism</em>. Cambridge: Harvard University Press, 2007.</li>
+    <li>BARROSO, Luís Roberto. A razão sem voto: o Supremo Tribunal Federal e o governo da maioria. <em>Revista Brasileira de Políticas Públicas</em>, Brasília, v. 5, Número Especial, pp. 23–50, 2015.</li>
+    <li>MAUS, Ingeborg. Judiciário como Superego da Sociedade: o papel da atividade jurisprudencial na "sociedade órfã". <em>Novos Estudos CEBRAP</em>, São Paulo, n. 58, pp. 183–202, 2000.</li>
+    <li>WALDRON, Jeremy. The core of the case against judicial review. <em>Yale Law Journal</em>, Connecticut, n. 115, pp. 1346–1406, 2006.</li>
+    <li>BRASIL. Constituição da República Federativa do Brasil de 1988. Brasília: Senado, 1988.</li>
+    <li>BRASIL. STF. Habeas Corpus 152.752/PR. Brasília, 04 abr. 2018.</li>
+  </ul>
+</section>
+
+</main>
+</body>
+</html>

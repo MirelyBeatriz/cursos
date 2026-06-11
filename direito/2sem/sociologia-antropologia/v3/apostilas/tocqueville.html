@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tocqueville — Sociologia e Antropologia Jurídica</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Georgia,'Times New Roman',serif;font-size:15px;line-height:1.8;color:#1a1a1a;background:#fdfaf6}
+  .cover{background:linear-gradient(160deg,#1a3a2a 60%,#2a5a3a);color:#fff;padding:60px 48px 48px;min-height:220px;position:relative;overflow:hidden}
+  .cover::before{content:'';position:absolute;right:-40px;top:-40px;width:220px;height:220px;border-radius:50%;border:1px solid rgba(255,255,255,0.08)}
+  .cover::after{content:'';position:absolute;right:20px;top:20px;width:140px;height:140px;border-radius:50%;border:1px solid rgba(255,255,255,0.06)}
+  .cover-badge{font-family:Arial,sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:16px}
+  .cover h1{font-size:32px;font-weight:normal;letter-spacing:0.5px;margin-bottom:8px}
+  .cover-sub{font-size:14px;color:rgba(255,255,255,0.65);margin-top:8px}
+  .cover-authors{margin-top:24px;font-size:13px;color:rgba(255,255,255,0.5);border-top:1px solid rgba(255,255,255,0.12);padding-top:16px}
+  .toc{background:#fff;border-bottom:1px solid #e8e2d8;padding:28px 48px}
+  .toc h2{font-family:Arial,sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-bottom:16px;font-weight:normal}
+  .toc-list{list-style:none}
+  .toc-list li{display:flex;align-items:baseline;gap:8px;padding:5px 0;font-size:14px}
+  .toc-list li a{color:#1a3a2a;text-decoration:none}
+  .toc-list li a:hover{text-decoration:underline}
+  .toc-num{font-family:Arial,sans-serif;font-size:11px;color:#aaa;min-width:20px}
+  .toc-dots{flex:1;border-bottom:1px dotted #d0c9be;margin:0 6px}
+  .toc-pg{font-family:Arial,sans-serif;font-size:12px;color:#aaa}
+  main{max-width:720px;margin:0 auto;padding:40px 48px 80px}
+  section{margin-bottom:52px}
+  .section-label{font-family:Arial,sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#3a7a50;margin-bottom:6px}
+  h2{font-size:22px;font-weight:normal;color:#1a3a2a;margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid #e0d8cc}
+  h3{font-size:16px;font-weight:normal;color:#1a3a2a;margin:28px 0 10px;font-style:italic}
+  p{margin-bottom:14px;text-align:justify}
+  .quote-block{margin:24px 0;padding:16px 20px 16px 24px;border-left:3px solid #1a3a2a;background:#f4f0e8;border-radius:0 4px 4px 0}
+  .quote-block p{margin:0;font-style:italic;font-size:14px;color:#2a2a2a;line-height:1.75}
+  .quote-ref{font-family:Arial,sans-serif;font-size:11px;color:#888;margin-top:6px;font-style:normal}
+  .concept-box{background:#fff;border:1px solid #ddd7cc;border-radius:6px;padding:16px 20px;margin:20px 0}
+  .concept-box .cb-label{font-family:Arial,sans-serif;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-bottom:8px}
+  .concept-box p{margin:0;font-size:14px}
+  .highlight-box{background:#1a3a2a;color:#fff;border-radius:6px;padding:18px 22px;margin:24px 0}
+  .highlight-box p{color:rgba(255,255,255,0.9);margin:0;font-size:14px;line-height:1.75}
+  .highlight-box strong{color:#fff}
+  .timeline{margin:20px 0}
+  .tl-item{display:flex;gap:16px;margin-bottom:12px;align-items:flex-start}
+  .tl-year{font-family:Arial,sans-serif;font-size:12px;font-weight:bold;color:#fff;background:#1a3a2a;padding:3px 8px;border-radius:3px;min-width:60px;text-align:center;margin-top:2px}
+  .tl-text{font-size:14px;color:#333;flex:1;padding-top:4px}
+  .power-diagram{display:flex;gap:12px;margin:20px 0;align-items:stretch}
+  .power-pillar{flex:1;border:1px solid #ddd7cc;border-radius:6px;overflow:hidden;background:#fff}
+  .power-pillar-header{background:#1a3a2a;color:#fff;padding:10px 12px;text-align:center;font-family:Arial,sans-serif;font-size:12px;letter-spacing:0.5px}
+  .power-pillar-body{padding:12px;font-size:12px;color:#444;line-height:1.6}
+  .power-pillar-body li{list-style:none;padding:3px 0;border-bottom:1px solid #f0ece4}
+  .power-pillar-body li:last-child{border-bottom:none}
+  .power-pillar-body li::before{content:"→ ";color:#3a7a50}
+  .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0}
+  .compare-grid.three{grid-template-columns:1fr 1fr 1fr}
+  .compare-card{border:1px solid #ddd7cc;border-radius:6px;padding:16px 18px;background:#fff}
+  .compare-card .cc-title{font-family:Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#fff;background:#1a3a2a;display:inline-block;padding:3px 10px;border-radius:3px;margin-bottom:10px}
+  .compare-card ul{list-style:none;padding:0}
+  .compare-card ul li{font-size:13px;padding:4px 0;border-bottom:1px solid #f0ece4;color:#333;line-height:1.5}
+  .compare-card ul li:last-child{border-bottom:none}
+  .compare-card ul li::before{content:"▸ ";color:#3a7a50;font-size:11px}
+  .ausencia-grid{display:grid;grid-template-columns:1fr;gap:12px;margin:20px 0}
+  .ausencia-item{border:1px solid #ddd7cc;border-radius:6px;overflow:hidden;background:#fff}
+  .ausencia-header{background:#2a5a3a;color:#fff;padding:8px 16px;font-family:Arial,sans-serif;font-size:12px;letter-spacing:0.5px}
+  .ausencia-body{padding:12px 16px;font-size:13px;color:#444;line-height:1.6}
+  .ref-list{list-style:none;padding:0}
+  .ref-list li{font-size:13px;padding:5px 0;border-bottom:1px dotted #e0d8cc;color:#444}
+  .ref-list li:last-child{border-bottom:none}
+  .section-divider{text-align:center;color:#ccc;letter-spacing:8px;margin:32px 0;font-size:12px}
+  /* RESUMO */
+  .resumo-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0}
+  .resumo-card{background:#fff;border:1px solid #ddd7cc;border-radius:6px;overflow:hidden}
+  .resumo-card-header{background:#1a3a2a;color:#fff;padding:8px 14px;font-family:Arial,sans-serif;font-size:11px;letter-spacing:0.8px}
+  .resumo-card-body{padding:12px 14px}
+  .resumo-card-body ul{list-style:none;padding:0}
+  .resumo-card-body ul li{font-size:13px;padding:4px 0;border-bottom:1px solid #f5f2ec;color:#333;line-height:1.5}
+  .resumo-card-body ul li:last-child{border-bottom:none}
+  .resumo-card-body ul li::before{content:"• ";color:#3a7a50}
+  .conceitos-chave{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0}
+  .ck-item{background:#f4f0e8;border-radius:5px;padding:10px 12px;text-align:center}
+  .ck-term{font-family:Arial,sans-serif;font-size:12px;font-weight:bold;color:#1a3a2a;margin-bottom:4px}
+  .ck-def{font-size:11px;color:#555;line-height:1.45}
+  .mapa-obras{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}
+  .mo-card{border:1px solid #ddd7cc;border-radius:5px;overflow:hidden;background:#fff}
+  .mo-header{background:#2a5a3a;color:#fff;padding:6px 12px;font-family:Arial,sans-serif;font-size:11px}
+  .mo-body{padding:10px 12px;font-size:12px;color:#444}
+  .mo-body li{list-style:none;padding:2px 0}
+  .mo-body li::before{content:"→ ";color:#3a7a50;font-size:11px}
+  /* QUESTÕES */
+  .qa-item{margin-bottom:24px;border:1px solid #ddd7cc;border-radius:6px;overflow:hidden;background:#fff}
+  .qa-pergunta{background:#1a3a2a;color:#fff;padding:12px 18px;font-size:14px;font-family:Georgia,serif;line-height:1.5}
+  .qa-pergunta span{font-family:Arial,sans-serif;font-size:11px;color:rgba(255,255,255,0.5);display:block;margin-bottom:4px;letter-spacing:1px}
+  .qa-resposta{padding:16px 18px}
+  .qa-resposta p{margin-bottom:10px;font-size:14px}
+  .qa-resposta p:last-child{margin-bottom:0}
+  .qa-resposta ul{list-style:none;padding:0;margin:8px 0}
+  .qa-resposta ul li{font-size:13px;padding:4px 0;border-bottom:1px solid #f5f2ec;color:#333}
+  .qa-resposta ul li:last-child{border-bottom:none}
+  .qa-resposta ul li::before{content:"▸ ";color:#3a7a50}
+  .qa-fonte{font-family:Arial,sans-serif;font-size:11px;color:#aaa;margin-top:10px;font-style:normal;display:block}
+  .perguntas-adicionais{background:#edf5f0;border:1px solid #b4d4be;border-radius:6px;padding:20px 24px;margin-top:20px}
+  .perguntas-adicionais h3{font-style:normal;margin:0 0 14px;font-size:14px;font-family:Arial,sans-serif;letter-spacing:0.5px;color:#444}
+  .perguntas-adicionais ol{padding-left:18px}
+  .perguntas-adicionais ol li{font-size:14px;padding:5px 0;color:#333}
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="cover-badge">Sociologia e Antropologia Jurídica · 2º Semestre</div>
+  <h1>Alexis de Tocqueville</h1>
+  <p class="cover-sub">Democracia, Igualdade, Liberdade e a Tirania da Maioria</p>
+  <div class="cover-authors">
+    Baseado em <em>A Democracia na América</em> (1835/1840) · Rojo &amp; Azevedo (Sociologias, 2005) · Magalhães (Tempo Social, 2000) · Cassimiro (RBCS, 2018) · Slides Prof. Bizerril
+  </div>
+</div>
+
+<div class="toc">
+  <h2>Sumário</h2>
+  <ul class="toc-list">
+    <li><span class="toc-num">1.</span><a href="#vida">Vida e obra</a><span class="toc-dots"></span><span class="toc-pg">§1</span></li>
+    <li><span class="toc-num">2.</span><a href="#democracia">Democracia como Estado Social</a><span class="toc-dots"></span><span class="toc-pg">§2</span></li>
+    <li><span class="toc-num">3.</span><a href="#igualdade">Igualdade versus liberdade</a><span class="toc-dots"></span><span class="toc-pg">§3</span></li>
+    <li><span class="toc-num">4.</span><a href="#tirania">Tirania da maioria</a><span class="toc-dots"></span><span class="toc-pg">§4</span></li>
+    <li><span class="toc-num">5.</span><a href="#participacao">Participação cidadã e associações civis</a><span class="toc-dots"></span><span class="toc-pg">§5</span></li>
+    <li><span class="toc-num">6.</span><a href="#direito">Relação com o Direito e a Sociologia Jurídica</a><span class="toc-dots"></span><span class="toc-pg">§6</span></li>
+    <li><span class="toc-num">7.</span><a href="#liberalismo">Tocqueville e o liberalismo francês</a><span class="toc-dots"></span><span class="toc-pg">§7</span></li>
+    <li><span class="toc-num">8.</span><a href="#resumo">Resumo para revisão</a><span class="toc-dots"></span><span class="toc-pg">§8</span></li>
+    <li><span class="toc-num">9.</span><a href="#fixacao">Questões com respostas</a><span class="toc-dots"></span><span class="toc-pg">§9</span></li>
+    <li><span class="toc-num">10.</span><a href="#refs">Referências</a><span class="toc-dots"></span><span class="toc-pg">§10</span></li>
+  </ul>
+</div>
+
+<main>
+
+<!-- 1. VIDA E OBRA -->
+<section id="vida">
+  <div class="section-label">Seção 1</div>
+  <h2>Vida e obra</h2>
+
+  <p>Alexis-Charles-Henri Clérel de Tocqueville (1805–1859) foi jurisconsulto, político e sociólogo francês. Aristocrata normando formado em Direito, exerceu funções na magistratura francesa antes de empreender, em 1830, uma viagem aos Estados Unidos com o pretexto oficial de estudar o sistema penitenciário americano. O objetivo real era, como se sabe, compreender o funcionamento da democracia norte-americana — investigação que resultaria em sua obra maior. Admirador de Montesquieu, Tocqueville desenvolveu uma sociologia política de largo alcance, situando-se na tradição dos precursores da Sociologia Jurídica ao lado de Durkheim e Weber.</p>
+
+  <div class="mapa-obras">
+    <div class="mo-card">
+      <div class="mo-header">A Democracia na América — Vol. I (1835)</div>
+      <ul class="mo-body">
+        <li>Instituições e autogoverno local (self-government)</li>
+        <li>Soberania popular descentralizada — o federalismo</li>
+        <li>Papel dos juristas como freio aristocrático</li>
+        <li>Liberdade de imprensa e de associação</li>
+        <li>A tirania da maioria — primeira formulação</li>
+      </ul>
+    </div>
+    <div class="mo-card">
+      <div class="mo-header">A Democracia na América — Vol. II (1840)</div>
+      <ul class="mo-body">
+        <li>Individualismo como produto da democracia</li>
+        <li>Despotismo democrático — o "poder tutelar"</li>
+        <li>A doutrina do interesse bem entendido</li>
+        <li>Riscos da uniformização dos costumes</li>
+        <li>Corpos intermediários como antídoto</li>
+      </ul>
+    </div>
+    <div class="mo-card">
+      <div class="mo-header">O Antigo Regime e a Revolução (1856)</div>
+      <ul class="mo-body">
+        <li>A centralização administrativa precede 1789</li>
+        <li>Revolução como acelerador de tendências anteriores</li>
+        <li>Destruição dos corpos intermediários aristocráticos</li>
+        <li>Comparação entre modelos inglês e francês</li>
+      </ul>
+    </div>
+    <div class="mo-card">
+      <div class="mo-header">Contexto intelectual</div>
+      <ul class="mo-body">
+        <li>Aluno de Guizot no Collège de France</li>
+        <li>Correspondente de Royer-Collard</li>
+        <li>Debate da Restauração francesa (1814–1848)</li>
+        <li>Inovação: democracia como processo histórico, não forma política</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-year">1805</div><div class="tl-text">Nasce em Verneuil-sur-Seine. Família aristocrática normanda com laços com o Antigo Regime.</div></div>
+    <div class="tl-item"><div class="tl-year">1823</div><div class="tl-text">Estuda Direito. Assiste às aulas de Guizot sobre <em>História da Civilização na Europa</em>.</div></div>
+    <div class="tl-item"><div class="tl-year">1830</div><div class="tl-text">Viagem aos Estados Unidos com Gustave de Beaumont — observação direta das instituições democráticas.</div></div>
+    <div class="tl-item"><div class="tl-year">1835</div><div class="tl-text">Publica o Volume I de <em>A Democracia na América</em>. Sucesso imediato na França e na Europa.</div></div>
+    <div class="tl-item"><div class="tl-year">1840</div><div class="tl-text">Publica o Volume II, aprofundando a análise dos riscos do individualismo democrático.</div></div>
+    <div class="tl-item"><div class="tl-year">1848</div><div class="tl-text">Participa da Assembleia Constituinte francesa. Ministro dos Negócios Estrangeiros por breve período.</div></div>
+    <div class="tl-item"><div class="tl-year">1856</div><div class="tl-text">Publica <em>O Antigo Regime e a Revolução</em>, sua segunda grande obra.</div></div>
+    <div class="tl-item"><div class="tl-year">1859</div><div class="tl-text">Morre em Cannes. Sua obra influenciaria gerações de cientistas políticos, sociólogos e juristas.</div></div>
+  </div>
+
+  <div class="concept-box">
+    <div class="cb-label">Método de Tocqueville</div>
+    <p>Diferentemente dos contratualistas, Tocqueville não parte de um contrato social hipotético. Ele observa empiricamente as instituições americanas e compara diferentes trajetórias históricas (França vs. Inglaterra vs. América). Seu método é contextualista: as leis e instituições só fazem sentido em relação aos costumes, à cultura política e ao Estado social de cada povo.</p>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 2. DEMOCRACIA COMO ESTADO SOCIAL -->
+<section id="democracia">
+  <div class="section-label">Seção 2</div>
+  <h2>Democracia como Estado Social</h2>
+
+  <p>A grande inovação conceitual de Tocqueville foi distinguir dois sentidos fundamentais de "democracia". O primeiro é o sentido corrente entre seus contemporâneos liberais: democracia como forma de governo baseada na soberania do povo. O segundo — e o mais importante — é o que ele denomina <strong>Estado social democrático</strong>: um processo histórico de dissolução das hierarquias aristocráticas e expansão da igualdade de condições, movimento que antecede e ultrapassa qualquer forma de governo específica.</p>
+
+  <div class="quote-block">
+    <p>A democracia constitui o Estado social; o dogma da soberania do povo constitui o direito político. Essas duas coisas não são análogas. A democracia é uma maneira de ser da sociedade. A soberania do povo é uma forma de governo.</p>
+    <div class="quote-ref">Tocqueville (apud Lamberti, 1983, p. 33)</div>
+  </div>
+
+  <p>Para Tocqueville, a igualdade de condições é uma tendência "universal, durável e que escapa cada dia do poder humano; todos os eventos, como todos os homens, servem a seu desenvolvimento." Ela não é o produto da Revolução Francesa — apenas foi acelerada por ela. O crescimento do clero, a superação dos conflitos feudais, o protestantismo, a expansão do comércio — tudo converge para o mesmo processo civilizatório.</p>
+
+  <div class="compare-grid">
+    <div class="compare-card">
+      <span class="cc-title">Democracia como Forma de Governo</span>
+      <ul>
+        <li>Governo do povo; soberania popular</li>
+        <li>Escolha de representantes pelo voto</li>
+        <li>Associada, na França, ao risco jacobino</li>
+        <li>Pode resultar em tirania da maioria</li>
+        <li>Processo que pode ser revertido ou desviado</li>
+      </ul>
+    </div>
+    <div class="compare-card">
+      <span class="cc-title">Democracia como Estado Social</span>
+      <ul>
+        <li>Dissolução das hierarquias aristocráticas</li>
+        <li>Expansão da igualdade de condições</li>
+        <li>Tendência histórica irreversível e providencial</li>
+        <li>Anterior à Revolução Francesa</li>
+        <li>Processo em curso — nunca concluído</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>América como laboratório democrático</h3>
+  <p>A república norte-americana representava para Tocqueville o "estado puro" do desenvolvimento democrático: sem o legado aristocrático europeu, a igualdade de condições floresceu junto com mecanismos de autogoverno local. O federalismo americano garantia que a soberania fosse exercida de forma descentralizada — distribuindo poder em vez de concentrá-lo.</p>
+
+  <div class="highlight-box">
+    <p><strong>Síntese:</strong> A democracia não é apenas um regime político — é uma forma de ser da sociedade. Ela pode resultar em liberdade ou em despotismo, dependendo de como os costumes, as instituições e a participação cidadã a encaminham. É esse caráter aberto e processual que distingue Tocqueville de todos os seus contemporâneos.</p>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 3. IGUALDADE vs LIBERDADE -->
+<section id="igualdade">
+  <div class="section-label">Seção 3</div>
+  <h2>Igualdade versus liberdade</h2>
+
+  <p>Tocqueville identifica uma tensão estrutural no coração da democracia: a mesma força que liberta os homens das hierarquias aristocráticas pode aprisioná-los em um novo conformismo igualitário. As sociedades democráticas buscam igualdade de forma apaixonada — mas o excesso dessa busca pode comprometer a liberdade.</p>
+
+  <h3>O individualismo democrático</h3>
+  <p>O individualismo é, para Tocqueville, um "sentimento novo" produzido pela democracia. Ao dissolverem-se os vínculos hierárquicos da aristocracia, cada pessoa se volta para seus interesses privados, retira-se da vida pública e acaba transferindo ao Estado tutelar a responsabilidade pelo seu bem-estar.</p>
+
+  <div class="quote-block">
+    <p>Acima desses [indivíduos] se ergue um poder imenso e tutelar que se encarrega de assegurar-lhes os prazeres e de velar por sua sorte. Este poder é absoluto, minucioso, regular, previdente e suave.</p>
+    <div class="quote-ref">A Democracia na América, Vol. II</div>
+  </div>
+
+  <p>Esse "despotismo suave" não opera pela violência, mas pela dependência: cidadãos satisfeitos trocam a liberdade política pelo conforto material e pela segurança garantida pelo Estado.</p>
+
+  <h3>A doutrina do interesse bem entendido</h3>
+  <p>A solução que Tocqueville encontrou na América: os cidadãos americanos calculam que participar da vida pública serve ao seu interesse de longo prazo. A prática repetida transforma esse cálculo em hábito e, por fim, em virtude cívica.</p>
+
+  <div class="concept-box">
+    <div class="cb-label">Interesse bem entendido (intérêt bien entendu)</div>
+    <p>A doutrina segundo a qual cada cidadão percebe que seu bem-estar individual está ligado ao bem comum. Não exige altruísmo: o americano sacrifica uma parte de seu tempo à coisa pública porque percebe que isso serve ao seu próprio interesse. "A virtude na América não é grande — mas a tentação é pequena." (Tocqueville)</p>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 4. TIRANIA DA MAIORIA -->
+<section id="tirania">
+  <div class="section-label">Seção 4</div>
+  <h2>Tirania da maioria</h2>
+
+  <p>Um dos conceitos mais influentes de Tocqueville, que antecipou em mais de um século debates contemporâneos sobre democracia, direitos humanos e proteção das minorias. Nas democracias, a vontade majoritária pode tornar-se tão poderosa que passa a oprimir minorias, limitando direitos e liberdades.</p>
+
+  <div class="quote-block">
+    <p>Quando um homem sofre uma injustiça nos Estados Unidos, a quem poderia dirigir-se? À opinião pública? É quem forma a maioria; ao corpo legislativo? Representa a maioria e lhe obedece cegamente; ao poder executivo? É nomeado pela maioria e lhe serve de instrumento passivo. Os próprios juízes, em alguns Estados, são eleitos pela maioria.</p>
+    <div class="quote-ref">A Democracia na América, Vol. I</div>
+  </div>
+
+  <div class="ausencia-grid">
+    <div class="ausencia-item">
+      <div class="ausencia-header">Característica 1 — Predomínio da opinião majoritária</div>
+      <div class="ausencia-body">A maioria passa a determinar o que é considerado correto, legítimo e aceitável. Nenhuma instância escapa à sua influência — legislativo, executivo e judiciário refletem a vontade majoritária. O próprio mecanismo democrático torna-se transmissor da opressão.</div>
+    </div>
+    <div class="ausencia-item">
+      <div class="ausencia-header">Característica 2 — Silenciamento das minorias</div>
+      <div class="ausencia-body">Grupos minoritários têm suas demandas ignoradas ou seus direitos restringidos. A pressão social impede opiniões divergentes: indivíduos deixam de se expressar por medo de rejeição, isolamento ou perseguição — sem que haja qualquer lei que os proíba explicitamente.</div>
+    </div>
+    <div class="ausencia-item">
+      <div class="ausencia-header">Característica 3 — Risco à liberdade de pensamento</div>
+      <div class="ausencia-body">A uniformização democrática pode produzir uma pressão conformista que silencia opiniões divergentes com mais eficácia do que a censura formal. "A maioria traça um círculo formidável em torno do pensamento." Quem o ultrapassa enfrenta a hostilidade de toda a sociedade — não a pena legal.</div>
+    </div>
+    <div class="ausencia-item">
+      <div class="ausencia-header">Resposta do Direito — Instrumentos de proteção</div>
+      <div class="ausencia-body">Garantias constitucionais que a maioria não pode revogar; separação dos poderes com freios recíprocos; controle de constitucionalidade pelo Judiciário independente; proteção dos direitos fundamentais (expressão, associação, religião); dignidade da pessoa humana como núcleo intangível.</div>
+    </div>
+  </div>
+
+  <p>Fernando Magalhães (2000) demonstra que a análise tocquevilliana confirmou-se tragicamente na questão racial americana: a igualdade formal concedida após a abolição foi acompanhada de segregação real — a maioria exerceu seu despotismo sobre uma minoria sem condições de resistência institucional.</p>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 5. PARTICIPAÇÃO -->
+<section id="participacao">
+  <div class="section-label">Seção 5</div>
+  <h2>Participação cidadã e associações civis</h2>
+
+  <p>Para Tocqueville, democracias fortes dependem da participação ativa dos cidadãos. O cidadão não pode ser apenas eleitor — deve participar das decisões públicas de forma contínua, fiscalizando, associando-se e intervindo na vida política.</p>
+
+  <div class="power-diagram">
+    <div class="power-pillar">
+      <div class="power-pillar-header">Associações Civis</div>
+      <ul class="power-pillar-body">
+        <li>Sindicatos e cooperativas</li>
+        <li>ONGs e movimentos sociais</li>
+        <li>Associações comunitárias</li>
+        <li>Defesa de direitos coletivos</li>
+        <li>Controle democrático do poder</li>
+      </ul>
+    </div>
+    <div class="power-pillar">
+      <div class="power-pillar-header">Autogoverno Local</div>
+      <ul class="power-pillar-body">
+        <li>Conselhos municipais</li>
+        <li>Audiências públicas</li>
+        <li>Educa para a cidadania</li>
+        <li>Cria hábito de participação</li>
+        <li>Contrapeso à centralização</li>
+      </ul>
+    </div>
+    <div class="power-pillar">
+      <div class="power-pillar-header">Imprensa e Judiciário</div>
+      <ul class="power-pillar-body">
+        <li>Imprensa livre: fiscaliza o poder</li>
+        <li>Forma a opinião pública</li>
+        <li>Judiciário: espírito legista</li>
+        <li>Freio às paixões da maioria</li>
+        <li>Guardiões das garantias</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="quote-block">
+    <p>Não existe país onde as associações sejam mais necessárias para impedir o despotismo dos partidos ou o arbitrário do príncipe que aqueles onde o estado social é democrático. Nas nações aristocráticas, os corpos secundários formam associações naturais que interrompem o abuso do poder.</p>
+    <div class="quote-ref">A Democracia na América, Vol. I</div>
+  </div>
+
+  <div class="concept-box">
+    <div class="cb-label">Por que as associações são indispensáveis?</div>
+    <p>Nas sociedades aristocráticas, corpos intermediários naturais (nobreza, corporações, Igreja) interrompiam o abuso do poder por sua mera existência estrutural. A democracia dissolve essas hierarquias e deixa o indivíduo atomizado diante do Estado. As associações civis exercem função análoga: mediam entre indivíduo e Estado, cultivam o hábito da cooperação e educam para a cidadania.</p>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 6. DIREITO E SOCIOLOGIA JURÍDICA -->
+<section id="direito">
+  <div class="section-label">Seção 6</div>
+  <h2>Relação com o Direito e a Sociologia Jurídica</h2>
+
+  <p>Tocqueville era jurisconsulto. Seu olhar sobre a democracia americana é também um olhar sobre o papel do Direito nas instituições democráticas. Rojo e Azevedo (2005) o situam entre os precursores da Sociologia Jurídica, ao lado de Montesquieu, Durkheim e Weber, por relacionar o Direito com todos os elementos do contexto político, social, econômico e cultural.</p>
+
+  <div class="compare-grid">
+    <div class="compare-card">
+      <span class="cc-title">Direito e Costumes</span>
+      <ul>
+        <li>Leis eficazes precisam de cultura democrática</li>
+        <li>A liberdade na América sustenta-se nos costumes, não só nas leis</li>
+        <li>Direito reflete valores sociais de cada época</li>
+        <li>Sem costumes adequados, as leis são inoperantes</li>
+      </ul>
+    </div>
+    <div class="compare-card">
+      <span class="cc-title">Direito como Limite ao Poder</span>
+      <ul>
+        <li>Garantias constitucionais irrevogáveis pela maioria</li>
+        <li>Separação de poderes com freios recíprocos</li>
+        <li>Controle de constitucionalidade</li>
+        <li>Judiciário independente como guardião</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <p><strong>Ideia central da Sociologia Jurídica tocquevilliana:</strong> O Direito não pode ser compreendido apenas como um conjunto de normas. Ele está diretamente relacionado à organização da sociedade, aos costumes, à cultura política e às formas de participação dos cidadãos. As leis são mais eficazes quando acompanhadas de uma cultura democrática e de uma cidadania ativa.</p>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 7. LIBERALISMO FRANCÊS -->
+<section id="liberalismo">
+  <div class="section-label">Seção 7</div>
+  <h2>Tocqueville e o liberalismo francês</h2>
+
+  <p>Cassimiro (2018) demonstra como Tocqueville se insere no debate político da Restauração francesa (1814–1848), dialogando e se diferenciando de seus contemporâneos liberais.</p>
+
+  <div class="compare-grid three">
+    <div class="compare-card">
+      <span class="cc-title">Guizot</span>
+      <ul>
+        <li>Democracia = ascensão da burguesia</li>
+        <li>Regime representativo como resultado definitivo</li>
+        <li>Progresso = consolidação das instituições existentes</li>
+        <li>Democracia como processo concluído</li>
+      </ul>
+    </div>
+    <div class="compare-card">
+      <span class="cc-title">Royer-Collard</span>
+      <ul>
+        <li>Democracia = igualdade de direitos</li>
+        <li>Preocupação com a dissolução dos corpos intermediários</li>
+        <li>Democracia realizada pela Carta constitucional</li>
+        <li>Processo encerrado institucionalmente</li>
+      </ul>
+    </div>
+    <div class="compare-card">
+      <span class="cc-title">Tocqueville</span>
+      <ul>
+        <li>Democracia = processo histórico em curso</li>
+        <li>Nunca concluído — risco permanente</li>
+        <li>Liberdade exige esforço contínuo</li>
+        <li>Stagnação e decadência são sempre possíveis</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="concept-box">
+    <div class="cb-label">A inovação conceitual de Tocqueville</div>
+    <p>Enquanto seus contemporâneos associavam "democracia" ao jacobinismo e ao risco de tirania das massas, Tocqueville demonstrou que ela podia ser um processo de expansão civilizatória compatível com a liberdade política — desde que sustentada por costumes democráticos, instituições descentralizadas e participação cidadã ativa. A chave está na distinção entre democracia como <em>forma de governo</em> e democracia como <em>Estado social</em>.</p>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 8. RESUMO PARA REVISÃO -->
+<section id="resumo">
+  <div class="section-label">Seção 8</div>
+  <h2>Resumo para revisão</h2>
+
+  <h3>Conceitos fundamentais</h3>
+  <div class="conceitos-chave">
+    <div class="ck-item"><div class="ck-term">Estado Social Democrático</div><div class="ck-def">Processo histórico de expansão da igualdade de condições. Anterior e mais amplo do que qualquer forma de governo.</div></div>
+    <div class="ck-item"><div class="ck-term">Tirania da Maioria</div><div class="ck-def">Opressão exercida pela vontade majoritária sobre minorias, por meio da opinião pública e das instituições democráticas.</div></div>
+    <div class="ck-item"><div class="ck-term">Individualismo</div><div class="ck-def">Sentimento novo produzido pela democracia. O indivíduo se retira para a esfera privada, enfraquecendo a vida pública.</div></div>
+    <div class="ck-item"><div class="ck-term">Despotismo Democrático</div><div class="ck-def">Poder tutelar imenso que assegura prazeres e bem-estar em troca da passividade política dos cidadãos.</div></div>
+    <div class="ck-item"><div class="ck-term">Interesse Bem Entendido</div><div class="ck-def">Cálculo de que participar da vida pública serve ao interesse individual de longo prazo. Transforma cálculo em virtude.</div></div>
+    <div class="ck-item"><div class="ck-term">Corpos Intermediários</div><div class="ck-def">Associações, sindicatos, ONGs — equivalentes funcionais da aristocracia como freios ao poder central na democracia.</div></div>
+  </div>
+
+  <h3>Argumentos centrais por tema</h3>
+  <div class="resumo-grid">
+    <div class="resumo-card">
+      <div class="resumo-card-header">Democracia como Estado Social</div>
+      <ul class="resumo-card-body">
+        <li>Processo histórico, não apenas forma de governo</li>
+        <li>Dissolução das hierarquias aristocráticas</li>
+        <li>Tendência universal, durável e irresistível</li>
+        <li>Anterior à Revolução Francesa</li>
+        <li>América: modelo do desenvolvimento democrático puro</li>
+      </ul>
+    </div>
+    <div class="resumo-card">
+      <div class="resumo-card-header">Igualdade versus liberdade</div>
+      <ul class="resumo-card-body">
+        <li>Igualdade estimula individualismo e retirada do público</li>
+        <li>Individualismo alimenta despotismo democrático</li>
+        <li>Antídoto: interesse bem entendido + participação ativa</li>
+        <li>Liberdade na América se sustenta nos costumes</li>
+        <li>Sem participação, liberdade degenera em conformismo</li>
+      </ul>
+    </div>
+    <div class="resumo-card">
+      <div class="resumo-card-header">Tirania da maioria</div>
+      <ul class="resumo-card-body">
+        <li>Maioria controla legislativo, executivo e judiciário</li>
+        <li>Silenciamento de minorias — sem violência formal</li>
+        <li>Pressão social inibe opiniões divergentes</li>
+        <li>Direito: garantias constitucionais irrevogáveis</li>
+        <li>Judiciário independente como guardião das minorias</li>
+      </ul>
+    </div>
+    <div class="resumo-card">
+      <div class="resumo-card-header">Participação e associações</div>
+      <ul class="resumo-card-body">
+        <li>Cidadão não pode ser apenas eleitor</li>
+        <li>Associações substituem os corpos intermediários aristocráticos</li>
+        <li>Autogoverno local educa para a democracia</li>
+        <li>Imprensa livre: fiscalização e formação da opinião</li>
+        <li>Sem associações, o povo pode ser oprimido impunemente</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Tocqueville e seus contemporâneos — comparação rápida</h3>
+  <div class="resumo-grid">
+    <div class="resumo-card">
+      <div class="resumo-card-header">Guizot e Royer-Collard</div>
+      <ul class="resumo-card-body">
+        <li>Democracia = processo concluído no regime representativo</li>
+        <li>Democracia como risco à estabilidade institucional</li>
+        <li>Soberania do povo: ameaça ao constitucionalismo liberal</li>
+        <li>Progresso = consolidação das conquistas existentes</li>
+        <li>Resistência à palavra "democracia" como forma de governo</li>
+      </ul>
+    </div>
+    <div class="resumo-card">
+      <div class="resumo-card-header">Tocqueville</div>
+      <ul class="resumo-card-body">
+        <li>Democracia = processo histórico aberto e permanente</li>
+        <li>Pode resultar em liberdade ou em despotismo</li>
+        <li>Soberania popular: instrumento de descentralização (América)</li>
+        <li>Progresso sem garantias — risco de decadência sempre presente</li>
+        <li>Liberdade exige esforço contínuo de cada geração</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Relação com o Direito e a Sociologia Jurídica</h3>
+  <div class="resumo-grid">
+    <div class="resumo-card">
+      <div class="resumo-card-header">Sociologia Jurídica utiliza Tocqueville para</div>
+      <ul class="resumo-card-body">
+        <li>Compreender como instituições jurídicas influenciam a vida social</li>
+        <li>Analisar como cultura democrática fortalece o respeito às leis</li>
+        <li>Entender como participação contribui para a efetividade dos direitos</li>
+        <li>Estudar como o Direito pode limitar abusos de poder</li>
+      </ul>
+    </div>
+    <div class="resumo-card">
+      <div class="resumo-card-header">Tocqueville como precursor da Soc. Jurídica</div>
+      <ul class="resumo-card-body">
+        <li>Relaciona o Direito ao contexto político, social e cultural</li>
+        <li>Investiga o peso do Direito nas instituições democráticas</li>
+        <li>Analisa a função dos juristas como freio aristocrático</li>
+        <li>Mostra que leis eficazes dependem de costumes democráticos</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 9. QUESTÕES COM RESPOSTAS -->
+<section id="fixacao">
+  <div class="section-label">Seção 9</div>
+  <h2>Questões com respostas</h2>
+
+  <div class="qa-item">
+    <div class="qa-pergunta">
+      <span>Questão 1</span>
+      O que é democracia para Tocqueville e por que sua definição inova em relação aos seus contemporâneos?
+    </div>
+    <div class="qa-resposta">
+      <p>Para Tocqueville, a democracia possui dois sentidos que seus contemporâneos frequentemente confundiam. O primeiro é o sentido corrente no debate liberal francês: democracia como forma de governo baseada na soberania do povo — sentido negativo, associado ao jacobinismo e ao risco de despotismo das massas. O segundo — e o mais importante — é o que ele denomina <strong>Estado social democrático</strong>: um processo histórico de dissolução das hierarquias aristocráticas e expansão da igualdade de condições.</p>
+      <p>A inovação de Tocqueville está em mostrar que esse processo histórico é anterior à Revolução Francesa, é universal, durável e "escapa cada dia do poder humano". Ele não é nem o resultado de uma forma política específica nem algo que possa ser detido. A Revolução Francesa não o causou — apenas o acelerou, adaptando o Estado político ao Estado social que já existia.</p>
+      <p>Ao contrário de Guizot — que via a democracia como um processo concluído no regime representativo — Tocqueville a descreve como um processo em curso, permanentemente arriscado: pode florescer em liberdade (como na América) ou degenerar em despotismo democrático (como ameaçava fazer na Europa), dependendo dos costumes e das instituições de cada povo.</p>
+      <span class="qa-fonte">Referência: Cassimiro, RBCS 2018 · Lamberti, 1983 · A Democracia na América, Introdução</span>
+    </div>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-pergunta">
+      <span>Questão 2</span>
+      O que é a "tirania da maioria" e como o Direito pode proteger as minorias desse risco?
+    </div>
+    <div class="qa-resposta">
+      <p>A tirania da maioria é o processo pelo qual a vontade majoritária, nas democracias, passa a determinar o que é correto, legítimo e aceitável, silenciando minorias, limitando direitos divergentes e exercendo pressão social que inibe a liberdade de expressão e participação. Tocqueville mostrou que essa opressão é especialmente perigosa porque opera não pela força, mas pelo consenso: todos os poderes (legislativo, executivo, judiciário) refletem a vontade majoritária, deixando minorias sem proteção institucional.</p>
+      <p>As principais características são: predomínio da opinião majoritária como medida do legítimo; silenciamento das minorias por pressão social (não por lei); e risco à liberdade de pensamento, pois "a maioria traça um círculo formidável em torno do pensamento".</p>
+      <p>O Direito responde com instrumentos estruturais de proteção:
+      <ul>
+        <li>Garantias constitucionais irrevogáveis pela maioria</li>
+        <li>Separação e equilíbrio dos poderes com freios recíprocos</li>
+        <li>Controle de constitucionalidade pelo Judiciário independente</li>
+        <li>Proteção dos direitos fundamentais (expressão, associação, religião)</li>
+        <li>Dignidade da pessoa humana como núcleo intangível</li>
+      </ul>
+      </p>
+      <span class="qa-fonte">Referência: Magalhães, Tempo Social 2000 · A Democracia na América, Vol. I · Slides Prof. Bizerril</span>
+    </div>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-pergunta">
+      <span>Questão 3</span>
+      Como Tocqueville relaciona igualdade, individualismo e liberdade? Qual é o antídoto que ele propõe?
+    </div>
+    <div class="qa-resposta">
+      <p>Tocqueville identifica uma tensão estrutural na democracia: a expansão da igualdade de condições, ao dissolver os vínculos hierárquicos aristocráticos, estimula o individualismo. Cada pessoa se volta para seus interesses privados, retira-se da vida pública e acaba transferindo ao Estado tutelar a responsabilidade pelo seu bem-estar.</p>
+      <p>Esse "despotismo suave" não opera pela violência, mas pela dependência: cidadãos satisfeitos que trocam a liberdade política pelo conforto material e pela segurança garantida pelo Estado. É um poder "absoluto, minucioso, regular, previdente e suave" — invisível justamente porque é aceito de bom grado.</p>
+      <p>O antídoto que Tocqueville encontrou na América é duplo. Primeiro, a doutrina do <strong>interesse bem entendido</strong>: os americanos calculam que participar da vida pública serve ao seu interesse de longo prazo, e a prática repetida transforma esse cálculo em hábito cívico. Segundo, as <strong>associações civis e o autogoverno local</strong>: a participação ativa nos negócios públicos — por meio de sindicatos, associações, conselhos, audiências — educa para a democracia e cria o contrapeso institucional necessário à liberdade.</p>
+      <span class="qa-fonte">Referência: A Democracia na América, Vol. II · Magalhães, 2000 · Slides Prof. Bizerril</span>
+    </div>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-pergunta">
+      <span>Questão 4</span>
+      Como a leitura de Tocqueville contribui para a Sociologia Jurídica?
+    </div>
+    <div class="qa-resposta">
+      <p>Rojo e Azevedo (2005) situam Tocqueville — ao lado de Montesquieu, Marx, Durkheim e Weber — entre os precursores da Sociologia Jurídica. Como jurisconsulto que observou as instituições democráticas americanas, um dos fins explícitos de sua investigação era descobrir o peso relativo do Direito nessas instituições.</p>
+      <p>A contribuição de Tocqueville para a Sociologia Jurídica se desdobra em quatro eixos principais:</p>
+      <ul>
+        <li><strong>Direito e costumes:</strong> as leis são mais eficazes quando acompanhadas de uma cultura democrática. A liberdade americana sustenta-se mais nos costumes do que nas normas formais.</li>
+        <li><strong>Direito como limite ao poder:</strong> garantias constitucionais, separação de poderes e controle de constitucionalidade como instrumentos contra o abuso da maioria.</li>
+        <li><strong>Participação e efetividade dos direitos:</strong> cidadania ativa contribui para que os direitos sejam exercidos, não apenas declarados.</li>
+        <li><strong>Função dos juristas:</strong> o "espírito legista" — os homens de lei — funciona como freio aristocrático às paixões democráticas, contrapeso institucional à tirania da maioria.</li>
+      </ul>
+      <span class="qa-fonte">Referência: Rojo &amp; Azevedo, Sociologias 2005 · Slides Prof. Bizerril</span>
+    </div>
+  </div>
+
+  <div class="perguntas-adicionais">
+    <h3>Questões adicionais para aprofundamento</h3>
+    <ol>
+      <li>Como o conceito de "Estado social democrático" de Tocqueville dialoga com a ideia de constitucionalismo social presente na Constituição Brasileira de 1988?</li>
+      <li>A criação de cotas raciais no Brasil pode ser interpretada como resposta à "tirania da maioria" tocquevilliana? Argumente com base no texto.</li>
+      <li>De que maneira as redes sociais e o ambiente digital transformaram as dinâmicas de "opinião pública" que Tocqueville identificou como centrais para a democracia?</li>
+      <li>Tocqueville via os juristas como freio aristocrático às paixões democráticas. Essa função ainda é legítima? Como ela se manifesta no papel do STF no Brasil contemporâneo?</li>
+    </ol>
+  </div>
+</section>
+
+<div class="section-divider">· · ·</div>
+
+<!-- 10. REFERÊNCIAS -->
+<section id="refs">
+  <div class="section-label">Seção 10</div>
+  <h2>Referências</h2>
+  <ul class="ref-list">
+    <li>CASSIMIRO, Paulo H. P. Alexis de Tocqueville e o Liberalismo Francês: Continuidades e Rupturas sobre o Conceito de Democracia. <em>RBCS</em>, Vol. 33, nº 96, 2018.</li>
+    <li>MAGALHÃES, Fernando. O passado ameaça o futuro — Tocqueville e a perspectiva da democracia individualista. <em>Tempo Social</em>, Rev. Sociol. USP, 12(1): 141–164, 2000.</li>
+    <li>ROJO, Raúl E.; AZEVEDO, Rodrigo G. de. Sociedade, Direito, Justiça. Relações conflituosas, relações harmoniosas? <em>Sociologias</em>, Porto Alegre, ano 7, nº 13, jan/jun 2005, p. 16–34.</li>
+    <li>TOCQUEVILLE, Alexis de. <em>De la démocratie en Amérique</em>, Vol. I e II. Paris: Gallimard, 1986.</li>
+    <li>TOCQUEVILLE, Alexis de. <em>Igualdade social e liberdade política.</em> São Paulo: Nerman, 1988.</li>
+    <li>LAMBERTI, Jean-Claude. <em>Tocqueville et les deux démocraties.</em> Paris: PUF, 1983.</li>
+    <li>GALBRAITH, John K. <em>A cultura do contentamento.</em> São Paulo: Pioneira, 1992.</li>
+    <li>SLIDES — Prof. Bizerril. Sociologia e Antropologia Jurídica, 2º Semestre, Faculdade Farias Brito.</li>
+  </ul>
+</section>
+
+</main>
+</body>
+</html>
